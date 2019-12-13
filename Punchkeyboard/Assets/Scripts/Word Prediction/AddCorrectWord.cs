@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AddCorrectWord : MonoBehaviour
 {
 	private AutocompleteWordPicker wordPicker;
+    bool enter = false;
 
 	void Start()
 	{
@@ -16,4 +17,18 @@ public class AddCorrectWord : MonoBehaviour
 	{
 		wordPicker.ReplaceWord(gameObject.GetComponentInChildren<Text>().text);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!enter)
+        {
+
+        WordChosen();
+            enter = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        enter = false;
+    }
 }

@@ -17,6 +17,7 @@ public class TextFieldBehaviour : MonoBehaviour, ISelectHandler
 	void Start()
 	{
 		inputField = gameObject.GetComponent<InputField>();
+        
 	}
 
 	public void OnSelect(BaseEventData eventData)
@@ -50,8 +51,9 @@ public class TextFieldBehaviour : MonoBehaviour, ISelectHandler
 
 	void Update()
 	{
-		//if(Input.GetKeyUp(KeyCode.Space) || Space.ButtonUp && inputField.isFocused)
-		if(Input.GetKeyUp(KeyCode.Space))
+        inputField.Select();
+        //if(Input.GetKeyUp(KeyCode.Space) || Space.ButtonUp && inputField.isFocused)
+        if (Input.GetKeyUp(KeyCode.Space))
 		{
 			string inputText = inputField.text.TrimEnd();
 			string lastWord = inputText.Split(' ').Last ();
