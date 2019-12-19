@@ -4,5 +4,5 @@ Punchkeyboard is an open-source keyboard for virtual reality, enhanced with auto
 
 You can read more about the project here: http://bit.ly/Punchkeyboard
 
-![](Demo/Punchkeyboard_Prediction.gif?raw=true)
-![](Demo/Punchkeyboard.gif?raw=true)
+![](./Demo/Punchkeyboard_Prediction.gif?raw=true)
+![](./Demo/Punchkeyboard.gif?raw=true)
