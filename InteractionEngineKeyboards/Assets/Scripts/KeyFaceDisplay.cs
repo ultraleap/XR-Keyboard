@@ -7,7 +7,9 @@ public class KeyFaceDisplay : MonoBehaviour
 {
     public void Update()
     {
-        transform.Find("Label").GetComponent<TextMeshPro>().text = gameObject.name[0] + "";
+        if (Application.isPlaying) return;
+
+        GetComponentInChildren<TextMeshPro>().text = gameObject.name[0] + "";
     }
 }
 #endif

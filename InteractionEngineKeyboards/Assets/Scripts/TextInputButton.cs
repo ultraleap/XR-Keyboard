@@ -3,44 +3,74 @@ using UnityEngine;
 
 public class TextInputButton : MonoBehaviour
 {
-    [SerializeField]
-    KeyCode keyCode;
     TextInputReceiver textInputReceiver;
     InteractionButton interactionButton;
-    Color pressedColour;
-    Color unpressedColour;
     Material m;
-    Renderer renderer;
+    Renderer _renderer;
+
+    [SerializeField] bool _colourModification = false;
+    [SerializeField] Color pressedColour = new Color(0.258823529f, 0.647058824f, 0.960784314f, 1);
+    Color unpressedColour;
+
+    [SerializeField] bool _scaleModification = false;
+    Vector3 _origScale;
+    [SerializeField] Vector3 _scaleModifier = Vector3.one;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        textInputReceiver = GameObject.Find("TextField").GetComponent<TextInputReceiver>();
-        interactionButton = gameObject.GetComponent<InteractionButton>();
-        renderer = GetComponent<Renderer>();
+        textInputReceiver = FindObjectOfType<TextInputReceiver>();
+        interactionButton = GetComponent<InteractionButton>();
+        _renderer = GetComponentInChildren<Renderer>();
 
-        m = new Material(renderer.sharedMaterial);
-        pressedColour = new Color(66f / 255f, 165f / 255f, 245f / 255f);
-        unpressedColour = Color.white;
+        _origScale = _renderer.transform.localScale;
 
-        interactionButton.OnPress += Pressed;
-        interactionButton.OnUnpress += Unpressed;
+        m = new Material(_renderer.sharedMaterial);
+        unpressedColour = m.color;
     }
 
-    private void Pressed()
+    private void OnEnable()
     {
-        m.SetColor("_Color", pressedColour);
-        renderer.sharedMaterial = m;
+        interactionButton.OnPress += TextPress;
+        interactionButton.OnPress += VisualPress;
+        interactionButton.OnUnpress += VisualUnpress;
+    }
+
+    private void OnDisable()
+    {
+        interactionButton.OnPress -= TextPress;
+        interactionButton.OnPress -= VisualPress;
+        interactionButton.OnUnpress -= VisualUnpress;
+    }
+
+    private void VisualPress()
+    {
+        if (_colourModification)
+        {
+            m.color = pressedColour;
+            _renderer.sharedMaterial = m;
+        }
+        if(_scaleModification)
+        {
+            _renderer.transform.localScale = Vector3.Scale(_origScale, _scaleModifier);
+        }
     }    
     
-    private void Unpressed()
+    private void VisualUnpress()
     {
-        m.SetColor("_Color", unpressedColour);
-        renderer.sharedMaterial = m;
+        if (_colourModification)
+        {
+            m.color = unpressedColour;
+            _renderer.sharedMaterial = m;
+        }
+        if (_scaleModification)
+        {
+            _renderer.transform.localScale = _origScale;
+        }
     }
 
-    public void KeyPress()
+    public void TextPress()
     {
         if (gameObject.name == "Space")
         {
