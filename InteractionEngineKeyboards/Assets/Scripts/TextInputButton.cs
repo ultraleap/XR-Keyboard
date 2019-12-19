@@ -4,7 +4,7 @@ using UnityEngine;
 public class TextInputButton : MonoBehaviour
 {
     TextInputReceiver textInputReceiver;
-    InteractionButton interactionButton;
+    protected InteractionButton interactionButton;
     Material m;
     Renderer _renderer;
 
@@ -30,21 +30,7 @@ public class TextInputButton : MonoBehaviour
         unpressedColour = m.color;
     }
 
-    private void OnEnable()
-    {
-        interactionButton.OnPress += TextPress;
-        interactionButton.OnPress += VisualPress;
-        interactionButton.OnUnpress += VisualUnpress;
-    }
-
-    private void OnDisable()
-    {
-        interactionButton.OnPress -= TextPress;
-        interactionButton.OnPress -= VisualPress;
-        interactionButton.OnUnpress -= VisualUnpress;
-    }
-
-    private void VisualPress()
+    protected void VisualPress()
     {
         if (_colourModification)
         {
@@ -57,7 +43,7 @@ public class TextInputButton : MonoBehaviour
         }
     }    
     
-    private void VisualUnpress()
+    protected void VisualUnpress()
     {
         if (_colourModification)
         {
@@ -70,7 +56,7 @@ public class TextInputButton : MonoBehaviour
         }
     }
 
-    public void TextPress()
+    protected void TextPress()
     {
         if (gameObject.name == "Space")
         {
