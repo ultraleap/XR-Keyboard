@@ -6,7 +6,8 @@ public class Timer : MonoBehaviour
 {
 
     [SerializeField]
-    TMPro.TextMeshPro _textMeshOutput, _textInputField;
+    TMPro.TextMeshPro _textMeshOutput;
+    TextInputReceiver _inputReceiver;
     [SerializeField]
     string targetString;
     [SerializeField]
@@ -20,17 +21,18 @@ public class Timer : MonoBehaviour
         stopwatch = new Stopwatch();
         targetString = targetString.ToLower();
         _resetButton.OnPress += ResetTimer;
+        _inputReceiver = FindObjectOfType<TextInputReceiver>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (stopwatch.IsRunning == false && _textInputField.text.Length == 1)
+        if (stopwatch.IsRunning == false && _inputReceiver.text.Length == 1)
         {
             stopwatch.Start();
         }
 
-        if(_textInputField.text.ToLower() == targetString)
+        if(_inputReceiver.text.ToLower() == targetString)
         {
             stopwatch.Stop();
         }
@@ -40,6 +42,6 @@ public class Timer : MonoBehaviour
     public void ResetTimer()
     {
         stopwatch.Reset();
-        _textInputField.text = string.Empty;
+        _inputReceiver.text = string.Empty;
     }
 }
