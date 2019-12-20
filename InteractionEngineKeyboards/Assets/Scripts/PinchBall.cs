@@ -13,6 +13,8 @@ public class PinchBall : MonoBehaviour
 
     LeapProvider _leapProvider;
 
+    [SerializeField] Bone.BoneType _midPointBones = Bone.BoneType.TYPE_INVALID;
+
     [SerializeField] [Range(0.01f, 0.1f)] float _distanceThreshold = 0.01f;
     float _currentDistance = -1f;
     bool _oldPress = false, _currentPress = false;
@@ -45,6 +47,14 @@ public class PinchBall : MonoBehaviour
         if(other.gameObject.GetComponent<PinchInputButton>() != null)
         {
             // i know this isn't exactly great
+            _currentButton = other.gameObject.GetComponent<PinchInputButton>();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(_currentButton == null && other.gameObject.GetComponent<PinchInputButton>() != null)
+        {
             _currentButton = other.gameObject.GetComponent<PinchInputButton>();
         }
     }
@@ -87,15 +97,18 @@ public class PinchBall : MonoBehaviour
         }
         Hand currentHand = obj.Hands[handIndex];
 
-        Vector3 thumbPos = currentHand.Fingers[0].Bone(Bone.BoneType.TYPE_DISTAL).Center.ToVector3();
-        Vector3 indexPos = currentHand.Fingers[1].Bone(Bone.BoneType.TYPE_DISTAL).Center.ToVector3();
+        Vector3 thumbPos = currentHand.Fingers[0].Bone(_midPointBones).Center.ToVector3();
+        Vector3 indexPos = currentHand.Fingers[1].Bone(_midPointBones).Center.ToVector3();
+        Vector3 thumbTipPos = currentHand.Fingers[0].Bone(Bone.BoneType.TYPE_DISTAL).Center.ToVector3();
+        Vector3 indexTipPos = currentHand.Fingers[1].Bone(Bone.BoneType.TYPE_DISTAL).Center.ToVector3();
 
+        transform.LookAt(Vector3.Lerp(thumbTipPos, indexTipPos, 0.5f));
         transform.position = Vector3.Lerp(thumbPos, indexPos, 0.5f);
-        
+        _currentDistance = Vector3.Distance(thumbTipPos, indexTipPos);
 
-        if(Vector3.Distance(thumbPos,indexPos) <= _distanceThreshold)
+        if (_currentDistance <= _distanceThreshold)
         {
-            Debug.Log("in threshold!");
+            //Debug.Log("in threshold!");
             _currentPress = true;
         }
         else

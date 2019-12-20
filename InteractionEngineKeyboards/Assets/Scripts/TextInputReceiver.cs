@@ -7,16 +7,27 @@ public class TextInputReceiver : MonoBehaviour
     [SerializeField]
     TMPro.TextMeshPro _textMesh;
 
+    private string actualText = "";
+    public string text {
+        get { return actualText; } 
+        set { actualText = value; UpdateTM(); } 
+    }
+
     public void Append(char input)
     {
-        _textMesh.text += input;
+        text += input;
     }
 
     public void Backspace()
     {
-        if (_textMesh.text.Length > 0)
+        if (text.Length > 0)
         {
-            _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
+            text = text.Substring(0, text.Length - 1);
         }
+    }
+
+    void UpdateTM()
+    {
+        _textMesh.text = text + "|";
     }
 }
