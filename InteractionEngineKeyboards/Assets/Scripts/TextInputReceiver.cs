@@ -14,6 +14,9 @@ public class TextInputReceiver : MonoBehaviour
 
     public void Backspace()
     {
-        _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
+        if (_textMesh.text.Length > 0)
+        {
+            _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
+        }
     }
 }
