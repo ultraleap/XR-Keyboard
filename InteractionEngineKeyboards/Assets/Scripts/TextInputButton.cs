@@ -12,9 +12,9 @@ public class TextInputButton : MonoBehaviour
     [SerializeField] Color pressedColour = new Color(0.258823529f, 0.647058824f, 0.960784314f, 1);
     Color unpressedColour;
 
-    [SerializeField] bool _scaleModification = false;
+    [SerializeField] public bool ScaleModification = false;
     Vector3 _origScale;
-    [SerializeField] Vector3 _scaleModifier = Vector3.one;
+    [SerializeField] public Vector3 ScaleModifier = Vector3.one;
 
 
     // Start is called before the first frame update
@@ -37,9 +37,9 @@ public class TextInputButton : MonoBehaviour
             m.color = pressedColour;
             _renderer.sharedMaterial = m;
         }
-        if(_scaleModification)
+        if(ScaleModification)
         {
-            _renderer.transform.localScale = Vector3.Scale(_origScale, _scaleModifier);
+            _renderer.transform.localScale = Vector3.Scale(_origScale, ScaleModifier);
         }
     }    
     
@@ -50,7 +50,7 @@ public class TextInputButton : MonoBehaviour
             m.color = unpressedColour;
             _renderer.sharedMaterial = m;
         }
-        if (_scaleModification)
+        if (ScaleModification)
         {
             _renderer.transform.localScale = _origScale;
         }

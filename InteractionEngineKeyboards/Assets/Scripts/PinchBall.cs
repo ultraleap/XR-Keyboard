@@ -66,7 +66,7 @@ public class PinchBall : MonoBehaviour
             _currentButton = null;
             if(_pressedButton != null)
             {
-                _pressedButton.Unpressed();
+                _pressedButton.Unpinched();
                 _pressedButton = null;
             }
         }
@@ -128,14 +128,14 @@ public class PinchBall : MonoBehaviour
                 if(_currentButton != null)
                 {
                     _pressedButton = _currentButton;
-                    _pressedButton.Pressed();
+                    _pressedButton.Pinched();
                 }
             }
             else
             {
                 if (_pressedButton != null)
                 {
-                    _pressedButton.Unpressed();
+                    _pressedButton.Unpinched();
                     _pressedButton = null;
                 }
             }

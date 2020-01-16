@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PinchInputButton : TextInputButton
 {
-    public void Pressed()
+    public void Pinched()
     {
         TextPress();
         VisualPress();
     }
 
-    public void Unpressed()
+    public void Unpinched()
     {
         VisualUnpress();
     }
