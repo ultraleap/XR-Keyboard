@@ -14,8 +14,6 @@ public class KeyboardButtonManager : MonoBehaviour
     [SerializeProperty("KeyType")] // pass the name of the property as a parameter
     public KeyboardType keyType;
 
-    public InteractionManager interactionManager;
-
     public KeyboardType KeyType
     {
         get
@@ -61,10 +59,6 @@ public class KeyboardButtonManager : MonoBehaviour
                 interactionButton.minMaxHeight = Vector2.zero;
                 interactionButton.restingHeight = 0;
                 interactionButton.springForce = 0;
-                if(interactionButton.manager == null)
-                {
-                    interactionButton.manager = interactionManager;
-                }
             }
             foreach (GameObject pb in pinchBalls)
             {
@@ -92,10 +86,6 @@ public class KeyboardButtonManager : MonoBehaviour
                 interactionButton.minMaxHeight = new Vector2(0, 0.03f);
                 interactionButton.restingHeight = 0.5f;
                 interactionButton.springForce = 0.1f;
-                if (interactionButton.manager == null)
-                {
-                    interactionButton.manager = interactionManager;
-                }
             }
         }
     }
