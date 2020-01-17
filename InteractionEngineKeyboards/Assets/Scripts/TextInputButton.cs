@@ -3,44 +3,60 @@ using UnityEngine;
 
 public class TextInputButton : MonoBehaviour
 {
-    [SerializeField]
-    KeyCode keyCode;
     TextInputReceiver textInputReceiver;
-    InteractionButton interactionButton;
-    Color pressedColour;
-    Color unpressedColour;
+    protected InteractionButton interactionButton;
     Material m;
-    Renderer renderer;
+    Renderer _renderer;
+
+    [SerializeField] bool _colourModification = true;
+    [SerializeField] Color pressedColour = new Color(0.258823529f, 0.647058824f, 0.960784314f, 1);
+    Color unpressedColour;
+
+    [SerializeField] public bool ScaleModification = false;
+    Vector3 _origScale;
+    [SerializeField] public Vector3 ScaleModifier = Vector3.one;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        textInputReceiver = GameObject.Find("TextField").GetComponent<TextInputReceiver>();
-        interactionButton = gameObject.GetComponent<InteractionButton>();
-        renderer = GetComponent<Renderer>();
+        textInputReceiver = FindObjectOfType<TextInputReceiver>();
+        interactionButton = GetComponent<InteractionButton>();
+        _renderer = GetComponentInChildren<Renderer>();
 
-        m = new Material(renderer.sharedMaterial);
-        pressedColour = new Color(66f / 255f, 165f / 255f, 245f / 255f);
-        unpressedColour = Color.white;
+        _origScale = _renderer.transform.localScale;
 
-        interactionButton.OnPress += Pressed;
-        interactionButton.OnUnpress += Unpressed;
+        m = new Material(_renderer.sharedMaterial);
+        unpressedColour = m.color;
     }
 
-    private void Pressed()
+    protected void VisualPress()
     {
-        m.SetColor("_Color", pressedColour);
-        renderer.sharedMaterial = m;
+        if (_colourModification)
+        {
+            m.color = pressedColour;
+            _renderer.sharedMaterial = m;
+        }
+        if(ScaleModification)
+        {
+            _renderer.transform.localScale = Vector3.Scale(_origScale, ScaleModifier);
+        }
     }    
     
-    private void Unpressed()
+    protected void VisualUnpress()
     {
-        m.SetColor("_Color", unpressedColour);
-        renderer.sharedMaterial = m;
+        if (_colourModification)
+        {
+            m.color = unpressedColour;
+            _renderer.sharedMaterial = m;
+        }
+        if (ScaleModification)
+        {
+            _renderer.transform.localScale = _origScale;
+        }
     }
 
-    public void KeyPress()
+    protected void TextPress()
     {
         if (gameObject.name == "Space")
         {
@@ -49,6 +65,11 @@ public class TextInputButton : MonoBehaviour
         else if (gameObject.name == "Backspace")
         {
             textInputReceiver.Backspace();
+        } 
+        else if (gameObject.name == "SwitchType")
+        {
+            KeyboardButtonManager kbm = gameObject.transform.parent.parent.GetComponent<KeyboardButtonManager>();
+            kbm.KeyType = kbm.KeyType == KeyboardType.PINCH ? KeyboardType.PUSH : KeyboardType.PINCH;
         }
         else
         {
