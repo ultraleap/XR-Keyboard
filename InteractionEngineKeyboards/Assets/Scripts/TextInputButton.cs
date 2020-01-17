@@ -8,7 +8,7 @@ public class TextInputButton : MonoBehaviour
     Material m;
     Renderer _renderer;
 
-    [SerializeField] bool _colourModification = false;
+    [SerializeField] bool _colourModification = true;
     [SerializeField] Color pressedColour = new Color(0.258823529f, 0.647058824f, 0.960784314f, 1);
     Color unpressedColour;
 
@@ -65,6 +65,11 @@ public class TextInputButton : MonoBehaviour
         else if (gameObject.name == "Backspace")
         {
             textInputReceiver.Backspace();
+        } 
+        else if (gameObject.name == "SwitchType")
+        {
+            KeyboardButtonManager kbm = gameObject.transform.parent.parent.GetComponent<KeyboardButtonManager>();
+            kbm.KeyType = kbm.KeyType == KeyboardType.PINCH ? KeyboardType.PUSH : KeyboardType.PINCH;
         }
         else
         {
