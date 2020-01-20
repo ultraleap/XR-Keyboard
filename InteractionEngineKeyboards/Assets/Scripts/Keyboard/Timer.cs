@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stopwatch.IsRunning == false && _inputReceiver.text.Length == 1)
+        if (stopwatch.IsRunning == false && _inputReceiver.text.Length > 0)
         {
             stopwatch.Start();
         }
