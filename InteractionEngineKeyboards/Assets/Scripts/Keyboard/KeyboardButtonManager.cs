@@ -31,8 +31,6 @@ public class KeyboardButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject[] pinchBalls;
 
-
-
     void UpdateButtonType()
     {
         List<GameObject> keys = new List<GameObject>();

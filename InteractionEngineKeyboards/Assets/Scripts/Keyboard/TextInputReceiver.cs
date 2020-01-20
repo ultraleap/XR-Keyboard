@@ -22,7 +22,7 @@ public class TextInputReceiver : MonoBehaviour
         {
             actualText = value;
             UpdateTM();
-            _levenshtein.RunAutoComplete(actualText);
+            StartCoroutine(_levenshtein.RunAutoComplete(actualText));
         }
     }
 

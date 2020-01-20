@@ -69,7 +69,7 @@ public class Levenshtein : MonoBehaviour
 		}
 	}
 
-	public void RunAutoComplete(string input)
+	public IEnumerator RunAutoComplete(string input)
 	{
 		if(input.Length > 0)
 		{
@@ -138,5 +138,6 @@ public class Levenshtein : MonoBehaviour
 				}
 			}
 		}
-	}
+        yield return null;
+    }
 }
