@@ -12,7 +12,9 @@ public class PinchToMove : MonoBehaviour
     [SerializeField]
     private ToggleSwitchButton toggleSwitchButton;
 
-    bool isPinching;
+    bool isRightPinching = false;
+    bool bothHandsPinching = false;
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -21,16 +23,36 @@ public class PinchToMove : MonoBehaviour
         {
             if (Hands.Right == null)
             {
+                isRightPinching = false;
                 return;
             }
-            isPinching = Hands.Right.IsPinching();
+            else
+            {
+                isRightPinching = Hands.Right.IsPinching();
+            }
 
+            if (Hands.Left == null)
+            {
+                bothHandsPinching = false;
+            }
+            else
+            {
+                bothHandsPinching = Hands.Right.IsPinching() && Hands.Left.IsPinching();
+            }
 
-            if (isPinching && transform.parent == null)
+            if (bothHandsPinching && transform.parent == null)
+            {
+                return;
+            }
+            else if (bothHandsPinching && transform.parent != null)
+            {
+                transform.SetParent(null);
+            }
+            else if (isRightPinching && !bothHandsPinching && transform.parent == null)
             {
                 transform.SetParent(rightHandModel.transform);
             }
-            else if (!isPinching && transform.parent != null)
+            else if (!isRightPinching && transform.parent != null)
             {
                 transform.SetParent(null);
             }
