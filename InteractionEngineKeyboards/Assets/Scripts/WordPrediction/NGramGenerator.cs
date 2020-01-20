@@ -127,7 +127,7 @@ public class NGramGenerator : MonoBehaviour
 //		#endif
 	}
 
-	public void PredictNextWords(string input)
+	public IEnumerator PredictNextWords(string input)
 	{
 		foreach(KeyValuePair<string, int> kvp in biGramDict)
 		{
@@ -157,11 +157,12 @@ public class NGramGenerator : MonoBehaviour
 			}
 		}
 		biGramPredictionCorpus.Clear();
+        yield return null;
 
-	}
+    }
 
-	// N-gram creator by Jake Drew bit.ly/N-grams
-	public IEnumerable<string> MakeNgrams(string text, byte nGramSize)
+    // N-gram creator by Jake Drew bit.ly/N-grams
+    public IEnumerable<string> MakeNgrams(string text, byte nGramSize)
 	{
 		StringBuilder nGram = new StringBuilder();
 		Queue<int> wordLengths = new Queue<int>();

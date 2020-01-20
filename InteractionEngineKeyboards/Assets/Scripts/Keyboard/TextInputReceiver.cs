@@ -22,13 +22,13 @@ public class TextInputReceiver : MonoBehaviour
         {
             actualText = value;
             UpdateTM();
-            StartCoroutine(_levenshtein.RunAutoComplete(actualText));
         }
     }
 
     public void Append(char input)
     {
         text += input;
+       StartCoroutine(_levenshtein.RunAutoComplete(text));
     }
 
     public void Backspace()
@@ -36,6 +36,7 @@ public class TextInputReceiver : MonoBehaviour
         if (text.Length > 0)
         {
             text = text.Substring(0, text.Length - 1);
+         StartCoroutine(_levenshtein.RunAutoComplete(text));
         }
     }
 
@@ -59,7 +60,7 @@ public class TextInputReceiver : MonoBehaviour
             builder.Append(w).Append(" ");
         }
         text = builder.ToString();
-        _wordPredictor.PredictNextWords(correctWord);
+        //StartCoroutine(_wordPredictor.PredictNextWords(correctWord));
     }
 
     void UpdateTM()
