@@ -69,7 +69,7 @@ public class TextInputButton : MonoBehaviour
         } 
         else if (gameObject.name == "SwitchType")
         {
-            KeyboardButtonManager kbm = gameObject.transform.parent.parent.GetComponent<KeyboardButtonManager>();
+            KeyboardButtonManager kbm =  gameObject.GetComponentInParent<KeyboardButtonManager>();
             kbm.KeyType = kbm.KeyType == KeyboardType.PINCH ? KeyboardType.PUSH : KeyboardType.PINCH;
         } else if (gameObject.name.Contains("Suggestion"))
         {

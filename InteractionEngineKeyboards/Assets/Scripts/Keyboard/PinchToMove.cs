@@ -7,7 +7,7 @@ using Leap.Unity;
 public class PinchToMove : MonoBehaviour
 {
     [SerializeField]
-    private GameObject rightHandModel, leftHandModel;
+    private GameObject rightHandModel, leftHandModel, target;
 
     private GameObject pinchingHand;
 
@@ -23,8 +23,8 @@ public class PinchToMove : MonoBehaviour
     private void Start()
     {
         emptyChild = new GameObject("EmptyChild");
-        emptyChild.transform.position = transform.position;
-        emptyChild.transform.rotation = transform.rotation;
+        emptyChild.transform.position = target.transform.position;
+        emptyChild.transform.rotation = target.transform.rotation;
     }
 
     // Update is called once per frame
@@ -74,14 +74,14 @@ public class PinchToMove : MonoBehaviour
             }
             else if (singleHandPinching && emptyChild.transform.parent == null)
             {
-                emptyChild.transform.position = transform.position;
-                emptyChild.transform.rotation = transform.rotation;
+                emptyChild.transform.position = target.transform.position;
+                emptyChild.transform.rotation = target.transform.rotation;
                 emptyChild.transform.SetParent(pinchingHand.transform);
             }
             else if (singleHandPinching)
             {
-                transform.position = emptyChild.transform.position;
-                transform.rotation = emptyChild.transform.rotation;
+                target.transform.position = emptyChild.transform.position;
+                target.transform.rotation = emptyChild.transform.rotation;
             }
         }
     }
