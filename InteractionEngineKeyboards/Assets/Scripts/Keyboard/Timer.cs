@@ -7,13 +7,16 @@ public class Timer : MonoBehaviour
 
     [SerializeField]
     TMPro.TextMeshPro _textMeshOutput;
-    TextInputReceiver _inputReceiver;
+
     [SerializeField]
     string targetString;
+
     [SerializeField]
     InteractionButton _resetButton;
-    Stopwatch stopwatch;
 
+    TextInputReceiver _inputReceiver;
+    Stopwatch stopwatch;
+    bool sentenceCompleted = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,14 +30,15 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stopwatch.IsRunning == false && _inputReceiver.text.Length == 1)
+        if (stopwatch.IsRunning == false && _inputReceiver.text.Length > 0 && !sentenceCompleted)
         {
             stopwatch.Start();
         }
 
-        if(_inputReceiver.text.ToLower() == targetString)
+        if(_inputReceiver.text.ToLower().Trim() == targetString)
         {
             stopwatch.Stop();
+            sentenceCompleted = true;
         }
         _textMeshOutput.text = stopwatch.Elapsed.ToString();
     }
@@ -42,6 +46,7 @@ public class Timer : MonoBehaviour
     public void ResetTimer()
     {
         stopwatch.Reset();
-        _inputReceiver.text = string.Empty;
+        _inputReceiver.Reset();
+        sentenceCompleted = false;
     }
 }

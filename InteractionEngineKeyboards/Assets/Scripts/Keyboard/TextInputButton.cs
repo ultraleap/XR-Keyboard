@@ -1,10 +1,11 @@
 ﻿using Leap.Unity.Interaction;
+using TMPro;
 using UnityEngine;
 
 public class TextInputButton : MonoBehaviour
 {
-    TextInputReceiver textInputReceiver;
-    protected InteractionButton interactionButton;
+    TextInputReceiver _textInputReceiver;
+    protected InteractionButton _interactionButton;
     Material m;
     Renderer _renderer;
 
@@ -20,8 +21,8 @@ public class TextInputButton : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        textInputReceiver = FindObjectOfType<TextInputReceiver>();
-        interactionButton = GetComponent<InteractionButton>();
+        _textInputReceiver = FindObjectOfType<TextInputReceiver>();
+        _interactionButton = GetComponent<InteractionButton>();
         _renderer = GetComponentInChildren<Renderer>();
 
         _origScale = _renderer.transform.localScale;
@@ -60,20 +61,24 @@ public class TextInputButton : MonoBehaviour
     {
         if (gameObject.name == "Space")
         {
-            textInputReceiver.Append(' ');
+            _textInputReceiver.Append(' ');
         }
         else if (gameObject.name == "Backspace")
         {
-            textInputReceiver.Backspace();
+            _textInputReceiver.Backspace();
         } 
         else if (gameObject.name == "SwitchType")
         {
             KeyboardButtonManager kbm = gameObject.transform.parent.parent.GetComponent<KeyboardButtonManager>();
             kbm.KeyType = kbm.KeyType == KeyboardType.PINCH ? KeyboardType.PUSH : KeyboardType.PINCH;
+        } else if (gameObject.name.Contains("Suggestion"))
+        {
+            string correctWord = gameObject.GetComponentInChildren<TextMeshPro>().text;
+            _textInputReceiver.ReplaceWord(correctWord);
         }
         else
         {
-            textInputReceiver.Append(gameObject.name.ToString()[0]);
+            _textInputReceiver.Append(gameObject.name.ToString()[0]);
         }
     }
 }

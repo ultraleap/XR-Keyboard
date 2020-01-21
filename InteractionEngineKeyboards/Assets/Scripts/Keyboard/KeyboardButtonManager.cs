@@ -31,8 +31,6 @@ public class KeyboardButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject[] pinchBalls;
 
-
-
     void UpdateButtonType()
     {
         List<GameObject> keys = new List<GameObject>();
@@ -62,14 +60,14 @@ public class KeyboardButtonManager : MonoBehaviour
             }
             foreach (GameObject pb in pinchBalls)
             {
-                pb.SetActive(true);
+                pb.GetComponent<CapsuleCollider>().enabled = true;
             }
         }
         else if (KeyType == KeyboardType.PUSH)
         {
             foreach (GameObject pb in pinchBalls)
             {
-                pb.SetActive(false);
+                pb.GetComponent<CapsuleCollider>().enabled = false;
             }
 
             foreach (GameObject key in keys)
