@@ -12,6 +12,9 @@ public class PinchToScale : MonoBehaviour
     [SerializeField]
     private ToggleSwitchButton toggleSwitchButton;
 
+    private float minScale = 0.2f;
+    private float maxScale = 2f;
+
     bool bothHandsPinching = false;
     bool start = true;
 
@@ -35,12 +38,22 @@ public class PinchToScale : MonoBehaviour
                 start = false;
             } else if (bothHandsPinching && !start)
             {
-                transform.localScale = initialScale * Vector3.Distance(Pinchballs[0].position, Pinchballs[1].position) / initialDistance;
+                Scale();
 
             } else if (!bothHandsPinching && !start)
             {
                 start = true;
             }
+        }
+    }
+
+    void Scale()
+    {
+        Vector3 newScale = initialScale * Vector3.Distance(Pinchballs[0].position, Pinchballs[1].position) / initialDistance;
+
+        if (newScale.x < maxScale && newScale.x > minScale)
+        {
+            transform.localScale = newScale;
         }
     }
 }

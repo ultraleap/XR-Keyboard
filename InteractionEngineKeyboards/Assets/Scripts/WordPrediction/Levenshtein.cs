@@ -140,4 +140,12 @@ public class Levenshtein : MonoBehaviour
 		}
         yield return null;
     }
+
+    public void ClearLabelPredictions()
+    {
+        foreach (TextMeshPro label in ButtonLabels)
+        {
+            label.text = "";
+        }
+    }
 }

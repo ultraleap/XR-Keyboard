@@ -28,7 +28,14 @@ public class TextInputReceiver : MonoBehaviour
     public void Append(char input)
     {
         text += input;
-       StartCoroutine(_levenshtein.RunAutoComplete(text));
+        if (input == ' ')
+        {
+            _levenshtein.ClearLabelPredictions();
+        }
+        else
+        {
+            StartCoroutine(_levenshtein.RunAutoComplete(text));
+        }
     }
 
     public void Backspace()
@@ -36,8 +43,14 @@ public class TextInputReceiver : MonoBehaviour
         if (text.Length > 0)
         {
             text = text.Substring(0, text.Length - 1);
-         StartCoroutine(_levenshtein.RunAutoComplete(text));
+            StartCoroutine(_levenshtein.RunAutoComplete(text));
         }
+    }
+
+    public void Reset()
+    {
+        text = string.Empty;
+        _levenshtein.ClearLabelPredictions();
     }
 
     public void ReplaceWord(string correctWord)
@@ -60,6 +73,7 @@ public class TextInputReceiver : MonoBehaviour
             builder.Append(w).Append(" ");
         }
         text = builder.ToString();
+        _levenshtein.ClearLabelPredictions();
         //StartCoroutine(_wordPredictor.PredictNextWords(correctWord));
     }
 

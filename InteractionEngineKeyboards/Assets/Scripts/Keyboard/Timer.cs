@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour
     public void ResetTimer()
     {
         stopwatch.Reset();
-        _inputReceiver.text = string.Empty;
+        _inputReceiver.Reset();
         sentenceCompleted = false;
     }
 }
