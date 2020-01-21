@@ -6,11 +6,17 @@ using UnityEngine;
 
 public enum KeyboardType
 {
-    PINCH, PUSH
+    PINCH, PUSH, LOCKED
 }
 
 public class KeyboardButtonManager : MonoBehaviour
 {
+    [SerializeField]
+    private Transform[] KeyboardRows;
+    
+    [SerializeField]
+    private GameObject[] pinchBalls;
+
     [SerializeProperty("KeyType")] // pass the name of the property as a parameter
     public KeyboardType keyType;
 
@@ -26,10 +32,6 @@ public class KeyboardButtonManager : MonoBehaviour
             UpdateButtonType();
         }
     }
-    [SerializeField]
-    private Transform[] KeyboardRows;
-    [SerializeField]
-    private GameObject[] pinchBalls;
 
     void UpdateButtonType()
     {
@@ -41,6 +43,7 @@ public class KeyboardButtonManager : MonoBehaviour
                 keys.Add(keyBase.GetChild(0).gameObject);
             }
         }
+
         if (KeyType == KeyboardType.PINCH)
         {
             foreach (GameObject key in keys)
@@ -49,6 +52,7 @@ public class KeyboardButtonManager : MonoBehaviour
                 {
                     DestroyImmediate(key.GetComponent<TouchInputButton>());
                 }
+
                 PinchInputButton p = key.AddComponent<PinchInputButton>();
                 p.ScaleModification = true;
                 p.ScaleModifier = new Vector3(0.9f, 0.9f, 1);
@@ -58,6 +62,7 @@ public class KeyboardButtonManager : MonoBehaviour
                 interactionButton.restingHeight = 0;
                 interactionButton.springForce = 0;
             }
+
             foreach (GameObject pb in pinchBalls)
             {
                 pb.GetComponent<CapsuleCollider>().enabled = true;
@@ -84,6 +89,35 @@ public class KeyboardButtonManager : MonoBehaviour
                 interactionButton.minMaxHeight = new Vector2(0, 0.03f);
                 interactionButton.restingHeight = 0.5f;
                 interactionButton.springForce = 0.1f;
+            }
+        }
+        else if (KeyType == KeyboardType.LOCKED)
+        {
+            foreach (GameObject pb in pinchBalls)
+            {
+                pb.GetComponent<CapsuleCollider>().enabled = false;
+            }
+
+            foreach (GameObject key in keys)
+            {
+                if (key.GetComponent<TouchInputButton>())
+                {
+                    DestroyImmediate(key.GetComponent<TouchInputButton>());
+                }
+
+                if (key.GetComponent<PinchInputButton>())
+                {
+                    DestroyImmediate(key.GetComponent<PinchInputButton>());
+                }
+
+                PinchInputButton p = key.AddComponent<PinchInputButton>();
+                p.ScaleModification = true;
+                p.ScaleModifier = new Vector3(0.9f, 0.9f, 1);
+
+                InteractionButton interactionButton = key.GetComponent<InteractionButton>();
+                interactionButton.minMaxHeight = Vector2.zero;
+                interactionButton.restingHeight = 0;
+                interactionButton.springForce = 0;
             }
         }
     }
