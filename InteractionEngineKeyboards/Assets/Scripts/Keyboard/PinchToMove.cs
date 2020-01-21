@@ -7,14 +7,25 @@ using Leap.Unity;
 public class PinchToMove : MonoBehaviour
 {
     [SerializeField]
-    private GameObject rightHandModel;
+    private GameObject rightHandModel, leftHandModel;
+
+    private GameObject pinchingHand;
 
     [SerializeField]
     private ToggleSwitchButton toggleSwitchButton;
 
     bool isRightPinching = false;
-    bool bothHandsPinching = false;
+    bool isLeftPinching = false;
+    bool singleHandPinching = false;
 
+    GameObject emptyChild;
+
+    private void Start()
+    {
+        emptyChild = new GameObject("EmptyChild");
+        emptyChild.transform.position = transform.position;
+        emptyChild.transform.rotation = transform.rotation;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -24,7 +35,6 @@ public class PinchToMove : MonoBehaviour
             if (Hands.Right == null)
             {
                 isRightPinching = false;
-                return;
             }
             else
             {
@@ -33,28 +43,45 @@ public class PinchToMove : MonoBehaviour
 
             if (Hands.Left == null)
             {
-                bothHandsPinching = false;
+                isLeftPinching = false;
             }
             else
             {
-                bothHandsPinching = Hands.Right.IsPinching() && Hands.Left.IsPinching();
+                isLeftPinching = Hands.Left.IsPinching();
             }
 
-            if (bothHandsPinching && transform.parent == null)
+            singleHandPinching = isRightPinching ^ isLeftPinching;
+
+            if (singleHandPinching)
+            {
+                if (isLeftPinching)
+                {
+                    pinchingHand = leftHandModel;
+                } else if(isRightPinching)
+                {
+                    pinchingHand = rightHandModel;
+                }
+            }
+
+            if (!singleHandPinching && emptyChild.transform.parent == null)
             {
                 return;
             }
-            else if (bothHandsPinching && transform.parent != null)
+            else if (!singleHandPinching && emptyChild.transform.parent != null)
             {
-                transform.SetParent(null);
+                emptyChild.transform.SetParent(null);
+
             }
-            else if (isRightPinching && !bothHandsPinching && transform.parent == null)
+            else if (singleHandPinching && emptyChild.transform.parent == null)
             {
-                transform.SetParent(rightHandModel.transform);
+                emptyChild.transform.position = transform.position;
+                emptyChild.transform.rotation = transform.rotation;
+                emptyChild.transform.SetParent(pinchingHand.transform);
             }
-            else if (!isRightPinching && transform.parent != null)
+            else if (singleHandPinching)
             {
-                transform.SetParent(null);
+                transform.position = emptyChild.transform.position;
+                transform.rotation = emptyChild.transform.rotation;
             }
         }
     }
