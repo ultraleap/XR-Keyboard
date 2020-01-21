@@ -57,7 +57,8 @@ public class PinchToMove : MonoBehaviour
                 if (isLeftPinching)
                 {
                     pinchingHand = leftHandModel;
-                } else if(isRightPinching)
+                }
+                else if (isRightPinching)
                 {
                     pinchingHand = rightHandModel;
                 }
@@ -70,7 +71,6 @@ public class PinchToMove : MonoBehaviour
             else if (!singleHandPinching && emptyChild.transform.parent != null)
             {
                 emptyChild.transform.SetParent(null);
-
             }
             else if (singleHandPinching && emptyChild.transform.parent == null)
             {
