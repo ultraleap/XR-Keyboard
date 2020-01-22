@@ -32,7 +32,6 @@ public class PinchBall : MonoBehaviour
         _collider = GetComponent<Collider>();
     }
 
-
     private void OnDisable()
     {
         _leapProvider.OnUpdateFrame -= OnUpdateFrame;    
@@ -108,7 +107,7 @@ public class PinchBall : MonoBehaviour
 
         if (_currentDistance <= _distanceThreshold)
         {
-            //Debug.Log("in threshold!");
+           // Debug.Log("in threshold!");
             _currentPress = true;
         }
         else
