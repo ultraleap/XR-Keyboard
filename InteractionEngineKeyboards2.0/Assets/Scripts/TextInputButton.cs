@@ -18,7 +18,7 @@ public class TextInputButton : MonoBehaviour
         {
             _textInputReceiver.Append(' ');
         }
-        else if (gameObject.name == "Backspace")
+        else if (gameObject.name == "Backspace Key")
         {
             _textInputReceiver.Backspace();
         } 
