@@ -36,7 +36,7 @@ public class SizeOfMeshOutput : MonoBehaviour
                 size = mesh.bounds.size.z * mesh.gameObject.transform.localScale.z;
                 break;
         }
-        sizeValue.text = $"{size * 100}cm";
+        sizeValue.text = $"{(size * 100).ToString("0.00")}cm";
 
     }
 }
