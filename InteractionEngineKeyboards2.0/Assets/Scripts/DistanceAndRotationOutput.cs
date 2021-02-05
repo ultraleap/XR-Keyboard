@@ -24,7 +24,7 @@ public class DistanceAndRotationOutput : MonoBehaviour
     {
         Vector3 distance = distanceRelativeTo.position - origin.position;
         Vector3 rotationDelta = Quaternion.FromToRotation(origin.transform.forward, RotationRelativeTo.transform.forward).eulerAngles;
-        distanceValues.text = $"X: {distance.x}\nY: {distance.y}\nZ: {distance.z}";
-        rotationValues.text = $"X: {rotationDelta.x}\nY: {rotationDelta.y}\nZ: {rotationDelta.z}";
+        distanceValues.text = $"X: {distance.x.ToString("0.00")}\nY: {distance.y.ToString("0.00")}\nZ: {distance.z.ToString("0.00")}";
+        rotationValues.text = $"X: {rotationDelta.x.ToString("0.00")}\nY: {rotationDelta.y.ToString("0.00")}\nZ: {rotationDelta.z.ToString("0.00")}";
     }
 }
