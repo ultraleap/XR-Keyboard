@@ -11,7 +11,6 @@ public class SetPositionRelativeToHead : MonoBehaviour
 
     public void SetPosition()
     {
-        Debug.Log("SET POS");
         keyboard.rotation = Quaternion.identity * Quaternion.Euler(Angles);
         keyboard.position = head.position + DistanceFromHead;
     }
