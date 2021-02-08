@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextInputButton : MonoBehaviour
 {
-    public KeyCode key;
+    public KeyCode Key;
     TextInputReceiver _textInputReceiver;
 
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class TextInputButton : MonoBehaviour
 
     public void TextPress()
     {
-        switch (key)
+        switch (Key)
         {
             case KeyCode.Space:
                 _textInputReceiver.Append(' ');
@@ -33,7 +33,7 @@ public class TextInputButton : MonoBehaviour
             case KeyCode.RightShift:
                 break;
             default:
-                _textInputReceiver.Append(key.ToString()[0]);
+                _textInputReceiver.Append(Key.ToString()[0]);
                 break;
         }
     }

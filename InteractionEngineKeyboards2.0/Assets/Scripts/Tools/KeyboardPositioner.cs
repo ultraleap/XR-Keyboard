@@ -1,16 +1,89 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using System;
 
 public class KeyboardPositioner : MonoBehaviour
 {
     public List<Transform> rowTransforms;
-    public float buttonGapRow = 0.01f;
-    public float buttonGapColumn = 0.01f;
+    public Transform panel;
+    [BoxGroup("Button Gap")] public float buttonGapRow = 0.01f;
+    [BoxGroup("Button Gap")] public float buttonGapColumn = 0.01f;
+    public float standardButtonSize = 1.5f;
 
     private const string BUTTON_CUBE_NAME = "Button Cube";
 
-    [Button("Position Buttons")]
+
+    [Button("Position Keyboard")]
+    private void PositionKeyboard()
+    {
+        ResizeButtons();
+        ResizePanel();
+        PositionButtons();
+        PositionPanel();
+    }
+
+    private void PositionPanel()
+    {
+        Vector3 newPanelLocalPos = new Vector3(){
+            x = 0,
+            y = -standardButtonSize *0.7f,
+            z = 0.04f
+        };
+        panel.localPosition = newPanelLocalPos;
+    }
+
+    private void ResizePanel()
+    {
+        Bounds bounds = panel.GetComponent<MeshRenderer>().CalculateActualBounds();
+        Vector3 newScale = new Vector3()
+        {
+            x = ((standardButtonSize * 11.5f) + (buttonGapRow * 13)) / (bounds.size.x / panel.localScale.x),
+            y = ((standardButtonSize * 4f) + (buttonGapRow * 7)) / (bounds.size.x / panel.localScale.x),
+            z = panel.localScale.z
+        };
+        panel.localScale = newScale;
+    }
+
+    private void ResizeButtons()
+    {
+        foreach (Transform row in rowTransforms)
+        {
+            foreach (Transform button in row)
+            {
+                TextInputButton textInputButton = button.GetComponent<TextInputButton>();
+                Bounds bounds = button.Find(BUTTON_CUBE_NAME).GetComponent<MeshRenderer>().CalculateActualBounds();
+                Vector3 newScale = new Vector3()
+                {
+                    x = standardButtonSize / (bounds.size.x / button.localScale.x),
+                    y = standardButtonSize / (bounds.size.x / button.localScale.x),
+                    z = button.localScale.z
+                };
+
+                switch (textInputButton.Key)
+                {
+                    case KeyCode.Space:
+                        //9.5 x & 10 button gap
+                        newScale.x = ((standardButtonSize * 9.5f) + (buttonGapRow * 8)) / (bounds.size.x / button.localScale.x);
+                        button.localScale = newScale;
+                        break;
+                    case KeyCode.Backspace:
+                    case KeyCode.RightShift:
+                        newScale.x *= 1.5f;
+                        button.localScale = newScale;
+                        break;
+                    case KeyCode.Return:
+                        newScale.x = ((standardButtonSize * 2f) + buttonGapRow / 2) / (bounds.size.x / button.localScale.x);
+                        button.localScale = newScale;
+                        break;
+                    default:
+                        button.localScale = newScale;
+                        break;
+                }
+            }
+        }
+    }
+
     private void PositionButtons()
     {
         // Position the first row relative to the position of the first button
@@ -30,8 +103,8 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 translation = (previousFirstButtonMeshExtents.x + buttonGapColumn + firstButtonMeshExtents.x) * -rowTransforms[i].transform.up.normalized;
             rowTransforms[i].transform.position += translation;
 
-            //offset odd numbered rows
-            if (i % 2 == 1)
+            //offset second row
+            if (i == 1)
             {
                 Vector3 newLocalPos = rowTransforms[i].localPosition;
                 newLocalPos.x += previousFirstButtonMeshExtents.x + buttonGapRow / 2;
