@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
@@ -12,7 +10,7 @@ public class KeyboardPositioner : MonoBehaviour
 
     private const string BUTTON_CUBE_NAME = "Button Cube";
 
-    [Button("Position Rows")]
+    [Button("Position Buttons")]
     private void PositionButtons()
     {
         // Position the first row relative to the position of the first button

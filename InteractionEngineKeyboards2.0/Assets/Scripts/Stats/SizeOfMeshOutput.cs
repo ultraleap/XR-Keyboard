@@ -28,16 +28,16 @@ public class SizeOfMeshOutput : MonoBehaviour
         switch (axis)
         {
             case Axis.X:
-                size = mesh.bounds.size.x * mesh.gameObject.transform.localScale.x;
+                size = mesh.bounds.size.x;
                 break;
             case Axis.Y:
-                size = mesh.bounds.size.y * mesh.gameObject.transform.localScale.y;
+                size = mesh.bounds.size.y;
                 break;
             case Axis.Z:
-                size = mesh.bounds.size.z * mesh.gameObject.transform.localScale.z;
+                size = mesh.bounds.size.z;
                 break;
         }
-        sizeValue.text = $"{(size * 100).ToString("0.00")}cm";
+        sizeValue.text = $"{size * 100:0.00}cm";
 
     }
 }
