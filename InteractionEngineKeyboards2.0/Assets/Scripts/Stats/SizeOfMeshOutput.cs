@@ -14,16 +14,14 @@ public class SizeOfMeshOutput : MonoBehaviour
     public TextMeshPro sizeValue;
     public MeshRenderer mesh;
     public Axis axis;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private Quaternion rot;
 
     // Update is called once per frame
     void Update()
     {
+        rot = mesh.transform.rotation;
+
+        mesh.transform.rotation = Quaternion.identity;
         float size = 0;
         switch (axis)
         {
@@ -37,7 +35,8 @@ public class SizeOfMeshOutput : MonoBehaviour
                 size = mesh.bounds.size.z;
                 break;
         }
-        sizeValue.text = $"{size * 100:0.00}cm";
-
+        sizeValue.text = $"{axis}: {size * 100:0.00}cm";
+        mesh.transform.rotation = rot;
+        Physics.SyncTransforms();
     }
 }
