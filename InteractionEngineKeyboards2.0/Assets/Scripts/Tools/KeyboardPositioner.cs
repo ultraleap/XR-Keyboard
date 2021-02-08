@@ -28,26 +28,16 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 firstButtonMeshExtents = GetButtonCubeExtents(rowTransforms[i], 0);
             Vector3 previousFirstButtonMeshExtents = GetButtonCubeExtents(rowTransforms[i - 1], 0);
 
-
-
-
-            // Vector3 newLocalPos = rowTransforms[i - 1].localPosition;
-
-            // if (i % 2 == 1)
-            // {
-            //     //offset odd numbered rows
-            //     newLocalPos.x += previousFirstButtonMeshExtents.x + buttonGap / 2;
-            // }
-            // //space button row out vertically
-            // // newLocalPos.y -= ( ;
-            // //ensure the z position lines up
-            // newLocalPos.z = rowTransforms[0].localPosition.z;
-            // rowTransforms[i].localPosition = newLocalPos;
-
             Vector3 translation = (previousFirstButtonMeshExtents.x + buttonGap + firstButtonMeshExtents.x) * -rowTransforms[i].transform.up.normalized;
-            Debug.Log($"COLUMN: previousFirstButtonMeshExtents.x: {previousFirstButtonMeshExtents.x}, buttonGap: {buttonGap}, firstButtonMeshExtents.x: {firstButtonMeshExtents.x}");
-
             rowTransforms[i].transform.position += translation;
+
+            //offset odd numbered rows
+            if (i % 2 == 1)
+            {
+                Vector3 newLocalPos = rowTransforms[i].localPosition;
+                newLocalPos.x += previousFirstButtonMeshExtents.x + buttonGap / 2;
+                rowTransforms[i].localPosition = newLocalPos;
+            }
         }
     }
 
@@ -67,10 +57,7 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 previousButtonMeshExtents = GetButtonCubeExtents(rowParentTransform, i - 1);
 
             button.position = previousButton.position;
-
             Vector3 translation = (previousButtonMeshExtents.x + buttonGap + buttonMeshExtents.x) * button.right.normalized;
-            Debug.Log($"ROW: previousButtonMeshExtents.x: {previousButtonMeshExtents.x}, buttonGap: {buttonGap}, buttonMeshExtents.x: {buttonMeshExtents.x}");
-
             button.position += translation;
         }
 
@@ -79,8 +66,5 @@ public class KeyboardPositioner : MonoBehaviour
     private Vector3 GetButtonCubeExtents(Transform row, int buttonIndex)
     {
         return row.GetChild(buttonIndex).Find(BUTTON_CUBE_NAME).lossyScale * 0.5f;
-        Transform child = row.GetChild(buttonIndex).Find(BUTTON_CUBE_NAME);
-        MeshRenderer m = child.GetComponent<MeshRenderer>();
-        return child.GetComponent<MeshRenderer>().bounds.extents;
     }
 }
