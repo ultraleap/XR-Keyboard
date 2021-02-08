@@ -59,7 +59,6 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 translation = (previousButtonMeshExtents.x + buttonGapRow + buttonMeshExtents.x) * button.right.normalized;
             button.position += translation;
         }
-
     }
 
     private Vector3 GetButtonCubeExtents(Transform row, int buttonIndex)

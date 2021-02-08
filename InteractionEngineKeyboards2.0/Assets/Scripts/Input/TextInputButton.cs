@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TextInputButton : MonoBehaviour
 {
+    public KeyCode key;
     TextInputReceiver _textInputReceiver;
 
     // Start is called before the first frame update
@@ -14,17 +15,26 @@ public class TextInputButton : MonoBehaviour
 
     public void TextPress()
     {
-        if (gameObject.name == "Space Key")
+        switch (key)
         {
-            _textInputReceiver.Append(' ');
-        }
-        else if (gameObject.name == "Backspace Key")
-        {
-            _textInputReceiver.Backspace();
-        } 
-        else
-        {
-            _textInputReceiver.Append(gameObject.name.ToString()[0]);
+            case KeyCode.Space:
+                _textInputReceiver.Append(' ');
+                break;
+            case KeyCode.Backspace:
+                _textInputReceiver.Backspace();
+                break;
+            case KeyCode.Return:
+                _textInputReceiver.Append('\n');
+                break;
+            case KeyCode.LeftAlt:
+            case KeyCode.RightAlt:
+                break;
+            case KeyCode.LeftShift:
+            case KeyCode.RightShift:
+                break;
+            default:
+                _textInputReceiver.Append(key.ToString()[0]);
+                break;
         }
     }
 }
