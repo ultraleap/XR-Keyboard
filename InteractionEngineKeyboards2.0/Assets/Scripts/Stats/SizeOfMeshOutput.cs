@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[ExecuteInEditMode]
 public class SizeOfMeshOutput : MonoBehaviour
 {
     public enum Axis

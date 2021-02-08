@@ -7,7 +7,8 @@ using NaughtyAttributes;
 public class KeyboardPositioner : MonoBehaviour
 {
     public List<Transform> rowTransforms;
-    public float buttonGap = 0.01f;
+    public float buttonGapRow = 0.01f;
+    public float buttonGapColumn = 0.01f;
 
     private const string BUTTON_CUBE_NAME = "Button Cube";
 
@@ -28,14 +29,14 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 firstButtonMeshExtents = GetButtonCubeExtents(rowTransforms[i], 0);
             Vector3 previousFirstButtonMeshExtents = GetButtonCubeExtents(rowTransforms[i - 1], 0);
 
-            Vector3 translation = (previousFirstButtonMeshExtents.x + buttonGap + firstButtonMeshExtents.x) * -rowTransforms[i].transform.up.normalized;
+            Vector3 translation = (previousFirstButtonMeshExtents.x + buttonGapColumn + firstButtonMeshExtents.x) * -rowTransforms[i].transform.up.normalized;
             rowTransforms[i].transform.position += translation;
 
             //offset odd numbered rows
             if (i % 2 == 1)
             {
                 Vector3 newLocalPos = rowTransforms[i].localPosition;
-                newLocalPos.x += previousFirstButtonMeshExtents.x + buttonGap / 2;
+                newLocalPos.x += previousFirstButtonMeshExtents.x + buttonGapRow / 2;
                 rowTransforms[i].localPosition = newLocalPos;
             }
         }
@@ -57,7 +58,7 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 previousButtonMeshExtents = GetButtonCubeExtents(rowParentTransform, i - 1);
 
             button.position = previousButton.position;
-            Vector3 translation = (previousButtonMeshExtents.x + buttonGap + buttonMeshExtents.x) * button.right.normalized;
+            Vector3 translation = (previousButtonMeshExtents.x + buttonGapRow + buttonMeshExtents.x) * button.right.normalized;
             button.position += translation;
         }
 
