@@ -12,12 +12,12 @@ public class SizeOfMeshOutput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Bounds bounds = mesh.CalculateActualBounds();
+        Vector3 size = mesh.bounds.size;
        
 
         sizeValue.text = 
-        $"X: {bounds.size.x * 100:0.00}cm\n" +
-        $"Y: {bounds.size.y * 100:0.00}cm\n" +
-        $"Z: {bounds.size.z * 100:0.00}cm";
+        $"X: {size.x * 100:0.00}cm\n" +
+        $"Y: {size.y * 100:0.00}cm\n" +
+        $"Z: {size.z * 100:0.00}cm";
     }
 }

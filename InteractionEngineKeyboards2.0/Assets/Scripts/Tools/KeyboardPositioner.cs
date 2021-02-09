@@ -6,6 +6,7 @@ using System;
 public class KeyboardPositioner : MonoBehaviour
 {
     public List<Transform> rowTransforms;
+    public Transform KeyboardParent;
     public Transform panel;
     [BoxGroup("Button Gap")] public float buttonGapRow = 0.01f;
     [BoxGroup("Button Gap")] public float buttonGapColumn = 0.01f;
@@ -48,7 +49,7 @@ public class KeyboardPositioner : MonoBehaviour
             foreach (Transform button in row)
             {
                 TextInputButton textInputButton = button.GetComponent<TextInputButton>();
-                Bounds bounds = button.Find(BUTTON_CUBE_NAME).GetComponent<MeshRenderer>().CalculateActualBounds();
+                Bounds bounds = button.Find(BUTTON_CUBE_NAME).GetComponent<MeshRenderer>().bounds;
                 Vector3 newScale = new Vector3()
                 {
                     x = standardButtonSize / (bounds.size.x / button.localScale.x),
@@ -59,7 +60,6 @@ public class KeyboardPositioner : MonoBehaviour
                 switch (textInputButton.Key)
                 {
                     case KeyCode.Space:
-                        //9.5 x & 10 button gap
                         newScale.x = ((standardButtonSize * 9.5f) + (buttonGapRow * 8)) / (bounds.size.x / button.localScale.x);
                         button.localScale = newScale;
                         break;
@@ -82,7 +82,7 @@ public class KeyboardPositioner : MonoBehaviour
 
     private void ResizePanel()
     {
-        Bounds bounds = panel.GetComponent<MeshRenderer>().CalculateActualBounds();
+        Bounds bounds = panel.GetComponent<MeshRenderer>().bounds;
         Vector3 newScale = new Vector3()
         {
             x = ((standardButtonSize * 11.5f) + (buttonGapRow * 12)) / (bounds.size.x / panel.localScale.x),
@@ -145,7 +145,7 @@ public class KeyboardPositioner : MonoBehaviour
 
     private void MovePivotPoint()
     {
-        Transform keyboardParent = transform.Find("Keyboard");
+        Transform keyboardParent = KeyboardParent.Find("Keyboard");
         Vector3 delta = keyboardParent.position - panel.position;
         delta.z = 0;
         foreach (Transform child in keyboardParent)
@@ -153,7 +153,7 @@ public class KeyboardPositioner : MonoBehaviour
             child.position += delta;
         }
 
-        delta = transform.position - panel.position;
+        delta = KeyboardParent.position - panel.position;
         delta.z = 0;
         foreach (Transform child in transform)
         {
@@ -168,14 +168,14 @@ public class KeyboardPositioner : MonoBehaviour
 
     private void PositionTools()
     {
-        Transform keyboardParent = transform.Find("Keyboard");
-        Transform textReceiver = transform.Find("Text Receiver");
-        Vector3 textReceiverPos = keyboardParent.localPosition;
+        Transform keyboard = KeyboardParent.Find("Keyboard");
+        Transform textReceiver = KeyboardParent.Find("Text Receiver");
+        Vector3 textReceiverPos = keyboard.localPosition;
         textReceiverPos.y += (standardButtonSize * 6) + (buttonGapColumn * 2);
         textReceiver.localPosition = textReceiverPos;
 
-        Transform grabSphere = transform.Find("Grab Sphere");
-        Vector3 grabSpherePos = keyboardParent.localPosition;
+        Transform grabSphere = KeyboardParent.Find("Grab Sphere");
+        Vector3 grabSpherePos = keyboard.localPosition;
         grabSpherePos.y -= (standardButtonSize * 3) + (buttonGapColumn * 2);
         grabSphere.localPosition = grabSpherePos;
     }
