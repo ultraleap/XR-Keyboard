@@ -20,9 +20,16 @@ public class TextInputReceiver : MonoBehaviour
             UpdateTM();
         }
     }
+    private bool shift = false;
 
     public void Append(char input)
     {
+        if(shift){
+            input = char.ToUpper(input);
+            shift = false;
+        } else {
+            input = char.ToLower(input);
+        }
         text += input;
     }
 
@@ -37,6 +44,10 @@ public class TextInputReceiver : MonoBehaviour
     public void Reset()
     {
         text = string.Empty;
+    }
+
+    public void Shift(){
+        shift = !shift;
     }
 
     void UpdateTM()

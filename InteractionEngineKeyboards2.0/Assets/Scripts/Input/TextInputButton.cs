@@ -31,6 +31,7 @@ public class TextInputButton : MonoBehaviour
                 break;
             case KeyCode.LeftShift:
             case KeyCode.RightShift:
+            _textInputReceiver.Shift();
                 break;
             default:
                 _textInputReceiver.Append(Key.ToString()[0]);
