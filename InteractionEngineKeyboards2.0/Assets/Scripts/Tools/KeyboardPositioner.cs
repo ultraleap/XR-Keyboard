@@ -21,36 +21,24 @@ public class KeyboardPositioner : MonoBehaviour
         ResizePanel();
         PositionButtons();
         PositionPanel();
+        MovePivotPoint();
+        PositionTools();
     }
 
     private void PositionPanel()
     {
         Vector3 topLeft = rowTransforms[0].GetChild(0).position;
         Vector3 bottomRight = rowTransforms[rowTransforms.Count - 1].GetChild(rowTransforms[rowTransforms.Count - 1].childCount - 1).position;
-
-
         Vector3 newPanelPos = new Vector3()
         {
             x = topLeft.x + ((bottomRight.x - topLeft.x) / 2),
-            y = bottomRight.y + ((topLeft.y - bottomRight.y) / 2) - standardButtonSize - (buttonGapColumn/2),
+            y = bottomRight.y + ((topLeft.y - bottomRight.y) / 2) - standardButtonSize - (buttonGapColumn / 2),
             z = topLeft.z,
         };
         panel.position = newPanelPos;
         newPanelPos = panel.localPosition;
-        newPanelPos.z = 0.04f;
+        newPanelPos.z = 0.01f;
         panel.localPosition = newPanelPos;
-    }
-
-    private void ResizePanel()
-    {
-        Bounds bounds = panel.GetComponent<MeshRenderer>().CalculateActualBounds();
-        Vector3 newScale = new Vector3()
-        {
-            x = ((standardButtonSize * 11.5f) + (buttonGapRow * 12)) / (bounds.size.x / panel.localScale.x),
-            y = ((standardButtonSize * 4f) + (buttonGapRow * 4)) / (bounds.size.x / panel.localScale.x),
-            z = panel.localScale.z
-        };
-        panel.localScale = newScale;
     }
 
     private void ResizeButtons()
@@ -92,6 +80,18 @@ public class KeyboardPositioner : MonoBehaviour
         }
     }
 
+    private void ResizePanel()
+    {
+        Bounds bounds = panel.GetComponent<MeshRenderer>().CalculateActualBounds();
+        Vector3 newScale = new Vector3()
+        {
+            x = ((standardButtonSize * 11.5f) + (buttonGapRow * 12)) / (bounds.size.x / panel.localScale.x),
+            y = ((standardButtonSize * 4f) + (buttonGapRow * 5)) / (bounds.size.x / panel.localScale.x),
+            z = panel.localScale.z
+        };
+        panel.localScale = newScale;
+    }
+
     private void PositionButtons()
     {
         // Position the first row relative to the position of the first button
@@ -111,13 +111,14 @@ public class KeyboardPositioner : MonoBehaviour
             Vector3 translation = (previousFirstButtonMeshExtents.x + buttonGapColumn + firstButtonMeshExtents.x) * -rowTransforms[i].transform.up.normalized;
             rowTransforms[i].transform.position += translation;
 
+            Vector3 newLocalPos = rowTransforms[i].localPosition;
             //offset second row
             if (i == 1)
             {
-                Vector3 newLocalPos = rowTransforms[i].localPosition;
                 newLocalPos.x += previousFirstButtonMeshExtents.x + buttonGapRow / 2;
-                rowTransforms[i].localPosition = newLocalPos;
             }
+            newLocalPos.z = 0;
+            rowTransforms[i].localPosition = newLocalPos;
         }
     }
 
@@ -142,8 +143,40 @@ public class KeyboardPositioner : MonoBehaviour
         }
     }
 
+    private void MovePivotPoint()
+    {
+        Transform keyboardParent = transform.Find("Keyboard");
+        Vector3 delta = keyboardParent.position - panel.position;
+        delta.z = 0;
+        foreach (Transform child in keyboardParent)
+        {
+            child.position += delta;
+        }
+
+        delta = transform.position - panel.position;
+        delta.z = 0;
+        foreach (Transform child in transform)
+        {
+            child.position += delta;
+        }
+    }
+
     private Vector3 GetButtonCubeExtents(Transform row, int buttonIndex)
     {
         return row.GetChild(buttonIndex).Find(BUTTON_CUBE_NAME).lossyScale * 0.5f;
+    }
+
+    private void PositionTools()
+    {
+        Transform keyboardParent = transform.Find("Keyboard");
+        Transform textReceiver = transform.Find("Text Receiver");
+        Vector3 textReceiverPos = keyboardParent.localPosition;
+        textReceiverPos.y += (standardButtonSize * 6) + (buttonGapColumn * 2);
+        textReceiver.localPosition = textReceiverPos;
+
+        Transform grabSphere = transform.Find("Grab Sphere");
+        Vector3 grabSpherePos = keyboardParent.localPosition;
+        grabSpherePos.y -= (standardButtonSize * 3) + (buttonGapColumn * 2);
+        grabSphere.localPosition = grabSpherePos;
     }
 }
