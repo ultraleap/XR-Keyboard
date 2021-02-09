@@ -25,12 +25,20 @@ public class KeyboardPositioner : MonoBehaviour
 
     private void PositionPanel()
     {
-        Vector3 newPanelLocalPos = new Vector3(){
-            x = 0,
-            y = -standardButtonSize *0.7f,
-            z = 0.04f
+        Vector3 topLeft = rowTransforms[0].GetChild(0).position;
+        Vector3 bottomRight = rowTransforms[rowTransforms.Count - 1].GetChild(rowTransforms[rowTransforms.Count - 1].childCount - 1).position;
+
+
+        Vector3 newPanelPos = new Vector3()
+        {
+            x = topLeft.x + ((bottomRight.x - topLeft.x) / 2),
+            y = bottomRight.y + ((topLeft.y - bottomRight.y) / 2) - standardButtonSize - (buttonGapColumn/2),
+            z = topLeft.z,
         };
-        panel.localPosition = newPanelLocalPos;
+        panel.position = newPanelPos;
+        newPanelPos = panel.localPosition;
+        newPanelPos.z = 0.04f;
+        panel.localPosition = newPanelPos;
     }
 
     private void ResizePanel()
@@ -38,8 +46,8 @@ public class KeyboardPositioner : MonoBehaviour
         Bounds bounds = panel.GetComponent<MeshRenderer>().CalculateActualBounds();
         Vector3 newScale = new Vector3()
         {
-            x = ((standardButtonSize * 11.5f) + (buttonGapRow * 13)) / (bounds.size.x / panel.localScale.x),
-            y = ((standardButtonSize * 4f) + (buttonGapRow * 7)) / (bounds.size.x / panel.localScale.x),
+            x = ((standardButtonSize * 11.5f) + (buttonGapRow * 12)) / (bounds.size.x / panel.localScale.x),
+            y = ((standardButtonSize * 4f) + (buttonGapRow * 4)) / (bounds.size.x / panel.localScale.x),
             z = panel.localScale.z
         };
         panel.localScale = newScale;
