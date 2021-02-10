@@ -1,41 +1,48 @@
-﻿using Leap.Unity.Interaction;
+﻿using System;
+using System.Linq;
+using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
 
 public class TextInputButton : MonoBehaviour
 {
-    public KeyCode Key;
-    TextInputReceiver _textInputReceiver;
+    public delegate void KeyDown(KeyCode keyCode);
+    public static event KeyDown HandleKeyDown;
+    public KeyCode NeutralKey;
+    public KeyCode Symbols1Key;
+    public KeyCode Symbols2Key;
+    private KeyCode ActiveKey;
+    TextMeshPro keyTextMesh;
 
     // Start is called before the first frame update
     void Awake()
     {
-        _textInputReceiver = FindObjectOfType<TextInputReceiver>();
+        UpdateActiveKey(NeutralKey, false);
+    }
+
+    public void UpdateActiveKey(KeyCode keyCode, bool shift)
+    {
+        if (keyTextMesh == null)
+        {
+            keyTextMesh = transform.GetComponentInChildren<TextMeshPro>();
+        }
+        
+        ActiveKey = keyCode;
+
+        string keyCodeText = "";
+        KeyboardCollections.KeyCodeToString.TryGetValue(keyCode, out keyCodeText);
+
+        if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode))
+        {
+            keyCodeText = shift ? keyCodeText.ToUpper() : keyCodeText.ToLower();
+        }
+        if (keyCodeText == "\n") { keyCodeText = "RETURN"; }
+
+        keyTextMesh.text = keyCodeText;
     }
 
     public void TextPress()
     {
-        switch (Key)
-        {
-            case KeyCode.Space:
-                _textInputReceiver.Append(' ');
-                break;
-            case KeyCode.Backspace:
-                _textInputReceiver.Backspace();
-                break;
-            case KeyCode.Return:
-                _textInputReceiver.Append('\n');
-                break;
-            case KeyCode.LeftAlt:
-            case KeyCode.RightAlt:
-                break;
-            case KeyCode.LeftShift:
-            case KeyCode.RightShift:
-            _textInputReceiver.Shift();
-                break;
-            default:
-                _textInputReceiver.Append(Key.ToString()[0]);
-                break;
-        }
+        HandleKeyDown.Invoke(ActiveKey);
     }
 }

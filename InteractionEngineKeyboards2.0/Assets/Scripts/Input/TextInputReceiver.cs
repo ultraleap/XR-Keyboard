@@ -9,49 +9,40 @@ public class TextInputReceiver : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro _textMesh;
+    private string text;
 
-    private string actualText = "";
-    public string text
+    private void OnEnable()
     {
-        get { return actualText; }
-        set
-        {
-            actualText = value;
-            UpdateTM();
-        }
-    }
-    private bool shift = false;
-
-    public void Append(char input)
-    {
-        if(shift){
-            input = char.ToUpper(input);
-            shift = false;
-        } else {
-            input = char.ToLower(input);
-        }
-        text += input;
+        if (_textMesh == null) { _textMesh = GetComponentInChildren<TextMeshPro>(); }
+        KeyboardManager.HandleKeyDown += HandleKeyDown;
+        KeyboardManager.HandleBackspaceDown += HandleBackspaceDown;
     }
 
-    public void Backspace()
+    private void OnDisable()
+    {
+
+        KeyboardManager.HandleKeyDown -= HandleKeyDown;
+        KeyboardManager.HandleBackspaceDown -= HandleBackspaceDown;
+    }
+
+    private void HandleKeyDown(string key)
+    {
+        text += key;
+        _textMesh.text = text + "|";
+    }
+
+    private void HandleBackspaceDown()
     {
         if (text.Length > 0)
         {
             text = text.Substring(0, text.Length - 1);
+            _textMesh.text = text + "|";
         }
     }
 
     public void Reset()
     {
-        text = string.Empty;
-    }
-
-    public void Shift(){
-        shift = !shift;
-    }
-
-    void UpdateTM()
-    {
-        _textMesh.text = text + "|";
+        text = "";
+        _textMesh.text = string.Empty;
     }
 }

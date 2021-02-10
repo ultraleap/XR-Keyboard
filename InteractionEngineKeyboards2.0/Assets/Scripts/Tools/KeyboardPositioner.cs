@@ -57,7 +57,7 @@ public class KeyboardPositioner : MonoBehaviour
                     z = button.localScale.z
                 };
 
-                switch (textInputButton.Key)
+                switch (textInputButton.NeutralKey)
                 {
                     case KeyCode.Space:
                         newScale.x = ((standardButtonSize * 9.5f) + (buttonGapRow * 8)) / (bounds.size.x / button.localScale.x);
