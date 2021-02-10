@@ -20,7 +20,6 @@ public class UITextInputButton : TextInputButton
 
     protected override void UpdateKeyText(string text)
     {
-        print("test");
         uiTextMesh.text = text;  
     }
 }
