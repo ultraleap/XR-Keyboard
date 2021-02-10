@@ -14,8 +14,8 @@ public class KeyboardManager : MonoBehaviour
     public delegate void BackspaceDown();
     public static event BackspaceDown HandleBackspaceDown;
 
-    public GameObject Keyboard;
-    private List<TextInputButton> textInputButtons;
+    public GameObject WorldSpaceKeyboardParent;
+    public GameObject CanvasSpaceKeyboardParent;
     private KeyboardMode keyboardMode;
 
     private void Awake()
@@ -89,8 +89,17 @@ public class KeyboardManager : MonoBehaviour
 
     private void SetMode(KeyboardMode _keyboardMode)
     {
-        textInputButtons = Keyboard.GetComponentsInChildren<TextInputButton>().ToList();
 
+        if (WorldSpaceKeyboardParent != null) { UpdateWorldSpaceButtons(_keyboardMode); }
+        if (CanvasSpaceKeyboardParent != null) { UpdateCanvasSpaceButtons(_keyboardMode); }
+
+        keyboardMode = _keyboardMode;
+    }
+
+    private void UpdateWorldSpaceButtons(KeyboardMode _keyboardMode)
+    {
+        List<TextInputButton> textInputButtons = WorldSpaceKeyboardParent.GetComponentsInChildren<TextInputButton>().ToList();
+        
         foreach (TextInputButton inputButton in textInputButtons)
         {
             switch (_keyboardMode)
@@ -110,6 +119,53 @@ public class KeyboardManager : MonoBehaviour
                     break;
             }
         }
-        keyboardMode = _keyboardMode;
+    }
+
+    private void UpdateCanvasSpaceButtons(KeyboardMode _keyboardMode)
+    {
+        List<UITextInputButton> textInputButtons = CanvasSpaceKeyboardParent.GetComponentsInChildren<UITextInputButton>().ToList();
+
+        foreach (UITextInputButton inputButton in textInputButtons)
+        {
+            switch (_keyboardMode)
+            {
+                case KeyboardMode.NEUTRAL:
+                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                    break;
+                case KeyboardMode.SHIFT:
+                case KeyboardMode.CAPS:
+                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                    break;
+                case KeyboardMode.SYMBOLS_1:
+                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
+                    break;
+                case KeyboardMode.SYMBOLS_2:
+                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
+                    break;
+            }
+        }
+    }
+
+    private void UpdateButtons(List<TextInputButton> textInputButtons, KeyboardMode _keyboardMode)
+    {
+        foreach (UITextInputButton inputButton in textInputButtons)
+        {
+            switch (_keyboardMode)
+            {
+                case KeyboardMode.NEUTRAL:
+                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                    break;
+                case KeyboardMode.SHIFT:
+                case KeyboardMode.CAPS:
+                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                    break;
+                case KeyboardMode.SYMBOLS_1:
+                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
+                    break;
+                case KeyboardMode.SYMBOLS_2:
+                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
+                    break;
+            }
+        }
     }
 }

@@ -16,12 +16,12 @@ public class TextInputButton : MonoBehaviour
     TextMeshPro keyTextMesh;
 
     // Start is called before the first frame update
-    void Awake()
+    public virtual void Start()
     {
         UpdateActiveKey(NeutralKey, KeyboardMode.NEUTRAL);
     }
 
-    public void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
+    public virtual void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
     {
         if (keyTextMesh == null)
         {
@@ -58,10 +58,13 @@ public class TextInputButton : MonoBehaviour
                 }
                 break;
         }
-
-        keyTextMesh.text = keyCodeText;
+        UpdateKeyText(keyCodeText);
     }
+    protected virtual void UpdateKeyText(string text)
+    {
+        keyTextMesh.text = text;
 
+    }
     public void TextPress()
     {
         HandleKeyDown.Invoke(ActiveKey);
