@@ -96,17 +96,17 @@ public class KeyboardManager : MonoBehaviour
             switch (_keyboardMode)
             {
                 case KeyboardMode.NEUTRAL:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, false);
+                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
                     break;
                 case KeyboardMode.SHIFT:
                 case KeyboardMode.CAPS:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, true);
+                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
                     break;
                 case KeyboardMode.SYMBOLS_1:
-                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, false);
+                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
                     break;
                 case KeyboardMode.SYMBOLS_2:
-                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, false);
+                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
                     break;
             }
         }

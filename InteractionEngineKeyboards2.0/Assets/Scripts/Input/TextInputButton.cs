@@ -3,6 +3,7 @@ using System.Linq;
 using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
+using static KeyboardManager;
 
 public class TextInputButton : MonoBehaviour
 {
@@ -17,16 +18,16 @@ public class TextInputButton : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        UpdateActiveKey(NeutralKey, false);
+        UpdateActiveKey(NeutralKey, KeyboardMode.NEUTRAL);
     }
 
-    public void UpdateActiveKey(KeyCode keyCode, bool shift)
+    public void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
     {
         if (keyTextMesh == null)
         {
             keyTextMesh = transform.GetComponentInChildren<TextMeshPro>();
         }
-        
+
         ActiveKey = keyCode;
 
         string keyCodeText = "";
@@ -34,9 +35,29 @@ public class TextInputButton : MonoBehaviour
 
         if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode))
         {
-            keyCodeText = shift ? keyCodeText.ToUpper() : keyCodeText.ToLower();
+            keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
         }
-        if (keyCodeText == "\n") { keyCodeText = "RETURN"; }
+        switch (keyCode)
+        {
+            case KeyCode.Return:
+                keyCodeText = "RETURN";
+                break;
+            case KeyCode.LeftShift:
+            case KeyCode.RightShift:
+                if (keyboardMode == KeyboardMode.NEUTRAL)
+                {
+                    keyCodeText = "shift";
+                }
+                else if (keyboardMode == KeyboardMode.SHIFT)
+                {
+                    keyCodeText = "Shift";
+                }
+                else if (keyboardMode == KeyboardMode.SHIFT)
+                {
+                    keyCodeText = "SHIFT";
+                }
+                break;
+        }
 
         keyTextMesh.text = keyCodeText;
     }
