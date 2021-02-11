@@ -3,6 +3,7 @@ using System.Linq;
 using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static KeyboardManager;
 
 public class TextInputButton : MonoBehaviour
@@ -13,19 +14,40 @@ public class TextInputButton : MonoBehaviour
     public KeyCode Symbols1Key;
     public KeyCode Symbols2Key;
     private KeyCode ActiveKey;
-    TextMeshPro keyTextMesh;
+    private InteractionButton interactionButton;
+    private Button button;
+
+    private TextMeshPro keyTextMesh;
+    private TextMeshProUGUI keyTextMeshGUI;
 
     // Start is called before the first frame update
-    public virtual void Start()
+    public void Start()
     {
+        interactionButton = GetComponentInChildren<InteractionButton>();
+        if (interactionButton != null) { interactionButton.OnPress += TextPress; }
+
+        button = GetComponentInChildren<Button>();
+        if (button != null) { button.onClick.AddListener(TextPress); }
+
         UpdateActiveKey(NeutralKey, KeyboardMode.NEUTRAL);
     }
 
-    public virtual void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
+    public void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
     {
         if (keyTextMesh == null)
         {
             keyTextMesh = transform.GetComponentInChildren<TextMeshPro>();
+        }
+
+        if (keyTextMeshGUI == null)
+        {
+            keyTextMeshGUI = transform.GetComponentInChildren<TextMeshProUGUI>();
+        }
+
+        if (keyTextMesh == null && keyTextMeshGUI == null)
+        {
+            Debug.LogWarning("No text mesh on " + name);
+            return;
         }
 
         ActiveKey = keyCode;
@@ -60,9 +82,10 @@ public class TextInputButton : MonoBehaviour
         }
         UpdateKeyText(keyCodeText);
     }
-    protected virtual void UpdateKeyText(string text)
+    protected void UpdateKeyText(string text)
     {
-        keyTextMesh.text = text;
+        if (keyTextMesh != null) { keyTextMesh.text = text; }
+        if (keyTextMeshGUI != null) { keyTextMeshGUI.text = text; }
 
     }
     public void TextPress()

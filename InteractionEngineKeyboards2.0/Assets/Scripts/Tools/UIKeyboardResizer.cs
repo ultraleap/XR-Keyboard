@@ -92,7 +92,7 @@ public class UIKeyboardResizer : MonoBehaviour
                 Vector2 scaledButtonSize = new Vector2(buttonSize / buttonTransform.transform.lossyScale.x, buttonSize / buttonTransform.transform.lossyScale.y);
 
                 Vector2 sizeDelta = scaledButtonSize;
-                UITextInputButton uiTextInputButton = buttonTransform.GetComponentInChildren<UITextInputButton>();
+                TextInputButton uiTextInputButton = buttonTransform.GetComponentInChildren<TextInputButton>();
                 if (buttonTransform.gameObject.name == "Padding")
                 {
                     sizeDelta *= 0.5f;
