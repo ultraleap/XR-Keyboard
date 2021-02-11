@@ -2894,7 +2894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1847459433
 Transform:
   m_ObjectHideFlags: 0
@@ -7091,7 +7091,7 @@ PrefabInstance:
     - target: {fileID: 6464482303137699539, guid: 45698f45929b0d14abbd0e631e81f4ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.1798
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 6464482303137699539, guid: 45698f45929b0d14abbd0e631e81f4ce,
         type: 3}
@@ -7138,6 +7138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyboardCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6534220811175166681, guid: 45698f45929b0d14abbd0e631e81f4ce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6534220812460498485, guid: 45698f45929b0d14abbd0e631e81f4ce,
         type: 3}
       propertyPath: m_Spacing
@@ -7152,25 +7157,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1847459433}
     m_Modifications:
-    - target: {fileID: 4424852757429401953, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+    - target: {fileID: 8612335034809256536, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
         type: 3}
-      propertyPath: Symbols1Key
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424852758236175067, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
-        type: 3}
-      propertyPath: Symbols1Key
-      value: 43
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424852758236175067, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
-        type: 3}
-      propertyPath: Symbols2Key
-      value: 61
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424852758331037443, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
-        type: 3}
-      propertyPath: Symbols1Key
-      value: 45
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8612335035192461323, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
         type: 3}
@@ -7230,10 +7220,15 @@ PrefabInstance:
     - target: {fileID: 8612335035192461324, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
         type: 3}
       propertyPath: m_Name
-      value: KeyboardParent
+      value: Keyboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612335035192461324, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2991430518247925539, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9, type: 3}
+    - {fileID: 244064073011990749, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9, type: 3}
 --- !u!23 &8612335035732332592 stripped
 MeshRenderer:

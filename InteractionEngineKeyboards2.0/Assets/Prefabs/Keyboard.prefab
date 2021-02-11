@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 4514809112802061235}
   - component: {fileID: 949984984}
   m_Layer: 0
-  m_Name: Keyboard
+  m_Name: Keyboard Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2398,10 +2398,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8612335035192461323}
-  - component: {fileID: 2991430518247925539}
   - component: {fileID: 8612335035186544905}
+  - component: {fileID: 244064073011990749}
   m_Layer: 0
-  m_Name: Keyboard Parent
+  m_Name: Keyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2424,19 +2424,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
---- !u!114 &2991430518247925539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8612335035192461324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f23215a3e219502488ce8593f2a9d8bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Keyboard: {fileID: 8612335034809256536}
 --- !u!114 &8612335035186544905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,6 +2446,20 @@ MonoBehaviour:
   buttonGapRow: 0.005
   buttonGapColumn: 0.005
   standardButtonSize: 0.03
+--- !u!114 &244064073011990749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8612335035192461324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23215a3e219502488ce8593f2a9d8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WorldSpaceKeyboardParent: {fileID: 8612335034809256536}
+  CanvasSpaceKeyboardParent: {fileID: 0}
 --- !u!1 &8612335035201888540
 GameObject:
   m_ObjectHideFlags: 0
@@ -7086,7 +7087,7 @@ PrefabInstance:
     - target: {fileID: 5398994851227659428, guid: df84af96020c94b4695aec5c3427db16,
         type: 3}
       propertyPath: Symbols1Key
-      value: 269
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df84af96020c94b4695aec5c3427db16, type: 3}
@@ -7559,12 +7560,12 @@ PrefabInstance:
     - target: {fileID: 5398994851227659428, guid: df84af96020c94b4695aec5c3427db16,
         type: 3}
       propertyPath: Symbols1Key
-      value: 270
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 5398994851227659428, guid: df84af96020c94b4695aec5c3427db16,
         type: 3}
       propertyPath: Symbols2Key
-      value: 272
+      value: 61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df84af96020c94b4695aec5c3427db16, type: 3}
@@ -11419,7 +11420,7 @@ PrefabInstance:
     - target: {fileID: 5398994851227659428, guid: df84af96020c94b4695aec5c3427db16,
         type: 3}
       propertyPath: Symbols1Key
-      value: 268
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5398994851227659428, guid: df84af96020c94b4695aec5c3427db16,
         type: 3}
