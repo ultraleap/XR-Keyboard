@@ -46,7 +46,7 @@ public class KeyboardManager : MonoBehaviour
         {
             string KeyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
             KeyCodeString = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? KeyCodeString.ToUpper() : KeyCodeString.ToLower();
-            HandleKeyDown.Invoke(KeyCodeString);
+            if(HandleKeyDown != null) { HandleKeyDown.Invoke(KeyCodeString);}
             if (keyboardMode == KeyboardMode.SHIFT)
             {
                 SetMode(KeyboardMode.NEUTRAL);
@@ -90,8 +90,8 @@ public class KeyboardManager : MonoBehaviour
     private void SetMode(KeyboardMode _keyboardMode)
     {
 
-        if (WorldSpaceKeyboardParent != null) { UpdateWorldSpaceButtons(_keyboardMode); }
-        if (CanvasSpaceKeyboardParent != null) { UpdateCanvasSpaceButtons(_keyboardMode); }
+        if (WorldSpaceKeyboardParent != null && WorldSpaceKeyboardParent.activeInHierarchy) { UpdateWorldSpaceButtons(_keyboardMode); }
+        if (CanvasSpaceKeyboardParent != null && CanvasSpaceKeyboardParent.activeInHierarchy) { UpdateCanvasSpaceButtons(_keyboardMode); }
 
         keyboardMode = _keyboardMode;
     }
@@ -99,7 +99,7 @@ public class KeyboardManager : MonoBehaviour
     private void UpdateWorldSpaceButtons(KeyboardMode _keyboardMode)
     {
         List<TextInputButton> textInputButtons = WorldSpaceKeyboardParent.GetComponentsInChildren<TextInputButton>().ToList();
-        
+
         foreach (TextInputButton inputButton in textInputButtons)
         {
             switch (_keyboardMode)
