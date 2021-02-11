@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIKeyboardResizer : MonoBehaviour
 {
-    [BoxGroup("Setup")]
-    public VerticalLayoutGroup KeyboardKeysParent;
+
+    [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardKeysParent;
+    [BoxGroup("Setup")] public RectTransform prefabParent;
     [BoxGroup("Setup")] public List<HorizontalLayoutGroup> keyboardRows;
 
     [BoxGroup("Size")] public float gapSize;
@@ -46,11 +48,12 @@ public class UIKeyboardResizer : MonoBehaviour
                 currentRowLength += gapSize;
             }
             horizontalSizeDelta.x -= scaledGapSize;
-            horizontalSizeDelta.x += buttonSize/2;
+            horizontalSizeDelta.x += buttonSize / 2;
             rowTransform.sizeDelta = horizontalSizeDelta;
+            MarkAsDirty(rowTransform, $"Update Size Delta of {rowTransform.name}");
 
             currentRowLength -= gapSize;
-            currentRowLength += buttonSize/2;
+            currentRowLength += buttonSize / 2;
             longestRow = Mathf.Max(currentRowLength, longestRow);
 
         }
@@ -63,14 +66,20 @@ public class UIKeyboardResizer : MonoBehaviour
         };
 
         verticalGroup.sizeDelta = verticalSizeDelta;
+        prefabParent.sizeDelta = verticalSizeDelta;
+        MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
+        MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
     }
 
     private void SpaceKeyboard()
     {
         KeyboardKeysParent.spacing = gapSize / KeyboardKeysParent.transform.lossyScale.y;
+        MarkAsDirty(KeyboardKeysParent, $"Update spacing of {KeyboardKeysParent.name}");
+
         foreach (HorizontalLayoutGroup horizontalLayoutGroup in keyboardRows)
         {
             horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
+            MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
         }
     }
 
@@ -108,7 +117,14 @@ public class UIKeyboardResizer : MonoBehaviour
                     }
                 }
                 buttonTransform.sizeDelta = sizeDelta;
+                MarkAsDirty(buttonTransform, $"Update sizeDelta of {buttonTransform.name}");
             }
         }
+    }
+
+    private void MarkAsDirty(UnityEngine.Object o, string message)
+    {
+        Undo.RecordObject(o, message);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(o);
     }
 }
