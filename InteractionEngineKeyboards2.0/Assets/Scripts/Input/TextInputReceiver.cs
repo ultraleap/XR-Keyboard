@@ -7,13 +7,14 @@ using UnityEngine;
 
 public class TextInputReceiver : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshPro _textMesh;
+    [SerializeField] private TextMeshPro _textMesh;
+    [SerializeField] private TextMeshProUGUI _UITextMesh;
     private string text;
 
     private void OnEnable()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TextMeshPro>(); }
+        if (_UITextMesh == null) { _UITextMesh = GetComponentInChildren<TextMeshProUGUI>(); }
         KeyboardManager.HandleKeyDown += HandleKeyDown;
         KeyboardManager.HandleBackspaceDown += HandleBackspaceDown;
     }
@@ -28,7 +29,7 @@ public class TextInputReceiver : MonoBehaviour
     private void HandleKeyDown(string key)
     {
         text += key;
-        _textMesh.text = text + "|";
+        UpdateTextMeshText();
     }
 
     private void HandleBackspaceDown()
@@ -36,7 +37,7 @@ public class TextInputReceiver : MonoBehaviour
         if (text.Length > 0)
         {
             text = text.Substring(0, text.Length - 1);
-            _textMesh.text = text + "|";
+            UpdateTextMeshText();
         }
     }
 
@@ -44,5 +45,11 @@ public class TextInputReceiver : MonoBehaviour
     {
         text = "";
         _textMesh.text = string.Empty;
+    }
+
+    private void UpdateTextMeshText()
+    {
+        if (_textMesh != null) { _textMesh.text = text + "|"; }
+        if (_UITextMesh != null) { _UITextMesh.text = text + "|"; }
     }
 }
