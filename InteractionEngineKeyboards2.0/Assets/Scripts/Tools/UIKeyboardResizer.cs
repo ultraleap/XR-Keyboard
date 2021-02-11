@@ -35,16 +35,16 @@ public class UIKeyboardResizer : MonoBehaviour
         {
             RectTransform rowTransform = row.GetComponent<RectTransform>();
             Vector2 horizontalSizeDelta = new Vector2(0, buttonSize / rowTransform.lossyScale.y);
-            float scaledButtonSize = buttonSize / rowTransform.lossyScale.x;
             float scaledGapSize = gapSize / rowTransform.lossyScale.y;
             float currentRowLength = 0;
 
             foreach (RectTransform button in rowTransform)
             {
-                horizontalSizeDelta.x += scaledButtonSize;
+                float scaledButtonSize = button.sizeDelta.x * button.lossyScale.x;
+                horizontalSizeDelta.x += scaledButtonSize / rowTransform.lossyScale.x;
                 horizontalSizeDelta.x += scaledGapSize;
 
-                currentRowLength += buttonSize;
+                currentRowLength += scaledButtonSize;
                 currentRowLength += gapSize;
             }
             horizontalSizeDelta.x -= scaledGapSize;
@@ -53,7 +53,6 @@ public class UIKeyboardResizer : MonoBehaviour
             MarkAsDirty(rowTransform, $"Update Size Delta of {rowTransform.name}");
 
             currentRowLength -= gapSize;
-            currentRowLength += buttonSize / 2;
             longestRow = Mathf.Max(currentRowLength, longestRow);
 
         }
