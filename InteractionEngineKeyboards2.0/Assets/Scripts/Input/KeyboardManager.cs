@@ -46,7 +46,7 @@ public class KeyboardManager : MonoBehaviour
         {
             string KeyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
             KeyCodeString = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? KeyCodeString.ToUpper() : KeyCodeString.ToLower();
-            if(HandleKeyDown != null) { HandleKeyDown.Invoke(KeyCodeString);}
+            if (HandleKeyDown != null) { HandleKeyDown.Invoke(KeyCodeString); }
             if (keyboardMode == KeyboardMode.SHIFT)
             {
                 SetMode(KeyboardMode.NEUTRAL);

@@ -127,6 +127,7 @@ public static class KeyboardCollections
       {KeyCode.Alpha7, "U"},
       {KeyCode.Alpha8, "I"},
       {KeyCode.Alpha9, "O"},
+      {KeyCode.None, ""},
 
       //INACTIVE since I am using these characters else where
 

@@ -23,9 +23,9 @@ public class AddInteractionButtonSounds : MonoBehaviour
                 interactionButton.gameObject.AddComponent<AudioSource>();
             }
 
-            if (interactionButton.gameObject.GetComponent<ButtonSounds>() == null)
+            if (interactionButton.gameObject.GetComponent<InteractionButtonSounds>() == null)
             {
-                ButtonSounds bSounds = interactionButton.gameObject.AddComponent<ButtonSounds>();
+                InteractionButtonSounds bSounds = interactionButton.gameObject.AddComponent<InteractionButtonSounds>();
                 if (hoverSound != null) { bSounds.hoverSound = hoverSound; }
                 if (downSound != null) { bSounds.downSound = downSound; }
                 if (upSound != null) { bSounds.upSound = upSound; }
