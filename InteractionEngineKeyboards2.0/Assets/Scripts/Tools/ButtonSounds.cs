@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Leap.Unity;
-using Leap.Unity.Interaction;
 
 [RequireComponent(typeof(AudioSource))]
-public class ButtonSounds : MonoBehaviour
+public class ButtonSounds : MonoBehaviour, 
+                            IPointerClickHandler, 
+                            IPointerDownHandler, 
+                            IPointerEnterHandler, 
+                            IPointerExitHandler
 {
     public AudioClip hoverSound;
     public AudioClip downSound;
@@ -14,42 +16,38 @@ public class ButtonSounds : MonoBehaviour
 
     public AudioSource source;
 
-    private InteractionButton _interactionButton;
-
-    private bool hover = false;
+    private bool over = false;
+    private bool click = false;
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         if (source == null) source = GetComponent<AudioSource>();
-        _interactionButton = GetComponent<InteractionButton>();
-        _interactionButton.OnPress += OnDown;
-        _interactionButton.OnUnpress += OnUp;
     }
 
-    private void Update()
+    public void OnPointerEnter(PointerEventData data)
     {
-        if (_interactionButton.isPrimaryHovered)
+        if (hoverSound != null && !over) source.PlayOneShot(hoverSound);
+        over = true;
+    }
+
+    public void OnPointerDown(PointerEventData data)
+    {
+        if (downSound != null) source.PlayOneShot(downSound);
+    }
+
+    public void OnPointerClick(PointerEventData data)
+    {
+        if (upSound != null) source.PlayOneShot(upSound);
+        click = true;
+    }
+
+    public void OnPointerExit(PointerEventData data)
+    {
+        if (!click) 
         {
-            if (!hover)
-            {
-                hover = true;
-                if (hoverSound != null) { source.PlayOneShot(hoverSound); }
-            }
+            over = false;
         }
-        else
-        {
-            hover = false;
-        }
-    }
-
-    public void OnDown()
-    {
-        if (downSound != null) { source.PlayOneShot(downSound); }
-    }
-
-    public void OnUp()
-    {
-        if (upSound != null) { source.PlayOneShot(upSound); }
+        click = false;
     }
 }

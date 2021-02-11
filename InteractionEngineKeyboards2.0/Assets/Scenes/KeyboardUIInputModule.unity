@@ -6393,6 +6393,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 804029992}
     m_Modifications:
+    - target: {fileID: 103101829260726443, guid: 45698f45929b0d14abbd0e631e81f4ce,
+        type: 3}
+      propertyPath: upSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 409e434d2f294004794cabc31135207f, type: 3}
+    - target: {fileID: 103101829260726443, guid: 45698f45929b0d14abbd0e631e81f4ce,
+        type: 3}
+      propertyPath: downSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 950e6e66be1f197459ac2cc4676f2af2, type: 3}
     - target: {fileID: 6359572452718965487, guid: 45698f45929b0d14abbd0e631e81f4ce,
         type: 3}
       propertyPath: m_AnchorMax.y
