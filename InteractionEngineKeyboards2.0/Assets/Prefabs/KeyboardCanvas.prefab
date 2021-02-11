@@ -12951,7 +12951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NeutralKey: 109
   Symbols1Key: 63
-  Symbols2Key: 91
+  Symbols2Key: 93
 --- !u!1 &6359572454428690073
 GameObject:
   m_ObjectHideFlags: 0
@@ -15673,6 +15673,7 @@ GameObject:
   - component: {fileID: 6534220812460498482}
   - component: {fileID: 211539741186063451}
   - component: {fileID: 103101829260726443}
+  - component: {fileID: 5504066876075274882}
   m_Layer: 5
   m_Name: KeyboardKeys
   m_TagString: Untagged
@@ -15802,6 +15803,24 @@ MonoBehaviour:
   hoverSound: {fileID: 0}
   downSound: {fileID: 8300000, guid: 950e6e66be1f197459ac2cc4676f2af2, type: 3}
   upSound: {fileID: 8300000, guid: 409e434d2f294004794cabc31135207f, type: 3}
+--- !u!114 &5504066876075274882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534220812460498483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ece24c2813901468329102d20a91fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minMaxLayerFloatDistances:
+  - {x: 0, y: 0.01}
+  - {x: 0, y: 0.015}
+  ExpandSpeed: 0.2
+  ContractSpeed: 0.2
+  PushPaddingDistance: 0
 --- !u!1 &6534220813451753179
 GameObject:
   m_ObjectHideFlags: 0
