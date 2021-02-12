@@ -16,6 +16,7 @@ public class UIKeyboardResizer : MonoBehaviour
 
     [BoxGroup("Size")] public float gapSize;
     [BoxGroup("Size")] public float buttonSize;
+    [BoxGroup("Size")] public Vector2 panelPaddingRelativeToButtonSize = Vector2.zero;
 
 
     [Button]
@@ -63,10 +64,11 @@ public class UIKeyboardResizer : MonoBehaviour
             x = longestRow / verticalGroup.lossyScale.x,
             y = ((buttonSize * keyboardRows.Count) + (gapSize * (keyboardRows.Count - 1))) / verticalGroup.lossyScale.y
         };
-
         verticalGroup.sizeDelta = verticalSizeDelta;
-        prefabParent.sizeDelta = verticalSizeDelta;
         MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
+        verticalSizeDelta.x += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.x);
+        verticalSizeDelta.y += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.y);
+        prefabParent.sizeDelta = verticalSizeDelta;
         MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
     }
 
