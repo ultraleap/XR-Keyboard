@@ -13,6 +13,9 @@ public class KeyboardManager : MonoBehaviour
 
     public delegate void BackspaceDown();
     public static event BackspaceDown HandleBackspaceDown;
+    
+    public delegate void ClearTextField();
+    public static event ClearTextField HandleClearTextField;
 
     public GameObject WorldSpaceKeyboardParent;
     public GameObject CanvasSpaceKeyboardParent;
@@ -119,5 +122,9 @@ public class KeyboardManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void InvokeClearTextField(){
+        HandleClearTextField.Invoke();
     }
 }

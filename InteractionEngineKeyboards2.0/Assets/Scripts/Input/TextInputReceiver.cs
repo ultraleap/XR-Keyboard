@@ -17,6 +17,7 @@ public class TextInputReceiver : MonoBehaviour
         if (_UITextMesh == null) { _UITextMesh = GetComponentInChildren<TextMeshProUGUI>(); }
         KeyboardManager.HandleKeyDown += HandleKeyDown;
         KeyboardManager.HandleBackspaceDown += HandleBackspaceDown;
+        KeyboardManager.HandleClearTextField += HandleClearTextField;
     }
 
     private void OnDisable()
@@ -24,6 +25,7 @@ public class TextInputReceiver : MonoBehaviour
 
         KeyboardManager.HandleKeyDown -= HandleKeyDown;
         KeyboardManager.HandleBackspaceDown -= HandleBackspaceDown;
+        KeyboardManager.HandleClearTextField -= HandleClearTextField;
     }
 
     private void HandleKeyDown(string key)
@@ -41,10 +43,16 @@ public class TextInputReceiver : MonoBehaviour
         }
     }
 
+    private void HandleClearTextField()
+    {
+        Reset();
+    }
+
     public void Reset()
     {
-        text = "";
-        _textMesh.text = string.Empty;
+        text = string.Empty;
+        if (_textMesh != null) { _textMesh.text = text; }
+        if (_UITextMesh != null) { _UITextMesh.text = text; }
     }
 
     private void UpdateTextMeshText()
