@@ -67,7 +67,7 @@ public class UIKeyboardResizer : MonoBehaviour
         verticalGroup.sizeDelta = verticalSizeDelta;
         MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
         verticalSizeDelta.x += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.x);
-        verticalSizeDelta.y += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.y);
+        verticalSizeDelta.y += panelPaddingRelativeToButtonSize.y * (buttonSize / prefabParent.lossyScale.y);
         prefabParent.sizeDelta = verticalSizeDelta;
         MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
     }
