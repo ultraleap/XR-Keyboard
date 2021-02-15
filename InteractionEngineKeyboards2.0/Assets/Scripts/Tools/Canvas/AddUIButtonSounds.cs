@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AddButtonSounds : MonoBehaviour
+public class AddUIButtonSounds : MonoBehaviour
 {
     public Transform UIParent;
     public AudioClip hoverSound;
