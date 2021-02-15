@@ -6,7 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class GapSizeOutput : MonoBehaviour
 {
-    public KeyboardPositioner keyboardPositioner;
+    public InteractionButtonKeyboardResizer keyboardPositioner;
     public TextMeshPro gapSizeValues;
     // Start is called before the first frame update
     void Start()

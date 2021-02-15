@@ -3,7 +3,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System;
 
-public class KeyboardPositioner : MonoBehaviour
+public class InteractionButtonKeyboardResizer : MonoBehaviour
 {
     public List<Transform> rowTransforms;
     public Transform KeyboardParent;
