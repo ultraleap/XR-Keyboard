@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(AudioSource))]
-public class ButtonSounds : MonoBehaviour, 
+public class UIButtonSounds : MonoBehaviour, 
                             IPointerClickHandler, 
                             IPointerDownHandler, 
                             IPointerEnterHandler, 

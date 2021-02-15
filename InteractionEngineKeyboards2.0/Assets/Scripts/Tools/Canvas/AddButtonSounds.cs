@@ -21,9 +21,9 @@ public class AddButtonSounds : MonoBehaviour
                 s.gameObject.AddComponent<AudioSource>();
             }
 
-            if (s.gameObject.GetComponent<ButtonSounds>() == null)
+            if (s.gameObject.GetComponent<UIButtonSounds>() == null)
             {
-                ButtonSounds bSounds = s.gameObject.AddComponent<ButtonSounds>();
+                UIButtonSounds bSounds = s.gameObject.AddComponent<UIButtonSounds>();
                 if (hoverSound != null) { bSounds.hoverSound = hoverSound; }
                 if (downSound != null) { bSounds.downSound = downSound; }
                 if (upSound != null) { bSounds.upSound = upSound; }
