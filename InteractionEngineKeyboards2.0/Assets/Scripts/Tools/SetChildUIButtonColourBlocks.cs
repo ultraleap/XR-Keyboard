@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class SetChildColourBlocks : MonoBehaviour
+public class SetChildUIButtonColourBlocks : MonoBehaviour
 {
     public ColorBlock colorBlock;
     // Start is called before the first frame update
