@@ -159,8 +159,8 @@ GameObject:
   - component: {fileID: 2252136872070873687}
   - component: {fileID: 2252136872070873683}
   - component: {fileID: 2252136872070873682}
-  - component: {fileID: 2252136872070873681}
   - component: {fileID: 2252136872070873680}
+  - component: {fileID: 3671834134745262003}
   m_Layer: 0
   m_Name: H Key
   m_TagString: Untagged
@@ -245,25 +245,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872070873681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872070873686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872070873680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +260,25 @@ MonoBehaviour:
   NeutralKey: 104
   Symbols1Key: 45
   Symbols2Key: 0
+--- !u!114 &3671834134745262003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872070873686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872075745816
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,8 +423,8 @@ GameObject:
   - component: {fileID: 2252136872076024830}
   - component: {fileID: 2252136872076024826}
   - component: {fileID: 2252136872076024825}
-  - component: {fileID: 2252136872076024824}
   - component: {fileID: 2252136872076024831}
+  - component: {fileID: 400674656321854524}
   m_Layer: 0
   m_Name: . Key
   m_TagString: Untagged
@@ -509,25 +509,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872076024824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872076024829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872076024831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,6 +524,25 @@ MonoBehaviour:
   NeutralKey: 46
   Symbols1Key: 46
   Symbols2Key: 275
+--- !u!114 &400674656321854524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872076024829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872081791755
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,8 +554,8 @@ GameObject:
   - component: {fileID: 2252136872081791748}
   - component: {fileID: 2252136872081791744}
   - component: {fileID: 2252136872081791751}
-  - component: {fileID: 2252136872081791750}
   - component: {fileID: 2252136872081791749}
+  - component: {fileID: 4486151217077665165}
   m_Layer: 0
   m_Name: Right Symbol
   m_TagString: Untagged
@@ -640,25 +640,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872081791750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872081791755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872081791749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +655,25 @@ MonoBehaviour:
   NeutralKey: 307
   Symbols1Key: 48
   Symbols2Key: 48
+--- !u!114 &4486151217077665165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872081791755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872086969460
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,8 +951,8 @@ GameObject:
   - component: {fileID: 2252136872116417876}
   - component: {fileID: 2252136872116417872}
   - component: {fileID: 2252136872116417879}
-  - component: {fileID: 2252136872116417878}
   - component: {fileID: 2252136872116417877}
+  - component: {fileID: 7163772111470938227}
   m_Layer: 0
   m_Name: V Key
   m_TagString: Untagged
@@ -1037,25 +1037,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872116417878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872116417883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872116417877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1052,25 @@ MonoBehaviour:
   NeutralKey: 118
   Symbols1Key: 58
   Symbols2Key: 0
+--- !u!114 &7163772111470938227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872116417883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872117044203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,8 +1082,8 @@ GameObject:
   - component: {fileID: 2252136872117044196}
   - component: {fileID: 2252136872117044192}
   - component: {fileID: 2252136872117044199}
-  - component: {fileID: 2252136872117044198}
   - component: {fileID: 2252136872117044197}
+  - component: {fileID: 9134864242220020892}
   m_Layer: 0
   m_Name: D Key
   m_TagString: Untagged
@@ -1168,25 +1168,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872117044198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872117044203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872117044197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,6 +1183,25 @@ MonoBehaviour:
   NeutralKey: 100
   Symbols1Key: 49
   Symbols2Key: 0
+--- !u!114 &9134864242220020892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872117044203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872127946391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,8 +1213,8 @@ GameObject:
   - component: {fileID: 2252136872127946384}
   - component: {fileID: 2252136872127946412}
   - component: {fileID: 2252136872127946387}
-  - component: {fileID: 2252136872127946386}
   - component: {fileID: 2252136872127946385}
+  - component: {fileID: 1815175659799858976}
   m_Layer: 0
   m_Name: N Key
   m_TagString: Untagged
@@ -1299,25 +1299,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872127946386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872127946391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872127946385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1314,25 @@ MonoBehaviour:
   NeutralKey: 110
   Symbols1Key: 33
   Symbols2Key: 91
+--- !u!114 &1815175659799858976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872127946391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872138568630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,8 +1921,8 @@ GameObject:
   - component: {fileID: 2252136872270155879}
   - component: {fileID: 2252136872270155875}
   - component: {fileID: 2252136872270155874}
-  - component: {fileID: 2252136872270155873}
   - component: {fileID: 2252136872270155872}
+  - component: {fileID: 4360929910210186078}
   m_Layer: 0
   m_Name: W Key
   m_TagString: Untagged
@@ -2007,25 +2007,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872270155873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872270155878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872270155872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2041,6 +2022,25 @@ MonoBehaviour:
   NeutralKey: 119
   Symbols1Key: 258
   Symbols2Key: 96
+--- !u!114 &4360929910210186078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872270155878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872283614963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,8 +2185,8 @@ GameObject:
   - component: {fileID: 2252136872288843540}
   - component: {fileID: 2252136872288843536}
   - component: {fileID: 2252136872288843543}
-  - component: {fileID: 2252136872288843542}
   - component: {fileID: 2252136872288843541}
+  - component: {fileID: 3995948307629532891}
   m_Layer: 0
   m_Name: R Key
   m_TagString: Untagged
@@ -2271,25 +2271,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872288843542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872288843547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872288843541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2305,6 +2286,25 @@ MonoBehaviour:
   NeutralKey: 114
   Symbols1Key: 260
   Symbols2Key: 0
+--- !u!114 &3995948307629532891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872288843547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872317690993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,8 +2405,8 @@ GameObject:
   - component: {fileID: 2252136872326907929}
   - component: {fileID: 2252136872326907925}
   - component: {fileID: 2252136872326907924}
-  - component: {fileID: 2252136872326907931}
   - component: {fileID: 2252136872326907930}
+  - component: {fileID: 1264547699486541400}
   m_Layer: 0
   m_Name: Q Key
   m_TagString: Untagged
@@ -2492,25 +2492,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872326907931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872326907928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872326907930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,6 +2507,25 @@ MonoBehaviour:
   NeutralKey: 113
   Symbols1Key: 257
   Symbols2Key: 126
+--- !u!114 &1264547699486541400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872326907928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872364535500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,8 +3009,8 @@ GameObject:
   - component: {fileID: 2252136872482538332}
   - component: {fileID: 2252136872482538328}
   - component: {fileID: 2252136872482538335}
-  - component: {fileID: 2252136872482538334}
   - component: {fileID: 2252136872482538333}
+  - component: {fileID: 854152982408329479}
   m_Layer: 0
   m_Name: B Key
   m_TagString: Untagged
@@ -3095,25 +3095,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872482538334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872482538307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872482538333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3129,6 +3110,25 @@ MonoBehaviour:
   NeutralKey: 98
   Symbols1Key: 59
   Symbols2Key: 0
+--- !u!114 &854152982408329479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872482538307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872522813607
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,8 +3478,8 @@ GameObject:
   - component: {fileID: 2252136872645574884}
   - component: {fileID: 2252136872645574880}
   - component: {fileID: 2252136872645574887}
-  - component: {fileID: 2252136872645574886}
   - component: {fileID: 2252136872645574885}
+  - component: {fileID: 8842735036891086839}
   m_Layer: 0
   m_Name: Z Key
   m_TagString: Untagged
@@ -3564,25 +3564,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872645574886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872645574891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872645574885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3598,6 +3579,25 @@ MonoBehaviour:
   NeutralKey: 122
   Symbols1Key: 42
   Symbols2Key: 37
+--- !u!114 &8842735036891086839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872645574891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872658747017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,8 +4097,8 @@ GameObject:
   - component: {fileID: 2252136872707483723}
   - component: {fileID: 2252136872707483719}
   - component: {fileID: 2252136872707483718}
-  - component: {fileID: 2252136872707483717}
   - component: {fileID: 2252136872707483716}
+  - component: {fileID: 5814545495735893282}
   m_Layer: 0
   m_Name: Left Shift
   m_TagString: Untagged
@@ -4183,25 +4183,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872707483717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872707483722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872707483716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4217,6 +4198,25 @@ MonoBehaviour:
   NeutralKey: 304
   Symbols1Key: 306
   Symbols2Key: 308
+--- !u!114 &5814545495735893282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872707483722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872709880125
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,8 +5160,8 @@ GameObject:
   - component: {fileID: 2252136872842390636}
   - component: {fileID: 2252136872842390632}
   - component: {fileID: 2252136872842390639}
-  - component: {fileID: 2252136872842390638}
   - component: {fileID: 2252136872842390637}
+  - component: {fileID: 1843839620495833905}
   m_Layer: 0
   m_Name: E Key
   m_TagString: Untagged
@@ -5246,25 +5246,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872842390638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872842390611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872842390637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,6 +5261,25 @@ MonoBehaviour:
   NeutralKey: 101
   Symbols1Key: 259
   Symbols2Key: 124
+--- !u!114 &1843839620495833905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872842390611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872843075825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,8 +5602,8 @@ GameObject:
   - component: {fileID: 2252136872900171033}
   - component: {fileID: 2252136872900171029}
   - component: {fileID: 2252136872900171028}
-  - component: {fileID: 2252136872900171035}
   - component: {fileID: 2252136872900171034}
+  - component: {fileID: 6141827899155146251}
   m_Layer: 0
   m_Name: T Key
   m_TagString: Untagged
@@ -5688,25 +5688,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872900171035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872900171032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872900171034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5722,6 +5703,25 @@ MonoBehaviour:
   NeutralKey: 116
   Symbols1Key: 261
   Symbols2Key: 0
+--- !u!114 &6141827899155146251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872900171032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872920284516
 GameObject:
   m_ObjectHideFlags: 0
@@ -5733,8 +5733,8 @@ GameObject:
   - component: {fileID: 2252136872920284517}
   - component: {fileID: 2252136872920284513}
   - component: {fileID: 2252136872920284512}
-  - component: {fileID: 2252136872920284519}
   - component: {fileID: 2252136872920284518}
+  - component: {fileID: 136526974905022037}
   m_Layer: 0
   m_Name: Return
   m_TagString: Untagged
@@ -5819,25 +5819,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872920284519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872920284516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872920284518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5853,6 +5834,25 @@ MonoBehaviour:
   NeutralKey: 13
   Symbols1Key: 13
   Symbols2Key: 13
+--- !u!114 &136526974905022037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872920284516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872920615989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,8 +5953,8 @@ GameObject:
   - component: {fileID: 2252136872958810840}
   - component: {fileID: 2252136872958810836}
   - component: {fileID: 2252136872958810843}
-  - component: {fileID: 2252136872958810842}
   - component: {fileID: 2252136872958810841}
+  - component: {fileID: 1311398517182540734}
   m_Layer: 0
   m_Name: A Key
   m_TagString: Untagged
@@ -6039,25 +6039,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136872958810842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136872958810847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136872958810841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6073,6 +6054,25 @@ MonoBehaviour:
   NeutralKey: 97
   Symbols1Key: 64
   Symbols2Key: 0
+--- !u!114 &1311398517182540734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136872958810847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136872963763546
 GameObject:
   m_ObjectHideFlags: 0
@@ -6705,8 +6705,8 @@ GameObject:
   - component: {fileID: 2252136873050338419}
   - component: {fileID: 2252136873050338447}
   - component: {fileID: 2252136873050338446}
-  - component: {fileID: 2252136873050338445}
   - component: {fileID: 2252136873050338444}
+  - component: {fileID: 8555408084122349670}
   m_Layer: 0
   m_Name: L Key
   m_TagString: Untagged
@@ -6791,25 +6791,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873050338445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873050338418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873050338444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6825,6 +6806,25 @@ MonoBehaviour:
   NeutralKey: 108
   Symbols1Key: 41
   Symbols2Key: 125
+--- !u!114 &8555408084122349670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873050338418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873053918555
 GameObject:
   m_ObjectHideFlags: 0
@@ -7157,8 +7157,8 @@ GameObject:
   - component: {fileID: 2252136873135788640}
   - component: {fileID: 2252136873135788668}
   - component: {fileID: 2252136873135788643}
-  - component: {fileID: 2252136873135788642}
   - component: {fileID: 2252136873135788641}
+  - component: {fileID: 4335206482424150157}
   m_Layer: 0
   m_Name: F Key
   m_TagString: Untagged
@@ -7243,25 +7243,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873135788642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873135788647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873135788641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,6 +7258,25 @@ MonoBehaviour:
   NeutralKey: 102
   Symbols1Key: 95
   Symbols2Key: 0
+--- !u!114 &4335206482424150157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873135788647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873162995742
 GameObject:
   m_ObjectHideFlags: 0
@@ -7411,11 +7411,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4471e3af122f92641913f62c5405efbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.3915094, g: 1, b: 0.73588926, a: 1}
-  pressedColor: {r: 0.59244794, g: 0.36765754, b: 0.9622642, a: 1}
+  TextColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  defaultColor: {r: 0.8745099, g: 0.9725491, b: 0.9294118, a: 1}
+  suspendedColor: {r: 0.3679245, g: 0.02603239, b: 0.02603239, a: 0.53333336}
+  hoverColor: {r: 0.740566, g: 1, b: 0.88584906, a: 1}
+  primaryHoverColor: {r: 0.5254902, g: 1, b: 0.79215693, a: 1}
+  UseHover: 1
+  UsePrimaryHover: 1
+  pressedColor: {r: 0.08018869, g: 1, b: 0.5971075, a: 1}
 --- !u!114 &2252136873162995737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7450,8 +7453,8 @@ GameObject:
   - component: {fileID: 2252136873180946778}
   - component: {fileID: 2252136873180946774}
   - component: {fileID: 2252136873180946773}
-  - component: {fileID: 2252136873180946772}
   - component: {fileID: 2252136873180946779}
+  - component: {fileID: 7282163708431306861}
   m_Layer: 0
   m_Name: Backspace
   m_TagString: Untagged
@@ -7536,25 +7539,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873180946772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873180946777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873180946779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7570,6 +7554,25 @@ MonoBehaviour:
   NeutralKey: 8
   Symbols1Key: 8
   Symbols2Key: 8
+--- !u!114 &7282163708431306861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873180946777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873183332804
 GameObject:
   m_ObjectHideFlags: 0
@@ -7803,8 +7806,8 @@ GameObject:
   - component: {fileID: 2252136873206862811}
   - component: {fileID: 2252136873206862807}
   - component: {fileID: 2252136873206862806}
-  - component: {fileID: 2252136873206862805}
   - component: {fileID: 2252136873206862804}
+  - component: {fileID: 7140154704176809512}
   m_Layer: 0
   m_Name: I Key
   m_TagString: Untagged
@@ -7889,25 +7892,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873206862805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873206862810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873206862804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7923,6 +7907,25 @@ MonoBehaviour:
   NeutralKey: 105
   Symbols1Key: 264
   Symbols2Key: 0
+--- !u!114 &7140154704176809512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873206862810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873211051869
 GameObject:
   m_ObjectHideFlags: 0
@@ -8290,8 +8293,8 @@ GameObject:
   - component: {fileID: 2252136873279044860}
   - component: {fileID: 2252136873279044856}
   - component: {fileID: 2252136873279044863}
-  - component: {fileID: 2252136873279044862}
   - component: {fileID: 2252136873279044861}
+  - component: {fileID: 5276034089320486206}
   m_Layer: 0
   m_Name: S Key
   m_TagString: Untagged
@@ -8376,25 +8379,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873279044862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873279044835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873279044861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8410,6 +8394,25 @@ MonoBehaviour:
   NeutralKey: 115
   Symbols1Key: 35
   Symbols2Key: 0
+--- !u!114 &5276034089320486206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873279044835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873316009507
 GameObject:
   m_ObjectHideFlags: 0
@@ -8493,8 +8496,8 @@ GameObject:
   - component: {fileID: 2252136873369667533}
   - component: {fileID: 2252136873369667529}
   - component: {fileID: 2252136873369667528}
-  - component: {fileID: 2252136873369667535}
   - component: {fileID: 2252136873369667534}
+  - component: {fileID: 5696714994845187769}
   m_Layer: 0
   m_Name: Right Shift
   m_TagString: Untagged
@@ -8579,25 +8582,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873369667535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873369667532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873369667534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8613,6 +8597,25 @@ MonoBehaviour:
   NeutralKey: 303
   Symbols1Key: 305
   Symbols2Key: 307
+--- !u!114 &5696714994845187769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873369667532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873377857088
 GameObject:
   m_ObjectHideFlags: 0
@@ -9281,8 +9284,8 @@ GameObject:
   - component: {fileID: 2252136873464907494}
   - component: {fileID: 2252136873464907490}
   - component: {fileID: 2252136873464907489}
-  - component: {fileID: 2252136873464907488}
   - component: {fileID: 2252136873464907495}
+  - component: {fileID: 1723924928751122791}
   m_Layer: 0
   m_Name: K Key
   m_TagString: Untagged
@@ -9367,25 +9370,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873464907488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873464907493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873464907495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9401,6 +9385,25 @@ MonoBehaviour:
   NeutralKey: 107
   Symbols1Key: 40
   Symbols2Key: 123
+--- !u!114 &1723924928751122791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873464907493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873483998175
 GameObject:
   m_ObjectHideFlags: 0
@@ -9412,8 +9415,8 @@ GameObject:
   - component: {fileID: 2252136873483998168}
   - component: {fileID: 2252136873483998164}
   - component: {fileID: 2252136873483998171}
-  - component: {fileID: 2252136873483998170}
   - component: {fileID: 2252136873483998169}
+  - component: {fileID: 1678070765711427230}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -9498,25 +9501,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873483998170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873483998175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873483998169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9532,6 +9516,25 @@ MonoBehaviour:
   NeutralKey: 32
   Symbols1Key: 32
   Symbols2Key: 32
+--- !u!114 &1678070765711427230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873483998175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873502346635
 GameObject:
   m_ObjectHideFlags: 0
@@ -10432,8 +10435,8 @@ GameObject:
   - component: {fileID: 2252136873733468090}
   - component: {fileID: 2252136873733468086}
   - component: {fileID: 2252136873733468085}
-  - component: {fileID: 2252136873733468084}
   - component: {fileID: 2252136873733468091}
+  - component: {fileID: 8703478730840431523}
   m_Layer: 0
   m_Name: C Key
   m_TagString: Untagged
@@ -10518,25 +10521,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873733468084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873733468089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873733468091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10552,6 +10536,25 @@ MonoBehaviour:
   NeutralKey: 99
   Symbols1Key: 39
   Symbols2Key: 0
+--- !u!114 &8703478730840431523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873733468089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873791627111
 GameObject:
   m_ObjectHideFlags: 0
@@ -10563,8 +10566,8 @@ GameObject:
   - component: {fileID: 2252136873791627104}
   - component: {fileID: 2252136873791627132}
   - component: {fileID: 2252136873791627107}
-  - component: {fileID: 2252136873791627106}
   - component: {fileID: 2252136873791627105}
+  - component: {fileID: 1486027149993117485}
   m_Layer: 0
   m_Name: ', Key'
   m_TagString: Untagged
@@ -10649,25 +10652,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873791627106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873791627111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873791627105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10683,6 +10667,25 @@ MonoBehaviour:
   NeutralKey: 44
   Symbols1Key: 44
   Symbols2Key: 276
+--- !u!114 &1486027149993117485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873791627111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873797620949
 GameObject:
   m_ObjectHideFlags: 0
@@ -10694,8 +10697,8 @@ GameObject:
   - component: {fileID: 2252136873797620950}
   - component: {fileID: 2252136873797620946}
   - component: {fileID: 2252136873797620945}
-  - component: {fileID: 2252136873797620944}
   - component: {fileID: 2252136873797620951}
+  - component: {fileID: 7906160672835647651}
   m_Layer: 0
   m_Name: O Key
   m_TagString: Untagged
@@ -10780,25 +10783,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873797620944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873797620949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873797620951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10814,6 +10798,25 @@ MonoBehaviour:
   NeutralKey: 111
   Symbols1Key: 265
   Symbols2Key: 0
+--- !u!114 &7906160672835647651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873797620949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873801668534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11003,8 +11006,8 @@ GameObject:
   - component: {fileID: 2252136873833550454}
   - component: {fileID: 2252136873833550450}
   - component: {fileID: 2252136873833550449}
-  - component: {fileID: 2252136873833550448}
   - component: {fileID: 2252136873833550455}
+  - component: {fileID: 7851980018632345410}
   m_Layer: 0
   m_Name: Y Key
   m_TagString: Untagged
@@ -11089,25 +11092,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873833550448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873833550453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873833550455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11123,6 +11107,25 @@ MonoBehaviour:
   NeutralKey: 121
   Symbols1Key: 262
   Symbols2Key: 0
+--- !u!114 &7851980018632345410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873833550453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873836495235
 GameObject:
   m_ObjectHideFlags: 0
@@ -11134,8 +11137,8 @@ GameObject:
   - component: {fileID: 2252136873836495260}
   - component: {fileID: 2252136873836495256}
   - component: {fileID: 2252136873836495263}
-  - component: {fileID: 2252136873836495262}
   - component: {fileID: 2252136873836495261}
+  - component: {fileID: 7509611890450226682}
   m_Layer: 0
   m_Name: M Key
   m_TagString: Untagged
@@ -11220,25 +11223,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873836495262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873836495235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873836495261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11254,6 +11238,25 @@ MonoBehaviour:
   NeutralKey: 109
   Symbols1Key: 63
   Symbols2Key: 93
+--- !u!114 &7509611890450226682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873836495235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873846297632
 GameObject:
   m_ObjectHideFlags: 0
@@ -11398,8 +11401,8 @@ GameObject:
   - component: {fileID: 2252136873859563699}
   - component: {fileID: 2252136873859563727}
   - component: {fileID: 2252136873859563726}
-  - component: {fileID: 2252136873859563725}
   - component: {fileID: 2252136873859563724}
+  - component: {fileID: 2102148968057272978}
   m_Layer: 0
   m_Name: P Key
   m_TagString: Untagged
@@ -11484,25 +11487,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873859563725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873859563698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873859563724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11518,6 +11502,25 @@ MonoBehaviour:
   NeutralKey: 112
   Symbols1Key: 256
   Symbols2Key: 0
+--- !u!114 &2102148968057272978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873859563698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873885337605
 GameObject:
   m_ObjectHideFlags: 0
@@ -11662,8 +11665,8 @@ GameObject:
   - component: {fileID: 2252136873910693504}
   - component: {fileID: 2252136873910693532}
   - component: {fileID: 2252136873910693507}
-  - component: {fileID: 2252136873910693506}
   - component: {fileID: 2252136873910693505}
+  - component: {fileID: 633212752266974141}
   m_Layer: 0
   m_Name: Left Symbol
   m_TagString: Untagged
@@ -11748,25 +11751,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873910693506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873910693511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873910693505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11782,6 +11766,25 @@ MonoBehaviour:
   NeutralKey: 308
   Symbols1Key: 48
   Symbols2Key: 48
+--- !u!114 &633212752266974141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873910693511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136873975466249
 GameObject:
   m_ObjectHideFlags: 0
@@ -11793,8 +11796,8 @@ GameObject:
   - component: {fileID: 2252136873975466250}
   - component: {fileID: 2252136873975466246}
   - component: {fileID: 2252136873975466245}
-  - component: {fileID: 2252136873975466244}
   - component: {fileID: 2252136873975466251}
+  - component: {fileID: 9132907732386846126}
   m_Layer: 0
   m_Name: G Key
   m_TagString: Untagged
@@ -11879,25 +11882,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136873975466244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136873975466249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136873975466251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11913,6 +11897,25 @@ MonoBehaviour:
   NeutralKey: 103
   Symbols1Key: 38
   Symbols2Key: 273
+--- !u!114 &9132907732386846126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136873975466249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136874003430402
 GameObject:
   m_ObjectHideFlags: 0
@@ -12057,8 +12060,8 @@ GameObject:
   - component: {fileID: 2252136874004340609}
   - component: {fileID: 2252136874004340637}
   - component: {fileID: 2252136874004340636}
-  - component: {fileID: 2252136874004340611}
   - component: {fileID: 2252136874004340610}
+  - component: {fileID: 8162858871086439431}
   m_Layer: 0
   m_Name: J Key
   m_TagString: Untagged
@@ -12143,25 +12146,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136874004340611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136874004340608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136874004340610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12177,6 +12161,25 @@ MonoBehaviour:
   NeutralKey: 106
   Symbols1Key: 43
   Symbols2Key: 61
+--- !u!114 &8162858871086439431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136874004340608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136874012740119
 GameObject:
   m_ObjectHideFlags: 0
@@ -12321,8 +12324,8 @@ GameObject:
   - component: {fileID: 2252136874034039529}
   - component: {fileID: 2252136874034039525}
   - component: {fileID: 2252136874034039524}
-  - component: {fileID: 2252136874034039531}
   - component: {fileID: 2252136874034039530}
+  - component: {fileID: 1725775612877805175}
   m_Layer: 0
   m_Name: X Key
   m_TagString: Untagged
@@ -12407,25 +12410,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136874034039531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136874034039528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136874034039530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12441,6 +12425,25 @@ MonoBehaviour:
   NeutralKey: 120
   Symbols1Key: 34
   Symbols2Key: 0
+--- !u!114 &1725775612877805175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136874034039528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 0
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2252136874035168226
 GameObject:
   m_ObjectHideFlags: 0
@@ -12896,8 +12899,8 @@ GameObject:
   - component: {fileID: 2252136874111611337}
   - component: {fileID: 2252136874111611333}
   - component: {fileID: 2252136874111611332}
-  - component: {fileID: 2252136874111611339}
   - component: {fileID: 2252136874111611338}
+  - component: {fileID: 449381099718746824}
   m_Layer: 0
   m_Name: U Key
   m_TagString: Untagged
@@ -12982,25 +12985,6 @@ MonoBehaviour:
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2252136874111611339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2252136874111611336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b02e2f8ae628ac4f9faca951fe12db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useHover: 0
-  usePrimaryHover: 1
-  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
-  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
-  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2252136874111611338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13016,6 +13000,25 @@ MonoBehaviour:
   NeutralKey: 117
   Symbols1Key: 263
   Symbols2Key: 0
+--- !u!114 &449381099718746824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2252136874111611336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b695ec1683231f44b17b58df7abf418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHover: 1
+  usePrimaryHover: 1
+  defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+  hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6660563387067394477
 GameObject:
   m_ObjectHideFlags: 0
@@ -13031,7 +13034,7 @@ GameObject:
   - component: {fileID: 6879298221027245505}
   - component: {fileID: 7606910824011560189}
   m_Layer: 5
-  m_Name: UIInteractionEngineKeyboard
+  m_Name: InteractionEngineUIKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13055,7 +13058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.162}
+  m_AnchoredPosition: {x: 0, y: 1.1619873}
   m_SizeDelta: {x: 4250, y: 1649.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6878368586701356651
