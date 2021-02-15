@@ -4367,7 +4367,7 @@ MonoBehaviour:
   _OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 869361360}
         m_MethodName: InvokeClearTextField
         m_Mode: 1
         m_Arguments:
@@ -5268,6 +5268,41 @@ PrefabInstance:
       propertyPath: KeyboardParents.Array.data[0]
       value: 
       objectReference: {fileID: 933435360}
+    - target: {fileID: 4514809112177821657, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 42.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514809112177821657, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 0.070567176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514809112177821659, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 14.822163
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514809112177821659, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.8190775
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514809112177821659, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514809112177821659, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514809112177821659, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.192
+      objectReference: {fileID: 0}
     - target: {fileID: 8612335035192461323, guid: 5cc39b90c0dcc3f4b816c3491cb9b1f9,
         type: 3}
       propertyPath: m_RootOrder
