@@ -516,7 +516,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530737085
 GameObject:
@@ -2170,7 +2170,7 @@ Transform:
   - {fileID: 1268593686}
   - {fileID: 131311308}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
 --- !u!1001 &875644669
 PrefabInstance:
@@ -2976,8 +2976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23215a3e219502488ce8593f2a9d8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldSpaceKeyboardParent: {fileID: 0}
-  CanvasSpaceKeyboardParent: {fileID: 211539741186063450}
+  KeyboardParents:
+  - {fileID: 6359572452924318314}
 --- !u!4 &1288383131
 Transform:
   m_ObjectHideFlags: 0
@@ -2990,7 +2990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308298990
 GameObject:
@@ -5427,12 +5427,6 @@ MonoBehaviour:
   pinkyTip: {fileID: 0}
   _chirality: 1
   _isTracked: 1
---- !u!1 &211539741186063450 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6534220812460498483, guid: 45698f45929b0d14abbd0e631e81f4ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 6359572452924318313}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6359572452924318313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6372,3 +6366,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45698f45929b0d14abbd0e631e81f4ce, type: 3}
+--- !u!1 &6359572452924318314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6534220811175166681, guid: 45698f45929b0d14abbd0e631e81f4ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6359572452924318313}
+  m_PrefabAsset: {fileID: 0}
