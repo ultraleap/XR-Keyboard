@@ -13,12 +13,11 @@ public class KeyboardManager : MonoBehaviour
 
     public delegate void BackspaceDown();
     public static event BackspaceDown HandleBackspaceDown;
-    
+
     public delegate void ClearTextField();
     public static event ClearTextField HandleClearTextField;
 
-    public GameObject WorldSpaceKeyboardParent;
-    public GameObject CanvasSpaceKeyboardParent;
+    public List<GameObject> KeyboardParents;
     private KeyboardMode keyboardMode;
 
     private void Awake()
@@ -93,38 +92,40 @@ public class KeyboardManager : MonoBehaviour
     private void SetMode(KeyboardMode _keyboardMode)
     {
 
-        if (WorldSpaceKeyboardParent != null && WorldSpaceKeyboardParent.activeInHierarchy) { UpdateTextInputButtons(_keyboardMode, WorldSpaceKeyboardParent); }
-        if (CanvasSpaceKeyboardParent != null && CanvasSpaceKeyboardParent.activeInHierarchy) { UpdateTextInputButtons(_keyboardMode, CanvasSpaceKeyboardParent); }
-
+        if (KeyboardParents != null & KeyboardParents.Count != 0) { UpdateTextInputButtons(_keyboardMode, KeyboardParents); }
         keyboardMode = _keyboardMode;
     }
 
-    private void UpdateTextInputButtons(KeyboardMode _keyboardMode, GameObject buttonParent)
+    private void UpdateTextInputButtons(KeyboardMode _keyboardMode, List<GameObject> _keyboardParents)
     {
-        List<TextInputButton> textInputButtons = buttonParent.GetComponentsInChildren<TextInputButton>().ToList();
-
-        foreach (TextInputButton inputButton in textInputButtons)
+        foreach (GameObject keyboardParent in _keyboardParents)
         {
-            switch (_keyboardMode)
+            List<TextInputButton> textInputButtons = keyboardParent.GetComponentsInChildren<TextInputButton>().ToList();
+
+            foreach (TextInputButton inputButton in textInputButtons)
             {
-                case KeyboardMode.NEUTRAL:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
-                    break;
-                case KeyboardMode.SHIFT:
-                case KeyboardMode.CAPS:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
-                    break;
-                case KeyboardMode.SYMBOLS_1:
-                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
-                    break;
-                case KeyboardMode.SYMBOLS_2:
-                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
-                    break;
+                switch (_keyboardMode)
+                {
+                    case KeyboardMode.NEUTRAL:
+                        inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                        break;
+                    case KeyboardMode.SHIFT:
+                    case KeyboardMode.CAPS:
+                        inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                        break;
+                    case KeyboardMode.SYMBOLS_1:
+                        inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
+                        break;
+                    case KeyboardMode.SYMBOLS_2:
+                        inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
+                        break;
+                }
             }
         }
     }
 
-    public void InvokeClearTextField(){
+    public void InvokeClearTextField()
+    {
         HandleClearTextField.Invoke();
     }
 }

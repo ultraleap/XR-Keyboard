@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Leap.Unity.Interaction;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
@@ -17,16 +18,19 @@ public class UIKeyboardResizer : MonoBehaviour
     [BoxGroup("Size")] public float gapSize;
     [BoxGroup("Size")] public float buttonSize;
     [BoxGroup("Size")] public Vector2 panelPaddingRelativeToButtonSize = Vector2.zero;
+    [BoxGroup("Size")] public float colliderDepth = 0.01f;
+
 
 
     [Button]
     private void ResizeKeyboard()
     {
+        SetLayoutGroupsActive(true);
         SpaceKeyboard();
         SizeButtons();
         SizePanel();
-
-
+        ResizeColliders();
+        StartCoroutine(SetLayoutGroupsActiveAfterNSeconds(false, 0.1f));
     }
 
     private void SizePanel()
@@ -127,5 +131,34 @@ public class UIKeyboardResizer : MonoBehaviour
     {
         Undo.RecordObject(o, message);
         PrefabUtility.RecordPrefabInstancePropertyModifications(o);
+    }
+
+    private void ResizeColliders()
+    {
+        List<BoxCollider> boxColliders = prefabParent.GetComponentsInChildren<BoxCollider>().ToList();
+        foreach (BoxCollider boxCollider in boxColliders)
+        {
+            RectTransform rectTransform = boxCollider.GetComponent<RectTransform>();
+            boxCollider.size = new Vector3()
+            {
+                x = rectTransform.rect.width,
+                y = rectTransform.rect.height,
+                z = colliderDepth,
+            };
+        }
+    }
+
+    private void SetLayoutGroupsActive(bool _layoutGroupsActive)
+    {
+        List<InteractionButton> interactionButtons = prefabParent.GetComponentsInChildren<InteractionButton>().ToList();
+        interactionButtons.ForEach(ib => ib.enabled = !_layoutGroupsActive);
+        keyboardRows.ForEach(row => row.enabled = _layoutGroupsActive);
+        KeyboardKeysParent.enabled = _layoutGroupsActive;
+    }
+
+    private IEnumerator SetLayoutGroupsActiveAfterNSeconds(bool _layoutGroupsActive, float _duration)
+    {
+        yield return new WaitForSeconds(_duration);
+        SetLayoutGroupsActive(_layoutGroupsActive);
     }
 }

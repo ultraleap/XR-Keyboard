@@ -2227,6 +2227,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11484536, guid: 8b10486b9212d9f4badcf6c992af0a47, type: 3}
+      propertyPath: ShowAdvancedOptions
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484536, guid: 8b10486b9212d9f4badcf6c992af0a47, type: 3}
+      propertyPath: ShowExperimentalOptions
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b10486b9212d9f4badcf6c992af0a47, type: 3}
 --- !u!1 &877571322
@@ -5432,6 +5440,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 804029992}
     m_Modifications:
+    - target: {fileID: 211539741186063451, guid: 45698f45929b0d14abbd0e631e81f4ce,
+        type: 3}
+      propertyPath: panelPaddingRelativeToButtonSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 211539741186063451, guid: 45698f45929b0d14abbd0e631e81f4ce,
+        type: 3}
+      propertyPath: panelPaddingRelativeToButtonSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5504066876075274882, guid: 45698f45929b0d14abbd0e631e81f4ce,
         type: 3}
       propertyPath: minMaxLayerFloatDistances.Array.data[1].y
