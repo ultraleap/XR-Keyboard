@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Leap.Unity;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 
@@ -22,6 +23,12 @@ public class SetSimpleInteractionGlowColoursInChildren : MonoBehaviour
     public Color pressedColor = Color.white;
     // Start is called before the first frame update
     void Start()
+    {
+        SetColours();
+    }
+
+    [Button]
+    private void SetColours()
     {
         SimpleInteractionGlow[] simpleInteractionGlows = transform.GetComponentsInChildren<SimpleInteractionGlow>(true);
         foreach (SimpleInteractionGlow simpleInteractionGlow in simpleInteractionGlows)

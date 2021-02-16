@@ -7843,7 +7843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RETURN
+  m_text: return
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7870,7 +7870,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144.5
+  m_fontSize: 228.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15565,7 +15565,7 @@ GameObject:
   - component: {fileID: 6465209052491044533}
   - component: {fileID: 8020921102053678985}
   m_Layer: 5
-  m_Name: KeyboardCanvas
+  m_Name: UIInputModuleKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15780,15 +15780,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyboardKeysParent: {fileID: 6534220812460498485}
+  KeyboardShadowsParent: {fileID: 0}
   prefabParent: {fileID: 6464482303137699539}
   keyboardRows:
   - {fileID: 6359572453618470146}
   - {fileID: 6359572454474761572}
   - {fileID: 6359572452727738511}
   - {fileID: 6359572453894731906}
+  keyboardRowShadows: []
   gapSize: 0.005
   buttonSize: 0.03
   panelPaddingRelativeToButtonSize: {x: 1, y: 1}
+  colliderDepth: 0.01
 --- !u!114 &103101829260726443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15819,7 +15822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMaxLayerFloatDistances:
   - {x: 0, y: 0.01}
-  - {x: 0, y: 0.015}
+  - {x: 0, y: 0.01}
   ExpandSpeed: 0.2
   ContractSpeed: 0.2
   PushPaddingDistance: 0

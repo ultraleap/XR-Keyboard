@@ -5130,10 +5130,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4471e3af122f92641913f62c5405efbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   defaultColor: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 1}
   suspendedColor: {r: 1, g: 0, b: 0, a: 1}
   hoverColor: {r: 0, g: 0.9215687, b: 0.52156866, a: 1}
   primaryHoverColor: {r: 0, g: 0.9215687, b: 0.52156866, a: 1}
+  UseHover: 0
+  UsePrimaryHover: 1
   pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2046369497
 MonoBehaviour:
