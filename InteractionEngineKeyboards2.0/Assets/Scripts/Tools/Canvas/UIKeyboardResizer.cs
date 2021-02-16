@@ -22,21 +22,24 @@ public class UIKeyboardResizer : MonoBehaviour
     [BoxGroup("Size")] public Vector2 panelPaddingRelativeToButtonSize = Vector2.zero;
     [BoxGroup("Size")] public float colliderDepth = 0.01f;
 
-    private void Awake() {
-        if(KeyboardKeysParent.GetComponentsInChildren<InteractionButton>().Length > 0){
-            KeyboardKeysParent.enabled = false;
-            keyboardRows.ForEach(kr => kr.enabled = false);
-        }
-    }
-
-
     [Button]
     private void ResizeKeyboard()
     {
+        EnableLayoutGroups(true);
         SpaceKeyboard();
         SizeButtons();
         SizePanel();
         ResizeColliders();
+    }
+
+    [Button]
+    private void DisableLayoutGroups(){
+        EnableLayoutGroups(false);
+    }
+
+    private void EnableLayoutGroups(bool _enable){
+            KeyboardKeysParent.enabled = _enable;
+            keyboardRows.ForEach(kr => kr.enabled = _enable);
     }
 
     private void SizePanel()
@@ -73,7 +76,7 @@ public class UIKeyboardResizer : MonoBehaviour
             }
             currentRowLength -= gapSize;
             longestRow = Mathf.Max(currentRowLength, longestRow);
-
+            Leap.Finger finger;
         }
 
         RectTransform verticalGroup = KeyboardKeysParent.GetComponent<RectTransform>();

@@ -62,7 +62,7 @@ public class TextInputButton : MonoBehaviour
         switch (keyCode)
         {
             case KeyCode.Return:
-                keyCodeText = "RETURN";
+                keyCodeText = "return";
                 break;
             case KeyCode.LeftShift:
             case KeyCode.RightShift:
