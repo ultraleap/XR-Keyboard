@@ -33,13 +33,15 @@ public class UIKeyboardResizer : MonoBehaviour
     }
 
     [Button]
-    private void DisableLayoutGroups(){
+    private void DisableLayoutGroups()
+    {
         EnableLayoutGroups(false);
     }
 
-    private void EnableLayoutGroups(bool _enable){
-            KeyboardKeysParent.enabled = _enable;
-            keyboardRows.ForEach(kr => kr.enabled = _enable);
+    private void EnableLayoutGroups(bool _enable)
+    {
+        KeyboardKeysParent.enabled = _enable;
+        keyboardRows.ForEach(kr => kr.enabled = _enable);
     }
 
     private void SizePanel()
@@ -48,7 +50,7 @@ public class UIKeyboardResizer : MonoBehaviour
         for (int i = 0; i < keyboardRows.Count; i++)
         {
             HorizontalLayoutGroup row = keyboardRows[i];
-            HorizontalLayoutGroup shadowRow = keyboardRowShadows[i];
+            HorizontalLayoutGroup shadowRow = keyboardRowShadows.Count == 0 ? null : keyboardRowShadows[i];
 
             RectTransform rowTransform = row.GetComponent<RectTransform>();
             Vector2 horizontalSizeDelta = new Vector2(0, buttonSize / rowTransform.lossyScale.y);
