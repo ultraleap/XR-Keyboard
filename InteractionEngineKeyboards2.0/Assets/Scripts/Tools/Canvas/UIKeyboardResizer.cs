@@ -25,23 +25,10 @@ public class UIKeyboardResizer : MonoBehaviour
     [Button]
     private void ResizeKeyboard()
     {
-        EnableLayoutGroups(true);
         SpaceKeyboard();
         SizeButtons();
         SizePanel();
         ResizeColliders();
-    }
-
-    [Button]
-    private void DisableLayoutGroups()
-    {
-        EnableLayoutGroups(false);
-    }
-
-    private void EnableLayoutGroups(bool _enable)
-    {
-        KeyboardKeysParent.enabled = _enable;
-        keyboardRows.ForEach(kr => kr.enabled = _enable);
     }
 
     private void SizePanel()
