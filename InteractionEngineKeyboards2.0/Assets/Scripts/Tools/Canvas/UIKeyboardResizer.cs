@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Leap.Unity.Interaction;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
@@ -31,64 +28,8 @@ public class UIKeyboardResizer : MonoBehaviour
         ResizeColliders();
     }
 
-    private void SizePanel()
-    {
-        float longestRow = 0;
-        for (int i = 0; i < keyboardRows.Count; i++)
-        {
-            HorizontalLayoutGroup row = keyboardRows[i];
-            HorizontalLayoutGroup shadowRow = keyboardRowShadows.Count == 0 ? null : keyboardRowShadows[i];
 
-            RectTransform rowTransform = row.GetComponent<RectTransform>();
-            Vector2 horizontalSizeDelta = new Vector2(0, buttonSize / rowTransform.lossyScale.y);
-            float scaledGapSize = gapSize / rowTransform.lossyScale.y;
-            float currentRowLength = 0;
-
-            foreach (RectTransform button in rowTransform)
-            {
-                float scaledButtonSize = button.sizeDelta.x * button.lossyScale.x;
-                horizontalSizeDelta.x += scaledButtonSize / rowTransform.lossyScale.x;
-                horizontalSizeDelta.x += scaledGapSize;
-
-                currentRowLength += scaledButtonSize;
-                currentRowLength += gapSize;
-            }
-            horizontalSizeDelta.x -= scaledGapSize;
-            horizontalSizeDelta.x += buttonSize / 2;
-            rowTransform.sizeDelta = horizontalSizeDelta;
-            MarkAsDirty(rowTransform, $"Update Size Delta of {rowTransform.name}");
-
-            if (shadowRow != null)
-            {
-                shadowRow.GetComponent<RectTransform>().sizeDelta = horizontalSizeDelta;
-                MarkAsDirty(shadowRow, $"Update Size Delta of {shadowRow.name}");
-            }
-            currentRowLength -= gapSize;
-            longestRow = Mathf.Max(currentRowLength, longestRow);
-            Leap.Finger finger;
-        }
-
-        RectTransform verticalGroup = KeyboardKeysParent.GetComponent<RectTransform>();
-        Vector2 verticalSizeDelta = new Vector2()
-        {
-            x = longestRow / verticalGroup.lossyScale.x,
-            y = ((buttonSize * keyboardRows.Count) + (gapSize * (keyboardRows.Count - 1))) / verticalGroup.lossyScale.y
-        };
-        verticalGroup.sizeDelta = verticalSizeDelta;
-        MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
-
-        if (KeyboardShadowsParent != null)
-        {
-            KeyboardShadowsParent.GetComponent<RectTransform>().sizeDelta = verticalSizeDelta;
-            MarkAsDirty(KeyboardShadowsParent, $"Update Size Delta of {KeyboardShadowsParent.name}");
-        }
-
-        verticalSizeDelta.x += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.x);
-        verticalSizeDelta.y += panelPaddingRelativeToButtonSize.y * (buttonSize / prefabParent.lossyScale.y);
-        prefabParent.sizeDelta = verticalSizeDelta;
-        MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
-    }
-
+    //Loop through each horizontal/vertical layout group & set the spacing to be correct 
     private void SpaceKeyboard()
     {
         KeyboardKeysParent.spacing = gapSize / KeyboardKeysParent.transform.lossyScale.y;
@@ -115,6 +56,8 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
+
+    // Loop through each button setting their sizeDelta
     private void SizeButtons()
     {
         for (int i = 0; i < keyboardRows.Count; i++)
@@ -163,10 +106,66 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
-    private void MarkAsDirty(UnityEngine.Object o, string message)
+
+
+    // loop through each horizontal layout group & set its sizeDelta to be equal to the size of the buttons & gaps inside of it
+    // Set the vertical layout group to be equal to the size of its layout groups
+    // Set the size of the panel to be equal to the vertical layout group + padding 
+    private void SizePanel()
     {
-        Undo.RecordObject(o, message);
-        PrefabUtility.RecordPrefabInstancePropertyModifications(o);
+        float longestRow = 0;
+        for (int i = 0; i < keyboardRows.Count; i++)
+        {
+            HorizontalLayoutGroup row = keyboardRows[i];
+            HorizontalLayoutGroup shadowRow = keyboardRowShadows.Count == 0 ? null : keyboardRowShadows[i];
+
+            RectTransform rowTransform = row.GetComponent<RectTransform>();
+            Vector2 horizontalSizeDelta = new Vector2(0, buttonSize / rowTransform.lossyScale.y);
+            float scaledGapSize = gapSize / rowTransform.lossyScale.y;
+            float currentRowLength = 0;
+
+            foreach (RectTransform button in rowTransform)
+            {
+                float scaledButtonSize = button.sizeDelta.x * button.lossyScale.x;
+                horizontalSizeDelta.x += scaledButtonSize / rowTransform.lossyScale.x;
+                horizontalSizeDelta.x += scaledGapSize;
+
+                currentRowLength += scaledButtonSize;
+                currentRowLength += gapSize;
+            }
+            horizontalSizeDelta.x -= scaledGapSize;
+            horizontalSizeDelta.x += buttonSize / 2;
+            rowTransform.sizeDelta = horizontalSizeDelta;
+            MarkAsDirty(rowTransform, $"Update Size Delta of {rowTransform.name}");
+
+            if (shadowRow != null)
+            {
+                shadowRow.GetComponent<RectTransform>().sizeDelta = horizontalSizeDelta;
+                MarkAsDirty(shadowRow, $"Update Size Delta of {shadowRow.name}");
+            }
+            currentRowLength -= gapSize;
+            longestRow = Mathf.Max(currentRowLength, longestRow);
+        }
+
+        RectTransform verticalGroup = KeyboardKeysParent.GetComponent<RectTransform>();
+        Vector2 verticalSizeDelta = new Vector2()
+        {
+            x = longestRow / verticalGroup.lossyScale.x,
+            y = ((buttonSize * keyboardRows.Count) + (gapSize * (keyboardRows.Count - 1))) / verticalGroup.lossyScale.y
+        };
+        verticalGroup.sizeDelta = verticalSizeDelta;
+        MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
+
+        if (KeyboardShadowsParent != null)
+        {
+            KeyboardShadowsParent.GetComponent<RectTransform>().sizeDelta = verticalSizeDelta;
+            MarkAsDirty(KeyboardShadowsParent, $"Update Size Delta of {KeyboardShadowsParent.name}");
+        }
+
+        verticalSizeDelta.x += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.x);
+        verticalSizeDelta.y += panelPaddingRelativeToButtonSize.y * (buttonSize / prefabParent.lossyScale.y);
+        prefabParent.sizeDelta = verticalSizeDelta;
+        MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
     }
 
     private void ResizeColliders()
@@ -184,17 +183,9 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
-    private void SetLayoutGroupsActive(bool _layoutGroupsActive)
+    private void MarkAsDirty(UnityEngine.Object o, string message)
     {
-        List<InteractionButton> interactionButtons = prefabParent.GetComponentsInChildren<InteractionButton>().ToList();
-        interactionButtons.ForEach(ib => ib.enabled = !_layoutGroupsActive);
-        keyboardRows.ForEach(row => row.enabled = _layoutGroupsActive);
-        KeyboardKeysParent.enabled = _layoutGroupsActive;
-    }
-
-    private IEnumerator SetLayoutGroupsActiveAfterNSeconds(bool _layoutGroupsActive, float _duration)
-    {
-        yield return new WaitForSeconds(_duration);
-        SetLayoutGroupsActive(_layoutGroupsActive);
+        Undo.RecordObject(o, message);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(o);
     }
 }
