@@ -65,7 +65,6 @@ public class UIKeyboardResizer : MonoBehaviour
             }
             currentRowLength -= gapSize;
             longestRow = Mathf.Max(currentRowLength, longestRow);
-            Leap.Finger finger;
         }
 
         RectTransform verticalGroup = KeyboardKeysParent.GetComponent<RectTransform>();
