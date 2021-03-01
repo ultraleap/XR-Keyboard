@@ -64,7 +64,7 @@ public static class KeyboardCollections
       {KeyCode.Hash,              "#"}, //3
       {KeyCode.Dollar,            "$"}, //4
       {KeyCode.Ampersand,         "&"}, //7
-      {KeyCode.Quote,             "\'"}, //remember the special forward slash rule... this isnt wrong
+      {KeyCode.Quote,             "\'"}, 
       {KeyCode.LeftParen,         "("}, //9
       {KeyCode.RightParen,        ")"}, //0
       {KeyCode.Asterisk,          "*"}, //8
@@ -81,12 +81,12 @@ public static class KeyboardCollections
       {KeyCode.Question,          "?"},
       {KeyCode.At,                "@"}, //2
       {KeyCode.LeftBracket,       "["},
-      {KeyCode.Backslash,         "\\"}, //remember the special forward slash rule... this isnt wrong
+      {KeyCode.Backslash,         "\\"}, 
       {KeyCode.RightBracket,      "]"},
       {KeyCode.Caret,             "^"}, //6
       {KeyCode.Underscore,        "_"},
       {KeyCode.BackQuote,         "`"},
-      {KeyCode.Backspace,         "<-"},
+      {KeyCode.Backspace,         "\u0008"},
       {KeyCode.Space,             " "},
       {KeyCode.Return,            "\n"},
       {KeyCode.Tab,               "\t"},
@@ -101,7 +101,7 @@ public static class KeyboardCollections
       {KeyCode.UpArrow,           "^"},
       {KeyCode.Tilde,             "~"},
       {KeyCode.Pipe,              "|"},
-      {KeyCode.LeftCurlyBracket,  "{"}, 
+      {KeyCode.LeftCurlyBracket,  "{"},
       {KeyCode.RightCurlyBracket, "}"},
       {KeyCode.Percent,           "%"},
 

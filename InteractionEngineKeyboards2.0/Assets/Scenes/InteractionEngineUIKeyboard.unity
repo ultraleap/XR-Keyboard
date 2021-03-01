@@ -5710,6 +5710,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486709996677610944, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1238.8662
+      objectReference: {fileID: 0}
+    - target: {fileID: 486709996677610944, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
@@ -5721,12 +5726,22 @@ PrefabInstance:
     - target: {fileID: 486709996677610944, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1539
+      value: 1862
       objectReference: {fileID: 0}
     - target: {fileID: 486709996677610946, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 486709996677610946, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486709996677610951, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_Name
+      value: TextReceiver
       objectReference: {fileID: 0}
     - target: {fileID: 532076053526750306, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}

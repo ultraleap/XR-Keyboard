@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Leap.Unity.Interaction;
+﻿using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +14,6 @@ public class TextInputButton : MonoBehaviour
     private KeyCode ActiveKey;
     private InteractionButton interactionButton;
     private Button button;
-
     private TextMeshPro keyTextMesh;
     private TextMeshProUGUI keyTextMeshGUI;
 
@@ -61,6 +58,9 @@ public class TextInputButton : MonoBehaviour
         }
         switch (keyCode)
         {
+            case KeyCode.Backspace:
+                keyCodeText = "<-";
+                break;
             case KeyCode.Return:
                 keyCodeText = "return";
                 break;
