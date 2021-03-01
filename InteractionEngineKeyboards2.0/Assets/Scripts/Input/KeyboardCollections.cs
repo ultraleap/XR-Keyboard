@@ -15,7 +15,7 @@ public static class KeyboardCollections
     //since this is a dictionary, only 1 character is bound to 1 keycode
     //EX: * from the keyboard will be read the same as * from the keypad... because they produce the same character in a text file
 
-    private static Dictionary<KeyCode, string> keyCodeToString = new Dictionary<KeyCode, string>()
+    public static Dictionary<KeyCode, string> KeyCodeToString = new Dictionary<KeyCode, string>()
     {
       //-------------------------LOGICAL mappings-------------------------
 
@@ -203,6 +203,4 @@ public static class KeyboardCollections
       KeyCode.RightControl,
       KeyCode.Alpha0,
     };
-
-    public static Dictionary<KeyCode, string> KeyCodeToString { get => keyCodeToString; set => keyCodeToString = value; }
 }

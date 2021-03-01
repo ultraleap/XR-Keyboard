@@ -11,7 +11,6 @@ public class TextInputReceiver : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _UITextMesh;
     private string text;
 
-
     private void OnEnable()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TextMeshPro>(); }
@@ -56,7 +55,7 @@ public class TextInputReceiver : MonoBehaviour
         Reset();
     }
 
-    public void Reset()
+    private void Reset()
     {
         text = string.Empty;
         if (_textMesh != null) { _textMesh.text = text; }

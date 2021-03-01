@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq;
-using Leap.Unity.Interaction;
+﻿using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static KeyboardManager;
-using System.Text;
 
 public class TextInputButton : MonoBehaviour
 {
