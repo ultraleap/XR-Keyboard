@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 public class KeyboardManager : MonoBehaviour
@@ -8,11 +9,8 @@ public class KeyboardManager : MonoBehaviour
     {
         NEUTRAL, SHIFT, CAPS, SYMBOLS_1, SYMBOLS_2
     }
-    public delegate void KeyDown(string key);
+    public delegate void KeyDown(byte[] key);
     public static event KeyDown HandleKeyDown;
-
-    public delegate void BackspaceDown();
-    public static event BackspaceDown HandleBackspaceDown;
 
     public delegate void ClearTextField();
     public static event ClearTextField HandleClearTextField;
@@ -40,15 +38,14 @@ public class KeyboardManager : MonoBehaviour
         {
             ModeSwitch(_keyCode);
         }
-        else if (_keyCode == KeyCode.Backspace)
-        {
-            HandleBackspaceDown.Invoke();
-        }
         else
         {
             string KeyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
             KeyCodeString = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? KeyCodeString.ToUpper() : KeyCodeString.ToLower();
-            if (HandleKeyDown != null) { HandleKeyDown.Invoke(KeyCodeString); }
+            if (HandleKeyDown != null)
+            {
+                HandleKeyDown.Invoke(Encoding.UTF8.GetBytes(KeyCodeString));
+            }
             if (keyboardMode == KeyboardMode.SHIFT)
             {
                 SetMode(KeyboardMode.NEUTRAL);

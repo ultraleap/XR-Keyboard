@@ -11,12 +11,12 @@ public class TextInputReceiver : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _UITextMesh;
     private string text;
 
+
     private void OnEnable()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TextMeshPro>(); }
         if (_UITextMesh == null) { _UITextMesh = GetComponentInChildren<TextMeshProUGUI>(); }
         KeyboardManager.HandleKeyDown += HandleKeyDown;
-        KeyboardManager.HandleBackspaceDown += HandleBackspaceDown;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
     }
 
@@ -24,14 +24,22 @@ public class TextInputReceiver : MonoBehaviour
     {
 
         KeyboardManager.HandleKeyDown -= HandleKeyDown;
-        KeyboardManager.HandleBackspaceDown -= HandleBackspaceDown;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
     }
 
-    private void HandleKeyDown(string key)
+    private void HandleKeyDown(byte[] key)
     {
-        text += key;
-        UpdateTextMeshText();
+        string keyDecoded = Encoding.UTF8.GetString(key);
+
+        if (keyDecoded == "\u0008")
+        {
+            HandleBackspaceDown();
+        }
+        else
+        {
+            text += keyDecoded;
+            UpdateTextMeshText();
+        }
     }
 
     private void HandleBackspaceDown()

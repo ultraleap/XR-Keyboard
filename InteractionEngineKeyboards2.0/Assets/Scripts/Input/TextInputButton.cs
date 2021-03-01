@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static KeyboardManager;
+using System.Text;
 
 public class TextInputButton : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class TextInputButton : MonoBehaviour
     private KeyCode ActiveKey;
     private InteractionButton interactionButton;
     private Button button;
-
     private TextMeshPro keyTextMesh;
     private TextMeshProUGUI keyTextMeshGUI;
 
@@ -61,6 +61,9 @@ public class TextInputButton : MonoBehaviour
         }
         switch (keyCode)
         {
+            case KeyCode.Backspace:
+                keyCodeText = "<-";
+                break;
             case KeyCode.Return:
                 keyCodeText = "return";
                 break;

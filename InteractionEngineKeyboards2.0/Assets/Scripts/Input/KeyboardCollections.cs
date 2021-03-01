@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 public static class KeyboardCollections
 {
@@ -14,7 +15,7 @@ public static class KeyboardCollections
     //since this is a dictionary, only 1 character is bound to 1 keycode
     //EX: * from the keyboard will be read the same as * from the keypad... because they produce the same character in a text file
 
-    public static Dictionary<KeyCode, string> KeyCodeToString = new Dictionary<KeyCode, string>()
+    private static Dictionary<KeyCode, string> keyCodeToString = new Dictionary<KeyCode, string>()
     {
       //-------------------------LOGICAL mappings-------------------------
 
@@ -64,7 +65,7 @@ public static class KeyboardCollections
       {KeyCode.Hash,              "#"}, //3
       {KeyCode.Dollar,            "$"}, //4
       {KeyCode.Ampersand,         "&"}, //7
-      {KeyCode.Quote,             "\'"}, //remember the special forward slash rule... this isnt wrong
+      {KeyCode.Quote,             "\'"}, 
       {KeyCode.LeftParen,         "("}, //9
       {KeyCode.RightParen,        ")"}, //0
       {KeyCode.Asterisk,          "*"}, //8
@@ -81,12 +82,12 @@ public static class KeyboardCollections
       {KeyCode.Question,          "?"},
       {KeyCode.At,                "@"}, //2
       {KeyCode.LeftBracket,       "["},
-      {KeyCode.Backslash,         "\\"}, //remember the special forward slash rule... this isnt wrong
+      {KeyCode.Backslash,         "\\"}, 
       {KeyCode.RightBracket,      "]"},
       {KeyCode.Caret,             "^"}, //6
       {KeyCode.Underscore,        "_"},
       {KeyCode.BackQuote,         "`"},
-      {KeyCode.Backspace,         "<-"},
+      {KeyCode.Backspace,         "\u0008"},
       {KeyCode.Space,             " "},
       {KeyCode.Return,            "\n"},
       {KeyCode.Tab,               "\t"},
@@ -101,7 +102,7 @@ public static class KeyboardCollections
       {KeyCode.UpArrow,           "^"},
       {KeyCode.Tilde,             "~"},
       {KeyCode.Pipe,              "|"},
-      {KeyCode.LeftCurlyBracket,  "{"}, 
+      {KeyCode.LeftCurlyBracket,  "{"},
       {KeyCode.RightCurlyBracket, "}"},
       {KeyCode.Percent,           "%"},
 
@@ -202,4 +203,6 @@ public static class KeyboardCollections
       KeyCode.RightControl,
       KeyCode.Alpha0,
     };
+
+    public static Dictionary<KeyCode, string> KeyCodeToString { get => keyCodeToString; set => keyCodeToString = value; }
 }
