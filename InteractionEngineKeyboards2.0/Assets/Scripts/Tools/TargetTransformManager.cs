@@ -16,7 +16,7 @@ public class TargetTransformManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (transform.position != TargetPosition || transform.rotation != TargetRotation)
+        if (transform.position != TargetPosition || transform.rotation != TargetRotation)
         {
             transform.position = Vector3.Lerp(transform.position, TargetPosition, Time.deltaTime * lerpSpeed);
             transform.rotation = Quaternion.Lerp(transform.rotation, TargetRotation, Time.deltaTime * lerpSpeed);
