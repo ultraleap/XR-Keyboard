@@ -7,11 +7,11 @@ public class SetPositionRelativeToHead : MonoBehaviour
     public Transform head;
     public TargetTransformManager TargetTransformManager;
     public Vector3 DistanceFromHead;
-    public Vector3 Angles;
+    public float xAngle = 35;
 
     public void SetPosition()
     {
-        TargetTransformManager.TargetRotation = Quaternion.identity * Quaternion.Euler(Angles);
+        TargetTransformManager.TargetXAngle = xAngle;
         TargetTransformManager.TargetPosition = head.position + DistanceFromHead;
     }
 

@@ -4540,12 +4540,6 @@ Transform:
   m_Father: {fileID: 894646933}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1831175726 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2252136873720390412}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1837049832
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,7 +4551,6 @@ GameObject:
   - component: {fileID: 1837049837}
   - component: {fileID: 1837049836}
   - component: {fileID: 1837049835}
-  - component: {fileID: 1837049834}
   - component: {fileID: 1837049833}
   m_Layer: 0
   m_Name: Grab Sphere
@@ -4575,26 +4568,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837049832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a961cd180ac7427409ef06c4be7ee2c7, type: 3}
+  m_Script: {fileID: 11500000, guid: bc3fa68b682e0814886b34e11b7a43d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1831175726}
---- !u!114 &1837049834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837049832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e933f13d48c681d48b14750922ac906d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _comment: The movement of the menu is performed during the Update step rather than
-    the FixedUpdate step, and via a Transform update, so the parent menu motion doesn't
-    affect its buttons.
-  _isEditing: 0
+  TargetTransformManager: {fileID: 2252136873720390414}
+  interactionBehaviour: {fileID: 1837049835}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1837049835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4648,8 +4627,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837049832}
-  m_LocalRotation: {x: 0.3420201, y: -0, z: -0, w: 0.9396926}
-  m_LocalPosition: {x: 0, y: 0.9233955, z: 0.035721242}
+  m_LocalRotation: {x: 0.34202012, y: -0, z: -0, w: 0.9396926}
+  m_LocalPosition: {x: -0.074, y: 0.9245834, z: 0.37687755}
   m_LocalScale: {x: 0.75, y: 0.75000006, z: 0.75000006}
   m_Children:
   - {fileID: 1290031869}
@@ -4793,7 +4772,7 @@ MonoBehaviour:
   head: {fileID: 1897774067}
   TargetTransformManager: {fileID: 2252136873720390414}
   DistanceFromHead: {x: 0, y: -0.385, z: 0.34}
-  Angles: {x: 35, y: 0, z: 0}
+  xAngle: 35
 --- !u!1 &1847459432
 GameObject:
   m_ObjectHideFlags: 0
@@ -8127,6 +8106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ad23342dff3164e86757665580f427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 1897774067}
   TargetPosition: {x: 0, y: 0, z: 0}
-  TargetRotation: {x: 0, y: 0, z: 0, w: 0}
   lerpSpeed: 30
+  TargetXAngle: 0
