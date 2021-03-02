@@ -29,7 +29,6 @@ public class RegistrationForm : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         emailField.text = "";
-        emailField.caretPosition = 0;
         emailField.GetComponent<InputFieldTextReceiver>().Clear();
         mobileField.text = "";
         mobileField.GetComponent<InputFieldTextReceiver>().Clear();

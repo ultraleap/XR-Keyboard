@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class RandomHorizon : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RandomHorizon : MonoBehaviour
 
     public float radius = 50;
 
+    [MinMaxSlider(1, 100)]
     public Vector2 scaleRange = new Vector2(1,10);
 
     public int count = 100;

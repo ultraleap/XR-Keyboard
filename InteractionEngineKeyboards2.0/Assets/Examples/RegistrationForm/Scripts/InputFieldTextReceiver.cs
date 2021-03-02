@@ -48,7 +48,6 @@ public class InputFieldTextReceiver : MonoBehaviour
         else
         {
             text += keyDecoded;
-            _textMesh.caretPosition++;
             _textMesh.onValueChanged.Invoke("");
             UpdateTextMeshText();
         }
