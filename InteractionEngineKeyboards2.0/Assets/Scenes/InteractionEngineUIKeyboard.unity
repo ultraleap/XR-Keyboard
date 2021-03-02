@@ -2983,7 +2983,6 @@ MonoBehaviour:
   grabGimbal: {fileID: 1290031869}
   TargetPosition: {x: 0, y: 0, z: 0}
   lerpSpeed: 30
-  TargetXAngle: 0
 --- !u!1 &1308298990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,7 +4577,7 @@ GameObject:
   - component: {fileID: 1837049836}
   - component: {fileID: 1837049835}
   m_Layer: 0
-  m_Name: Grab Sphere
+  m_Name: GrabBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4637,14 +4636,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837049832}
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.074, y: 0.9245834, z: 0.37687755}
   m_LocalScale: {x: 0.75, y: 0.7500001, z: 0.7500001}
   m_Children:
   - {fileID: 1290031869}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1841811447
 GameObject:
   m_ObjectHideFlags: 0
@@ -4780,8 +4779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1897774067}
-  target: {fileID: 1837049837}
+  GrabBall: {fileID: 1837049837}
+  KeyboardCentre: {fileID: 1831175726}
   DistanceFromHead: {x: 0, y: -0.385, z: 0.34}
+  grabGimbal: {fileID: 1290031873}
 --- !u!1 &1847459432
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,27 +7644,27 @@ PrefabInstance:
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.02
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99904823
+      value: 0.953717
       objectReference: {fileID: 0}
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.04361945
+      value: 0.30070576
       objectReference: {fileID: 0}
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
@@ -7673,7 +7674,7 @@ PrefabInstance:
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.17
+      value: 4.38
       objectReference: {fileID: 0}
     - target: {fileID: 6879055252763590055, guid: 5a030b3e5347a6845b0424a9308181a2,
         type: 3}

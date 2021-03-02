@@ -23,19 +23,19 @@ public class GrabGimbal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateRotation();
-    }
-
-    private void UpdateRotation()
-    {
         if (grabBallInteractionBehaviour.isGrasped)
         {
-            Vector3 pos = transform.position;
-            pos.y = head.position.y;
-            Vector3 forward = pos - head.position;
-
-            targetRotation = Quaternion.LookRotation(forward, Vector3.up);
-            grabGimbal.rotation = Quaternion.Lerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+            UpdateTargetRotation();
         }
+        grabGimbal.rotation = Quaternion.Lerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+    }
+
+    public void UpdateTargetRotation()
+    {
+        Vector3 pos = transform.position;
+        pos.y = head.position.y;
+        Vector3 forward = pos - head.position;
+
+        targetRotation = Quaternion.LookRotation(forward, Vector3.up);
     }
 }
