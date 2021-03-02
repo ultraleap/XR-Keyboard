@@ -42,7 +42,7 @@ public class RandomHorizon : MonoBehaviour
                 z = Mathf.Sin(t) * radius
             };
             Quaternion rotation = Quaternion.Euler(Random.Range(0,180), Random.Range(0,180), Random.Range(0,180));
-            float scale = Mathf.PerlinNoise(position.x * noiseScale, position.z * noiseScale) * maxScale; //Random.Range(scaleRange.x, scaleRange.y);
+            float scale = Mathf.PerlinNoise(position.x * noiseScale, position.z * noiseScale) * maxScale;
             hillMatrices.Add(Matrix4x4.TRS(position, rotation, new Vector3(scale,scale,scale)));
         }
     }
