@@ -43,7 +43,6 @@ public class TextInputButton : MonoBehaviour
 
         if (keyTextMesh == null && keyTextMeshGUI == null)
         {
-            Debug.LogWarning("No text mesh on " + name);
             return;
         }
 
