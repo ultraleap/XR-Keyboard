@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28bc34a8cf977644e915b00e8f630f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  meshMaterial: {fileID: 2100000, guid: 702e1590ab6ece84daaa01b3908479c0, type: 2}
+  meshPrefab: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   radius: 95
-  scaleRange: {x: 4, y: 10}
+  maxScale: 30
+  noiseScale: 0.024
   count: 200
