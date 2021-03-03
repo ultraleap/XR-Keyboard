@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SetPositionRelativeToHead : MonoBehaviour
 {
     public Transform head;
-    public Transform keyboard;
+    public Transform position;
     public Vector3 DistanceFromHead;
     public Vector3 Angles;
 
@@ -14,15 +14,15 @@ public class SetPositionRelativeToHead : MonoBehaviour
 
     private void Start()
     {
-        targetLocation = keyboard.position;
-        targetRotation = keyboard.rotation;
+        targetLocation = position.position;
+        targetRotation = position.rotation;
     }
     private void Update()
     {
-        if (keyboard.position != targetLocation || keyboard.rotation != targetRotation)
+        if (position.position != targetLocation || position.rotation != targetRotation)
         {
-            keyboard.position = Vector3.Lerp(keyboard.position, targetLocation, Time.deltaTime * 30);
-            keyboard.rotation = Quaternion.Lerp(keyboard.rotation, targetRotation, Time.deltaTime * 30);
+            position.position = Vector3.Lerp(position.position, targetLocation, Time.deltaTime * 30);
+            position.rotation = Quaternion.Lerp(position.rotation, targetRotation, Time.deltaTime * 30);
         }
     }
     public void SetPosition()
