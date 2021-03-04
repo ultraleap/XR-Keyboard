@@ -87,8 +87,8 @@ public class AngleGrabBall : MonoBehaviour
 
             bool innerAngle = time > currentRotationTime;
 
-
             float scale = Mathf.Lerp(minMaxDotSize.x, minMaxDotSize.y, Mathf.Abs(time - currentRotationTime) * 8);
+            
             if (time <= currentRotationTime)
             {
                 matrices.Add(Matrix4x4.TRS(position, targetObject.rotation, new Vector3(scale, scale, scale)));
