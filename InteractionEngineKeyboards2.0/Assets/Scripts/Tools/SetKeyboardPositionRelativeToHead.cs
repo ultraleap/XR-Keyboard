@@ -15,7 +15,7 @@ public class SetKeyboardPositionRelativeToHead : MonoBehaviour
     {
         if (reorient)
         {
-            GrabGimbal.UpdateTargetRotation();
+            
             reorient = false;
         }
     }
@@ -26,7 +26,7 @@ public class SetKeyboardPositionRelativeToHead : MonoBehaviour
         // and then apply that offset to the grab ball
         Vector3 offset = KeyboardCentre.position - (head.position + DistanceFromHead);
         GrabBall.position -= offset;
-        reorient = true;
+        GrabGimbal.UpdateTargetRotation();
     }
 
 }

@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class GrabGimbal : MonoBehaviour
 {
-
     public Transform head;
     public Transform grabBall;
     public Transform grabGimbal;
     [HideInInspector] public Vector3 TargetPosition;
     public float lerpSpeed = 30;
-    private Quaternion targetRotation;
+    public Quaternion targetRotation;
     private InteractionBehaviour grabBallInteractionBehaviour;
 
     private void Start()

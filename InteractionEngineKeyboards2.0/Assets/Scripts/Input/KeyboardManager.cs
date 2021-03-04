@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ public class KeyboardManager : MonoBehaviour
     {
         TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
     }
+
     private void Start()
     {
         SetMode(KeyboardMode.NEUTRAL);
