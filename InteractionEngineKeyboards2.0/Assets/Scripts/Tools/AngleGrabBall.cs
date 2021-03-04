@@ -5,32 +5,36 @@ using Leap.Unity.Interaction;
 
 
 [RequireComponent(typeof(InteractionBehaviour))]
-[RequireComponent(typeof(LineRenderer))]
 public class AngleGrabBall : MonoBehaviour
 {
     public Transform targetObject;
     public Transform grabGimbal;
     public float lerpSpeed = 20;
 
-    public float offsetDistance = 0.25f;
-
     public float startAngle = 35;
 
     public Vector3 localOffset;
 
-    private LineRenderer rotationGizmo;
+    public Mesh dotMesh;
+    public int dotCount = 64;
+    public Vector2 minMaxDotSize = new Vector2(0.001f, 0.01f);
+    public Material material;
+    public Transform rotator;
+    private int drawDotCount;
     private InteractionBehaviour behaviour;
 
     // Start is called before the first frame update
     void Start()
     {
+        startAngle = Vector3.SignedAngle(Vector3.up, targetObject.up, targetObject.right);
         behaviour = GetComponent<InteractionBehaviour>();
-        rotationGizmo = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        rotator.rotation = targetObject.rotation;
+
         if (!behaviour.isGrasped)
         {
             Vector3 targetPosition = targetObject.TransformPoint(localOffset);
@@ -39,8 +43,9 @@ public class AngleGrabBall : MonoBehaviour
         }
         else
         {
-            DrawRotationGizmo();
+            ShowRotationGizmo();
         }
+        if (drawDotCount > 0) DrawRotationGizmo();
     }
 
     public void UpdateAngle()
@@ -54,39 +59,42 @@ public class AngleGrabBall : MonoBehaviour
 
     private void HideRotationGizmo()
     {
-        if ( rotationGizmo.positionCount > 0)
-        rotationGizmo.positionCount--;
+        if (drawDotCount > 0) drawDotCount--;
+    }
+
+    private void ShowRotationGizmo()
+    {
+        if (drawDotCount < dotCount) drawDotCount++;
     }
 
     private void DrawRotationGizmo()
     {
-        rotationGizmo.enabled = true;
-        rotationGizmo.positionCount = 64;
+        List<Matrix4x4> matrices = new List<Matrix4x4>();
 
-        Keyframe[] keys = new Keyframe[rotationGizmo.positionCount];
-        float currentRotationTime = Vector3.SignedAngle(Vector3.up, targetObject.up, targetObject.right) / 360;
+        float currentRotationTime = (Vector3.SignedAngle(Vector3.up, targetObject.up, targetObject.right) - startAngle) / 360;
         float dir = Mathf.Sign(currentRotationTime);
         
         currentRotationTime = Mathf.Abs(currentRotationTime);
 
-        startAngle = currentRotationTime;
-        for (int i = 0; i < rotationGizmo.positionCount; i++)
+        for (int i = 0; i < drawDotCount; i++)
         {
-            float time = (i / (float)rotationGizmo.positionCount) ;
-            Vector3 position = new Vector3() {
-                x = 0,
-                y = Mathf.Cos(time * 2 * Mathf.PI) * localOffset.magnitude,
-                z = -dir * Mathf.Sin(time * 2 * Mathf.PI) * localOffset.magnitude
-            };
-            
-            rotationGizmo.SetPosition(i, targetObject.TransformPoint(position));
-            
+            float time = (i / (float)dotCount) ;
+            Vector3 position = targetObject.TransformPoint( new Vector3() {
+                x = localOffset.x,
+                y = Mathf.Cos(time * 2 * Mathf.PI) * localOffset.y,
+                z = -dir * Mathf.Sin(time * 2 * Mathf.PI) * localOffset.y
+            });
+
             bool innerAngle = time > currentRotationTime;
-            float width = innerAngle ? Mathf.Lerp(1, 0.1f,(time - currentRotationTime) * 10f) : 1;
 
-            keys[i] = new Keyframe(time, width);
+
+            float scale = Mathf.Lerp(minMaxDotSize.x, minMaxDotSize.y, Mathf.Abs(time - currentRotationTime) * 8);
+            if (time <= currentRotationTime)
+            {
+                matrices.Add(Matrix4x4.TRS(position, targetObject.rotation, new Vector3(scale, scale, scale)));
+            }
         }
-        rotationGizmo.widthCurve = new AnimationCurve(keys);
 
+        Graphics.DrawMeshInstanced(dotMesh, 0, material, matrices.ToArray(), matrices.Count, null, UnityEngine.Rendering.ShadowCastingMode.Off, false);
     }
 }
