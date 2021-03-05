@@ -6851,7 +6851,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3487001678113414156}
+      - m_Target: {fileID: 970058523994531228}
         m_MethodName: SetPosition
         m_Mode: 1
         m_Arguments:
@@ -9925,6 +9925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970058523994531226}
+  - component: {fileID: 970058523994531228}
   m_Layer: 0
   m_Name: InteractionEngineUIKeyboardWithGrabHandle (1)
   m_TagString: Untagged
@@ -9932,6 +9933,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &970058523994531228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970058523994531227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48feb37f37ef554686d911057e36e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 1897774067}
+  position: {fileID: 970058525325596900}
+  DistanceFromHead: {x: 0, y: 0, z: 0.5}
+  Angles: {x: 0, y: 0, z: 0}
 --- !u!1 &970058524222163570
 GameObject:
   m_ObjectHideFlags: 0
@@ -10819,28 +10836,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f07ac6e71ef5044fb441770aab16d90, type: 3}
---- !u!1 &3487001678113414155 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3487001677791659769, guid: 6f07ac6e71ef5044fb441770aab16d90,
-    type: 3}
-  m_PrefabInstance: {fileID: 3487001678113414154}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3487001678113414156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487001678113414155}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48feb37f37ef554686d911057e36e0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 1897774067}
-  position: {fileID: 3487001678113414161}
-  DistanceFromHead: {x: 0, y: 0, z: 0.5}
-  Angles: {x: 0, y: 0, z: 0}
 --- !u!224 &3487001678113414161 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3487001677791659762, guid: 6f07ac6e71ef5044fb441770aab16d90,
