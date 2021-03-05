@@ -4398,6 +4398,66 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 469923810}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 469923810}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045374380056243019, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4045374380847420978, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
       propertyPath: m_Name
@@ -5418,9 +5478,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8527963976767826322, guid: e67a7a82e579e2c4ba09548974073d96, type: 3}
-    - {fileID: 7489126386110353495, guid: e67a7a82e579e2c4ba09548974073d96, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67a7a82e579e2c4ba09548974073d96, type: 3}
 --- !u!114 &1628810164 stripped
 MonoBehaviour:
