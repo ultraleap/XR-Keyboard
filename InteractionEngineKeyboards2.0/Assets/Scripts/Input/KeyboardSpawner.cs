@@ -23,8 +23,6 @@ public class KeyboardSpawner : MonoBehaviour
     private bool keyboardActive = false;
     private GameObject currentlySelected;
 
-    private List<Vector3> keyboardPositions = new List<Vector3>();
-
     private void Start()
     {
         DespawnKeyboard();
@@ -106,27 +104,6 @@ public class KeyboardSpawner : MonoBehaviour
         // we want to work out how far we'd need to move the keyboard to be offset from the head
         // and then apply that offset to the grab ball
         Vector3 offset = _newPosition - KeyboardCentre.position;
-        keyboardPositions.Add(KeyboardCentre.position);
-        GrabBall.GetComponent<Rigidbody>().MovePosition(GrabBall.GetComponent<Rigidbody>().position + offset);
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (keyboardPositions.Count == 0)
-        {
-            return;
-        }
-        float radius = 0.01f;
-
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(keyboardPositions[0], radius);
-        for (int i = 1; i < keyboardPositions.Count; i++)
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(keyboardPositions[i], radius);
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(keyboardPositions[i - 1], keyboardPositions[i]);
-        }
-
+        GrabBall.GetComponent<Rigidbody>().position = (GrabBall.GetComponent<Rigidbody>().position + offset);
     }
 }

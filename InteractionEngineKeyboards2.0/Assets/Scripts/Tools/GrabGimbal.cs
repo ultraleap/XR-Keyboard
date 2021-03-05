@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Leap.Unity.Interaction;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class GrabGimbal : MonoBehaviour
@@ -12,6 +14,7 @@ public class GrabGimbal : MonoBehaviour
     public float lerpSpeed = 30;
     public Quaternion targetRotation;
     private InteractionBehaviour grabBallInteractionBehaviour;
+    private bool rotateNextFrame = false;
 
     private void Start()
     {
@@ -22,22 +25,31 @@ public class GrabGimbal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(rotateNextFrame){
+            LookAtHead();
+            rotateNextFrame = false;
+        }
+
         if (grabBallInteractionBehaviour.isGrasped)
         {
             UpdateTargetRotation();
         }
-        if (grabBall.rotation != targetRotation)
+        if (grabGimbal.rotation != targetRotation)
         {
-            grabGimbal.rotation = Quaternion.Lerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+            grabGimbal.rotation = Quaternion.Slerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
         }
     }
 
     public void UpdateTargetRotation()
     {
-        Vector3 pos = transform.position;
+        rotateNextFrame = true;
+    }
+
+    private void LookAtHead()
+    {
+        Vector3 pos = grabBall.GetComponent<Rigidbody>().position;
         pos.y = head.position.y;
         Vector3 forward = pos - head.position;
-
         targetRotation = Quaternion.LookRotation(forward, Vector3.up);
     }
 }

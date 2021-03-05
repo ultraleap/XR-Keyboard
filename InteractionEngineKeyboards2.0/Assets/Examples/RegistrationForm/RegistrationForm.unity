@@ -4391,12 +4391,12 @@ PrefabInstance:
     - target: {fileID: 4045374380847420979, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4045374380847420979, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.441
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4045374380847420979, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
@@ -6778,12 +6778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c877bdf908a18479cd67ad17c1085e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 1897774067}
-  GrabBall: {fileID: 1628810166}
-  GrabGimbal: {fileID: 1628810164}
-  KeyboardCentre: {fileID: 1628810165}
-  DistanceFromHead: {x: 0, y: -0.385, z: 0.34}
-  reorient: 0
 --- !u!1 &1897774063
 GameObject:
   m_ObjectHideFlags: 0
