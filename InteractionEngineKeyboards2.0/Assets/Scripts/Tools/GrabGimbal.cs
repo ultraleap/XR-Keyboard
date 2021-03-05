@@ -26,7 +26,10 @@ public class GrabGimbal : MonoBehaviour
         {
             UpdateTargetRotation();
         }
-        grabGimbal.rotation = Quaternion.Lerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+        if (grabBall.rotation != targetRotation)
+        {
+            grabGimbal.rotation = Quaternion.Lerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+        }
     }
 
     public void UpdateTargetRotation()

@@ -19,14 +19,20 @@ public class KeyboardSpawner : MonoBehaviour
     public Transform KeyboardCentre;
     public Vector3 DistanceFromHead;
     public RelativeTo RotationRelativeTo;
+    public RelativeTo PositionRelativeTo;
     private bool keyboardActive = false;
     private GameObject currentlySelected;
-    public Vector3 currentDistance;
+
+    private List<Vector3> keyboardPositions = new List<Vector3>();
+
+    private void Start()
+    {
+        DespawnKeyboard();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        currentDistance = KeyboardCentre.position - head.position;
         currentlySelected = EventSystem.current.currentSelectedGameObject;
         if (currentlySelected == null)
         {
@@ -57,15 +63,25 @@ public class KeyboardSpawner : MonoBehaviour
 
         keyboardActive = true;
         GrabBall.parent.gameObject.SetActive(keyboardActive);
-        //As the grab ball's pivot point isn't in the centre of the keyboard, 
-        // we want to work out how far we'd need to move the keyboard to be offset from the head
-        // and then apply that offset to the grab ball
-        Vector3 offset = (head.position + DistanceFromHead) - KeyboardCentre.position;
-        GrabBall.position += offset;
+
+        if (PositionRelativeTo == RelativeTo.HEAD)
+        {
+            SetPosition(head.position + DistanceFromHead);
+        }
+        else if (PositionRelativeTo == RelativeTo.TEXT_FIELD)
+        {
+            if (currentlySelected != null)
+            {
+                SetPositionRelativeTo(currentlySelected.transform.position);
+            }
+        }
+
         if (RotationRelativeTo == RelativeTo.HEAD)
         {
             GrabGimbal.UpdateTargetRotation();
-        } else {
+        }
+        else if (RotationRelativeTo == RelativeTo.TEXT_FIELD)
+        {
             GrabGimbal.targetRotation = currentlySelected.transform.rotation;
         }
     }
@@ -75,5 +91,42 @@ public class KeyboardSpawner : MonoBehaviour
         GrabBall.parent.gameObject.SetActive(keyboardActive);
     }
 
+    private void SetPositionRelativeTo(Vector3 _relativePosition)
+    {
+        Vector3 directionVector = Vector3.Normalize(_relativePosition - head.position);
+        Vector3 newPosition = head.position + (directionVector * DistanceFromHead.z);
 
+        newPosition.y = head.position.y + DistanceFromHead.y;
+        SetPosition(newPosition);
+    }
+
+    private void SetPosition(Vector3 _newPosition)
+    {
+        //As the grab ball's pivot point isn't in the centre of the keyboard, 
+        // we want to work out how far we'd need to move the keyboard to be offset from the head
+        // and then apply that offset to the grab ball
+        Vector3 offset = _newPosition - KeyboardCentre.position;
+        keyboardPositions.Add(KeyboardCentre.position);
+        GrabBall.GetComponent<Rigidbody>().MovePosition(GrabBall.GetComponent<Rigidbody>().position + offset);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (keyboardPositions.Count == 0)
+        {
+            return;
+        }
+        float radius = 0.01f;
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(keyboardPositions[0], radius);
+        for (int i = 1; i < keyboardPositions.Count; i++)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(keyboardPositions[i], radius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(keyboardPositions[i - 1], keyboardPositions[i]);
+        }
+
+    }
 }

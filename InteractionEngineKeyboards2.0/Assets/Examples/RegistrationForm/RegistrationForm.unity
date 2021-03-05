@@ -2434,7 +2434,8 @@ MonoBehaviour:
   GrabGimbal: {fileID: 1628810164}
   KeyboardCentre: {fileID: 1628810165}
   DistanceFromHead: {x: 0, y: -0.385, z: 0.34}
-  RotationRelativeTo: 1
+  RotationRelativeTo: 0
+  PositionRelativeTo: 1
 --- !u!1 &988082324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,6 +3603,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2424089115293700715, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424089115293700718, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424089115293700718, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 500.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424089115293700718, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424089115293700718, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2459647695035792482, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4370,7 +4396,7 @@ PrefabInstance:
     - target: {fileID: 4045374380847420979, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.136
+      value: 1.441
       objectReference: {fileID: 0}
     - target: {fileID: 4045374380847420979, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
@@ -6710,17 +6736,6 @@ MonoBehaviour:
   _OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1841811452}
-        m_MethodName: SetPosition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 3487001678113414156}
         m_MethodName: SetPosition
         m_Mode: 1
@@ -6768,6 +6783,7 @@ MonoBehaviour:
   GrabGimbal: {fileID: 1628810164}
   KeyboardCentre: {fileID: 1628810165}
   DistanceFromHead: {x: 0, y: -0.385, z: 0.34}
+  reorient: 0
 --- !u!1 &1897774063
 GameObject:
   m_ObjectHideFlags: 0
