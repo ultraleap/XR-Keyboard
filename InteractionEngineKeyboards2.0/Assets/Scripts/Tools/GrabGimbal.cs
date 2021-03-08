@@ -36,7 +36,7 @@ public class GrabGimbal : MonoBehaviour
         }
         if (grabGimbal.rotation != targetRotation)
         {
-            grabGimbal.rotation = Quaternion.Slerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
+            grabGimbal.rotation = Quaternion.Lerp(grabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
         }
     }
 

@@ -103,7 +103,7 @@ public class KeyboardSpawner : MonoBehaviour
         //As the grab ball's pivot point isn't in the centre of the keyboard, 
         // we want to work out how far we'd need to move the keyboard to be offset from the head
         // and then apply that offset to the grab ball
-        Vector3 offset = _newPosition - KeyboardCentre.position;
-        GrabBall.GetComponent<Rigidbody>().position = (GrabBall.GetComponent<Rigidbody>().position + offset);
+      //  Vector3 offset = _newPosition - KeyboardCentre.position;
+        GrabBall.GetComponent<Rigidbody>().position = _newPosition;
     }
 }
