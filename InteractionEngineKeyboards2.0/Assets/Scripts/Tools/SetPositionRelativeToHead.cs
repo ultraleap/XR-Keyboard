@@ -12,22 +12,37 @@ public class SetPositionRelativeToHead : MonoBehaviour
     private Vector3 targetLocation;
     private Quaternion targetRotation;
 
+    private Coroutine moveToRoutine;
+
     private void Start()
     {
         targetLocation = position.position;
         targetRotation = position.rotation;
     }
+
     private void Update()
     {
-        if (position.position != targetLocation || position.rotation != targetRotation)
-        {
-            position.position = Vector3.Lerp(position.position, targetLocation, Time.deltaTime * 30);
-            position.rotation = Quaternion.Lerp(position.rotation, targetRotation, Time.deltaTime * 30);
-        }
     }
+
     public void SetPosition()
     {
         targetRotation = Quaternion.identity * Quaternion.Euler(Angles);
         targetLocation = head.position + DistanceFromHead;
+
+        if (moveToRoutine != null)
+        {
+            StopCoroutine(moveToRoutine);
+        }
+        moveToRoutine = StartCoroutine("MoveToTarget");
+    }
+
+    private IEnumerator MoveToTarget()
+    {
+        while (Vector3.Distance(position.position, targetLocation) > 0.005f)
+        {
+            position.position = Vector3.Lerp(position.position, targetLocation, Time.deltaTime * 30);
+            position.rotation = Quaternion.Lerp(position.rotation, targetRotation, Time.deltaTime * 30);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
