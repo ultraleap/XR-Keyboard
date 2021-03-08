@@ -22,9 +22,11 @@ public class KeyboardSpawner : MonoBehaviour
     public RelativeTo PositionRelativeTo;
     private bool keyboardActive = false;
     private GameObject currentlySelected;
+    private Vector3 offset;
 
     private void Start()
     {
+        offset = GrabBall.position - KeyboardCentre.position;
         DespawnKeyboard();
     }
 
@@ -99,11 +101,7 @@ public class KeyboardSpawner : MonoBehaviour
     }
 
     private void SetPosition(Vector3 _newPosition)
-    {
-        //As the grab ball's pivot point isn't in the centre of the keyboard, 
-        // we want to work out how far we'd need to move the keyboard to be offset from the head
-        // and then apply that offset to the grab ball
-      //  Vector3 offset = _newPosition - KeyboardCentre.position;
-        GrabBall.GetComponent<Rigidbody>().position = _newPosition;
+    {      
+        GrabBall.GetComponent<Rigidbody>().position = _newPosition + offset;
     }
 }
