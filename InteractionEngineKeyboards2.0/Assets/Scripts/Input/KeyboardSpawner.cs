@@ -61,7 +61,6 @@ public class KeyboardSpawner : MonoBehaviour
     }
     public void DespawnKeyboard()
     {
-        print("DESPAWN");
         keyboardActive = false;
         if (GrabBall != null)
         {
