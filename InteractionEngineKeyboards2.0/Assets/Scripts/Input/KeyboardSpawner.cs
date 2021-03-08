@@ -31,6 +31,10 @@ public class KeyboardSpawner : MonoBehaviour
         DespawnKeyboard();
     }
 
+    private void OnDestroy() {
+        StopCoroutine(WaitThenDespawn());
+    }
+
     public void SpawnKeyboard(Transform currentlySelected)
     {
         if (keyboardActive)
