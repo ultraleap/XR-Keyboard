@@ -43,7 +43,7 @@ public class KeyboardSpawner : MonoBehaviour
 
         if (PositionRelativeTo == RelativeTo.HEAD)
         {
-            SetPosition(head.position + DistanceFromHead);
+            SetPositionRelativeTo(head.forward);
         }
         else if (PositionRelativeTo == RelativeTo.TEXT_FIELD)
         {
