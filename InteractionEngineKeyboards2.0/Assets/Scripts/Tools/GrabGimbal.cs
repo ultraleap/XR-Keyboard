@@ -36,10 +36,10 @@ public class GrabGimbal : MonoBehaviour
 
     public void UpdateTargetRotation()
     {
-        StartCoroutine(LookAtHead());
+        StartCoroutine(WaitNFramesThenLookAtHead());
     }
 
-    private IEnumerator LookAtHead()
+    private IEnumerator WaitNFramesThenLookAtHead()
     {
         //Wait one frame before rotating as the position is updated in the Physics loop
         yield return null;

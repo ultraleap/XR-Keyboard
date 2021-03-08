@@ -27,6 +27,12 @@ public class InteractionButtonSounds : MonoBehaviour
         _interactionButton.OnUnpress += OnUp;
     }
 
+    private void OnDisable()
+    {
+        _interactionButton.OnPress -= OnDown;
+        _interactionButton.OnUnpress -= OnUp;
+    }
+
     private void Update()
     {
         if (_interactionButton.isPrimaryHovered)

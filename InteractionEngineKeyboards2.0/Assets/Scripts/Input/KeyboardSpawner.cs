@@ -94,12 +94,8 @@ public class KeyboardSpawner : MonoBehaviour
     private void SetPositionRelativeTo(Vector3 _relativePosition)
     {
         Vector3 directionVector = Vector3.Normalize(_relativePosition - head.position);
-        Debug.DrawRay(head.position, directionVector, Color.red, 10);
         Vector3 newPosition = head.position + (directionVector * (DistanceFromHead.z + offset.z));
-
-
         newPosition.y = head.position.y + DistanceFromHead.y +offset.y;
-
         SetPosition(newPosition);
     }
 

@@ -6661,7 +6661,6 @@ GameObject:
   - component: {fileID: 1841811451}
   - component: {fileID: 1841811450}
   - component: {fileID: 1841811449}
-  - component: {fileID: 1841811452}
   m_Layer: 0
   m_Name: Reset Keyboard Position
   m_TagString: Untagged
@@ -6741,17 +6740,6 @@ MonoBehaviour:
   _OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1841811452}
-        m_MethodName: SetPosition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 970058523994531228}
         m_MethodName: SetPosition
         m_Mode: 1
@@ -6782,18 +6770,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &1841811452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841811447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c877bdf908a18479cd67ad17c1085e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1897774063
 GameObject:
   m_ObjectHideFlags: 0
