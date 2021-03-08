@@ -21,7 +21,6 @@ public class KeyboardSpawner : MonoBehaviour
     public RelativeTo PositionRelativeTo = RelativeTo.TEXT_FIELD;
     public RelativeTo RotationRelativeTo = RelativeTo.HEAD;
     private bool keyboardActive = false;
-    private GameObject currentlySelected;
     private Vector3 offset;
 
     private void Start()
@@ -30,38 +29,16 @@ public class KeyboardSpawner : MonoBehaviour
         DespawnKeyboard();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnKeyboard(Transform currentlySelected)
     {
-        currentlySelected = EventSystem.current.currentSelectedGameObject;
-        if (currentlySelected == null)
+        if (keyboardActive)
         {
-            if (keyboardActive)
-            {
-                DespawnKeyboard();
-            }
             return;
-        }
-        if (currentlySelected.GetComponent<TMP_InputField>() != null
-        || currentlySelected.GetComponent<InputField>() != null)
-        {
-            if (!keyboardActive)
-            {
-                SpawnKeyboard();
-            }
         }
         else
         {
-            if (keyboardActive)
-            {
-                DespawnKeyboard();
-            }
+            keyboardActive = true;
         }
-    }
-    private void SpawnKeyboard()
-    {
-
-        keyboardActive = true;
         GrabBall.parent.gameObject.SetActive(keyboardActive);
 
         if (PositionRelativeTo == RelativeTo.HEAD)
@@ -70,10 +47,7 @@ public class KeyboardSpawner : MonoBehaviour
         }
         else if (PositionRelativeTo == RelativeTo.TEXT_FIELD)
         {
-            if (currentlySelected != null)
-            {
-                SetPositionRelativeTo(currentlySelected.transform.position);
-            }
+            SetPositionRelativeTo(currentlySelected.transform.position);
         }
 
         if (RotationRelativeTo == RelativeTo.HEAD)
@@ -85,17 +59,21 @@ public class KeyboardSpawner : MonoBehaviour
             GrabGimbal.targetRotation = currentlySelected.transform.rotation;
         }
     }
-    private void DespawnKeyboard()
+    public void DespawnKeyboard()
     {
+        print("DESPAWN");
         keyboardActive = false;
-        GrabBall.parent.gameObject.SetActive(keyboardActive);
+        if (GrabBall != null)
+        {
+            GrabBall.parent.gameObject.SetActive(keyboardActive);
+        }
     }
 
     private void SetPositionRelativeTo(Vector3 _relativePosition)
     {
         Vector3 directionVector = Vector3.Normalize(_relativePosition - head.position);
         Vector3 newPosition = head.position + (directionVector * (DistanceFromHead.z + offset.z));
-        newPosition.y = head.position.y + DistanceFromHead.y +offset.y;
+        newPosition.y = head.position.y + DistanceFromHead.y + offset.y;
         SetPosition(newPosition);
     }
 

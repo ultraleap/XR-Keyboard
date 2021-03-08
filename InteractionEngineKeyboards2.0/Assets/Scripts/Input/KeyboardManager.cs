@@ -19,9 +19,12 @@ public class KeyboardManager : MonoBehaviour
     public List<GameObject> KeyboardParents;
     private KeyboardMode keyboardMode;
 
+    public static KeyboardSpawner keyboardSpawner;
+
     private void Awake()
     {
         TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
+        keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
     }
 
     private void Start()
@@ -126,5 +129,14 @@ public class KeyboardManager : MonoBehaviour
     public void InvokeClearTextField()
     {
         HandleClearTextField.Invoke();
+    }
+
+    public static void SpawnKeyboard(Transform currentlySelected)
+    {
+        keyboardSpawner.SpawnKeyboard(currentlySelected);
+    }
+    public static void DespawnKeyboard()
+    {
+        keyboardSpawner.DespawnKeyboard();
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InputFieldTextReceiver : MonoBehaviour
 {
@@ -15,10 +17,18 @@ public class InputFieldTextReceiver : MonoBehaviour
 
         KeyboardManager.HandleKeyDown += HandleKeyDown;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
+        KeyboardManager.SpawnKeyboard(transform);
     }
 
     public void DisableInput()
     {
+        GameObject currentlySelected = EventSystem.current?.currentSelectedGameObject;
+        if (currentlySelected == null
+            || (currentlySelected.GetComponent<TMP_InputField>() == null
+            && currentlySelected.GetComponent<InputField>() == null))
+        {
+            KeyboardManager.DespawnKeyboard();
+        }
 
         KeyboardManager.HandleKeyDown -= HandleKeyDown;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
