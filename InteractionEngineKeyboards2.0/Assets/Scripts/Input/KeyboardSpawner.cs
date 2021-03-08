@@ -21,7 +21,9 @@ public class KeyboardSpawner : MonoBehaviour
     public RelativeTo PositionRelativeTo = RelativeTo.TEXT_FIELD;
     public RelativeTo RotationRelativeTo = RelativeTo.HEAD;
     private bool keyboardActive = false;
+    private bool despawning = false;
     private Vector3 offset;
+
 
     private void Start()
     {
@@ -38,6 +40,10 @@ public class KeyboardSpawner : MonoBehaviour
         else
         {
             keyboardActive = true;
+        }
+        if (despawning)
+        {
+            return;
         }
         GrabBall.parent.gameObject.SetActive(keyboardActive);
 
@@ -61,11 +67,27 @@ public class KeyboardSpawner : MonoBehaviour
     }
     public void DespawnKeyboard()
     {
+        StartCoroutine(WaitThenDespawn());
+    }
+
+    private IEnumerator WaitThenDespawn()
+    {
+        // Because OnDeselect happens on the last frame that the object is the currently selected, 
+        // we need to wait for the next frame to check if we should still despawn,
+        // as the next selected object may have flagged to spawn again
         keyboardActive = false;
-        if (GrabBall != null)
+        despawning = true;
+        yield return null;
+
+        if (!keyboardActive)
         {
-            GrabBall.parent.gameObject.SetActive(keyboardActive);
+            if (GrabBall != null)
+            {
+                GrabBall.parent.gameObject.SetActive(keyboardActive);
+                despawning = false;
+            }
         }
+
     }
 
     private void SetPositionRelativeTo(Vector3 _relativePosition)
