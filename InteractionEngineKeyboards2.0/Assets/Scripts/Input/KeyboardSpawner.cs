@@ -17,9 +17,9 @@ public class KeyboardSpawner : MonoBehaviour
     public Transform GrabBall;
     public GrabGimbal GrabGimbal;
     public Transform KeyboardCentre;
-    public Vector3 DistanceFromHead;
-    public RelativeTo RotationRelativeTo;
-    public RelativeTo PositionRelativeTo;
+    public Vector3 DistanceFromHead = new Vector3(0, -0.385f, 0.4f);
+    public RelativeTo PositionRelativeTo = RelativeTo.TEXT_FIELD;
+    public RelativeTo RotationRelativeTo = RelativeTo.HEAD;
     private bool keyboardActive = false;
     private GameObject currentlySelected;
     private Vector3 offset;
