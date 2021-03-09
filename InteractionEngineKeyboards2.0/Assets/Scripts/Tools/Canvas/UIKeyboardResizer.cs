@@ -185,7 +185,9 @@ public class UIKeyboardResizer : MonoBehaviour
 
     private void MarkAsDirty(UnityEngine.Object o, string message)
     {
+#if UNITY_EDITOR
         Undo.RecordObject(o, message);
         PrefabUtility.RecordPrefabInstancePropertyModifications(o);
+#endif
     }
 }
