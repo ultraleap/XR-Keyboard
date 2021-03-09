@@ -35,7 +35,7 @@ The keyboard is a set of prefabs that you can edit. Most of the customisation ca
 - Interaction Glow colour
 - Sound Effects (`InteractionButtonSounds`)
 
-In addition to this you can change the shadow colour by editing the `SetChildImageColour` component on the following:
+In addition to this you can change the shadow colour by editing the colour & pressing "Set Child Image Colours" on the `SetChildImageColour` component on the following:
 
 - `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> UIInteractionEngineKeyboard -> Parent -> NumberRow -> NumberKeysShadows`
 - `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> UIInteractionEngineKeyboard -> Parent -> KeyboardKeys -> KeyboardKeysShadows`
@@ -43,3 +43,4 @@ In addition to this you can change the shadow colour by editing the `SetChildIma
 ## Known issues
 
 - The Max Font Size in can get lost in the prefabs. If the characters look small, edit the max font size in the InteractionButtonUIKey prefab
+- The shadow colour can get lost in the prefabs. If the shadow looks incorrect, follow the instructions in the Customisation section to set the shadow colour
