@@ -6,15 +6,32 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InputFieldTextReceiver : MonoBehaviour
+public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] private TMP_InputField _textMesh;
     private string text;
 
-    public void EnableInput()
+    private void Start()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TMP_InputField>(); }
+    }
+    private void OnDisable()
+    {
+        DisableInput();
+    }
 
+    public void OnSelect(BaseEventData eventData)
+    {
+        EnableInput();
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        DisableInput();
+    }
+
+    public void EnableInput()
+    {
         KeyboardManager.HandleKeyDown += HandleKeyDown;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
         KeyboardManager.SpawnKeyboard(transform);
@@ -23,13 +40,8 @@ public class InputFieldTextReceiver : MonoBehaviour
     public void DisableInput()
     {
         KeyboardManager.DespawnKeyboard();
-
         KeyboardManager.HandleKeyDown -= HandleKeyDown;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
-    }
-    private void OnDisable()
-    {
-        DisableInput();
     }
 
     public void Clear()
