@@ -137,6 +137,9 @@ public class KeyboardManager : MonoBehaviour
     }
     public static void DespawnKeyboard()
     {
-        keyboardSpawner.DespawnKeyboard();
+        if (keyboardSpawner != null)
+        {
+            keyboardSpawner.DespawnKeyboard();
+        }
     }
 }

@@ -31,7 +31,8 @@ public class KeyboardSpawner : MonoBehaviour
         DespawnKeyboard();
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         StopCoroutine(WaitThenDespawn());
     }
 
@@ -91,7 +92,6 @@ public class KeyboardSpawner : MonoBehaviour
                 despawning = false;
             }
         }
-
     }
 
     private void SetPositionRelativeTo(Vector3 _relativePosition)
