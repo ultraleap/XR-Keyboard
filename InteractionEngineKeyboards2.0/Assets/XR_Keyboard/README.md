@@ -3,13 +3,16 @@
 ## Dependencies
 
 - Interaction Engine
-- NaughtyAttributes
+- NaughtyAttributes <https://github.com/dbrizov/NaughtyAttributes>
+  - Easy setup - just add the git url to your manifest.json
 - TextMeshPro
 
 ## Set Up The Keyboard
 
-1. Place the Keyboard prefab into the scene
-2. Add the player camera as the Head Transform
+1. Place the `InteractionEngineUIKeyboardWithGrabHandle` prefab into the scene
+2. Add the player camera as the Head Transform on the following GameObjects
+   1. `InteractionEngineUIKeyboardWithGrabHandle` (KeyboardManager Component)
+   2. `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal` (GrabGimbal Component)
 
 ## Set Up The Text Fields
 
@@ -21,3 +24,22 @@
    1. `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> Visuals`
    2. `InteractionEngineUIKeyboardWithGrabHandle -> RotationGizmos -> RotationGizmoLeft -> Sphere`
    3. `InteractionEngineUIKeyboardWithGrabHandle -> RotationGizmos -> RotationGizmoRight-> Sphere`
+
+## Customisation
+
+The keyboard is a set of prefabs that you can edit. Most of the customisation can be done on the `InteractionButtonUIKey` prefab - here you can change
+
+- Image used for the key
+- Text Mesh
+- Interaction Button colour
+- Interaction Glow colour
+- Sound Effects (`InteractionButtonSounds`)
+
+In addition to this you can change the shadow colour by editing the `SetChildImageColour` component on the following:
+
+- `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> UIInteractionEngineKeyboard -> Parent -> NumberRow -> NumberKeysShadows`
+- `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> UIInteractionEngineKeyboard -> Parent -> KeyboardKeys -> KeyboardKeysShadows`
+
+## Known issues
+
+- The Max Font Size in can get lost in the prefabs. If the characters look small, edit the max font size in the InteractionButtonUIKey prefab
