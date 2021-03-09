@@ -4,7 +4,7 @@ This is a repo containing hand tracked keyboard experiments.
 
 ## Punch Keyboard (2020)
 
-This repo started off as an adaptation of Punch Keyboard. This is the same project as seen here: https://github.com/rjth/Punchkeyboard, however we removed the drumsticks and replaced them with hands. 
+This repo started off as an adaptation of Punch Keyboard. This is the same project as seen here: <https://github.com/rjth/Punchkeyboard>, however we removed the drumsticks and replaced them with hands.
 It works okish, but it is quite buggy.
 
 ## Interaction Engine Keyboards (2020)
