@@ -20,14 +20,13 @@ public class UIKeyboardResizer : MonoBehaviour
     [BoxGroup("Size")] public float colliderDepth = 0.01f;
 
     [Button]
-    private void ResizeKeyboard()
+    public void ResizeKeyboard()
     {
         SpaceKeyboard();
         SizeButtons();
         SizePanel();
         ResizeColliders();
     }
-
 
     //Loop through each horizontal/vertical layout group & set the spacing to be correct 
     private void SpaceKeyboard()
