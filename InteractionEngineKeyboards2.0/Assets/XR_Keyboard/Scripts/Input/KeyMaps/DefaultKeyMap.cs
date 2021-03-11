@@ -16,7 +16,7 @@ public class DefaultKeyMap : KeyMap
     private void InitialiseKeyboardMap()
     {
         List<KeyboardKey>[] keyRows = new List<KeyboardKey>[] { NumberRow(), TopAlphaRow(), MiddleAlphaRow(), BottomAlphaRow(), SpaceRow() };
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < keyRows.Length; i++)
         {
             keyMap.Add(keyboardRows[i], keyRows[i]);
         }
