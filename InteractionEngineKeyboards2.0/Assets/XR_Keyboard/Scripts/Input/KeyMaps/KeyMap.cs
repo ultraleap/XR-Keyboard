@@ -12,7 +12,7 @@ public class KeyMap : MonoBehaviour
         public KeyCode symbols2Key;
     } 
 
-    /// <Summery>
+    /// <Summary>
     /// Each dictionary entry contains a reference to the transform 
     /// for a row of keys and a list of keys to be present in the row
     ///</Summary>

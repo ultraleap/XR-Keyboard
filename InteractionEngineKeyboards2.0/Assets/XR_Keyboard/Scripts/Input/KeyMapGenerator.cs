@@ -6,10 +6,10 @@ using NaughtyAttributes;
 [ExecuteInEditMode]
 public class KeyMapGenerator : MonoBehaviour
 {
-    [OnValueChanged("ReGenerateKeyboard")]
+    [OnValueChanged("RegenerateKeyboard")]
     public GameObject keyPrefab;
 
-    [OnValueChanged("ReGenerateKeyboard")]
+    [OnValueChanged("RegenerateKeyboard")]
     public KeyMap keyboardMap;
 
     [BoxGroup("Keyboard Connections")]
@@ -24,10 +24,10 @@ public class KeyMapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReGenerateKeyboard();
+        RegenerateKeyboard();
     }
 
-    public void ReGenerateKeyboard()
+    public void RegenerateKeyboard()
     {
         if (keyboardMap == null)
         {  
