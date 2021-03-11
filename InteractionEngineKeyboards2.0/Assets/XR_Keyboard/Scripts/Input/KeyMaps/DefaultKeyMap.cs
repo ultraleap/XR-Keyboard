@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefaultKeyMap : KeyMap
 {
-    public override Dictionary<Transform, List<KeyboardKey>> GetKeyMap()
+    public override List<List<KeyboardKey>> GetKeyMap()
     {
         if (keyMap.Count == 0)
         {
@@ -18,7 +18,7 @@ public class DefaultKeyMap : KeyMap
         List<KeyboardKey>[] keyRows = new List<KeyboardKey>[] { NumberRow(), TopAlphaRow(), MiddleAlphaRow(), BottomAlphaRow(), SpaceRow() };
         for(int i = 0; i < keyRows.Length; i++)
         {
-            keyMap.Add(keyboardRows[i], keyRows[i]);
+            keyMap.Add(keyRows[i]);
         }
     }
 

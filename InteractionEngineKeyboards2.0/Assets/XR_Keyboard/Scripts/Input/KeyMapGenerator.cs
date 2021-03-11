@@ -38,21 +38,19 @@ public class KeyMapGenerator : MonoBehaviour
             }
         }
 
-        keyboardMap.SetKeyRows(keyboardRows);
-
         if (!keyPrefab.transform.GetComponentInChildren<TextInputButton>())
         {
             throw new System.Exception("Ensure prefab contains an object with the TextInputButton component");
         }
 
         var keyMap = keyboardMap.GetKeyMap();
-        foreach(KeyValuePair<Transform, List<KeyMap.KeyboardKey> > row in keyMap)
+        foreach(Transform row in keyboardRows)
         {
-            for(int i = row.Key.childCount - 1; i >= 0; i--)
+            for(int i = row.childCount - 1; i >= 0; i--)
             {
-                if (row.Key.GetChild(i).GetComponentInChildren<TextInputButton>())
+                if (row.GetChild(i).GetComponentInChildren<TextInputButton>())
                 {
-                    DestroyImmediate(row.Key.GetChild(i).gameObject);
+                    DestroyImmediate(row.GetChild(i).gameObject);
                 }
             }
         }
@@ -62,11 +60,11 @@ public class KeyMapGenerator : MonoBehaviour
     public void GenerateKeyboard()
     {
         var keyMap = keyboardMap.GetKeyMap();
-        foreach(KeyValuePair<Transform, List<KeyMap.KeyboardKey> > row in keyMap)
+        for(int i = 0; i < keyboardRows.Length; i++)
         {
-            foreach (var key in row.Value)
+            foreach (var key in keyMap[i])
             {
-                GameObject newKey = Instantiate(keyPrefab, row.Key);
+                GameObject newKey = Instantiate(keyPrefab, keyboardRows[i]);
                 TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
                 button.NeutralKey = key.neutralKey;
                 button.Symbols1Key = key.symbols1Key;

@@ -16,23 +16,17 @@ public class KeyMap : MonoBehaviour
     /// Each dictionary entry contains a reference to the transform 
     /// for a row of keys and a list of keys to be present in the row
     ///</Summary>
-    public Dictionary<Transform, List<KeyboardKey> > keyMap;
+    public List<List<KeyboardKey>> keyMap;
 
     public Transform[] keyboardRows;
     
     public KeyMap()
     {
-        keyMap = new Dictionary<Transform, List<KeyboardKey>>();
+        keyMap = new List<List<KeyboardKey>>();
     }
 
-    public virtual Dictionary<Transform, List<KeyboardKey> > GetKeyMap()
+    public virtual List<List<KeyboardKey>> GetKeyMap()
     {
         return keyMap;
-    }
-
-
-    public virtual void SetKeyRows(Transform[] rows)
-    {
-        keyboardRows = rows;
     }
 }
