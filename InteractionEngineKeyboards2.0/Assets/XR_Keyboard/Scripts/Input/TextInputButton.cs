@@ -22,7 +22,6 @@ public class TextInputButton : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        BackspaceCoroutine = RepeatedPress();
         interactionButton = GetComponentInChildren<InteractionButton>();
         if (interactionButton != null)
         {
@@ -96,6 +95,7 @@ public class TextInputButton : MonoBehaviour
     {
         if (ActiveKey == KeyCode.Backspace)
         {
+            BackspaceCoroutine = RepeatedPress();
             StartCoroutine(BackspaceCoroutine);
         }
         HandleKeyDown.Invoke(ActiveKey);

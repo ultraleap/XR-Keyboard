@@ -14,6 +14,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
     private void Start()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TMP_InputField>(); }
+        text = _textMesh.text;
     }
     private void OnDisable()
     {
