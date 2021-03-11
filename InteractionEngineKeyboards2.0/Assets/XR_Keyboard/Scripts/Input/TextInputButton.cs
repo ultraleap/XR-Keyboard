@@ -1,4 +1,5 @@
-﻿using Leap.Unity.Interaction;
+﻿using System.Collections;
+using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,13 +17,17 @@ public class TextInputButton : MonoBehaviour
     private Button button;
     private TextMeshPro keyTextMesh;
     private TextMeshProUGUI keyTextMeshGUI;
+    private IEnumerator BackspaceCoroutine;
 
     // Start is called before the first frame update
     public void Start()
     {
+        BackspaceCoroutine = RepeatedPress();
         interactionButton = GetComponentInChildren<InteractionButton>();
-        if (interactionButton != null) { interactionButton.OnPress += TextPress; }
-
+        if (interactionButton != null)
+        {
+            interactionButton.OnPress += TextPress;
+        }
         button = GetComponentInChildren<Button>();
         if (button != null) { button.onClick.AddListener(TextPress); }
 
@@ -89,6 +94,29 @@ public class TextInputButton : MonoBehaviour
     }
     public void TextPress()
     {
+        if (ActiveKey == KeyCode.Backspace)
+        {
+            StartCoroutine(BackspaceCoroutine);
+        }
         HandleKeyDown.Invoke(ActiveKey);
+    }
+
+    private IEnumerator RepeatedPress()
+    {
+        float timeBeforeStart = Time.time + 1f;
+        float timeStep = 0.1f;
+        float nextPress = 0;
+        while (interactionButton.isPressed)
+        {
+            if (Time.time > timeBeforeStart)
+            {
+                if (Time.time > nextPress)
+                {
+                    nextPress = Time.time + timeStep;
+                    HandleKeyDown.Invoke(ActiveKey);
+                }
+            }
+            yield return null;
+        }
     }
 }
