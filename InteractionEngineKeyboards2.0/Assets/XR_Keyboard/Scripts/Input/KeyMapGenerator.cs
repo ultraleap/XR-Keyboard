@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
+[ExecuteInEditMode]
 public class KeyMapGenerator : MonoBehaviour
 {
-    public Transform[] keyboardRows = new Transform[5];
-
-    public KeyMap keyboardMap;
+    [OnValueChanged("ReGenerateKeyboard")]
     public GameObject keyPrefab;
 
+    [OnValueChanged("ReGenerateKeyboard")]
+    public KeyMap keyboardMap;
+
+    [BoxGroup("Keyboard Connections")]
+    public Transform[] keyboardRows = new Transform[5];
+
+
+    [BoxGroup("Keyboard Connections")]
     public UIKeyboardResizer numberResizer;
+    [BoxGroup("Keyboard Connections")]
     public UIKeyboardResizer keyboardResizer;
 
     // Start is called before the first frame update
@@ -29,6 +38,23 @@ public class KeyMapGenerator : MonoBehaviour
         GenerateKeyboard();
     }
 
+    public void ReGenerateKeyboard()
+    {
+        keyboardMap.SetKeyRows(keyboardRows);
+
+        var keyMap = keyboardMap.GetKeyMap();
+        foreach(KeyValuePair<Transform, List<KeyMap.KeyboardKey> > row in keyMap)
+        {
+            for(int i = row.Key.childCount - 1; i >= 0; i--)
+            {
+                if (row.Key.GetChild(i).GetComponentInChildren<TextInputButton>())
+                {
+                    DestroyImmediate(row.Key.GetChild(i).gameObject);
+                }
+            }
+        }
+        GenerateKeyboard();
+    }
 
     public void GenerateKeyboard()
     {
