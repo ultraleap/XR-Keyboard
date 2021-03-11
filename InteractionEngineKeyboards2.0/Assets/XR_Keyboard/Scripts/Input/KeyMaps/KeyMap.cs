@@ -17,8 +17,6 @@ public class KeyMap : MonoBehaviour
     /// for a row of keys and a list of keys to be present in the row
     ///</Summary>
     public List<List<KeyboardKey>> keyMap;
-
-    public Transform[] keyboardRows;
     
     public KeyMap()
     {
