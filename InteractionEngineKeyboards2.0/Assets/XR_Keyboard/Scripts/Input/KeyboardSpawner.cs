@@ -72,7 +72,10 @@ public class KeyboardSpawner : MonoBehaviour
     }
     public void DespawnKeyboard()
     {
-        StartCoroutine(WaitThenDespawn());
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(WaitThenDespawn());
+        }
     }
 
     private IEnumerator WaitThenDespawn()
