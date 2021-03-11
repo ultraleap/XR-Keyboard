@@ -24,23 +24,26 @@ public class KeyMapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ReGenerateKeyboard();
+    }
+
+    public void ReGenerateKeyboard()
+    {
         if (keyboardMap == null)
         {  
-            keyboardMap = gameObject.AddComponent<DefaultKeyMap>();
+            keyboardMap = GetComponent<KeyMap>();
+            if (keyboardMap == null)
+            {
+                keyboardMap = gameObject.AddComponent<DefaultKeyMap>();
+            }
         }
+
         keyboardMap.SetKeyRows(keyboardRows);
 
         if (!keyPrefab.transform.GetComponentInChildren<TextInputButton>())
         {
             throw new System.Exception("Ensure prefab contains an object with the TextInputButton component");
         }
-
-        GenerateKeyboard();
-    }
-
-    public void ReGenerateKeyboard()
-    {
-        keyboardMap.SetKeyRows(keyboardRows);
 
         var keyMap = keyboardMap.GetKeyMap();
         foreach(KeyValuePair<Transform, List<KeyMap.KeyboardKey> > row in keyMap)
