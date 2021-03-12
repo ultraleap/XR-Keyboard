@@ -52,13 +52,15 @@ public class TypeAMole : MonoBehaviour
         foreach (InteractionButton button in buttons)
         {
             KeyCode keyCode = button.GetComponent<TextInputButton>().NeutralKey;
-
-            buttonDictionary.Add(keyCode, button);
-            buttonDictionary[keyCode].OnPress += () => OnPressButton(keyCode);
-            buttonDictionary[keyCode].GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
-            buttonDictionary[keyCode].GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
+            button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
+            button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
+            
+            if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || KeyboardCollections.NumericKeyCodes.Contains(keyCode))
+            {
+                buttonDictionary.Add(keyCode, button);
+                buttonDictionary[keyCode].OnPress += () => OnPressButton(keyCode);
+            }
         }
-
 
         SetSequence();
         activeButton = KeyboardCollections.KeyCodeToString.FirstOrDefault(k => k.Value == sequence[0].ToString()).Key;
