@@ -56,7 +56,7 @@ public class TypeAMole : MonoBehaviour
             button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
             button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
 
-            if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || KeyboardCollections.NumericKeyCodes.Contains(keyCode))
+            if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || KeyboardCollections.NumericKeyCodes.Contains(keyCode) || keyCode == KeyCode.Space)
             {
                 buttonDictionary.Add(keyCode, button);
                 buttonDictionary[keyCode].OnPress += () => OnPressButton(keyCode);
