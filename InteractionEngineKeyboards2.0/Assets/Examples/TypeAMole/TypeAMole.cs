@@ -41,24 +41,26 @@ public class TypeAMole : MonoBehaviour
     private KeyCode activeButton;
     private bool finished = false;
     private string sequence;
+    private List<InteractionButton> allButtons;
 
     // Start is called before the first frame update
     void Start()
     {
         buttonDictionary = new Dictionary<KeyCode, InteractionButton>();
 
-        List<InteractionButton> buttons = keyboardParent.GetComponentsInChildren<InteractionButton>(false).ToList();
+        allButtons = keyboardParent.GetComponentsInChildren<InteractionButton>(false).ToList();
 
-        foreach (InteractionButton button in buttons)
+        foreach (InteractionButton button in allButtons)
         {
             KeyCode keyCode = button.GetComponent<TextInputButton>().NeutralKey;
             button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
             button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
-            
+
             if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || KeyboardCollections.NumericKeyCodes.Contains(keyCode))
             {
                 buttonDictionary.Add(keyCode, button);
                 buttonDictionary[keyCode].OnPress += () => OnPressButton(keyCode);
+                buttonDictionary[keyCode].OnUnpress += () => OnUnpressButton(keyCode);
             }
         }
 
@@ -68,21 +70,34 @@ public class TypeAMole : MonoBehaviour
         HighlightNextButton();
     }
 
-
-    public void OnPressButton(KeyCode keyCode)
+    private void OnPressButton(KeyCode keyCode)
     {
         if (finished)
         {
             return;
         }
-        if (keyCode == activeButton)
+        else if (keyCode == activeButton)
         {
             if (successBeep != null) successBeep.Play();
-            HighlightNextButton();
         }
         else
         {
             if (failureBeep != null) failureBeep.Play();
+        }
+    }
+
+    public void OnUnpressButton(KeyCode keyCode)
+    {
+        if (finished)
+        {
+            return;
+        }
+        else if (keyCode == activeButton)
+        {
+            HighlightNextButton();
+        }
+        else
+        {
             textFieldTimer.IncrementButtonErrors();
             textFieldTimer.RemoveLastChar();
         }
@@ -118,7 +133,7 @@ public class TypeAMole : MonoBehaviour
     private void Finished()
     {
         finished = true;
-        foreach (InteractionButton button in buttonDictionary.Values)
+        foreach (InteractionButton button in allButtons)
         {
             button.GetComponent<SimpleInteractionGlowImage>().colors = activeColors;
             button.GetComponentInChildren<TextMeshProUGUI>().color = ActiveTextColour;
@@ -127,7 +142,7 @@ public class TypeAMole : MonoBehaviour
 
     public void Restart()
     {
-        foreach (InteractionButton button in buttonDictionary.Values)
+        foreach (InteractionButton button in allButtons)
         {
             button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
             button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
