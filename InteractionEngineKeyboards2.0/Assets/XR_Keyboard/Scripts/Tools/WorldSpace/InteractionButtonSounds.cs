@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using Leap.Unity;
+﻿using UnityEngine;
 using Leap.Unity.Interaction;
 
 [RequireComponent(typeof(AudioSource))]
