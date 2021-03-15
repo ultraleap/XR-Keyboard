@@ -9,12 +9,10 @@ using UnityEngine.UI;
 public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] private TMP_InputField _textMesh;
-    private string text;
 
     private void Start()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TMP_InputField>(); }
-        text = _textMesh.text;
     }
     private void OnDisable()
     {
@@ -47,7 +45,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
 
     public void Clear()
     {
-        text = "";
+        if (_textMesh != null) { _textMesh.text = ""; }
     }
 
     private void HandleKeyDown(byte[] key)
@@ -64,18 +62,19 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
         }
         else
         {
-            text += keyDecoded;
             _textMesh.onValueChanged.Invoke("");
-            UpdateTextMeshText();
+            UpdateTextMeshText(keyDecoded);
         }
     }
 
     private void HandleBackspaceDown()
     {
-        if (text.Length > 0)
+        if (_textMesh == null) {
+            return;
+        }
+        if (_textMesh.text.Length > 0)
         {
-            text = text.Substring(0, text.Length - 1);
-            UpdateTextMeshText();
+            _textMesh.text.Substring(0, _textMesh.text.Length - 1);
         }
     }
 
@@ -94,12 +93,11 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
 
     private void Reset()
     {
-        text = string.Empty;
-        if (_textMesh != null) { _textMesh.text = text; }
+        if (_textMesh != null) { _textMesh.text = string.Empty; }
     }
 
-    private void UpdateTextMeshText()
+    private void UpdateTextMeshText(string _appendChar)
     {
-        if (_textMesh != null) { _textMesh.text = text; }
+        if (_textMesh != null) { _textMesh.text += _appendChar; }
     }
 }

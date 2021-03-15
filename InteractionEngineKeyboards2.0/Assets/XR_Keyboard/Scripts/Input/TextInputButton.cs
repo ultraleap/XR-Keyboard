@@ -20,7 +20,7 @@ public class TextInputButton : MonoBehaviour
     private IEnumerator BackspaceCoroutine;
 
     // Start is called before the first frame update
-    public void Start()
+    public void Awake()
     {
         interactionButton = GetComponentInChildren<InteractionButton>();
         if (interactionButton != null)

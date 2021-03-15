@@ -193,6 +193,19 @@ public static class KeyboardCollections
       KeyCode.Z,
     };
 
+    public static List<KeyCode> NumericKeyCodes = new List<KeyCode>(){
+      KeyCode.Keypad1,
+      KeyCode.Keypad2,
+      KeyCode.Keypad3,
+      KeyCode.Keypad4,
+      KeyCode.Keypad5,
+      KeyCode.Keypad6,
+      KeyCode.Keypad7,
+      KeyCode.Keypad8,
+      KeyCode.Keypad9,
+      KeyCode.Keypad0
+    };
+
     public static List<KeyCode> ModeShifters = new List<KeyCode>(){
       KeyCode.LeftShift,
       KeyCode.RightShift,
