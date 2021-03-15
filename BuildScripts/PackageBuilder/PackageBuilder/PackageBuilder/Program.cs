@@ -9,22 +9,22 @@ namespace PackageBuilder
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+
+            } else if (args.Length != 2)
+            {
+                throw new Exception("Need two args - <csv_filepath> <package_name>");
+            }
+
             List<Tuple<string, string>> paths = GetArrayOfPaths(args[0]);
-
-
-            //string projectPath = @".\InteractionEngineKeyboards2.0\Assets\XR_Keyboard\Scripts";
-            //Tuple<string, string>[] files = new Tuple<string, string>[]
-            //{
-            //    new Tuple<string, string>("Assets/XR_Keyboard/Input/InputFieldTextReceiver.cs",projectPath + @"\Input\InputFieldTextReceiver.cs")
-            //};
-
 
             UnityPackage pkg = new UnityPackage("CapableKeyboard");
             foreach (Tuple<string, string> path in paths)
             {
                 pkg.Add(path.Item1, path.Item2);
             }
-            pkg.Save("Test.unitypackage");
+            pkg.Save(args[1].Trim() + ".unitypackage");
         }
 
         private static List<Tuple<string, string>> GetArrayOfPaths(string path)
@@ -36,7 +36,10 @@ namespace PackageBuilder
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(',');
-                    paths.Add(new Tuple<string, string>(values[0], values[1]));
+                    string packagePath = values[0].Substring(values[0].IndexOf("Assets/", 0));
+                    paths.Add(new Tuple<string, string>(packagePath, values[0]));
+                    paths.Add(new Tuple<string, string>(packagePath + ".meta", values[0] + ".meta"));
+
                 }
                 return paths;
             }
