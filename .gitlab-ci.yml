@@ -4,8 +4,8 @@ variables:
 stages:
   - package
 
-Keyboard::build
-  stage: build
+Keyboard::package:
+  stage: package
   when: always
   script:
     # Run the GeneratePackage script
