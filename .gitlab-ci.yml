@@ -1,0 +1,22 @@
+variables:
+  BUILD_SCRIPTS_PATH: '$CI_PROJECT_DIR/BuildScripts'
+
+stages:
+  - package
+
+Keyboard::build
+  stage: build
+  when: always
+  script:
+    # Run the GeneratePackage script
+    - cd ${env:BUILD_SCRIPTS_PATH}
+    - "& ./GeneratePackage.bat"
+  artifacts:
+    name: "CapableKeyboard_${env:CI_COMMIT_SHA}"
+    paths:
+      - ${env:BUILD_SCRIPTS_PATH}/CapableKeyboard
+    expire_in: 2 weeks
+    when: always
+  tags:
+    - unity
+    - win10
