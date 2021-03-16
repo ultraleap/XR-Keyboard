@@ -6,14 +6,17 @@ stages:
 
 Keyboard::package:
   stage: package
-  when: always
+  when: never
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
   script:
     # Run the GeneratePackage script
-    - ./${env:BUILD_SCRIPTS_PATH}/GeneratePackage.bat
+    - cd $CI_PROJECT_DIR
+    - "& ./${env:BUILD_SCRIPTS_PATH}/GeneratePackage.bat"
   artifacts:
     name: "CapableKeyboard_${env:CI_COMMIT_SHA}"
     paths:
-      - ./CapableKeyboard.unitypackage
+      - ${env:BUILD_SCRIPTS_PATH}/CapableKeyboard.unitypackage
     expire_in: 2 weeks
     when: always
   tags:
