@@ -1,24 +1,13 @@
 ﻿using UnityEngine;
-using NaughtyAttributes;
 
-[ExecuteInEditMode]
 public class KeyMapGenerator : MonoBehaviour
 {
-    [Tooltip("Auto regenerates if changed in playmode.")]
-    [OnValueChanged("RegenerateKeyboard")]
     public GameObject keyPrefab;
-
-    [Tooltip("Auto regenerates if changed in playmode.")]
-    [OnValueChanged("RegenerateKeyboard")]
     public KeyMap keyboardMap;
 
-    [BoxGroup("Keyboard Connections")]
     public Transform[] keyboardRows = new Transform[5];
 
-
-    [BoxGroup("Keyboard Connections")]
     public UIKeyboardResizer numberResizer;
-    [BoxGroup("Keyboard Connections")]
     public UIKeyboardResizer keyboardResizer;
 
     // Start is called before the first frame update
@@ -79,5 +68,25 @@ public class KeyMapGenerator : MonoBehaviour
         }
         numberResizer.ResizeKeyboard();
         keyboardResizer.ResizeKeyboard();
+    }
+
+    public void SetNewKeyPrefab(GameObject newPrefab)
+    {
+        keyPrefab = newPrefab;
+
+        if (Application.isPlaying)
+        {
+            RegenerateKeyboard();
+        }
+    }
+
+    public void SetNewKeyMap(KeyMap newMap)
+    {
+        keyboardMap = newMap;
+
+        if (Application.isPlaying)
+        {
+            RegenerateKeyboard();
+        }
     }
 }

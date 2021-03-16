@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(KeyMapGenerator))]
@@ -10,7 +8,6 @@ public class KeyMapGeneratorEditor : Editor
     {
         DrawDefaultInspector();
         KeyMapGenerator generator = (KeyMapGenerator)target;
-
         
         GUILayout.Label("");
         if (GUILayout.Button("Regenerate Keyboard"))
