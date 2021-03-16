@@ -40,8 +40,10 @@ public class KeyMapGeneratorEditor : Editor
         // Unlink the outer prefab
         if (root != null)
         {
-            rootAssetPath = NewAssetPath(root);
+            rootAssetPath = NewAssetPath(root, generator.keyPrefab.name);
             PrefabUtility.UnpackPrefabInstance(root, PrefabUnpackMode.OutermostRoot, InteractionMode.UserAction);
+
+            root.name = "GeneratedKeyboardParentWith" + generator.keyPrefab.name;
         }
         
         // Check if it already has keys in
@@ -49,8 +51,10 @@ public class KeyMapGeneratorEditor : Editor
         {
             if (childPrefab != null)
             {
-                childAssetPath = NewAssetPath(childPrefab);
+                childAssetPath = NewAssetPath(childPrefab, generator.keyPrefab.name);
                 PrefabUtility.UnpackPrefabInstance(childPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.UserAction);
+                
+                childPrefab.name = "GeneratedKeyboardWith" + generator.keyPrefab.name;
             }
            
         }
@@ -85,15 +89,15 @@ public class KeyMapGeneratorEditor : Editor
     /// Takes a prefab Game Object and generates a new path marked as regenerated to avoid overriding the original asset.
     /// Only one regenerated asset will be created, overriding the previous one.
     /// </Summary>
-    private string NewAssetPath(GameObject prefabAsset)
+    private string NewAssetPath(GameObject prefabAsset, string extension = null)
     {
         string assetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(prefabAsset);
         string[] splitPath = assetPath.Split('.');
+        extension = extension == null ? "Regenerated" : extension;
 
-        if (!splitPath[0].Contains("Regenerated"))
-        {
-            splitPath[0] += "-Regenerated";
-        }
+        string[] splitName = splitPath[0].Split('-');
+
+        splitPath[0] = splitName[0] + "-" + extension;
 
         assetPath = splitPath[0] + "." + splitPath[1];
 
