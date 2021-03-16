@@ -20,7 +20,7 @@ namespace PackageBuilder
 
             List<Tuple<string, string>> paths = GetArrayOfPaths(args[0]);
 
-            UnityPackage pkg = new UnityPackage("CapableKeyboard");
+            UnityPackage pkg = new UnityPackage(args[1]);
             foreach (Tuple<string, string> path in paths)
             {
                 pkg.Add(path.Item1, path.Item2);
