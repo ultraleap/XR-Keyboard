@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using NaughtyAttributes;
 
 [ExecuteInEditMode]
@@ -24,7 +22,11 @@ public class KeyMapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        RegenerateKeyboard();
+        // If the keyboard is empty of keys them generate a new one
+        if (keyboardRows[0].GetComponentsInChildren<TextInputButton>().Length == 0)
+        {
+            RegenerateKeyboard();
+        }
     }
 
     public void RegenerateKeyboard()
