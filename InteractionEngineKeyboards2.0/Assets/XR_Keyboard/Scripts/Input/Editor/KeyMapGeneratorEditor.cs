@@ -45,7 +45,7 @@ public class KeyMapGeneratorEditor : Editor
         if (root != null)
         {
             rootAssetPath = NewAssetPath(root, generator.keyPrefab.name);
-            PrefabUtility.UnpackPrefabInstance(root, PrefabUnpackMode.OutermostRoot, InteractionMode.UserAction);
+            PrefabUtility.UnpackPrefabInstance(root, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
 
             root.name = "GeneratedKeyboardParentWith" + generator.keyPrefab.name;
         }
@@ -56,7 +56,7 @@ public class KeyMapGeneratorEditor : Editor
             if (childPrefab != null)
             {
                 childAssetPath = NewAssetPath(childPrefab, generator.keyPrefab.name);
-                PrefabUtility.UnpackPrefabInstance(childPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.UserAction);
+                PrefabUtility.UnpackPrefabInstance(childPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
                 
                 childPrefab.name = "GeneratedKeyboardWith" + generator.keyPrefab.name;
             }
@@ -69,12 +69,12 @@ public class KeyMapGeneratorEditor : Editor
         if (childPrefab != null)
         {
             // Save a new prefab with "regenerated" name extension (override if exists)
-            PrefabUtility.SaveAsPrefabAssetAndConnect(childPrefab, childAssetPath, InteractionMode.UserAction);
+            PrefabUtility.SaveAsPrefabAssetAndConnect(childPrefab, childAssetPath, InteractionMode.AutomatedAction);
         }
         if (root != null)
         {
             // Save a new prefab with "regenerated" name extension (override if exists)
-            PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootAssetPath, InteractionMode.UserAction);
+            PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootAssetPath, InteractionMode.AutomatedAction);
         }
 
         return "Root: " + rootAssetPath + " | Child: "  + childAssetPath;
