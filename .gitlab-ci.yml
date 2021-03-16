@@ -6,7 +6,7 @@ stages:
 
 Keyboard::package:
   stage: package
-  when: always
+  when: if: '$CI_COMMIT_BRANCH == "main"'
   script:
     # Run the GeneratePackage script
     - cd ${env:BUILD_SCRIPTS_PATH}
