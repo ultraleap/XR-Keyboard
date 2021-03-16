@@ -1,1 +1,1 @@
-start /B ./PackageBuilder/ConsoleApp/PackageBuilder ./PackageBuilder/ConsoleApp/PackageFiles.csv CapableKeyboard
+start /B .\BuildScripts\PackageBuilder\ConsoleApp\PackageBuilder ./BuildScripts/PackageBuilder/ConsoleApp/PackageFiles.csv CapableKeyboard
