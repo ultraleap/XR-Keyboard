@@ -6,9 +6,7 @@ stages:
 
 Keyboard::package:
   stage: package
-  when: never
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
+  when: always
   script:
     # Run the GeneratePackage script
     - cd $CI_PROJECT_DIR
