@@ -9,7 +9,7 @@ Keyboard::package:
   when: always
   script:
     # Run the GeneratePackage script
-    - "./${env:BUILD_SCRIPTS_PATH}/GeneratePackage.bat"
+    - ./${env:BUILD_SCRIPTS_PATH}/GeneratePackage.bat
   artifacts:
     name: "CapableKeyboard_${env:CI_COMMIT_SHA}"
     paths:
