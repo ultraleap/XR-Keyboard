@@ -14,7 +14,7 @@ Keyboard::package:
   artifacts:
     name: "CapableKeyboard_${env:CI_COMMIT_SHA}"
     paths:
-      - ${env:BUILD_SCRIPTS_PATH}/CapableKeyboard.unitypackage
+      - $CI_PROJECT_DIR/CapableKeyboard.unitypackage
     expire_in: 2 weeks
     when: always
   tags:
