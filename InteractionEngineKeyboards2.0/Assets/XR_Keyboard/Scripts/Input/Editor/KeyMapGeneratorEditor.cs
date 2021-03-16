@@ -25,10 +25,17 @@ public class KeyMapGeneratorEditor : Editor
                 generator.RegenerateKeyboard();
             }
         }
-        EditorGUILayout.HelpBox("Good news! This regenerator button does some stuff that helps " +
-           " your prefabs work without creating thousands of overrides.", MessageType.Info);
+        EditorGUILayout.HelpBox(
+            "Regeneration will result in new prefabs being created to avoid " + 
+            "overriding the currently active one in the scene. Prefab names will " +
+            "be appended with the name of the key prefab.", 
+            MessageType.Info);
     }
 
+    /// <Summary>
+    /// Unpacks the existing parent (grab handles) and child (keyboard) prefabs where
+    /// necessary and saves new prefabs after generating the keyboard.
+    /// </Summary>
     private string RegenerateKeyboardPrefab(KeyMapGenerator generator)
     {
         // Find the root of the prefab
@@ -76,6 +83,10 @@ public class KeyMapGeneratorEditor : Editor
         return "Root: " + rootAssetPath + " | Child: "  + childAssetPath;
     }
 
+    /// <Summary>
+    /// Check to see if the prefab already contains Keyboard Keys. 
+    /// Outputs a refences to the keyboard prefab if present.
+    /// </Summary>
     private bool ContainsKeys(Transform prefab, out GameObject childPrefab)
     {
         TextInputButton[] keys = prefab.transform.GetComponentsInChildren<TextInputButton>();

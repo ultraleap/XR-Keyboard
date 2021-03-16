@@ -4,9 +4,11 @@ using NaughtyAttributes;
 [ExecuteInEditMode]
 public class KeyMapGenerator : MonoBehaviour
 {
+    [Tooltip("Auto regenerates if changed in playmode.")]
     [OnValueChanged("RegenerateKeyboard")]
     public GameObject keyPrefab;
 
+    [Tooltip("Auto regenerates if changed in playmode.")]
     [OnValueChanged("RegenerateKeyboard")]
     public KeyMap keyboardMap;
 
