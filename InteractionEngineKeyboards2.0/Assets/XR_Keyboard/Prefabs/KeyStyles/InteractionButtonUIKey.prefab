@@ -102,7 +102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c30b6490f98cb3240a6c34e69e75a5d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db3f9c35b50251847a2a0751585722b0, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -253,11 +253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useHover: 1
   usePrimaryHover: 1
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  suspendedColor: {r: 0.36862746, g: 0.027450982, b: 0.027450982, a: 0.54509807}
-  hoverColor: {r: 0.7411765, g: 1, b: 0.8862746, a: 1}
-  primaryHoverColor: {r: 0.5254902, g: 1, b: 0.79215693, a: 1}
-  pressedColor: {r: 0.078431375, g: 1, b: 0.59607846, a: 1}
+  colors:
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    suspendedColor: {r: 1, g: 0, b: 0, a: 1}
+    hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+    primaryHoverColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    pressedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!82 &3383222975276883928
 AudioSource:
   m_ObjectHideFlags: 0

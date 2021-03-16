@@ -1,30 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using NaughtyAttributes;
+﻿using UnityEngine;
 
-[ExecuteInEditMode]
 public class KeyMapGenerator : MonoBehaviour
 {
-    [OnValueChanged("RegenerateKeyboard")]
     public GameObject keyPrefab;
-
-    [OnValueChanged("RegenerateKeyboard")]
     public KeyMap keyboardMap;
 
-    [BoxGroup("Keyboard Connections")]
     public Transform[] keyboardRows = new Transform[5];
 
-
-    [BoxGroup("Keyboard Connections")]
     public UIKeyboardResizer numberResizer;
-    [BoxGroup("Keyboard Connections")]
     public UIKeyboardResizer keyboardResizer;
 
     // Start is called before the first frame update
     void Awake()
     {
-        RegenerateKeyboard();
+        // If the keyboard is empty of keys them generate a new one
+        if (keyboardRows[0].GetComponentsInChildren<TextInputButton>().Length == 0)
+        {
+            RegenerateKeyboard();
+        }
     }
 
     public void RegenerateKeyboard()
@@ -75,5 +68,25 @@ public class KeyMapGenerator : MonoBehaviour
         }
         numberResizer.ResizeKeyboard();
         keyboardResizer.ResizeKeyboard();
+    }
+
+    public void SetNewKeyPrefab(GameObject newPrefab)
+    {
+        keyPrefab = newPrefab;
+
+        if (Application.isPlaying)
+        {
+            RegenerateKeyboard();
+        }
+    }
+
+    public void SetNewKeyMap(KeyMap newMap)
+    {
+        keyboardMap = newMap;
+
+        if (Application.isPlaying)
+        {
+            RegenerateKeyboard();
+        }
     }
 }
