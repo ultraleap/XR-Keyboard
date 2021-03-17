@@ -7,6 +7,9 @@ public class KeyMapGenerator : MonoBehaviour
 
     public Transform[] keyboardRows = new Transform[5];
 
+    public GameObject shadowPrefab;
+
+    public Transform[] shadowRows = new Transform[5];
     public UIKeyboardResizer numberResizer;
     public UIKeyboardResizer keyboardResizer;
 
@@ -36,17 +39,9 @@ public class KeyMapGenerator : MonoBehaviour
             throw new System.Exception("Ensure prefab contains an object with the TextInputButton component");
         }
 
-        var keyMap = keyboardMap.GetKeyMap();
-        foreach(Transform row in keyboardRows)
-        {
-            for(int i = row.childCount - 1; i >= 0; i--)
-            {
-                if (row.GetChild(i).GetComponentInChildren<TextInputButton>())
-                {
-                    DestroyImmediate(row.GetChild(i).gameObject);
-                }
-            }
-        }
+        ClearKeys();
+        ClearShadows();
+
         GenerateKeyboard();
     }
 
@@ -55,8 +50,9 @@ public class KeyMapGenerator : MonoBehaviour
         var keyMap = keyboardMap.GetKeyMap();
         for(int i = 0; i < keyboardRows.Length; i++)
         {
-            foreach (var key in keyMap[i])
+            foreach (var key in keyMap[i].row)
             {
+                GameObject shadow = Instantiate(shadowPrefab, shadowRows[i]);
                 GameObject newKey = Instantiate(keyPrefab, keyboardRows[i]);
                 TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
                 button.NeutralKey = key.neutralKey;
@@ -69,6 +65,35 @@ public class KeyMapGenerator : MonoBehaviour
         numberResizer.ResizeKeyboard();
         keyboardResizer.ResizeKeyboard();
     }
+
+    private void ClearKeys()
+    {
+        foreach(Transform row in keyboardRows)
+        {
+            for(int i = row.childCount - 1; i >= 0; i--)
+            {
+                if (row.GetChild(i).GetComponentInChildren<TextInputButton>())
+                {
+                    DestroyImmediate(row.GetChild(i).gameObject);
+                }
+            }
+        }
+    }
+
+    private void ClearShadows()
+    {
+        foreach(Transform row in shadowRows)
+        {
+            for(int i = row.childCount - 1; i >= 0; i--)
+            {
+                if (row.GetChild(i).GetComponentInChildren<TextInputButton>())
+                {
+                    DestroyImmediate(row.GetChild(i).gameObject);
+                }
+            }
+        }
+    }
+
 
     public void SetNewKeyPrefab(GameObject newPrefab)
     {

@@ -1,10 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
+using System.IO;
 
 public class DefaultKeyMap : KeyMap
 {
-    public override List<List<KeyboardKey>> GetKeyMap()
+    public void OnValidate()
+    {
+        description = "Default QWERTY";
+        InitialiseKeyboardMap();
+    }
+
+    public override List<KeyRow> GetKeyMap()
     {
         if (keyMap.Count == 0)
         {
@@ -13,13 +21,15 @@ public class DefaultKeyMap : KeyMap
         return keyMap;
     }
 
-    private void InitialiseKeyboardMap()
+    public void InitialiseKeyboardMap()
     {
         List<KeyboardKey>[] keyRows = new List<KeyboardKey>[] { NumberRow(), TopAlphaRow(), MiddleAlphaRow(), BottomAlphaRow(), SpaceRow() };
+        keyMap = new List<KeyRow>();
         for(int i = 0; i < keyRows.Length; i++)
         {
-            keyMap.Add(keyRows[i]);
+            keyMap.Add(new KeyRow { row = keyRows[i]} );
         }
+        ValidateKeyMap();
     }
 
     private List<KeyboardKey> NumberRow()
@@ -105,5 +115,19 @@ public class DefaultKeyMap : KeyMap
         spaceRow.Add(new KeyboardKey() {position = i++, neutralKey = KeyCode.RightAlt, symbols1Key = KeyCode.Alpha0, symbols2Key = KeyCode.Alpha0});
     
         return spaceRow;
+    }
+
+    [Button]
+    public void WriteToJSON()
+    {
+        if (keyMap.Count == 0 || keyMap[0].row.Count == 0) 
+        {
+            InitialiseKeyboardMap();
+        }
+        
+        string jsonMap = JsonUtility.ToJson(this, true);
+        
+        File.WriteAllText(Path.Combine(Application.streamingAssetsPath, description + ".json"), jsonMap);
+        Debug.Log(jsonMap.ToString());
     }
 }

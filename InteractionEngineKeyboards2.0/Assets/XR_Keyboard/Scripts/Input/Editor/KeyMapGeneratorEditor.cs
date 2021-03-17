@@ -12,14 +12,17 @@ public class KeyMapGeneratorEditor : Editor
         GUILayout.Label("");
         if (GUILayout.Button("Regenerate Keyboard"))
         {
-            if (PrefabUtility.IsPartOfAnyPrefab(generator.transform.GetComponentInChildren<TextInputButton>().gameObject))
+            if (generator.keyboardMap.ValidateKeyMap())
             {
-                string newPrefabName = RegenerateKeyboardPrefab(generator);
-                Debug.Log("Prefab alert! Created: " + newPrefabName);
-            }
-            else
-            {
-                generator.RegenerateKeyboard();
+                if (PrefabUtility.IsPartOfAnyPrefab(generator.transform.GetComponentInChildren<TextInputButton>().gameObject))
+                {
+                    string newPrefabName = RegenerateKeyboardPrefab(generator);
+                    Debug.Log("Prefab alert! Created: " + newPrefabName);
+                }
+                else
+                {
+                    generator.RegenerateKeyboard();
+                }
             }
         }
         EditorGUILayout.HelpBox(
@@ -39,15 +42,16 @@ public class KeyMapGeneratorEditor : Editor
         GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(generator.gameObject);
         string rootAssetPath = "";
         string childAssetPath = "";
+        string extension = generator.keyboardMap.description + "-" + generator.keyPrefab.name;
 
         GameObject childPrefab = null;
         // Unlink the outer prefab
         if (root != null)
         {
-            rootAssetPath = NewAssetPath(root, generator.keyPrefab.name);
+            rootAssetPath = NewAssetPath(root, extension);
             PrefabUtility.UnpackPrefabInstance(root, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
 
-            root.name = "GeneratedKeyboardParentWith" + generator.keyPrefab.name;
+            root.name = "Generated_" + generator.keyboardMap.description + "_" + generator.keyPrefab.name + "_Parent";
         }
         
         // Check if it already has keys in
@@ -55,10 +59,10 @@ public class KeyMapGeneratorEditor : Editor
         {
             if (childPrefab != null)
             {
-                childAssetPath = NewAssetPath(childPrefab, generator.keyPrefab.name);
+                childAssetPath = NewAssetPath(childPrefab, extension);
                 PrefabUtility.UnpackPrefabInstance(childPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
-                
-                childPrefab.name = "GeneratedKeyboardWith" + generator.keyPrefab.name;
+
+                childPrefab.name = "Generated " + generator.keyboardMap.description + " " + generator.keyPrefab.name + " Keyboard";
             }
            
         }
@@ -101,8 +105,6 @@ public class KeyMapGeneratorEditor : Editor
     {
         string assetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(prefabAsset);
         string[] splitPath = assetPath.Split('.');
-        extension = extension == null ? "Regenerated" : extension;
-
         string[] splitName = splitPath[0].Split('-');
 
         splitPath[0] = splitName[0] + "-" + extension;
