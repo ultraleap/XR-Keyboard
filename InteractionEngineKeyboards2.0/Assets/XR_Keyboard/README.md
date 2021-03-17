@@ -47,7 +47,7 @@ The `KeyMapGenerator` component provides the ability to automatically generate n
 - A prefab for the shadow of the key
 - A Key Map that defines what keys are placed on each row of the keyboard
 
-Open up the `InteractionEngineUIKeyboardWIthGrabHandles` prefab and look at the root object for an example of how to configure the `KeyMapGenerator`
+Open up the `InteractionEngineUIKeyboardWithGrabHandles` prefab and look at the root object for an example of how to configure the `KeyMapGenerator`
 
 ### Prefab Handling
 
