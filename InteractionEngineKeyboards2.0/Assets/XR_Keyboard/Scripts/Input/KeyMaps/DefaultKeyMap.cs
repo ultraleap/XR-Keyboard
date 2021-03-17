@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DefaultKeyMap : KeyMap
 {
+    public void OnValidate()
+    {
+        description = "Default QWERTY";
+    }
+
     public override List<KeyRow> GetKeyMap()
     {
         if (keyMap.Count == 0)
@@ -15,7 +20,6 @@ public class DefaultKeyMap : KeyMap
 
     public void InitialiseKeyboardMap()
     {
-        description = "Default QWERTY";
         List<KeyboardKey>[] keyRows = new List<KeyboardKey>[] { NumberRow(), TopAlphaRow(), MiddleAlphaRow(), BottomAlphaRow(), SpaceRow() };
         for(int i = 0; i < keyRows.Length; i++)
         {
