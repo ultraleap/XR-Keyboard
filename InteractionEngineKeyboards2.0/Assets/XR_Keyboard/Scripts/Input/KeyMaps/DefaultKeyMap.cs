@@ -29,6 +29,7 @@ public class DefaultKeyMap : KeyMap
         {
             keyMap.Add(new KeyRow { row = keyRows[i]} );
         }
+        ValidateKeyMap();
     }
 
     private List<KeyboardKey> NumberRow()

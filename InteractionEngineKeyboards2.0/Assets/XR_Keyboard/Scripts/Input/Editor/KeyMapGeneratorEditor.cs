@@ -12,14 +12,17 @@ public class KeyMapGeneratorEditor : Editor
         GUILayout.Label("");
         if (GUILayout.Button("Regenerate Keyboard"))
         {
-            if (PrefabUtility.IsPartOfAnyPrefab(generator.transform.GetComponentInChildren<TextInputButton>().gameObject))
+            if (generator.keyboardMap.ValidateKeyMap())
             {
-                string newPrefabName = RegenerateKeyboardPrefab(generator);
-                Debug.Log("Prefab alert! Created: " + newPrefabName);
-            }
-            else
-            {
-                generator.RegenerateKeyboard();
+                if (PrefabUtility.IsPartOfAnyPrefab(generator.transform.GetComponentInChildren<TextInputButton>().gameObject))
+                {
+                    string newPrefabName = RegenerateKeyboardPrefab(generator);
+                    Debug.Log("Prefab alert! Created: " + newPrefabName);
+                }
+                else
+                {
+                    generator.RegenerateKeyboard();
+                }
             }
         }
         EditorGUILayout.HelpBox(

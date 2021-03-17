@@ -36,4 +36,14 @@ public class KeyMap : MonoBehaviour
     {
         return keyMap;
     }
+
+    public bool ValidateKeyMap()
+    {
+        if (keyMap.Count != 5)
+        {
+            throw new System.Exception("Keymap is invalid. Ensure it contains 5 rows, each containing a list of KeyboardKeys");
+        }
+
+        return true;
+    }
 }

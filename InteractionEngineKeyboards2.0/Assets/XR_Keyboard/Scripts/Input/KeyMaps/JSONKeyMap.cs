@@ -19,6 +19,7 @@ public class JSONKeyMap : KeyMap
         {
             Debug.LogError("Path does not exist for keymap file.");
         }
+        ValidateKeyMap();
     }
 
     [Button]
