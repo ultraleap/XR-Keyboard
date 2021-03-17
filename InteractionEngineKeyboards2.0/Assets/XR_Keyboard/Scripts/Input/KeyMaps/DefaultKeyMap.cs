@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefaultKeyMap : KeyMap
 {
-    public override List<List<KeyboardKey>> GetKeyMap()
+    public override List<KeyRow> GetKeyMap()
     {
         if (keyMap.Count == 0)
         {
@@ -13,12 +13,13 @@ public class DefaultKeyMap : KeyMap
         return keyMap;
     }
 
-    private void InitialiseKeyboardMap()
+    public void InitialiseKeyboardMap()
     {
+        description = "Default QWERTY";
         List<KeyboardKey>[] keyRows = new List<KeyboardKey>[] { NumberRow(), TopAlphaRow(), MiddleAlphaRow(), BottomAlphaRow(), SpaceRow() };
         for(int i = 0; i < keyRows.Length; i++)
         {
-            keyMap.Add(keyRows[i]);
+            keyMap.Add(new KeyRow { row = keyRows[i]} );
         }
     }
 

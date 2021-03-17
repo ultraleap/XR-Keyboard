@@ -55,7 +55,7 @@ public class KeyMapGenerator : MonoBehaviour
         var keyMap = keyboardMap.GetKeyMap();
         for(int i = 0; i < keyboardRows.Length; i++)
         {
-            foreach (var key in keyMap[i])
+            foreach (var key in keyMap[i].row)
             {
                 GameObject newKey = Instantiate(keyPrefab, keyboardRows[i]);
                 TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
