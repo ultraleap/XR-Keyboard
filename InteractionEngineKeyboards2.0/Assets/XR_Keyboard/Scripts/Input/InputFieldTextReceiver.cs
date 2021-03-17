@@ -69,12 +69,13 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
 
     private void HandleBackspaceDown()
     {
-        if (_textMesh == null) {
+        if (_textMesh == null)
+        {
             return;
         }
         if (_textMesh.text.Length > 0)
         {
-            _textMesh.text.Substring(0, _textMesh.text.Length - 1);
+            _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
         }
     }
 

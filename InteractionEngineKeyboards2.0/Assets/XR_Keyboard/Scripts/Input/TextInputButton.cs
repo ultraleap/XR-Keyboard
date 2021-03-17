@@ -12,12 +12,13 @@ public class TextInputButton : MonoBehaviour
     public KeyCode NeutralKey;
     public KeyCode Symbols1Key;
     public KeyCode Symbols2Key;
+    public float longPressTime = 1f;
     private KeyCode ActiveKey;
     private InteractionButton interactionButton;
     private Button button;
     private TextMeshPro keyTextMesh;
     private TextMeshProUGUI keyTextMeshGUI;
-    private IEnumerator BackspaceCoroutine;
+    private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
 
     // Start is called before the first frame update
     public void Awake()
@@ -93,28 +94,50 @@ public class TextInputButton : MonoBehaviour
     }
     public void TextPress()
     {
-        if (ActiveKey == KeyCode.Backspace)
-        {
-            BackspaceCoroutine = RepeatedPress();
-            StartCoroutine(BackspaceCoroutine);
-        }
+        LongPressDetectorCoroutine = LongpressDetection();
+        StartCoroutine(LongPressDetectorCoroutine);
+
         HandleKeyDown.Invoke(ActiveKey);
     }
 
-    private IEnumerator RepeatedPress()
+    private IEnumerator LongpressDetection()
     {
-        float timeBeforeStart = Time.time + 1f;
+        float longpressThreshold = Time.time + longPressTime;
+        bool longPressed = false;
+        while (interactionButton.isPressed && !longPressed)
+        {
+            if (Time.time > longpressThreshold)
+            {
+                LongPress();
+                longPressed = true;
+            }
+            yield return null;
+        }
+    }
+
+    private void LongPress()
+    {
+        switch (ActiveKey)
+        {
+            case KeyCode.Backspace:
+                LongPressCoroutine = BackspaceLongPress();
+                StartCoroutine(LongPressCoroutine);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private IEnumerator BackspaceLongPress()
+    {
         float timeStep = 0.1f;
         float nextPress = 0;
         while (interactionButton.isPressed)
         {
-            if (Time.time > timeBeforeStart)
+            if (Time.time > nextPress)
             {
-                if (Time.time > nextPress)
-                {
-                    nextPress = Time.time + timeStep;
-                    HandleKeyDown.Invoke(ActiveKey);
-                }
+                nextPress = Time.time + timeStep;
+                HandleKeyDown.Invoke(ActiveKey);
             }
             yield return null;
         }
