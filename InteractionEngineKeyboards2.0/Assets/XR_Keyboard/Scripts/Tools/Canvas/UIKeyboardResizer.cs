@@ -97,9 +97,12 @@ public class UIKeyboardResizer : MonoBehaviour
 
                 if (keyboardRowShadows.Count == keyboardRows.Count)
                 {
-                    RectTransform buttonShadow = keyboardRowShadows[i].transform.GetChild(j).GetComponent<RectTransform>();
-                    buttonShadow.sizeDelta = sizeDelta;
-                    MarkAsDirty(buttonShadow, $"Update sizeDelta of {buttonShadow.name}");
+                    if (j < keyboardRowShadows[i].transform.childCount)
+                    {
+                        RectTransform buttonShadow = keyboardRowShadows[i].transform.GetChild(j).GetComponent<RectTransform>();
+                        buttonShadow.sizeDelta = sizeDelta;
+                        MarkAsDirty(buttonShadow, $"Update sizeDelta of {buttonShadow.name}");
+                    }
                 }
             }
         }
