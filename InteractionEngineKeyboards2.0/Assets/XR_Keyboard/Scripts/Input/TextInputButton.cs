@@ -9,9 +9,14 @@ public class TextInputButton : MonoBehaviour
 {
     public delegate void KeyDown(KeyCode keyCode);
     public static event KeyDown HandleKeyDown;
+
+    public delegate void KeyDownSpecialChar(KeyCodeSpecialChar keyCode);
+    public static event KeyDownSpecialChar HandleKeyDownSpecialChar;
     public KeyCode NeutralKey;
     public KeyCode Symbols1Key;
     public KeyCode Symbols2Key;
+    public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
+    public bool UseSpecialChar = false;
     public float longPressTime = 1f;
     private KeyCode ActiveKey;
     private InteractionButton interactionButton;
@@ -52,11 +57,18 @@ public class TextInputButton : MonoBehaviour
         }
 
         ActiveKey = keyCode;
+        string keyCodeText;
 
-        string keyCodeText = "";
-        KeyboardCollections.KeyCodeToString.TryGetValue(keyCode, out keyCodeText);
+        if (UseSpecialChar)
+        {
+            KeyboardCollections.KeyCodeSpecialCharToString.TryGetValue(ActiveSpecialChar, out keyCodeText);
+        }
+        else
+        {
+            KeyboardCollections.KeyCodeToString.TryGetValue(keyCode, out keyCodeText);
+        }
 
-        if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode))
+        if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || UseSpecialChar)
         {
             keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
         }
@@ -97,7 +109,7 @@ public class TextInputButton : MonoBehaviour
         LongPressDetectorCoroutine = LongpressDetection();
         StartCoroutine(LongPressDetectorCoroutine);
 
-        HandleKeyDown.Invoke(ActiveKey);
+        KeyDownEvent();
     }
 
     private IEnumerator LongpressDetection()
@@ -140,9 +152,21 @@ public class TextInputButton : MonoBehaviour
             if (Time.time > nextPress)
             {
                 nextPress = Time.time + timeStep;
-                HandleKeyDown.Invoke(ActiveKey);
+                KeyDownEvent();
             }
             yield return null;
+        }
+    }
+
+    private void KeyDownEvent()
+    {
+        if (UseSpecialChar)
+        {
+            HandleKeyDownSpecialChar(ActiveSpecialChar);
+        }
+        else
+        {
+            HandleKeyDown.Invoke(ActiveKey);
         }
     }
 }
