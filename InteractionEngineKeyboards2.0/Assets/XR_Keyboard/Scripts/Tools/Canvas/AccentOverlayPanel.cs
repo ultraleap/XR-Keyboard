@@ -9,7 +9,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public GameObject keyPrefab, shadowPrefab;
     public Transform panel, shadowRow, keyRow;
 
-    public List<KeyMap.KeyboardKey> keys;
+    public List<KeyCodeSpecialChar> specialChars;
 
     public AudioClip showSound, hideSound;
     private AudioSource audioSource;
@@ -51,6 +51,34 @@ public class AccentOverlayPanel : MonoBehaviour
         }
     }
 
+    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars)
+    {
+        this.specialChars = specialChars;
+        ClearPanel();
+        GeneratePanel();
+
+        panel.gameObject.SetActive(true);
+
+        if (Application.isPlaying && makeNoise)
+        {
+            audioSource.PlayOneShot(showSound);
+        }
+        StartCoroutine("HidePanelAfter");
+    }
+
+    public void HideAccentPanel()
+    {
+        if (panel.gameObject.activeSelf == true)
+        {
+            panel.gameObject.SetActive(false);
+
+            if (Application.isPlaying && makeNoise)
+            {
+                audioSource.PlayOneShot(hideSound);
+            }
+        }
+    }
+
     public void ClearPanel()
     {
         for(int i = keyRow.childCount - 1; i >= 0; i--)
@@ -71,19 +99,24 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public void GeneratePanel()
     {
-
-        foreach (var key in keys)
+        foreach (var special in specialChars)
         {
             GameObject shadow = Instantiate(shadowPrefab, shadowRow);
             GameObject newKey = Instantiate(keyPrefab, keyRow);
             TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
-            button.NeutralKey = key.neutralKey;
-            button.Symbols1Key = key.symbols1Key;
-            button.Symbols2Key = key.symbols2Key;
+            button.UseSpecialChar = true;
+            button.ActiveSpecialChar = special;
+            
             button.UpdateActiveKey(button.NeutralKey, KeyboardManager.KeyboardMode.NEUTRAL);
-            newKey.name = button.NeutralKey.ToString();
+            newKey.name = button.ActiveSpecialChar.ToString();
         }
         
         GetComponent<UIKeyboardResizer>().ResizeKeyboard();
+    }
+
+    public IEnumerator HidePanelAfter()
+    {
+        yield return new WaitForSeconds(5);
+        HideAccentPanel();
     }
 }

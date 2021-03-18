@@ -158,8 +158,8 @@ public class KeyboardManager : MonoBehaviour
         }
     }
 
-    public static void ShowAccentOverlay()
+    public static void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
     {
-        accentOverlay.TogglePanelVisibility();
+        accentOverlay.ShowAccentPanel(specialChars);
     }
 }
