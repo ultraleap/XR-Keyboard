@@ -119,38 +119,18 @@ public static class KeyboardCollections
       {KeyCode.RightShift,    "SHIFT"},
       {KeyCode.LeftAlt,       "&123"},
       {KeyCode.RightAlt,      "&123"},
-      {KeyCode.Alpha2, "W"},
-      {KeyCode.Alpha3, "E"},
-      {KeyCode.Alpha4, "R"},
-      {KeyCode.Alpha5, "T"},
-      {KeyCode.Alpha6, "Y"},
-      {KeyCode.Alpha7, "U"},
-      {KeyCode.Alpha8, "I"},
-      {KeyCode.Alpha9, "O"},
+      {KeyCode.Alpha2, "SPECIALCHAR"},
+      {KeyCode.Alpha3, ""},
+      {KeyCode.Alpha4, ""},
+      {KeyCode.Alpha5, ""},
+      {KeyCode.Alpha6, ""},
+      {KeyCode.Alpha7, ""},
+      {KeyCode.Alpha8, ""},
+      {KeyCode.Alpha9, ""},
       {KeyCode.None, ""},
 
-      //INACTIVE since I am using these characters else where
 
-
-      //-------------------------CHARACTER KEYS with NO KEYCODE-------------------------
-
-      //NOTE: you can map these to any of the OPEN KEYCODES below
-
-      /*
-      //Upper Case Letters (16)
-      {-,"H"},
-      {-,"J"},
-      {-,"K"},
-      {-,"L"},
-      {-,"M"},
-      {-,"N"},
-      {-,"S"},
-      {-,"V"},
-      {-,"X"},
-      {-,"Z"}
-      */
-
-      //-------------------------KEYCODES with NO CHARACER KEY-------------------------
+      //-------------------------KEYCODES with NO CHARACTER KEY-------------------------
 
       //-----KeyCodes without Logical Mappings
       //-Anything above "KeyCode.Space" in Unity's Documentation (9 KeyCodes)
@@ -162,6 +142,45 @@ public static class KeyboardCollections
       //-----KeyCodes that are inaccesible for some reason
 
     };
+
+    public static Dictionary<KeyCodeSpecialChar, string> KeyCodeSpecialCharToString = new Dictionary<KeyCodeSpecialChar, string>()
+    {
+
+      {KeyCodeSpecialChar.AE_LIGATURE, "æ"},
+      {KeyCodeSpecialChar.A_TILDE, "ã"},
+      {KeyCodeSpecialChar.A_NORDIC_RING, "å"},
+      {KeyCodeSpecialChar.A_MACRON, "ā"},
+      {KeyCodeSpecialChar.A_GRAVE, "à"},
+      {KeyCodeSpecialChar.A_ACUTE, "á"},
+      {KeyCodeSpecialChar.A_CIRCUMFLEX, "â"},
+      {KeyCodeSpecialChar.A_UMLAUT, "ä"},
+      {KeyCodeSpecialChar.E_MACRON, "ē"},
+      {KeyCodeSpecialChar.E_GRAVE, "è"},
+      {KeyCodeSpecialChar.E_ACUTE, "é"},
+      {KeyCodeSpecialChar.E_CIRCUMFLEX, "ê"},
+      {KeyCodeSpecialChar.E_UMLAUT, "ë"},
+      {KeyCodeSpecialChar.I_MACRON, "ī"},
+      {KeyCodeSpecialChar.I_GRAVE, "ì"},
+      {KeyCodeSpecialChar.I_ACUTE, "í"},
+      {KeyCodeSpecialChar.I_CIRCUMFLEX, "î"},
+      {KeyCodeSpecialChar.I_UMLAUT, "ï"},
+      {KeyCodeSpecialChar.N_TILDE, "ñ"},
+      {KeyCodeSpecialChar.OE_LIGATURE, "œ"},
+      {KeyCodeSpecialChar.O_TILDE, "õ"},
+      {KeyCodeSpecialChar.O_GRAVE, "ø"},
+      {KeyCodeSpecialChar.O_ACUTE, "о̄"},
+      {KeyCodeSpecialChar.O_CIRCUMFLEX, "ò"},
+      {KeyCodeSpecialChar.O_NORDIC_SLASH, "ó"},
+      {KeyCodeSpecialChar.O_MACRON, "ô"},
+      {KeyCodeSpecialChar.O_UMLAUT, "ö"},
+      {KeyCodeSpecialChar.ESZETT, "ß"},
+      {KeyCodeSpecialChar.U_MACRON, "ū"},
+      {KeyCodeSpecialChar.U_GRAVE, "ù"},
+      {KeyCodeSpecialChar.U_ACUTE, "ú"},
+      {KeyCodeSpecialChar.U_CIRCUMFLEX, "û"},
+      {KeyCodeSpecialChar.U_UMLAUT, "ü"},
+    };
+
 
     public static List<KeyCode> AlphabetKeyCodes = new List<KeyCode>()
     {
@@ -215,15 +234,112 @@ public static class KeyboardCollections
       KeyCode.RightControl,
       KeyCode.Alpha0,
     };
-  
-    public static Dictionary<KeyCode, List<string>> CharacterToSpecialChars = new Dictionary<KeyCode, List<string>>(){
-      {KeyCode.A, new List<string>(){"æ","ã","å","ā","à","á","â","ä"}},
-      {KeyCode.E, new List<string>(){"ē","è","é","ê","ë"}},
-      {KeyCode.I, new List<string>(){"ī","ì","í","î","ï"}},
-      {KeyCode.N, new List<string>(){"ñ"}},
-      {KeyCode.O, new List<string>(){"œ","õ","ø","о̄","ò","ó","ô","ö"}},
-      {KeyCode.S, new List<string>(){"ß"}},
-      {KeyCode.U, new List<string>(){"ū","ù","ú","û","ü"}},
+
+    public static Dictionary<KeyCode, List<KeyCodeSpecialChar>> CharacterToSpecialChars = new Dictionary<KeyCode, List<KeyCodeSpecialChar>>(){
+      {
+        KeyCode.A, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.AE_LIGATURE,
+          KeyCodeSpecialChar.A_TILDE,
+          KeyCodeSpecialChar.A_NORDIC_RING,
+          KeyCodeSpecialChar.A_MACRON,
+          KeyCodeSpecialChar.A_GRAVE,
+          KeyCodeSpecialChar.A_ACUTE,
+          KeyCodeSpecialChar.A_CIRCUMFLEX,
+          KeyCodeSpecialChar.A_UMLAUT
+        }
+      },
+      {
+        KeyCode.E, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.E_MACRON,
+          KeyCodeSpecialChar.E_GRAVE,
+          KeyCodeSpecialChar.E_ACUTE,
+          KeyCodeSpecialChar.E_CIRCUMFLEX,
+          KeyCodeSpecialChar.E_UMLAUT
+        }
+      },
+      {
+        KeyCode.I, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.I_MACRON,
+          KeyCodeSpecialChar.I_GRAVE,
+          KeyCodeSpecialChar.I_ACUTE,
+          KeyCodeSpecialChar.I_CIRCUMFLEX,
+          KeyCodeSpecialChar.I_UMLAUT
+        }
+      },
+      {
+        KeyCode.N, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.N_TILDE
+        }
+      },
+      {
+        KeyCode.O, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.O_TILDE,
+          KeyCodeSpecialChar.O_GRAVE,
+          KeyCodeSpecialChar.O_ACUTE,
+          KeyCodeSpecialChar.O_CIRCUMFLEX, 
+          KeyCodeSpecialChar.O_NORDIC_SLASH,
+          KeyCodeSpecialChar.O_MACRON,
+          KeyCodeSpecialChar.O_UMLAUT,
+        }
+      },
+      {
+        KeyCode.S, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.ESZETT
+        }
+      },
+      {
+        KeyCode.U, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.U_MACRON,
+          KeyCodeSpecialChar.U_GRAVE,
+          KeyCodeSpecialChar.U_ACUTE,
+          KeyCodeSpecialChar.U_CIRCUMFLEX,
+          KeyCodeSpecialChar.U_UMLAUT,
+        }
+      }
     };
 
+}
+
+public enum KeyCodeSpecialChar
+{
+    AE_LIGATURE,
+    A_TILDE,
+    A_GRAVE,
+    A_ACUTE,
+    A_CIRCUMFLEX,
+    A_NORDIC_RING,
+    A_MACRON,
+    A_UMLAUT,
+    E_MACRON,
+    E_GRAVE,
+    E_ACUTE,
+    E_CIRCUMFLEX,
+    E_UMLAUT,
+    I_MACRON,
+    I_GRAVE,
+    I_ACUTE,
+    I_CIRCUMFLEX,
+    I_UMLAUT,
+    N_TILDE,
+    OE_LIGATURE,
+    O_TILDE,
+    O_GRAVE,
+    O_ACUTE,
+    O_CIRCUMFLEX,
+    O_NORDIC_SLASH,
+    O_MACRON,
+    O_UMLAUT,
+    ESZETT,
+    U_MACRON,
+    U_GRAVE,
+    U_ACUTE,
+    U_CIRCUMFLEX,
+    U_UMLAUT
 }
