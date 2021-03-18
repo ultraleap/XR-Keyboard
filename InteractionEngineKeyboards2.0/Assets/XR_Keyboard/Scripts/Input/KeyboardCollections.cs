@@ -1,6 +1,6 @@
 
 using System.Collections.Generic;
-using UnityEngine;
+using KeyCode = UnityEngine.KeyCode;
 
 public static class KeyboardCollections
 {
@@ -64,7 +64,7 @@ public static class KeyboardCollections
       {KeyCode.Hash,              "#"}, //3
       {KeyCode.Dollar,            "$"}, //4
       {KeyCode.Ampersand,         "&"}, //7
-      {KeyCode.Quote,             "\'"}, 
+      {KeyCode.Quote,             "\'"},
       {KeyCode.LeftParen,         "("}, //9
       {KeyCode.RightParen,        ")"}, //0
       {KeyCode.Asterisk,          "*"}, //8
@@ -81,7 +81,7 @@ public static class KeyboardCollections
       {KeyCode.Question,          "?"},
       {KeyCode.At,                "@"}, //2
       {KeyCode.LeftBracket,       "["},
-      {KeyCode.Backslash,         "\\"}, 
+      {KeyCode.Backslash,         "\\"},
       {KeyCode.RightBracket,      "]"},
       {KeyCode.Caret,             "^"}, //6
       {KeyCode.Underscore,        "_"},
@@ -215,4 +215,15 @@ public static class KeyboardCollections
       KeyCode.RightControl,
       KeyCode.Alpha0,
     };
+  
+    public static Dictionary<KeyCode, List<string>> CharacterToSpecialChars = new Dictionary<KeyCode, List<string>>(){
+      {KeyCode.A, new List<string>(){"æ","ã","å","ā","à","á","â","ä"}},
+      {KeyCode.E, new List<string>(){"ē","è","é","ê","ë"}},
+      {KeyCode.I, new List<string>(){"ī","ì","í","î","ï"}},
+      {KeyCode.N, new List<string>(){"ñ"}},
+      {KeyCode.O, new List<string>(){"œ","õ","ø","о̄","ò","ó","ô","ö"}},
+      {KeyCode.S, new List<string>(){"ß"}},
+      {KeyCode.U, new List<string>(){"ū","ù","ú","û","ü"}},
+    };
+
 }
