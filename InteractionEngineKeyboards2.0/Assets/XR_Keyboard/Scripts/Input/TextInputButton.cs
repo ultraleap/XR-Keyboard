@@ -123,6 +123,9 @@ public class TextInputButton : MonoBehaviour
                 LongPressCoroutine = BackspaceLongPress();
                 StartCoroutine(LongPressCoroutine);
                 break;
+            case KeyCode.A:
+                KeyboardManager.ShowAccentOverlay();
+                break;
             default:
                 break;
         }
