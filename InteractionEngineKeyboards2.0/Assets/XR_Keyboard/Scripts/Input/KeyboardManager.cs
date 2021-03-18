@@ -24,6 +24,7 @@ public class KeyboardManager : MonoBehaviour
     private void Awake()
     {
         TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
+        TextInputButton.HandleKeyDownSpecialChar += HandleTextInputButtonKeyDownSpecialChar;
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
     }
 
@@ -35,6 +36,7 @@ public class KeyboardManager : MonoBehaviour
     private void OnDestroy()
     {
         TextInputButton.HandleKeyDown -= HandleTextInputButtonKeyDown;
+        TextInputButton.HandleKeyDownSpecialChar -= HandleTextInputButtonKeyDownSpecialChar;
     }
 
     private void HandleTextInputButtonKeyDown(KeyCode _keyCode)
@@ -45,16 +47,27 @@ public class KeyboardManager : MonoBehaviour
         }
         else
         {
-            string KeyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
-            KeyCodeString = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? KeyCodeString.ToUpper() : KeyCodeString.ToLower();
-            if (HandleKeyDown != null)
-            {
-                HandleKeyDown.Invoke(Encoding.UTF8.GetBytes(KeyCodeString));
-            }
-            if (keyboardMode == KeyboardMode.SHIFT)
-            {
-                SetMode(KeyboardMode.NEUTRAL);
-            }
+            string keyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
+            HandleKeyDownEncoding(keyCodeString);
+        }
+    }
+
+    private void HandleTextInputButtonKeyDownSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar)
+    {
+        string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
+        HandleKeyDownEncoding(keyCodeString);
+    }
+
+    private void HandleKeyDownEncoding(string _keyCodeString)
+    {
+        _keyCodeString = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
+        if (HandleKeyDown != null)
+        {
+            HandleKeyDown.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
+        }
+        if (keyboardMode == KeyboardMode.SHIFT)
+        {
+            SetMode(KeyboardMode.NEUTRAL);
         }
     }
 
