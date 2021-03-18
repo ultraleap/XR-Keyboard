@@ -54,10 +54,10 @@ public class AccentOverlayPanel : MonoBehaviour
     public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars)
     {
         this.specialChars = specialChars;
+        panel.gameObject.SetActive(true);
+
         ClearPanel();
         GeneratePanel();
-
-        panel.gameObject.SetActive(true);
 
         if (Application.isPlaying && makeNoise)
         {
