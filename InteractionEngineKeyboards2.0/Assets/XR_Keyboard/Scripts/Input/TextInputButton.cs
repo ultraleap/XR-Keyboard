@@ -16,6 +16,7 @@ public class TextInputButton : MonoBehaviour
     public KeyCode Symbols1Key;
     public KeyCode Symbols2Key;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
+    public bool UseSpecialChar = false;
     public float longPressTime = 1f;
     private KeyCode ActiveKey;
     private InteractionButton interactionButton;
@@ -58,7 +59,7 @@ public class TextInputButton : MonoBehaviour
         ActiveKey = keyCode;
         string keyCodeText;
 
-        if (ActiveKey == KeyCode.Alpha2)
+        if (UseSpecialChar)
         {
             KeyboardCollections.KeyCodeSpecialCharToString.TryGetValue(ActiveSpecialChar, out keyCodeText);
         }
@@ -67,7 +68,7 @@ public class TextInputButton : MonoBehaviour
             KeyboardCollections.KeyCodeToString.TryGetValue(keyCode, out keyCodeText);
         }
 
-        if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || ActiveKey == KeyCode.Alpha2)
+        if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || UseSpecialChar)
         {
             keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
         }
@@ -156,7 +157,7 @@ public class TextInputButton : MonoBehaviour
 
     private void KeyDownEvent()
     {
-        if (ActiveKey == KeyCode.Alpha2)
+        if (UseSpecialChar)
         {
             HandleKeyDownSpecialChar(ActiveSpecialChar);
         }

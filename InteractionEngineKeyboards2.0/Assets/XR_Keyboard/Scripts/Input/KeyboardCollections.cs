@@ -119,7 +119,7 @@ public static class KeyboardCollections
       {KeyCode.RightShift,    "SHIFT"},
       {KeyCode.LeftAlt,       "&123"},
       {KeyCode.RightAlt,      "&123"},
-      {KeyCode.Alpha2, "SPECIALCHAR"},
+      {KeyCode.Alpha2, ""},
       {KeyCode.Alpha3, ""},
       {KeyCode.Alpha4, ""},
       {KeyCode.Alpha5, ""},
