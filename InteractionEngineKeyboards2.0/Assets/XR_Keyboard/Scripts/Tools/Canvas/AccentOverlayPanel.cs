@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AccentOverlayPanel : MonoBehaviour
 {
     public GameObject keyPrefab, shadowPrefab;
-    public Transform panel, shadowRow, keyRow;
+    public Transform panel, shadowRow, keyRow, background;
 
     public List<KeyCodeSpecialChar> specialChars;
 
@@ -116,11 +116,11 @@ public class AccentOverlayPanel : MonoBehaviour
     }
 
     public void SetOverlayColour(){
-        panel.GetComponent<Image>().color = overlayColour;
+        background.GetComponent<Image>().color = overlayColour;
     }
 
     public void SetInlineColour(){
-        panel.GetComponent<Image>().color = inlineColour;
+        background.GetComponent<Image>().color = inlineColour;
     }
 
 }
