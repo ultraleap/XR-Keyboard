@@ -13,9 +13,12 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public AudioClip showSound, hideSound;
 
-    public float timeout = 5;
     public Vector3 anchorOffset = Vector3.zero;
     public Color overlayColour, inlineColour;
+
+    [BoxGroup("Dismissal")] public bool useActiveRegion = true;
+    [BoxGroup("Dismissal")] public BoxCollider activeRegion;
+    [BoxGroup("Dismissal")] public float timeout = 5;
 
     private AudioSource audioSource;
     private bool makeNoise = false;
@@ -70,8 +73,9 @@ public class AccentOverlayPanel : MonoBehaviour
         {
             audioSource.PlayOneShot(showSound);
         }
-        
 
+        if (activeRegion != null) ResizeActiveZone();
+        activeRegion.gameObject.SetActive(useActiveRegion);
     }
 
     public void HideAccentPanel()
@@ -130,4 +134,9 @@ public class AccentOverlayPanel : MonoBehaviour
         background.GetComponent<Image>().color = inlineColour;
     }
 
+    public void ResizeActiveZone()
+    {
+        Vector2 size = GetComponent<RectTransform>().sizeDelta;
+        activeRegion.size = new Vector3(size.x, size.y, size.y);
+    }
 }

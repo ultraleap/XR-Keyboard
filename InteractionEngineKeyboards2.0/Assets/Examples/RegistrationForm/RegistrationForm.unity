@@ -461,6 +461,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &224282509 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3973143554314211595, guid: 9a46809f0bb8b764592a2efa66c41902,
+    type: 3}
+  m_PrefabInstance: {fileID: 5324296676676955451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &298617187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4983,12 +4989,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040316453}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!224 &2041719135 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6508711092727771442, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 5324296676676955451}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046369494
 GameObject:
   m_ObjectHideFlags: 0
@@ -6611,9 +6611,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 676600136831874587, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
-      propertyPath: background
+      propertyPath: dismissalZone
       value: 
-      objectReference: {fileID: 2041719135}
+      objectReference: {fileID: 224282509}
     - target: {fileID: 756050595283194835, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8399,6 +8399,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7604933637849755908, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 1567890500}
     - target: {fileID: 7660807512451422796, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
       propertyPath: targets.Array.data[0]
