@@ -49,8 +49,10 @@ public class AccentOverlayPanel : MonoBehaviour
         }
     }
 
-    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars)
+    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _transform)
     {
+        transform.position = _transform.position;
+        transform.rotation = _transform.rotation;
         this.specialChars = specialChars;
         panel.gameObject.SetActive(true);
 
