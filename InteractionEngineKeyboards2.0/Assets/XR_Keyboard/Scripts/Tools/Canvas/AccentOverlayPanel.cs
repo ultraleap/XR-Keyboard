@@ -12,9 +12,11 @@ public class AccentOverlayPanel : MonoBehaviour
     public List<KeyCodeSpecialChar> specialChars;
 
     public AudioClip showSound, hideSound;
+
     private AudioSource audioSource;
     private bool makeNoise = false;
 
+    private Coroutine hidePanelRoutine;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +28,6 @@ public class AccentOverlayPanel : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = showSound;
         makeNoise = showSound != null && hideSound != null;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     [Button]
@@ -63,7 +59,12 @@ public class AccentOverlayPanel : MonoBehaviour
         {
             audioSource.PlayOneShot(showSound);
         }
-        StartCoroutine("HidePanelAfter");
+        
+        if (hidePanelRoutine != null)
+        {
+            StopCoroutine(hidePanelRoutine);
+        }
+        hidePanelRoutine = StartCoroutine("HidePanelAfter");
     }
 
     public void HideAccentPanel()
