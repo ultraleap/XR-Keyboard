@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
@@ -12,6 +14,8 @@ public class TextInputButton : MonoBehaviour
 
     public delegate void KeyDownSpecialChar(KeyCodeSpecialChar keyCode);
     public static event KeyDownSpecialChar HandleKeyDownSpecialChar;
+    public delegate void LongPress(List<KeyCodeSpecialChar> specialChars);
+    public static event LongPress HandleLongPress;
     public KeyCode NeutralKey;
     public KeyCode Symbols1Key;
     public KeyCode Symbols2Key;
@@ -24,6 +28,7 @@ public class TextInputButton : MonoBehaviour
     private TextMeshPro keyTextMesh;
     private TextMeshProUGUI keyTextMeshGUI;
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
+
 
     // Start is called before the first frame update
     public void Awake()
@@ -120,14 +125,14 @@ public class TextInputButton : MonoBehaviour
         {
             if (Time.time > longpressThreshold)
             {
-                LongPress();
+                InvokeLongPress();
                 longPressed = true;
             }
             yield return null;
         }
     }
 
-    private void LongPress()
+    private void InvokeLongPress()
     {
         switch (ActiveKey)
         {
@@ -138,7 +143,7 @@ public class TextInputButton : MonoBehaviour
             default:
                 if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(ActiveKey))
                 {
-                    KeyboardManager.ShowAccentOverlay(KeyboardCollections.CharacterToSpecialChars[ActiveKey]);
+                    HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey]);
                 }
                 break;
         }
