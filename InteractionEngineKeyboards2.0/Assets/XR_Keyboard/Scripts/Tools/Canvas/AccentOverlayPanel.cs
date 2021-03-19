@@ -14,6 +14,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public AudioClip showSound, hideSound;
 
     public float timeout = 5;
+    public Vector3 anchorOffset = Vector3.zero;
 
     private AudioSource audioSource;
     private bool makeNoise = false;
@@ -49,10 +50,16 @@ public class AccentOverlayPanel : MonoBehaviour
         }
     }
 
-    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _transform)
+    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _transform, bool offsetAnchor = false)
     {
         transform.position = _transform.position;
         transform.rotation = _transform.rotation;
+
+        if (offsetAnchor)
+        {
+            transform.localPosition += anchorOffset;
+        }
+
         this.specialChars = specialChars;
         panel.gameObject.SetActive(true);
 

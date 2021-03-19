@@ -13,7 +13,8 @@ public class KeyboardManager : MonoBehaviour
 
     public enum AccentKeysPosition
     {
-        MIDDLE
+        MIDDLE,
+        ADJACENT
     }
 
     public delegate void KeyDown(byte[] key);
@@ -27,6 +28,7 @@ public class KeyboardManager : MonoBehaviour
     [Header("AccentKeys")]
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
     public Transform AccentKeysMiddleAnchor;
+    public static Transform AccentKeyAnchor;
 
     public static KeyboardSpawner keyboardSpawner;
     public static AccentOverlayPanel accentOverlay;
@@ -175,6 +177,10 @@ public class KeyboardManager : MonoBehaviour
             case AccentKeysPosition.MIDDLE:
                 accentOverlay.ShowAccentPanel(specialChars, AccentKeysMiddleAnchor);
                 break;
+            case AccentKeysPosition.ADJACENT:
+                accentOverlay.ShowAccentPanel(specialChars, AccentKeyAnchor, true);
+                break;
         }
     }
+
 }
