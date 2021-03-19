@@ -154,6 +154,7 @@ public static class KeyboardCollections
       {KeyCodeSpecialChar.A_ACUTE, "á"},
       {KeyCodeSpecialChar.A_CIRCUMFLEX, "â"},
       {KeyCodeSpecialChar.A_UMLAUT, "ä"},
+      {KeyCodeSpecialChar.C_CEDILLE, "ç"},
       {KeyCodeSpecialChar.E_MACRON, "ē"},
       {KeyCodeSpecialChar.E_GRAVE, "è"},
       {KeyCodeSpecialChar.E_ACUTE, "é"},
@@ -251,6 +252,12 @@ public static class KeyboardCollections
         }
       },
       {
+        KeyCode.C, new List<KeyCodeSpecialChar>()
+        {
+          KeyCodeSpecialChar.C_CEDILLE,
+        }
+      },
+      {
         KeyCode.E, new List<KeyCodeSpecialChar>()
         {
           KeyCodeSpecialChar.E_MACRON,
@@ -318,6 +325,7 @@ public enum KeyCodeSpecialChar
     A_NORDIC_RING,
     A_MACRON,
     A_UMLAUT,
+    C_CEDILLE,
     E_MACRON,
     E_GRAVE,
     E_ACUTE,
