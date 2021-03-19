@@ -11,7 +11,8 @@ public class TextInputButton : MonoBehaviour
 {
     public delegate void KeyDown(KeyCode keyCode);
     public static event KeyDown HandleKeyDown;
-
+    public delegate void KeyUp();
+    public static event KeyUp HandleKeyUp;
     public delegate void KeyDownSpecialChar(KeyCodeSpecialChar keyCode);
     public static event KeyDownSpecialChar HandleKeyDownSpecialChar;
     public delegate void LongPress(List<KeyCodeSpecialChar> specialChars);
@@ -37,6 +38,7 @@ public class TextInputButton : MonoBehaviour
         if (interactionButton != null)
         {
             interactionButton.OnPress += TextPress;
+            interactionButton.OnUnpress += ()=> HandleKeyUp.Invoke();
         }
         button = GetComponentInChildren<Button>();
         if (button != null) { button.onClick.AddListener(TextPress); }

@@ -19,6 +19,12 @@ public class KeyboardManager : MonoBehaviour
         NUM_ROW
     }
 
+    public enum AccentKeysDismiss
+    {
+        TIME,
+        KEYPRESS
+    }
+
     public delegate void KeyDown(byte[] key);
     public static event KeyDown HandleKeyDown;
 
@@ -28,7 +34,9 @@ public class KeyboardManager : MonoBehaviour
     public List<GameObject> KeyboardParents;
     private KeyboardMode keyboardMode;
     [Header("AccentKeys")]
+    public AccentKeysDismiss accentKeysDismiss = AccentKeysDismiss.TIME;
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
+    private bool dismissOnNextKeyUp = false;
     public Transform AccentKeysMiddleAnchor;
     public static Transform AccentKeyAnchor;
     public Transform NumberRow;
@@ -42,6 +50,7 @@ public class KeyboardManager : MonoBehaviour
     {
         TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
         TextInputButton.HandleKeyDownSpecialChar += HandleTextInputButtonKeyDownSpecialChar;
+        TextInputButton.HandleKeyUp += HandleTextInputButtonUp;
         TextInputButton.HandleLongPress += ShowAccentOverlay;
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
         accentOverlay = FindObjectOfType<AccentOverlayPanel>();
@@ -84,9 +93,29 @@ public class KeyboardManager : MonoBehaviour
         {
             HandleKeyDown.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
         }
+
         if (keyboardMode == KeyboardMode.SHIFT)
         {
             SetMode(KeyboardMode.NEUTRAL);
+        }
+    }
+
+    private void HandleTextInputButtonUp()
+    {
+        if (accentKeysDismiss == AccentKeysDismiss.KEYPRESS)
+        {
+            if (accentOverlay.panel.gameObject.activeInHierarchy)
+            {
+                if (!dismissOnNextKeyUp)
+                {
+                    dismissOnNextKeyUp = true;
+                }
+                else
+                {
+                    hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
+                    dismissOnNextKeyUp = false;
+                }
+            }
         }
     }
 
@@ -194,17 +223,27 @@ public class KeyboardManager : MonoBehaviour
                 accentOverlay.ShowAccentPanel(specialChars, AccentKeyAnchor, true);
                 break;
         }
-
-        if (hidePanelRoutine != null)
+        if (accentKeysDismiss == AccentKeysDismiss.TIME)
         {
-            StopCoroutine(hidePanelRoutine);
+
+            if (hidePanelRoutine != null)
+            {
+                StopCoroutine(hidePanelRoutine);
+            }
+            hidePanelRoutine = StartCoroutine(HidePanelAfter(accentOverlay.timeout));
         }
-        hidePanelRoutine = StartCoroutine("HidePanelAfter");
     }
 
-    public IEnumerator HidePanelAfter()
+    public IEnumerator HidePanelAfter(float seconds)
     {
-        yield return new WaitForSeconds(accentOverlay.timeout);
+        yield return new WaitForSeconds(seconds);
+        HideAccentPanel();
+    }
+
+
+
+    private void HideAccentPanel()
+    {
         accentOverlay.HideAccentPanel();
         if (accentKeysPosition == AccentKeysPosition.NUM_ROW)
         {
