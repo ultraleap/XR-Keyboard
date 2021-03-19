@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
-
+using UnityEngine.UI;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
     public GameObject keyPrefab, shadowPrefab;
-    public Transform panel, shadowRow, keyRow;
+    public Transform panel, shadowRow, keyRow, background;
 
     public List<KeyCodeSpecialChar> specialChars;
 
@@ -15,11 +15,11 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public float timeout = 5;
     public Vector3 anchorOffset = Vector3.zero;
+    public Color overlayColour, inlineColour;
 
     private AudioSource audioSource;
     private bool makeNoise = false;
 
-    private Coroutine hidePanelRoutine;
 
     // Start is called before the first frame update
     void Start()
@@ -71,11 +71,7 @@ public class AccentOverlayPanel : MonoBehaviour
             audioSource.PlayOneShot(showSound);
         }
         
-        if (hidePanelRoutine != null)
-        {
-            StopCoroutine(hidePanelRoutine);
-        }
-        hidePanelRoutine = StartCoroutine("HidePanelAfter");
+
     }
 
     public void HideAccentPanel()
@@ -126,9 +122,12 @@ public class AccentOverlayPanel : MonoBehaviour
         GetComponent<UIKeyboardResizer>().ResizeKeyboard();
     }
 
-    public IEnumerator HidePanelAfter()
-    {
-        yield return new WaitForSeconds(timeout);
-        HideAccentPanel();
+    public void SetOverlayColour(){
+        background.GetComponent<Image>().color = overlayColour;
     }
+
+    public void SetInlineColour(){
+        background.GetComponent<Image>().color = inlineColour;
+    }
+
 }
