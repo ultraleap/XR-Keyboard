@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
+using Leap.Unity.Interaction;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
@@ -34,6 +34,7 @@ public class AccentOverlayPanel : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = showSound;
         makeNoise = showSound != null && hideSound != null;
+
     }
 
     [Button]
@@ -138,5 +139,23 @@ public class AccentOverlayPanel : MonoBehaviour
     {
         Vector2 size = GetComponent<RectTransform>().sizeDelta;
         activeRegion.size = new Vector3(size.x, size.y, size.y);
+    }
+
+    public void EnableActiveRegion()
+    {
+        if (!useActiveRegion)
+        {
+            useActiveRegion = true;
+            
+            activeRegion.GetComponent<InteractionBehaviour>().OnHoverEnd += HideAccentPanel;
+        }
+    }
+    public void DisableActiveRegion()
+    {
+        if (useActiveRegion)
+        {
+            useActiveRegion = false;
+            activeRegion.GetComponent<InteractionBehaviour>().OnHoverEnd += HideAccentPanel;
+        }
     }
 }

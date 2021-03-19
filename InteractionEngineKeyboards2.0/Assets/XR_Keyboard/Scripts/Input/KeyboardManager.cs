@@ -22,7 +22,8 @@ public class KeyboardManager : MonoBehaviour
     public enum AccentKeysDismiss
     {
         TIME,
-        KEYPRESS
+        KEYPRESS,
+        PROXIMITY
     }
 
     public delegate void KeyDown(byte[] key);
@@ -206,6 +207,15 @@ public class KeyboardManager : MonoBehaviour
 
     public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
     {
+        if (accentKeysDismiss == AccentKeysDismiss.PROXIMITY)
+        {
+            accentOverlay.EnableActiveRegion();
+        }
+        else
+        {
+            accentOverlay.DisableActiveRegion();
+        }
+
         switch (accentKeysPosition)
         {
             case AccentKeysPosition.MIDDLE:
@@ -225,7 +235,8 @@ public class KeyboardManager : MonoBehaviour
         }
         if (accentKeysDismiss == AccentKeysDismiss.TIME)
         {
-
+            accentOverlay.useActiveRegion = false;
+            
             if (hidePanelRoutine != null)
             {
                 StopCoroutine(hidePanelRoutine);
