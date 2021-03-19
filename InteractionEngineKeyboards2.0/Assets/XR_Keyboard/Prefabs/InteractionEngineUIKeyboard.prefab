@@ -90,6 +90,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &131438208
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +325,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &927291553
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +418,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &964857178
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +511,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1109964790
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +604,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1123302453
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +797,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1261013046
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +890,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1278352135
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +983,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1287899101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1076,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1327243668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1169,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1849071482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1455,9 @@ MonoBehaviour:
   NeutralKey: 304
   Symbols1Key: 306
   Symbols2Key: 308
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &3929492005625837485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,6 +1873,9 @@ MonoBehaviour:
   NeutralKey: 13
   Symbols1Key: 13
   Symbols2Key: 13
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &3126949749577161388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2175,6 +2211,9 @@ MonoBehaviour:
   NeutralKey: 256
   Symbols1Key: 256
   Symbols2Key: 256
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &8012219451217308337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,6 +2674,9 @@ MonoBehaviour:
   NeutralKey: 264
   Symbols1Key: 264
   Symbols2Key: 264
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &4758702847775185079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2857,6 +2899,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &284479167725889929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3052,9 @@ MonoBehaviour:
   NeutralKey: 44
   Symbols1Key: 44
   Symbols2Key: 276
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &4354690439067704641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,6 +3301,9 @@ MonoBehaviour:
   NeutralKey: 112
   Symbols1Key: 256
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6202768351188946138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,6 +3436,67 @@ MonoBehaviour:
   downSound: {fileID: 8300000, guid: 94af7e00ad320c948a8fd9340055542a, type: 3}
   upSound: {fileID: 8300000, guid: cee9aa610c6f5aa4eb49056d64f792f7, type: 3}
   source: {fileID: 2875845621196921245}
+--- !u!1 &358063369172863841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929805451111581743}
+  - component: {fileID: 821771179809094982}
+  m_Layer: 5
+  m_Name: Row
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1929805451111581743
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358063369172863841}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3370722293254058475}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1365.3945, y: -153.84613}
+  m_SizeDelta: {x: 2730.789, y: 307.69226}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &821771179809094982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358063369172863841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 37.499996
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &367150401882109527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,6 +4356,9 @@ MonoBehaviour:
   NeutralKey: 265
   Symbols1Key: 265
   Symbols2Key: 265
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &4800885515729418112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4502,6 +4617,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &852735489622775354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4531,6 +4649,7 @@ RectTransform:
   m_Children:
   - {fileID: 486709996677610944}
   - {fileID: 2911877879656440866}
+  - {fileID: 2396479793337039830}
   m_Father: {fileID: 6879055252763590055}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4653,6 +4772,9 @@ MonoBehaviour:
   NeutralKey: 105
   Symbols1Key: 264
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &7891097994383461326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5746,6 +5868,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1304710941983615484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6218,6 +6343,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1596636228471370837
 GameObject:
   m_ObjectHideFlags: 0
@@ -6308,6 +6436,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1611447085227371752
 GameObject:
   m_ObjectHideFlags: 0
@@ -6398,6 +6529,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &1656423664864624962
 GameObject:
   m_ObjectHideFlags: 0
@@ -6512,6 +6646,9 @@ MonoBehaviour:
   NeutralKey: 258
   Symbols1Key: 258
   Symbols2Key: 258
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5009908849390618563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6847,6 +6984,9 @@ MonoBehaviour:
   NeutralKey: 110
   Symbols1Key: 33
   Symbols2Key: 91
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &7033871093793893519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7226,6 +7366,9 @@ MonoBehaviour:
   NeutralKey: 257
   Symbols1Key: 257
   Symbols2Key: 257
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6389841966937558204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7730,6 +7873,9 @@ MonoBehaviour:
   NeutralKey: 259
   Symbols1Key: 259
   Symbols2Key: 259
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &4697603408760377895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7898,6 +8044,234 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 299.99997, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1789123808355588958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5365795570704009174}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5365795570704009174
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789123808355588958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1148772648155195260}
+  - {fileID: 5015310546591153876}
+  - {fileID: 3370722293254058475}
+  - {fileID: 7743482964334224927}
+  m_Father: {fileID: 2396479793337039830}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1923713813920032857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2396479793337039830}
+  - component: {fileID: 4631568712561475205}
+  - component: {fileID: 5256861201059107434}
+  - component: {fileID: 9188204193265346667}
+  - component: {fileID: 4553907504861971761}
+  m_Layer: 5
+  m_Name: AccentKeys
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2396479793337039830
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923713813920032857}
+  m_LocalRotation: {x: -0.04361939, y: -0, z: -0, w: 0.99904823}
+  m_LocalPosition: {x: 0, y: 0, z: -250}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5365795570704009174}
+  m_Father: {fileID: 2327771287212476330}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2737.499, y: 375}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4631568712561475205
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923713813920032857}
+  m_CullTransparentMesh: 0
+--- !u!114 &5256861201059107434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923713813920032857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e802491774a12742b6969ac411b5020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardKeysParent: {fileID: 5805454174312934120}
+  KeyboardShadowsParent: {fileID: 1213582053213782880}
+  prefabParent: {fileID: 2396479793337039830}
+  keyboardRows:
+  - {fileID: 6413979752046844494}
+  keyboardRowShadows:
+  - {fileID: 821771179809094982}
+  gapSize: 0.005
+  buttonSize: 0.04
+  panelPaddingRelativeToButtonSize: {x: 0.25, y: 0.25}
+  colliderDepth: 0.01
+--- !u!114 &9188204193265346667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923713813920032857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7567c1039008a341b32331ea1fef392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPrefab: {fileID: 7666059323194000210, guid: 21e2f2c38ad658141a57d73ca8115c55,
+    type: 3}
+  shadowPrefab: {fileID: 7364812801597039153, guid: 78a713c8c57a9dd429b3f2a7850c6689,
+    type: 3}
+  panel: {fileID: 5365795570704009174}
+  shadowRow: {fileID: 1929805451111581743}
+  keyRow: {fileID: 6858296730421759469}
+  specialChars: 
+  showSound: {fileID: 8300000, guid: fcc4763f583432145b78034547619453, type: 3}
+  hideSound: {fileID: 8300000, guid: bd7a4655a20c5c04da2cf794e58d1071, type: 3}
+--- !u!82 &4553907504861971761
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923713813920032857}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1926367753351664244
 GameObject:
   m_ObjectHideFlags: 0
@@ -8278,6 +8652,9 @@ MonoBehaviour:
   NeutralKey: 46
   Symbols1Key: 46
   Symbols2Key: 275
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5531801442763788416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8746,6 +9123,9 @@ MonoBehaviour:
   NeutralKey: 107
   Symbols1Key: 40
   Symbols2Key: 123
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5229126148933642631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9093,6 +9473,9 @@ MonoBehaviour:
   NeutralKey: 303
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2160464301175779257
 GameObject:
   m_ObjectHideFlags: 0
@@ -9183,6 +9566,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2177319768244642760
 GameObject:
   m_ObjectHideFlags: 0
@@ -9386,6 +9772,9 @@ MonoBehaviour:
   NeutralKey: 32
   Symbols1Key: 32
   Symbols2Key: 32
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &1471109430990923164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9632,6 +10021,9 @@ MonoBehaviour:
   NeutralKey: 102
   Symbols1Key: 95
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &1552280513387778320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9878,6 +10270,9 @@ MonoBehaviour:
   NeutralKey: 262
   Symbols1Key: 262
   Symbols2Key: 262
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &3937463401556055856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10502,6 +10897,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2440160059603721281
 GameObject:
   m_ObjectHideFlags: 0
@@ -10592,6 +10990,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2461550248868733272
 GameObject:
   m_ObjectHideFlags: 0
@@ -10771,6 +11172,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2509602590634191346
 GameObject:
   m_ObjectHideFlags: 0
@@ -11083,6 +11487,9 @@ MonoBehaviour:
   NeutralKey: 13
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2538316654577618189
 GameObject:
   m_ObjectHideFlags: 0
@@ -11431,6 +11838,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &2703258665182868648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12098,6 +12508,9 @@ MonoBehaviour:
   NeutralKey: 103
   Symbols1Key: 38
   Symbols2Key: 273
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &8095880000409321734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12320,6 +12733,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &3133053581915162947
 GameObject:
   m_ObjectHideFlags: 0
@@ -12624,6 +13040,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &3262792645096045189
 GameObject:
   m_ObjectHideFlags: 0
@@ -12793,6 +13212,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 299.99997, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &3297795367377090439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3370722293254058475}
+  - component: {fileID: 1213582053213782880}
+  m_Layer: 5
+  m_Name: Shadows
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3370722293254058475
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297795367377090439}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00022888184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1929805451111581743}
+  m_Father: {fileID: 5365795570704009174}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.00012820432}
+  m_SizeDelta: {x: 2662.4993, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1213582053213782880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297795367377090439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 37.5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &3307873457150172282
 GameObject:
   m_ObjectHideFlags: 0
@@ -12907,6 +13388,9 @@ MonoBehaviour:
   NeutralKey: 119
   Symbols1Key: 258
   Symbols2Key: 96
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &1406502154716178732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13153,6 +13637,9 @@ MonoBehaviour:
   NeutralKey: 100
   Symbols1Key: 49
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &4684908519666699959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13577,6 +14064,9 @@ MonoBehaviour:
   NeutralKey: 111
   Symbols1Key: 265
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5892972520911585126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13968,6 +14458,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &3745226861858355442
 GameObject:
   m_ObjectHideFlags: 0
@@ -14215,6 +14708,9 @@ MonoBehaviour:
   NeutralKey: 8
   Symbols1Key: 8
   Symbols2Key: 8
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &920355896705434016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14622,6 +15118,9 @@ MonoBehaviour:
   NeutralKey: 115
   Symbols1Key: 35
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6110082783772698049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15267,6 +15766,9 @@ MonoBehaviour:
   NeutralKey: 117
   Symbols1Key: 263
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5382817399495602336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15513,6 +16015,9 @@ MonoBehaviour:
   NeutralKey: 109
   Symbols1Key: 63
   Symbols2Key: 93
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &232141363592582572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15759,6 +16264,9 @@ MonoBehaviour:
   NeutralKey: 122
   Symbols1Key: 42
   Symbols2Key: 37
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &7598655824148986653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16005,6 +16513,9 @@ MonoBehaviour:
   NeutralKey: 114
   Symbols1Key: 260
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &1589768062078398879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16227,6 +16738,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &4422984932356307775
 GameObject:
   m_ObjectHideFlags: 0
@@ -16708,6 +17222,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &4616281524627129314
 GameObject:
   m_ObjectHideFlags: 0
@@ -16834,6 +17351,70 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
+--- !u!1 &4832620325966082614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6858296730421759469}
+  - component: {fileID: 6413979752046844494}
+  m_Layer: 5
+  m_Name: Row
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6858296730421759469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832620325966082614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.97499996, y: 0.9750002, z: 0.9750002}
+  m_Children: []
+  m_Father: {fileID: 7743482964334224927}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1365.3945, y: -153.84613}
+  m_SizeDelta: {x: 2730.789, y: 307.69226}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6413979752046844494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832620325966082614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 38.461536
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &4895736267477136942
 GameObject:
   m_ObjectHideFlags: 0
@@ -17170,6 +17751,9 @@ MonoBehaviour:
   NeutralKey: 98
   Symbols1Key: 59
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5004620741461434664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17638,6 +18222,9 @@ MonoBehaviour:
   NeutralKey: 97
   Symbols1Key: 64
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5162890942043466875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17860,6 +18447,83 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
+--- !u!1 &5239005415452196233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1148772648155195260}
+  - component: {fileID: 8745308463534204257}
+  - component: {fileID: 93954496288673295}
+  m_Layer: 5
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1148772648155195260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239005415452196233}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5365795570704009174}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8745308463534204257
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239005415452196233}
+  m_CullTransparentMesh: 0
+--- !u!114 &93954496288673295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239005415452196233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7e4e08019efedd8448ef60ed1c7f98e1, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.025
 --- !u!1 &5249173300873251396
 GameObject:
   m_ObjectHideFlags: 0
@@ -17950,6 +18614,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &5275031709172154685
 GameObject:
   m_ObjectHideFlags: 0
@@ -18100,6 +18767,9 @@ MonoBehaviour:
   NeutralKey: 261
   Symbols1Key: 261
   Symbols2Key: 261
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5360948362030775833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18819,6 +19489,80 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5549479898309186876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5015310546591153876}
+  - component: {fileID: 9165505325272140391}
+  - component: {fileID: 4750504061232372721}
+  m_Layer: 5
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5015310546591153876
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549479898309186876}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5365795570704009174}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9165505325272140391
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549479898309186876}
+  m_CullTransparentMesh: 0
+--- !u!114 &4750504061232372721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549479898309186876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.77254903}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: db3f9c35b50251847a2a0751585722b0, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.1
 --- !u!1 &5656755947601877895
 GameObject:
   m_ObjectHideFlags: 0
@@ -18933,6 +19677,9 @@ MonoBehaviour:
   NeutralKey: 260
   Symbols1Key: 260
   Symbols2Key: 260
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &8754649680476404371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19377,6 +20124,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &5756847877733127742
 GameObject:
   m_ObjectHideFlags: 0
@@ -19645,6 +20395,9 @@ MonoBehaviour:
   NeutralKey: 32
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &5897275273349290364
 GameObject:
   m_ObjectHideFlags: 0
@@ -19904,6 +20657,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &6079015855474943579
 GameObject:
   m_ObjectHideFlags: 0
@@ -20187,6 +20943,9 @@ MonoBehaviour:
   NeutralKey: 263
   Symbols1Key: 263
   Symbols2Key: 263
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5579644786585564757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20756,6 +21515,9 @@ MonoBehaviour:
   NeutralKey: 8
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &6425365496519955156
 GameObject:
   m_ObjectHideFlags: 0
@@ -20846,6 +21608,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &6434881472539428297
 GameObject:
   m_ObjectHideFlags: 0
@@ -20936,6 +21701,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &6501521784014200516
 GameObject:
   m_ObjectHideFlags: 0
@@ -21050,6 +21818,9 @@ MonoBehaviour:
   NeutralKey: 120
   Symbols1Key: 34
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6426885584922367473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21621,6 +22392,9 @@ MonoBehaviour:
   NeutralKey: 101
   Symbols1Key: 259
   Symbols2Key: 124
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6822085186387510451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22330,6 +23104,9 @@ MonoBehaviour:
   NeutralKey: 307
   Symbols1Key: 48
   Symbols2Key: 48
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &2978821622916752976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22766,6 +23543,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &6995435150095949390
 GameObject:
   m_ObjectHideFlags: 0
@@ -22838,6 +23618,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 299.99997, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &7052812205426928758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7743482964334224927}
+  - component: {fileID: 5805454174312934120}
+  m_Layer: 5
+  m_Name: Keys
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7743482964334224927
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052812205426928758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00022888184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6858296730421759469}
+  m_Father: {fileID: 5365795570704009174}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.00012820432}
+  m_SizeDelta: {x: 2662.4993, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5805454174312934120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052812205426928758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 37.5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &7063297207966392843
 GameObject:
   m_ObjectHideFlags: 0
@@ -22952,6 +23794,9 @@ MonoBehaviour:
   NeutralKey: 116
   Symbols1Key: 261
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &5726616847943038763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23379,6 +24224,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &7282752573854266787
 GameObject:
   m_ObjectHideFlags: 0
@@ -23493,6 +24341,9 @@ MonoBehaviour:
   NeutralKey: 99
   Symbols1Key: 39
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &7159539710549899815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23715,6 +24566,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &7295597210496681850
 GameObject:
   m_ObjectHideFlags: 0
@@ -24943,6 +25797,9 @@ MonoBehaviour:
   NeutralKey: 104
   Symbols1Key: 45
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &7822265076314311095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25165,6 +26022,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &8206067409956540848
 GameObject:
   m_ObjectHideFlags: 0
@@ -25545,6 +26405,9 @@ MonoBehaviour:
   NeutralKey: 308
   Symbols1Key: 48
   Symbols2Key: 48
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6650795731864131717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25900,6 +26763,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &8393698061244860564
 GameObject:
   m_ObjectHideFlags: 0
@@ -25990,6 +26856,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &8483065425697199429
 GameObject:
   m_ObjectHideFlags: 0
@@ -26249,6 +27118,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &8645643792034464459
 GameObject:
   m_ObjectHideFlags: 0
@@ -26435,6 +27307,9 @@ MonoBehaviour:
   NeutralKey: 106
   Symbols1Key: 43
   Symbols2Key: 61
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6297994862950112053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26681,6 +27556,9 @@ MonoBehaviour:
   NeutralKey: 118
   Symbols1Key: 58
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &856737343250217649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26927,6 +27805,9 @@ MonoBehaviour:
   NeutralKey: 121
   Symbols1Key: 262
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &2005018359249075407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27173,6 +28054,9 @@ MonoBehaviour:
   NeutralKey: 303
   Symbols1Key: 305
   Symbols2Key: 307
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &3245217409026129125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27766,6 +28650,9 @@ MonoBehaviour:
   NeutralKey: 113
   Symbols1Key: 257
   Symbols2Key: 126
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &6001400937978903359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27988,6 +28875,9 @@ MonoBehaviour:
   NeutralKey: 0
   Symbols1Key: 0
   Symbols2Key: 0
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!1 &9186543649365540181
 GameObject:
   m_ObjectHideFlags: 0
@@ -28102,6 +28992,9 @@ MonoBehaviour:
   NeutralKey: 108
   Symbols1Key: 41
   Symbols2Key: 125
+  ActiveSpecialChar: 19
+  UseSpecialChar: 0
+  longPressTime: 1
 --- !u!114 &3176093380982115405
 MonoBehaviour:
   m_ObjectHideFlags: 0

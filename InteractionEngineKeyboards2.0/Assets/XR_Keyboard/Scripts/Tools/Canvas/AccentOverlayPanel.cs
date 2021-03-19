@@ -13,6 +13,8 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public AudioClip showSound, hideSound;
 
+    public float timeout = 5;
+
     private AudioSource audioSource;
     private bool makeNoise = false;
 
@@ -117,7 +119,7 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public IEnumerator HidePanelAfter()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(timeout);
         HideAccentPanel();
     }
 }
