@@ -16,7 +16,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public Vector3 anchorOffset = Vector3.zero;
     public Color overlayColour, inlineColour;
 
-    [BoxGroup("Dismissal")] public bool useActiveRegion = true;
+    private bool useActiveRegion = false;
     [BoxGroup("Dismissal")] public BoxCollider activeRegion;
     [BoxGroup("Dismissal")] public float timeout = 5;
 
@@ -155,7 +155,7 @@ public class AccentOverlayPanel : MonoBehaviour
         if (useActiveRegion)
         {
             useActiveRegion = false;
-            activeRegion.GetComponent<InteractionBehaviour>().OnHoverEnd += HideAccentPanel;
+            activeRegion.GetComponent<InteractionBehaviour>().OnHoverEnd -= HideAccentPanel;
         }
     }
 }

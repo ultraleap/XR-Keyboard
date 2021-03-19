@@ -234,9 +234,7 @@ public class KeyboardManager : MonoBehaviour
                 break;
         }
         if (accentKeysDismiss == AccentKeysDismiss.TIME)
-        {
-            accentOverlay.useActiveRegion = false;
-            
+        {            
             if (hidePanelRoutine != null)
             {
                 StopCoroutine(hidePanelRoutine);
