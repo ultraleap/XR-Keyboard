@@ -15,6 +15,7 @@ public class KeyboardManager : MonoBehaviour
     public enum AccentKeysPosition
     {
         MIDDLE,
+        ADJACENT,
         NUM_ROW
     }
 
@@ -29,6 +30,7 @@ public class KeyboardManager : MonoBehaviour
     [Header("AccentKeys")]
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
     public Transform AccentKeysMiddleAnchor;
+    public static Transform AccentKeyAnchor;
     public Transform NumberRow;
     private Coroutine hidePanelRoutine;
 
@@ -188,6 +190,9 @@ public class KeyboardManager : MonoBehaviour
                 accentOverlay.transform.SetAsFirstSibling();
                 accentOverlay.ShowAccentPanel(specialChars, NumberRow);
                 break;
+            case AccentKeysPosition.ADJACENT:
+                accentOverlay.ShowAccentPanel(specialChars, AccentKeyAnchor, true);
+                break;
         }
 
         if (hidePanelRoutine != null)
@@ -210,4 +215,5 @@ public class KeyboardManager : MonoBehaviour
             }
         }
     }
+
 }
