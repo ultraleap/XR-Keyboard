@@ -136,6 +136,10 @@ public class TextInputButton : MonoBehaviour
                 StartCoroutine(LongPressCoroutine);
                 break;
             default:
+                if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(ActiveKey))
+                {
+                    KeyboardManager.ShowAccentOverlay(KeyboardCollections.CharacterToSpecialChars[ActiveKey]);
+                }
                 break;
         }
     }

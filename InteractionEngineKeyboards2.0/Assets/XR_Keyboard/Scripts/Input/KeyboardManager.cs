@@ -20,12 +20,14 @@ public class KeyboardManager : MonoBehaviour
     private KeyboardMode keyboardMode;
 
     public static KeyboardSpawner keyboardSpawner;
+    public static AccentOverlayPanel accentOverlay;
 
     private void Awake()
     {
         TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
         TextInputButton.HandleKeyDownSpecialChar += HandleTextInputButtonKeyDownSpecialChar;
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
+        accentOverlay = FindObjectOfType<AccentOverlayPanel>();
     }
 
     private void Start()
@@ -154,5 +156,10 @@ public class KeyboardManager : MonoBehaviour
         {
             keyboardSpawner.DespawnKeyboard();
         }
+    }
+
+    public static void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
+    {
+        accentOverlay.ShowAccentPanel(specialChars);
     }
 }
