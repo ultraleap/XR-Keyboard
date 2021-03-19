@@ -10,6 +10,12 @@ public class KeyboardManager : MonoBehaviour
     {
         NEUTRAL, SHIFT, CAPS, SYMBOLS_1, SYMBOLS_2
     }
+
+    public enum AccentKeysPosition
+    {
+        MIDDLE
+    }
+
     public delegate void KeyDown(byte[] key);
     public static event KeyDown HandleKeyDown;
 
@@ -18,6 +24,9 @@ public class KeyboardManager : MonoBehaviour
 
     public List<GameObject> KeyboardParents;
     private KeyboardMode keyboardMode;
+    [Header("AccentKeys")]
+    public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
+    public Transform AccentKeysMiddleAnchor;
 
     public static KeyboardSpawner keyboardSpawner;
     public static AccentOverlayPanel accentOverlay;
@@ -26,6 +35,7 @@ public class KeyboardManager : MonoBehaviour
     {
         TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
         TextInputButton.HandleKeyDownSpecialChar += HandleTextInputButtonKeyDownSpecialChar;
+        TextInputButton.HandleLongPress += ShowAccentOverlay;
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
         accentOverlay = FindObjectOfType<AccentOverlayPanel>();
     }
@@ -158,8 +168,13 @@ public class KeyboardManager : MonoBehaviour
         }
     }
 
-    public static void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
+    public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
     {
-        accentOverlay.ShowAccentPanel(specialChars);
+        switch(accentKeysPosition)
+        {
+            case AccentKeysPosition.MIDDLE:
+                accentOverlay.ShowAccentPanel(specialChars, AccentKeysMiddleAnchor);
+                break;
+        }
     }
 }
