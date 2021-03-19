@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ public class KeyboardManager : MonoBehaviour
 
     public enum AccentKeysPosition
     {
-        MIDDLE
+        MIDDLE,
+        NUM_ROW
     }
 
     public delegate void KeyDown(byte[] key);
@@ -27,6 +29,9 @@ public class KeyboardManager : MonoBehaviour
     [Header("AccentKeys")]
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
     public Transform AccentKeysMiddleAnchor;
+    public Transform NumberRow;
+    private Coroutine hidePanelRoutine;
+
 
     public static KeyboardSpawner keyboardSpawner;
     public static AccentOverlayPanel accentOverlay;
@@ -170,11 +175,39 @@ public class KeyboardManager : MonoBehaviour
 
     public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
     {
-        switch(accentKeysPosition)
+        switch (accentKeysPosition)
         {
             case AccentKeysPosition.MIDDLE:
                 accentOverlay.ShowAccentPanel(specialChars, AccentKeysMiddleAnchor);
+                accentOverlay.SetOverlayColour();
                 break;
+            case AccentKeysPosition.NUM_ROW:
+                NumberRow.gameObject.SetActive(false);
+                accentOverlay.SetInlineColour();
+                accentOverlay.transform.SetParent(NumberRow.transform.parent);
+                accentOverlay.transform.SetAsFirstSibling();
+                accentOverlay.ShowAccentPanel(specialChars, NumberRow);
+                break;
+        }
+
+        if (hidePanelRoutine != null)
+        {
+            StopCoroutine(hidePanelRoutine);
+        }
+        hidePanelRoutine = StartCoroutine("HidePanelAfter");
+    }
+
+    public IEnumerator HidePanelAfter()
+    {
+        yield return new WaitForSeconds(accentOverlay.timeout);
+        accentOverlay.HideAccentPanel();
+        if (accentKeysPosition == AccentKeysPosition.NUM_ROW)
+        {
+            accentOverlay.transform.SetParent(accentOverlay.transform.parent.parent);
+            if (!NumberRow.gameObject.activeInHierarchy)
+            {
+                NumberRow.gameObject.SetActive(true);
+            }
         }
     }
 }
