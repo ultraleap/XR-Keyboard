@@ -207,10 +207,16 @@ public class KeyboardManager : MonoBehaviour
         {
             StopCoroutine(timeoutPanelRoutine);
         }
-        timeoutPanelRoutine = StartCoroutine(HidePanelAfter(accentOverlay.timeout));
+        timeoutPanelRoutine = StartCoroutine(TimeOutPanel(accentOverlay.timeout));
     }
 
     public IEnumerator HidePanelAfter(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        HideAccentPanel();
+    }
+
+    public IEnumerator TimeOutPanel(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         HideAccentPanel();
