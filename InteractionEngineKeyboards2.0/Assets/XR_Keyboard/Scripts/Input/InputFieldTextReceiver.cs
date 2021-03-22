@@ -31,7 +31,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
 
     public void EnableInput()
     {
-        KeyboardManager.HandleKeyDown += HandleKeyDown;
+        KeyboardManager.HandleKeyUp += HandleKeyDown;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
         KeyboardManager.SpawnKeyboard(transform);
     }
@@ -39,7 +39,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
     public void DisableInput()
     {
         KeyboardManager.DespawnKeyboard();
-        KeyboardManager.HandleKeyDown -= HandleKeyDown;
+        KeyboardManager.HandleKeyUp -= HandleKeyDown;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
     }
 
