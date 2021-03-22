@@ -28,6 +28,7 @@ public class TextInputButton : MonoBehaviour
     private TextMeshProUGUI keyTextMeshGUI;
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
 
+    private bool longPressed = false;
 
     // Start is called before the first frame update
     public void Awake()
@@ -111,9 +112,14 @@ public class TextInputButton : MonoBehaviour
     }
     public void TextPress()
     {
-
-
-        KeyUpEvent();
+        if (!longPressed)
+        {
+            KeyUpEvent();
+        }
+        else
+        {
+            longPressed = false;
+        }
     }
 
     private void LongPressStart()
@@ -125,7 +131,6 @@ public class TextInputButton : MonoBehaviour
     private IEnumerator LongpressDetection()
     {
         float longpressThreshold = Time.time + longPressTime;
-        bool longPressed = false;
         while (interactionButton.isPressed && !longPressed)
         {
             if (Time.time > longpressThreshold)

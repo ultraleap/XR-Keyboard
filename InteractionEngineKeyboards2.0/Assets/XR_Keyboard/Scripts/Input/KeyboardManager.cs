@@ -37,7 +37,6 @@ public class KeyboardManager : MonoBehaviour
     [Header("AccentKeys")]
     public AccentKeysDismiss accentKeysDismiss = AccentKeysDismiss.TIME;
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
-    private bool dismissOnNextKeyUp = false;
     public Transform AccentKeysMiddleAnchor;
     public static Transform AccentKeyAnchor;
     public Transform NumberRow;
@@ -103,15 +102,7 @@ public class KeyboardManager : MonoBehaviour
         {
             if (accentOverlay.panel.gameObject.activeInHierarchy)
             {
-                if (!dismissOnNextKeyUp)
-                {
-                    dismissOnNextKeyUp = true;
-                }
-                else
-                {
-                    hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
-                    dismissOnNextKeyUp = false;
-                }
+                hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
             }
         }
     }
@@ -244,8 +235,6 @@ public class KeyboardManager : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         HideAccentPanel();
     }
-
-
 
     private void HideAccentPanel()
     {
