@@ -34,6 +34,7 @@ public class KeyboardManager : MonoBehaviour
     public static Transform AccentKeyAnchor;
     public Transform NumberRow;
     private Coroutine hidePanelRoutine;
+    private Coroutine timeoutPanelRoutine;
 
 
     public static KeyboardSpawner keyboardSpawner;
@@ -103,7 +104,7 @@ public class KeyboardManager : MonoBehaviour
             }
             else
             {
-                hidePanelRoutine = StartCoroutine(HidePanelAfter(0.125f));
+                hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
                 dismissOnNextKeyUp = false;
             }
         }
@@ -215,11 +216,11 @@ public class KeyboardManager : MonoBehaviour
                 break;
         }
             
-        if (hidePanelRoutine != null)
+        if (timeoutPanelRoutine != null)
         {
-            StopCoroutine(hidePanelRoutine);
+            StopCoroutine(timeoutPanelRoutine);
         }
-        hidePanelRoutine = StartCoroutine(HidePanelAfter(accentOverlay.timeout));
+        timeoutPanelRoutine = StartCoroutine(HidePanelAfter(accentOverlay.timeout));
     }
 
     public IEnumerator HidePanelAfter(float seconds)
@@ -241,6 +242,7 @@ public class KeyboardManager : MonoBehaviour
                 NumberRow.gameObject.SetActive(true);
             }
         }
+        dismissOnNextKeyUp = false;
     }
 
 }
