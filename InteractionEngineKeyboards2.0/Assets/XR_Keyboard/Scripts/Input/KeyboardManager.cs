@@ -26,8 +26,8 @@ public class KeyboardManager : MonoBehaviour
         PROXIMITY
     }
 
-    public delegate void KeyDown(byte[] key);
-    public static event KeyDown HandleKeyDown;
+    public delegate void KeyUp(byte[] key);
+    public static event KeyUp HandleKeyUp;
 
     public delegate void ClearTextField();
     public static event ClearTextField HandleClearTextField;
@@ -49,9 +49,8 @@ public class KeyboardManager : MonoBehaviour
 
     private void Awake()
     {
-        TextInputButton.HandleKeyDown += HandleTextInputButtonKeyDown;
-        TextInputButton.HandleKeyDownSpecialChar += HandleTextInputButtonKeyDownSpecialChar;
-        TextInputButton.HandleKeyUp += HandleTextInputButtonUp;
+        TextInputButton.HandleKeyUp += HandleTextInputButtonKeyUp;
+        TextInputButton.HandleKeyUpSpecialChar += HandleTextInputButtonKeyUpSpecialChar;
         TextInputButton.HandleLongPress += ShowAccentOverlay;
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
         accentOverlay = FindObjectOfType<AccentOverlayPanel>();
@@ -64,11 +63,11 @@ public class KeyboardManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        TextInputButton.HandleKeyDown -= HandleTextInputButtonKeyDown;
-        TextInputButton.HandleKeyDownSpecialChar -= HandleTextInputButtonKeyDownSpecialChar;
+        TextInputButton.HandleKeyUp -= HandleTextInputButtonKeyUp;
+        TextInputButton.HandleKeyUpSpecialChar -= HandleTextInputButtonKeyUpSpecialChar;
     }
 
-    private void HandleTextInputButtonKeyDown(KeyCode _keyCode)
+    private void HandleTextInputButtonKeyUp(KeyCode _keyCode)
     {
         if (KeyboardCollections.ModeShifters.Contains(_keyCode))
         {
@@ -77,32 +76,29 @@ public class KeyboardManager : MonoBehaviour
         else
         {
             string keyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
-            HandleKeyDownEncoding(keyCodeString);
+            HandleKeyUpEncoding(keyCodeString);
         }
     }
 
-    private void HandleTextInputButtonKeyDownSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar)
+    private void HandleTextInputButtonKeyUpSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar)
     {
         string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
-        HandleKeyDownEncoding(keyCodeString);
+        HandleKeyUpEncoding(keyCodeString);
     }
 
-    private void HandleKeyDownEncoding(string _keyCodeString)
+    private void HandleKeyUpEncoding(string _keyCodeString)
     {
         _keyCodeString = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
-        if (HandleKeyDown != null)
+        if (HandleKeyUp != null)
         {
-            HandleKeyDown.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
+            HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
         }
 
         if (keyboardMode == KeyboardMode.SHIFT)
         {
             SetMode(KeyboardMode.NEUTRAL);
         }
-    }
 
-    private void HandleTextInputButtonUp()
-    {
         if (accentKeysDismiss == AccentKeysDismiss.KEYPRESS)
         {
             if (accentOverlay.panel.gameObject.activeInHierarchy)
@@ -234,7 +230,7 @@ public class KeyboardManager : MonoBehaviour
                 break;
         }
         if (accentKeysDismiss == AccentKeysDismiss.TIME)
-        {            
+        {
             if (hidePanelRoutine != null)
             {
                 StopCoroutine(hidePanelRoutine);
