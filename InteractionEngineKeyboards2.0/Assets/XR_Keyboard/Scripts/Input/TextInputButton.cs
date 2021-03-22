@@ -20,12 +20,13 @@ public class TextInputButton : MonoBehaviour
     public KeyCode Symbols2Key;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
     public bool UseSpecialChar = false;
-    public float longPressTime = 1f;
+    public float longPressTime = 0.5f;
     private KeyCode ActiveKey;
     private InteractionButton interactionButton;
     private Button button;
     private TextMeshPro keyTextMesh;
     private TextMeshProUGUI keyTextMeshGUI;
+    private TextMeshProUGUI accentLabelTextMeshGUI;
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
 
     private bool longPressed = false;
@@ -51,10 +52,17 @@ public class TextInputButton : MonoBehaviour
         {
             keyTextMesh = transform.GetComponentInChildren<TextMeshPro>();
         }
-
-        if (keyTextMeshGUI == null)
+        
+        var textMeshGUIs = transform.GetComponentsInChildren<TextMeshProUGUI>();
+        if (keyTextMeshGUI == null && textMeshGUIs.Length > 0)
         {
-            keyTextMeshGUI = transform.GetComponentInChildren<TextMeshProUGUI>();
+            keyTextMeshGUI = textMeshGUIs[0];
+        }
+
+        if (accentLabelTextMeshGUI == null && textMeshGUIs.Length > 1)
+        {
+            // Ugly, how to do this better?
+            accentLabelTextMeshGUI = textMeshGUIs[1];
         }
 
         if (keyTextMesh == null && keyTextMeshGUI == null)
@@ -103,6 +111,15 @@ public class TextInputButton : MonoBehaviour
                 break;
         }
         UpdateKeyText(keyCodeText);
+
+        if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(keyCode))
+        {
+            accentLabelTextMeshGUI.text = "…";
+        }
+        else
+        {
+            accentLabelTextMeshGUI.text = "";
+        }
     }
     protected void UpdateKeyText(string text)
     {

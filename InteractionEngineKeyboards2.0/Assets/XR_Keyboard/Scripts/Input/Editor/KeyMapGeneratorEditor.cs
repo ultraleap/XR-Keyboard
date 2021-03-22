@@ -8,7 +8,7 @@ public class KeyMapGeneratorEditor : Editor
     {
         DrawDefaultInspector();
         KeyMapGenerator generator = (KeyMapGenerator)target;
-        
+
         GUILayout.Label("");
         if (GUILayout.Button("Regenerate Keyboard"))
         {
@@ -40,6 +40,8 @@ public class KeyMapGeneratorEditor : Editor
     {
         // Find the root of the prefab
         GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(generator.gameObject);
+        string sourceRootAssetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(root);
+        string sourceChildAssetPath = "";
         string rootAssetPath = "";
         string childAssetPath = "";
         string extension = generator.keyboardMap.description + "-" + generator.keyPrefab.name;
@@ -51,7 +53,10 @@ public class KeyMapGeneratorEditor : Editor
             rootAssetPath = NewAssetPath(root, extension);
             PrefabUtility.UnpackPrefabInstance(root, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
 
-            root.name = "Generated_" + generator.keyboardMap.description + "_" + generator.keyPrefab.name + "_Parent";
+            if (!generator.overWritePrefab)
+            {
+                root.name = "Generated_" + generator.keyboardMap.description + "_" + generator.keyPrefab.name + "_Parent";
+            }
         }
         
         // Check if it already has keys in
@@ -59,25 +64,30 @@ public class KeyMapGeneratorEditor : Editor
         {
             if (childPrefab != null)
             {
+                sourceChildAssetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(childPrefab);
                 childAssetPath = NewAssetPath(childPrefab, extension);
                 PrefabUtility.UnpackPrefabInstance(childPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
 
-                childPrefab.name = "Generated " + generator.keyboardMap.description + " " + generator.keyPrefab.name + " Keyboard";
+                if (!generator.overWritePrefab)
+                {
+                    childPrefab.name = "Generated " + generator.keyboardMap.description + " " + generator.keyPrefab.name + " Keyboard";
+                }
             }
            
         }
         
         // Regenerate keymap
         generator.RegenerateKeyboard();
-
+        
         if (childPrefab != null)
         {
-            // Save a new prefab with "regenerated" name extension (override if exists)
+            childAssetPath = generator.overWritePrefab ? sourceChildAssetPath : childAssetPath;
             PrefabUtility.SaveAsPrefabAssetAndConnect(childPrefab, childAssetPath, InteractionMode.AutomatedAction);
         }
+
         if (root != null)
         {
-            // Save a new prefab with "regenerated" name extension (override if exists)
+            rootAssetPath = generator.overWritePrefab ? sourceRootAssetPath : rootAssetPath;
             PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootAssetPath, InteractionMode.AutomatedAction);
         }
 

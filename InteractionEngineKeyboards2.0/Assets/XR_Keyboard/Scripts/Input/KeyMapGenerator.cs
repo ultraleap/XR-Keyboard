@@ -12,6 +12,8 @@ public class KeyMapGenerator : MonoBehaviour
     public Transform[] shadowRows = new Transform[5];
     public UIKeyboardResizer numberResizer;
     public UIKeyboardResizer keyboardResizer;
+    public bool overWritePrefab = false;
+
 
     // Start is called before the first frame update
     void Awake()
