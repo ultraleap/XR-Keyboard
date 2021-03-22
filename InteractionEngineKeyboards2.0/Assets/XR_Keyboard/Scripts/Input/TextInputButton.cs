@@ -9,12 +9,10 @@ using static KeyboardManager;
 
 public class TextInputButton : MonoBehaviour
 {
-    public delegate void KeyDown(KeyCode keyCode);
-    public static event KeyDown HandleKeyDown;
-    public delegate void KeyUp();
+    public delegate void KeyUp(KeyCode keyCode);
     public static event KeyUp HandleKeyUp;
-    public delegate void KeyDownSpecialChar(KeyCodeSpecialChar keyCode);
-    public static event KeyDownSpecialChar HandleKeyDownSpecialChar;
+    public delegate void KeyUpSpecialChar(KeyCodeSpecialChar keyCode);
+    public static event KeyUpSpecialChar HandleKeyUpSpecialChar;
     public delegate void LongPress(List<KeyCodeSpecialChar> specialChars);
     public static event LongPress HandleLongPress;
     public KeyCode NeutralKey;
@@ -31,6 +29,7 @@ public class TextInputButton : MonoBehaviour
     private TextMeshProUGUI accentLabelTextMeshGUI;
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
 
+    private bool longPressed = false;
 
     // Start is called before the first frame update
     public void Awake()
@@ -38,8 +37,8 @@ public class TextInputButton : MonoBehaviour
         interactionButton = GetComponentInChildren<InteractionButton>();
         if (interactionButton != null)
         {
-            interactionButton.OnPress += TextPress;
-            interactionButton.OnUnpress += ()=> HandleKeyUp.Invoke();
+            interactionButton.OnPress += LongPressStart;
+            interactionButton.OnUnpress += TextPress;
         }
         button = GetComponentInChildren<Button>();
         if (button != null) { button.onClick.AddListener(TextPress); }
@@ -130,16 +129,25 @@ public class TextInputButton : MonoBehaviour
     }
     public void TextPress()
     {
+        if (!longPressed)
+        {
+            KeyUpEvent();
+        }
+        else
+        {
+            longPressed = false;
+        }
+    }
+
+    private void LongPressStart()
+    {
         LongPressDetectorCoroutine = LongpressDetection();
         StartCoroutine(LongPressDetectorCoroutine);
-
-        KeyDownEvent();
     }
 
     private IEnumerator LongpressDetection()
     {
         float longpressThreshold = Time.time + longPressTime;
-        bool longPressed = false;
         while (interactionButton.isPressed && !longPressed)
         {
             if (Time.time > longpressThreshold)
@@ -178,21 +186,21 @@ public class TextInputButton : MonoBehaviour
             if (Time.time > nextPress)
             {
                 nextPress = Time.time + timeStep;
-                KeyDownEvent();
+                KeyUpEvent();
             }
             yield return null;
         }
     }
 
-    private void KeyDownEvent()
+    private void KeyUpEvent()
     {
         if (UseSpecialChar)
         {
-            HandleKeyDownSpecialChar(ActiveSpecialChar);
+            HandleKeyUpSpecialChar(ActiveSpecialChar);
         }
         else
         {
-            HandleKeyDown.Invoke(ActiveKey);
+            HandleKeyUp.Invoke(ActiveKey);
         }
     }
 }
