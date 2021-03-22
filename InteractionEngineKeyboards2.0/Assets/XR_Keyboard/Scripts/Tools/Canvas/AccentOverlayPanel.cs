@@ -2,7 +2,6 @@
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
-using Leap.Unity.Interaction;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
@@ -16,8 +15,6 @@ public class AccentOverlayPanel : MonoBehaviour
     public Vector3 anchorOffset = Vector3.zero;
     public Color overlayColour, inlineColour;
 
-    private bool useActiveRegion = false;
-    [BoxGroup("Dismissal")] public BoxCollider activeRegion;
     [BoxGroup("Dismissal")] public float timeout = 5;
 
     private AudioSource audioSource;
@@ -75,8 +72,6 @@ public class AccentOverlayPanel : MonoBehaviour
             audioSource.PlayOneShot(showSound);
         }
 
-        if (activeRegion != null) ResizeActiveZone();
-        activeRegion.gameObject.SetActive(useActiveRegion);
     }
 
     public void HideAccentPanel()
@@ -133,29 +128,5 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public void SetInlineColour(){
         background.GetComponent<Image>().color = inlineColour;
-    }
-
-    public void ResizeActiveZone()
-    {
-        Vector2 size = GetComponent<RectTransform>().sizeDelta;
-        activeRegion.size = new Vector3(size.x, size.y, size.y);
-    }
-
-    public void EnableActiveRegion()
-    {
-        if (!useActiveRegion)
-        {
-            useActiveRegion = true;
-            
-            activeRegion.GetComponent<InteractionBehaviour>().OnHoverEnd += HideAccentPanel;
-        }
-    }
-    public void DisableActiveRegion()
-    {
-        if (useActiveRegion)
-        {
-            useActiveRegion = false;
-            activeRegion.GetComponent<InteractionBehaviour>().OnHoverEnd -= HideAccentPanel;
-        }
     }
 }

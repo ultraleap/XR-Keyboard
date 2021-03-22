@@ -13603,11 +13603,10 @@ MonoBehaviour:
   specialChars: 
   showSound: {fileID: 8300000, guid: fcc4763f583432145b78034547619453, type: 3}
   hideSound: {fileID: 8300000, guid: bd7a4655a20c5c04da2cf794e58d1071, type: 3}
-  timeout: 5
   anchorOffset: {x: 0, y: 250, z: -250}
   overlayColour: {r: 0, g: 0, b: 0, a: 0}
   inlineColour: {r: 0, g: 0, b: 0, a: 0}
-  activeRegion: {fileID: 4168465003592379984}
+  timeout: 10
 --- !u!82 &5579950553662472887
 AudioSource:
   m_ObjectHideFlags: 0
