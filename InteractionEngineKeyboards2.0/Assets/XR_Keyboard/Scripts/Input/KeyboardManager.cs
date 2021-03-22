@@ -91,7 +91,10 @@ public class KeyboardManager : MonoBehaviour
             SetMode(KeyboardMode.NEUTRAL);
         }
 
-        hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
+        if (accentOverlay.panel.gameObject.activeInHierarchy)
+        {
+            hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
+        }
     }
 
     private void ModeSwitch(KeyCode _keyCode)
