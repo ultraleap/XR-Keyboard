@@ -236,4 +236,9 @@ public class KeyboardManager : MonoBehaviour
         }
     }
 
+    public void DismissAccentPanel()
+    {
+        StartCoroutine(HidePanelAfter(0.5f));
+    }
+
 }

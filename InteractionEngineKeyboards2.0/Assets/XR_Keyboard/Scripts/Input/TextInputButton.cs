@@ -141,6 +141,7 @@ public class TextInputButton : MonoBehaviour
 
     private void LongPressStart()
     {
+        longPressed = false;
         LongPressDetectorCoroutine = LongpressDetection();
         StartCoroutine(LongPressDetectorCoroutine);
     }
