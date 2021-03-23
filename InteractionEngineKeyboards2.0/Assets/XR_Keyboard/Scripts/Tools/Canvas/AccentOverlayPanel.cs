@@ -14,6 +14,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public AudioClip showSound, hideSound;
 
     public Vector3 anchorOffset = Vector3.zero;
+    public Vector3 horizontalOffset = new Vector3(150, 0, 0);
     public Color overlayColour, inlineColour;
 
     [BoxGroup("Dismissal")] public float timeout = 5;
@@ -52,14 +53,14 @@ public class AccentOverlayPanel : MonoBehaviour
         }
     }
 
-    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _transform, bool offsetAnchor = false)
+    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _keyTransform, bool offsetAnchor = false)
     {
-        transform.position = _transform.position;
-        transform.rotation = _transform.rotation;
+        transform.position = _keyTransform.position;
+        transform.rotation = _keyTransform.rotation;
 
         if (offsetAnchor)
         {
-            transform.localPosition += anchorOffset;
+            transform.localPosition += anchorOffset + HorizontalOffset(_keyTransform, specialChars.Count);
         }
 
         this.specialChars = specialChars;
@@ -131,6 +132,14 @@ public class AccentOverlayPanel : MonoBehaviour
         background.GetComponent<Image>().color = inlineColour;
     }
 
+    public Vector3 HorizontalOffset(Transform _keyTransform, int keyCount)
+    {
+        float midPoint = _keyTransform.parent.parent.childCount / 2f; 
+        float dir = -Mathf.Clamp(_keyTransform.parent.GetSiblingIndex() - midPoint, -1, 1);
+
+        return horizontalOffset * dir * (keyCount / 2);
+    }
+    
     public void DisableInput(){
         InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>(); 
 
