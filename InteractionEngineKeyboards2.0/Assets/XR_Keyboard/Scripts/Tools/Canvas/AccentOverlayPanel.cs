@@ -53,14 +53,14 @@ public class AccentOverlayPanel : MonoBehaviour
         }
     }
 
-    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _transform, bool offsetAnchor = false)
+    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _keyTransform, bool offsetAnchor = false)
     {
-        transform.position = _transform.position;
-        transform.rotation = _transform.rotation;
+        transform.position = _keyTransform.position;
+        transform.rotation = _keyTransform.rotation;
 
         if (offsetAnchor)
         {
-            transform.localPosition += anchorOffset + HorizontalOffset(_transform, specialChars.Count);
+            transform.localPosition += anchorOffset + HorizontalOffset(_keyTransform, specialChars.Count);
         }
 
         this.specialChars = specialChars;
