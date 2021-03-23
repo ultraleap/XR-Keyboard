@@ -2,6 +2,7 @@
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
+using Leap.Unity.Interaction;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
@@ -128,5 +129,13 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public void SetInlineColour(){
         background.GetComponent<Image>().color = inlineColour;
+    }
+
+    public void DisableInput(){
+        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>(); 
+
+        foreach(InteractionButton interactionButton in interactionButtons){
+            interactionButton.controlEnabled = false;
+        }
     }
 }
