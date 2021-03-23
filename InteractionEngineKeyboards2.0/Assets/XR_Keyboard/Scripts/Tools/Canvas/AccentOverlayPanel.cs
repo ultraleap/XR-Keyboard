@@ -13,6 +13,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public AudioClip showSound, hideSound;
 
     public Vector3 anchorOffset = Vector3.zero;
+    public Vector3 horizontalOffset = new Vector3(150, 0, 0);
     public Color overlayColour, inlineColour;
 
     [BoxGroup("Dismissal")] public float timeout = 5;
@@ -58,7 +59,7 @@ public class AccentOverlayPanel : MonoBehaviour
 
         if (offsetAnchor)
         {
-            transform.localPosition += anchorOffset;
+            transform.localPosition += anchorOffset + HorizontalOffset(_transform, specialChars.Count);
         }
 
         this.specialChars = specialChars;
@@ -128,5 +129,13 @@ public class AccentOverlayPanel : MonoBehaviour
 
     public void SetInlineColour(){
         background.GetComponent<Image>().color = inlineColour;
+    }
+
+    public Vector3 HorizontalOffset(Transform _keyTransform, int keyCount)
+    {
+        float midPoint = _keyTransform.parent.parent.childCount / 2f; 
+        float dir = -Mathf.Clamp(_keyTransform.parent.GetSiblingIndex() - midPoint, -1, 1);
+
+        return horizontalOffset * dir * (keyCount / 2);
     }
 }
