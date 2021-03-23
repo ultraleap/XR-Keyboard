@@ -34,7 +34,7 @@ public class KeyboardManager : MonoBehaviour
     public Transform NumberRow;
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
-
+    public float accentPanelHideDelay = 0.25f;
 
     public static KeyboardSpawner keyboardSpawner;
     public static AccentOverlayPanel accentOverlay;
@@ -94,7 +94,7 @@ public class KeyboardManager : MonoBehaviour
         if (accentOverlay.panel.gameObject.activeInHierarchy)
         {
             accentOverlay.DisableInput();
-            hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
+            hidePanelRoutine = StartCoroutine(HidePanelAfter(accentPanelHideDelay));
         }
     }
 
@@ -234,6 +234,11 @@ public class KeyboardManager : MonoBehaviour
                 NumberRow.gameObject.SetActive(true);
             }
         }
+    }
+
+    public void DismissAccentPanel()
+    {
+        StartCoroutine(HidePanelAfter(accentPanelHideDelay));
     }
 
 }

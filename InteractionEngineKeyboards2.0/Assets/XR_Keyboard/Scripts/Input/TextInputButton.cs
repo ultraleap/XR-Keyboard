@@ -112,7 +112,7 @@ public class TextInputButton : MonoBehaviour
         }
         UpdateKeyText(keyCodeText);
 
-        if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(keyCode))
+        if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(keyCode) && accentLabelTextMeshGUI != null)
         {
             accentLabelTextMeshGUI.text = "…";
         }
@@ -141,6 +141,7 @@ public class TextInputButton : MonoBehaviour
 
     private void LongPressStart()
     {
+        longPressed = false;
         LongPressDetectorCoroutine = LongpressDetection();
         StartCoroutine(LongPressDetectorCoroutine);
     }

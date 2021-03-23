@@ -141,7 +141,7 @@ public class AccentOverlayPanel : MonoBehaviour
     }
     
     public void DisableInput(){
-        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>(); 
+        InteractionButton[] interactionButtons = keyRow.GetComponentsInChildren<InteractionButton>(); 
 
         foreach(InteractionButton interactionButton in interactionButtons){
             interactionButton.controlEnabled = false;
