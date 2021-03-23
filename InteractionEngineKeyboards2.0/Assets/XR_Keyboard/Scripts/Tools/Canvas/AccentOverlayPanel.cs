@@ -2,6 +2,7 @@
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
+using Leap.Unity.Interaction;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
@@ -137,5 +138,13 @@ public class AccentOverlayPanel : MonoBehaviour
         float dir = -Mathf.Clamp(_keyTransform.parent.GetSiblingIndex() - midPoint, -1, 1);
 
         return horizontalOffset * dir * (keyCount / 2);
+    }
+    
+    public void DisableInput(){
+        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>(); 
+
+        foreach(InteractionButton interactionButton in interactionButtons){
+            interactionButton.controlEnabled = false;
+        }
     }
 }

@@ -93,6 +93,7 @@ public class KeyboardManager : MonoBehaviour
 
         if (accentOverlay.panel.gameObject.activeInHierarchy)
         {
+            accentOverlay.DisableInput();
             hidePanelRoutine = StartCoroutine(HidePanelAfter(0.25f));
         }
     }
