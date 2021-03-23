@@ -5703,9 +5703,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262119674869978986, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262119674869978986, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 437317886}
+    - target: {fileID: 1262119674869978986, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262119674869978986, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DismissAccentPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262119674869978986, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1262119675543666445, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
       propertyPath: m_SizeDelta.x

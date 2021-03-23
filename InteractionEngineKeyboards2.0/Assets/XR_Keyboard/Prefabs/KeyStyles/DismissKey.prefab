@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 7289533643293561275}
   - component: {fileID: 8825658010861022732}
   - component: {fileID: 6719285592684400705}
+  - component: {fileID: 4429748854185894406}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -390,18 +391,7 @@ MonoBehaviour:
   _springForce: 0.1
   _OnPress:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: DismissAccentPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _OnUnpress:
     m_PersistentCalls:
       m_Calls: []
@@ -537,6 +527,24 @@ MonoBehaviour:
   downSound: {fileID: 8300000, guid: 94af7e00ad320c948a8fd9340055542a, type: 3}
   upSound: {fileID: 8300000, guid: cee9aa610c6f5aa4eb49056d64f792f7, type: 3}
   source: {fileID: 8825658010861022732}
+--- !u!114 &4429748854185894406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289533643293561253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5807a840237c4441859cbdecf6349c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NeutralKey: 0
+  Symbols1Key: 0
+  Symbols2Key: 0
+  ActiveSpecialChar: 20
+  UseSpecialChar: 0
+  longPressTime: 0.5
 --- !u!1 &7289533643693898201
 GameObject:
   m_ObjectHideFlags: 0
