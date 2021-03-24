@@ -47,11 +47,11 @@ public class InteractionButtonSounds : MonoBehaviour
 
     public void OnDown()
     {
-        if (downSound != null) { source.PlayOneShot(downSound); }
+        if (downSound != null) { source.PlayOneShot(downSound, 1); }
     }
 
     public void OnUp()
     {
-        if (upSound != null) { source.PlayOneShot(upSound); }
+        if (upSound != null) { source.PlayOneShot(upSound, 0.5f); }
     }
 }
