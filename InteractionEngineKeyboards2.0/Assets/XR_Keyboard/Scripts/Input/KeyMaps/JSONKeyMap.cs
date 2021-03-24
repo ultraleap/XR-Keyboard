@@ -30,15 +30,15 @@ public class JSONKeyMap : KeyMap
 
     public void WriteToJSON(JSONKeyMap map)
     {
-        if (map.keyMap.Count == 0 || map.keyMap[0].row.Count == 0) 
+        if (map.keyMap.Count == 0 || map.keyMap[0].row.Count == 0)
         {
             Debug.LogWarning("No map to write");
             return;
         }
-        
+
         string jsonMap = JsonUtility.ToJson(map, true);
-        
-        File.WriteAllText(Path.Combine(Application.streamingAssetsPath, description + ".json"), jsonMap);
+
+        File.WriteAllText(Path.Combine(Application.streamingAssetsPath + "/XR_Keyboard/KeyMaps", description + ".json"), jsonMap);
         Debug.Log(jsonMap.ToString());
     }
 }
