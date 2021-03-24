@@ -10,20 +10,11 @@
 ## Set Up The Keyboard
 
 1. Place the `InteractionEngineUIKeyboardWithGrabHandle` prefab into the scene
-2. Add the player camera as the Head Transform on the following GameObjects
-   1. `InteractionEngineUIKeyboardWithGrabHandle` (KeyboardManager Component)
-   2. `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal` (GrabGimbal Component)
 
 ## Set Up The Text Fields
 
 1. Add `InputFieldTextReceiver` to any text fields you want the keyboard to input to (note: only compatible with TextMeshPro InputFields)
 
-## Set Up The Ball Gizmos
-
-1. Set the left & right hand index tip on your hand mesh in the targets array in `Scale Based On Distance From Target` on the following objects
-   1. `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> Visuals`
-   2. `InteractionEngineUIKeyboardWithGrabHandle -> RotationGizmos -> RotationGizmoLeft -> Sphere`
-   3. `InteractionEngineUIKeyboardWithGrabHandle -> RotationGizmos -> RotationGizmoRight-> Sphere`
 
 ## Customisation
 
@@ -48,7 +39,9 @@ The `KeyMapGenerator` component provides the ability to automatically generate n
 - A prefab for the shadow of the key
 - A Key Map that defines what keys are placed on each row of the keyboard
 
-Open up the `InteractionEngineUIKeyboardWithGrabHandles` prefab and look at the root object for an example of how to configure the `KeyMapGenerator`
+Open up one of prefabs and look at the root object for an example of how to configure the `KeyMapGenerator`.
+
+You can coose whether to overrite or generate new keyboard prefabs when you regenerate, just check the box if you want to overrite your current keyboard.
 
 ### Prefab Handling
 
