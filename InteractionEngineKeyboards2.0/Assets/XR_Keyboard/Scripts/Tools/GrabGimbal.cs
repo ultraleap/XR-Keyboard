@@ -17,6 +17,7 @@ public class GrabGimbal : MonoBehaviour
 
     private void Start()
     {
+        if (head == null) head = Camera.main.transform;
         grabBallInteractionBehaviour = grabBall.GetComponent<InteractionBehaviour>();
         targetRotation = grabGimbal.rotation;
     }

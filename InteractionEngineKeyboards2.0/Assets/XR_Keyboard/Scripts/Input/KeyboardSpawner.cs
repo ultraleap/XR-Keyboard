@@ -27,6 +27,7 @@ public class KeyboardSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (head == null) head = Camera.main.transform;
         offset = GrabBall.position - KeyboardCentre.position;
         DespawnKeyboard();
     }

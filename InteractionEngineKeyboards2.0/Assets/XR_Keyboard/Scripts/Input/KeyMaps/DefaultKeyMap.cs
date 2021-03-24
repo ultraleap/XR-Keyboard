@@ -127,7 +127,7 @@ public class DefaultKeyMap : KeyMap
         
         string jsonMap = JsonUtility.ToJson(this, true);
         
-        File.WriteAllText(Path.Combine(Application.streamingAssetsPath, description + ".json"), jsonMap);
+        File.WriteAllText(Path.Combine(Application.streamingAssetsPath + "/XR_Keyboard/KeyMaps", description + ".json"), jsonMap);
         Debug.Log(jsonMap.ToString());
     }
 }

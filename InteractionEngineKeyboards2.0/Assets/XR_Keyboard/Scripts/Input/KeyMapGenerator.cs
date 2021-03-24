@@ -28,7 +28,7 @@ public class KeyMapGenerator : MonoBehaviour
     public void RegenerateKeyboard()
     {
         if (keyboardMap == null)
-        {  
+        {
             keyboardMap = GetComponent<KeyMap>();
             if (keyboardMap == null)
             {
@@ -50,7 +50,7 @@ public class KeyMapGenerator : MonoBehaviour
     public void GenerateKeyboard()
     {
         var keyMap = keyboardMap.GetKeyMap();
-        for(int i = 0; i < keyboardRows.Length; i++)
+        for (int i = 0; i < keyboardRows.Length; i++)
         {
             foreach (var key in keyMap[i].row)
             {
@@ -70,9 +70,9 @@ public class KeyMapGenerator : MonoBehaviour
 
     private void ClearKeys()
     {
-        foreach(Transform row in keyboardRows)
+        foreach (Transform row in keyboardRows)
         {
-            for(int i = row.childCount - 1; i >= 0; i--)
+            for (int i = row.childCount - 1; i >= 0; i--)
             {
                 if (row.GetChild(i).GetComponentInChildren<TextInputButton>())
                 {
@@ -84,9 +84,9 @@ public class KeyMapGenerator : MonoBehaviour
 
     private void ClearShadows()
     {
-        foreach(Transform row in shadowRows)
+        foreach (Transform row in shadowRows)
         {
-            for(int i = row.childCount - 1; i >= 0; i--)
+            for (int i = row.childCount - 1; i >= 0; i--)
             {
                 if (row.GetChild(i).GetComponentInChildren<TextInputButton>())
                 {
