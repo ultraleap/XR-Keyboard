@@ -2,24 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using Leap.Unity.Interaction;
+using Leap.Unity;
+
 public class ScaleBasedOnDistanceFromTarget : MonoBehaviour
 {
-    public List<Transform> targets;
+    public InteractionBehaviour behaviour;
 
     [MinMaxSlider(0, 10)] public Vector2 minMaxScale = new Vector2(0.1f, 1);
     [MinMaxSlider(0, 1)] public Vector2 minMaxDistance = new Vector2(0.1f, 0.5f);
     public AnimationCurve scaleAnimationCurve;
     public float lerpSpeed;
     private Vector3 targetScale;
-
+    private Vector3 targetPosition;
+    
     // Update is called once per frame
     void Update()
     {
         float closestDistance = Mathf.Infinity;
-        foreach (Transform target in targets)
+
+        if (behaviour != null && behaviour.primaryHoveringFinger != null)
         {
-            float distance = Vector3.Distance(transform.position, target.position);
-            float clampedDistance = Mathf.Clamp(Vector3.Distance(transform.position, target.position), minMaxDistance.x, minMaxDistance.y);
+            targetPosition = behaviour.primaryHoveringFinger.TipPosition.ToVector3();
+        
+            float distance = Vector3.Distance(transform.position, targetPosition);
+            float clampedDistance = Mathf.Clamp(Vector3.Distance(transform.position, targetPosition), minMaxDistance.x, minMaxDistance.y);
+
             if (clampedDistance < closestDistance)
             {
                 closestDistance = clampedDistance;
