@@ -9,7 +9,7 @@
 
 ## Set Up The Keyboard
 
-1. Place the `InteractionEngineUIKeyboardWithGrabHandle` prefab into the scene
+1. Place the `QwertyKeyboardWithGrabHandle` prefab into the scene
 
 ## Set Up The Text Fields
 
@@ -18,7 +18,7 @@
 
 ## Customisation
 
-The keyboard is a set of prefabs that you can edit. Most of the customisation can be done on the `InteractionButtonUIKey` prefab - here you can change
+The keyboard is a set of prefabs that you can edit. Most of the customisation can be done on the `DefaultKey` prefab - here you can change
 
 - Image used for the key
 - Text Mesh
@@ -28,8 +28,8 @@ The keyboard is a set of prefabs that you can edit. Most of the customisation ca
 
 In addition to this you can change the shadow colour by editing the colour & pressing "Set Child Image Colours" on the `SetChildImageColour` component on the following:
 
-- `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> UIInteractionEngineKeyboard -> Parent -> NumberRow -> NumberKeysShadows`
-- `InteractionEngineUIKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> UIInteractionEngineKeyboard -> Parent -> KeyboardKeys -> KeyboardKeysShadows`
+- `QwertyKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> QwertyKeyboard -> Parent -> NumberRow -> NumberKeysShadows`
+- `QwertyKeyboardWithGrabHandle -> GrabFollow -> GrabGimbal -> QwertyKeyboard -> Parent -> KeyboardKeys -> KeyboardKeysShadows`
 
 ## Generating New Keyboard Prefabs
 
