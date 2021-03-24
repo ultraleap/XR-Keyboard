@@ -7991,7 +7991,7 @@ MonoBehaviour:
   specialChars: 00000000
   showSound: {fileID: 8300000, guid: 8ecc8379f16d2c543b564c401e9a828e, type: 3}
   hideSound: {fileID: 8300000, guid: 23a4913126f30764d88e1981006451aa, type: 3}
-  anchorOffset: {x: 0, y: 0, z: 0}
+  anchorOffset: {x: 0, y: 250, z: -250}
   horizontalOffset: {x: 150, y: 0, z: 0}
   overlayColour: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   inlineColour: {r: 0.7372549, g: 0.7372549, b: 0.7372549, a: 1}
@@ -25903,7 +25903,7 @@ GameObject:
   - component: {fileID: 6879298221027245505}
   - component: {fileID: 6446647049379004802}
   m_Layer: 5
-  m_Name: Keyboard-Default QWERTY-DefaultKey
+  m_Name: QwertyKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35574,8 +35574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4045374380543888549, guid: e67a7a82e579e2c4ba09548974073d96,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7289533643693898201, guid: 7cb7ce7ac85d52b4fb1a502495de7640,
         type: 3}
       propertyPath: m_Name
