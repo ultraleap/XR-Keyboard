@@ -416,8 +416,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.1
-  MaxDistance: 1
+  MinDistance: 0.25
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -505,8 +505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSound: {fileID: 0}
-  downSound: {fileID: 8300000, guid: 9f18fd32c8a8e50429a37336dfc2bc2e, type: 3}
-  upSound: {fileID: 8300000, guid: ae2605353c484ef4ab45e5db62783939, type: 3}
+  downSound: {fileID: 8300000, guid: 950e6e66be1f197459ac2cc4676f2af2, type: 3}
+  upSound: {fileID: 8300000, guid: 409e434d2f294004794cabc31135207f, type: 3}
   source: {fileID: 8444804966586864775}
 --- !u!1 &7666059324953763401
 GameObject:
