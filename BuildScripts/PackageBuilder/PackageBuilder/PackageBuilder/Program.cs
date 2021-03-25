@@ -9,11 +9,7 @@ namespace PackageBuilder
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
-            {
-
-            }
-            else if (args.Length != 2)
+            if (args.Length != 2)
             {
                 throw new Exception("Need two args - <csv_filepath> <package_name>");
             }
