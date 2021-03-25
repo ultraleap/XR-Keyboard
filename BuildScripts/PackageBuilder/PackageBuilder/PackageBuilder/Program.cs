@@ -9,23 +9,27 @@ namespace PackageBuilder
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
+            try
             {
+                if (args.Length != 2)
+                {
+                    throw new Exception("Need two args - <csv_filepath> <package_name>");
+                }
 
+                List<Tuple<string, string>> paths = GetArrayOfPaths(args[0]);
+
+                UnityPackage pkg = new UnityPackage(args[1]);
+                foreach (Tuple<string, string> path in paths)
+                {
+                    pkg.Add(path.Item1, path.Item2);
+                }
+                pkg.Save(args[1].Trim() + ".unitypackage");
             }
-            else if (args.Length != 2)
+            catch (Exception e)
             {
-                throw new Exception("Need two args - <csv_filepath> <package_name>");
+                Environment.ExitCode = 1;
+                throw e;
             }
-
-            List<Tuple<string, string>> paths = GetArrayOfPaths(args[0]);
-
-            UnityPackage pkg = new UnityPackage(args[1]);
-            foreach (Tuple<string, string> path in paths)
-            {
-                pkg.Add(path.Item1, path.Item2);
-            }
-            pkg.Save(args[1].Trim() + ".unitypackage");
         }
 
         private static List<Tuple<string, string>> GetArrayOfPaths(string path)
