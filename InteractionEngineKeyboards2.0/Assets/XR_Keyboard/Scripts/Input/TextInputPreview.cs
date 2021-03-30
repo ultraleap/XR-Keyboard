@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class TextInputPreview : MonoBehaviour
@@ -17,7 +18,7 @@ public class TextInputPreview : MonoBehaviour
 
     public void ClearField()
     {
-        _UITextMesh.text = "|";
+        _UITextMesh.text = "";
     }
 
     public void UpdatePreview(string newText)
@@ -28,7 +29,7 @@ public class TextInputPreview : MonoBehaviour
             text = Truncate(text);
         }
 
-        _UITextMesh.text = text + "|";
+        _UITextMesh.text = text;
     }
 
     private string Truncate(string sentence)
@@ -37,14 +38,9 @@ public class TextInputPreview : MonoBehaviour
         
         if (words.Length > maxWords)
         {
-            string result = "";
             int offset = words.Length - maxWords;
-            for(int i = 0; i < maxWords; i++)
-            {
-                result += words[i + offset] + " ";
-            }
 
-            return result.Substring(0, result.Length - 2);
+            return string.Join(" ", words.Skip(offset));
         }
         else
         {
