@@ -9,7 +9,11 @@ public class TextInputPreview : MonoBehaviour
 
     private string text;
 
+    [Tooltip("Limit the number of words to display in the text preview. Value of 0 is unlimited")]
     public int maxWords = 0;
+
+    [Tooltip("Limit the number of characters to display in the text preview. Value of 0 is unlimited")]
+    public int maxCharacters = 0;
 
     private void OnEnable()
     {
@@ -26,13 +30,17 @@ public class TextInputPreview : MonoBehaviour
         text = newText;
         if (maxWords > 0)
         {
-            text = Truncate(text);
+            text = TruncateSentence(text);
+        }
+        if (maxCharacters > 0)
+        {
+            text = TruncateCharacters(text);
         }
 
         _UITextMesh.text = text;
     }
 
-    private string Truncate(string sentence)
+    private string TruncateSentence(string sentence)
     {
         string[] words = sentence.Split(' ');
         
@@ -40,11 +48,22 @@ public class TextInputPreview : MonoBehaviour
         {
             int offset = words.Length - maxWords;
 
-            return string.Join(" ", words.Skip(offset));
+            sentence = string.Join(" ", words.Skip(offset));
         }
-        else
+        
+        return sentence;
+        
+    }
+
+    private string TruncateCharacters(string word)
+    {
+        if (word.Length > maxCharacters)
         {
-            return sentence;
+            int offset = word.Length - maxCharacters;
+            word = word.Substring(offset);
         }
+        
+        return word;
+        
     }
 }
