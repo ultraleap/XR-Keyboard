@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Text;
 using TMPro;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] private TMP_InputField _textMesh;
     public bool previewLastKeypress = false;
