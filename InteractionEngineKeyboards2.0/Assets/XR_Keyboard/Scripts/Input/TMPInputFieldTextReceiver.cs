@@ -3,10 +3,12 @@ using System.Text;
 using System.Collections;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] private TMP_InputField _textMesh;
+    [SerializeField] private InputField _textInput;
     public bool previewLastKeypress = false;
     public float previewLastTimeout = 1;
     private Coroutine exposureTimeout;
@@ -32,7 +34,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
 
     public void EnableInput()
     {
-        KeyboardManager.HandleKeyUp += HandleKeyDown;
+        KeyboardManager.HandleKeyUp += HandleKeyPress;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
         KeyboardManager.SpawnKeyboard(transform);
         KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
@@ -41,7 +43,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     public void DisableInput()
     {
         KeyboardManager.DespawnKeyboard();
-        KeyboardManager.HandleKeyUp -= HandleKeyDown;
+        KeyboardManager.HandleKeyUp -= HandleKeyPress;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
         KeyboardManager.textInputPreview.ClearField();
     }
@@ -51,13 +53,13 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         Reset();
     }
 
-    private void HandleKeyDown(byte[] key)
+    private void HandleKeyPress(byte[] key)
     {
         string keyDecoded = Encoding.UTF8.GetString(key);
 
         if (keyDecoded == "\u0008")
         {
-            HandleBackspaceDown();
+            HandleBackspacePress();
         }
         else if (keyDecoded == "\n")
         {
@@ -70,7 +72,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         }
     }
 
-    private void HandleBackspaceDown()
+    private void HandleBackspacePress()
     {
         if (_textMesh == null)
         {
@@ -133,7 +135,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
             result = _textMesh.text;
         }
         RestartTimeout();
-        
+
         return result;
     }
 
