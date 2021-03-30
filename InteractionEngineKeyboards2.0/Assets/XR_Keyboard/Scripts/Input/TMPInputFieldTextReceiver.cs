@@ -103,6 +103,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     {
         if (_textMesh != null) { _textMesh.text += _appendChar; }
         KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
+        _textMesh.MoveTextEnd(false);
     }
 
     private string PreviewText()
