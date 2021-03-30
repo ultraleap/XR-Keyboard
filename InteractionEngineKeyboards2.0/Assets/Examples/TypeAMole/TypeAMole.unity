@@ -494,7 +494,7 @@ MonoBehaviour:
   textFieldTimer: {fileID: 238122702}
   keyboardParent: {fileID: 66226247}
   nonRandomSequence: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
-  randomiseSequence: 1
+  randomiseSequence: 0
   randomSequenceLength: 15
   activeColors:
     defaultColor: {r: 0.48235297, g: 0.2392157, b: 0.882353, a: 1}
@@ -5912,6 +5912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 0}
+  previewLastKeypress: 0
 --- !u!1 &1340582438
 GameObject:
   m_ObjectHideFlags: 0

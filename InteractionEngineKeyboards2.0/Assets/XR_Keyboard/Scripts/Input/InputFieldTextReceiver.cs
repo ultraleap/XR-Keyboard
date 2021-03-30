@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] private TMP_InputField _textMesh;
+    public bool previewLastKeypress = false;
 
     private void Start()
     {
@@ -110,11 +111,27 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
     private string PreviewText()
     {
         string text = _textMesh.textComponent.text;
-        if (_textMesh.contentType == TMP_InputField.ContentType.Password && text.Length > 2)
+        if (previewLastKeypress)
         {
-            text = text.Substring(0,text.Length-2) + _textMesh.text.Substring(_textMesh.text.Length - 1);
+            text = ExposeLastKeypress(text);
         }
 
         return text;
+    }
+
+    private string ExposeLastKeypress(string source)
+    {
+        string result = source;
+
+        if (source.Length > 2)
+        {
+            result = source.Substring(0, source.Length-2) + _textMesh.text.Substring(_textMesh.text.Length - 1);
+        }
+        else if (source.Length > 0)
+        {
+            result = _textMesh.text;
+        }
+
+        return result;
     }
 }
