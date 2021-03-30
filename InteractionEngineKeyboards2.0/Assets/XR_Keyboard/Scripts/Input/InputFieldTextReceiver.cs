@@ -34,7 +34,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
         KeyboardManager.HandleKeyUp += HandleKeyDown;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
         KeyboardManager.SpawnKeyboard(transform);
-        KeyboardManager.textInputPreview.SetField(_textMesh);
+        KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
     }
 
     public void DisableInput()
@@ -43,12 +43,11 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
         KeyboardManager.HandleKeyUp -= HandleKeyDown;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
         KeyboardManager.textInputPreview.ClearField();
-        
     }
 
     public void Clear()
     {
-        if (_textMesh != null) { _textMesh.text = ""; }
+        Reset();
     }
 
     private void HandleKeyDown(byte[] key)
@@ -79,6 +78,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
         if (_textMesh.text.Length > 0)
         {
             _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
+            KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
         }
     }
 
@@ -98,10 +98,23 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
     private void Reset()
     {
         if (_textMesh != null) { _textMesh.text = string.Empty; }
+        KeyboardManager.textInputPreview.ClearField();
     }
 
     private void UpdateTextMeshText(string _appendChar)
     {
         if (_textMesh != null) { _textMesh.text += _appendChar; }
+        KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
+    }
+
+    private string PreviewText()
+    {
+        string text = _textMesh.textComponent.text;
+        if (_textMesh.contentType == TMP_InputField.ContentType.Password && text.Length > 2)
+        {
+            text = text.Substring(0,text.Length-2) + _textMesh.text.Substring(_textMesh.text.Length - 1);
+        }
+
+        return text;
     }
 }
