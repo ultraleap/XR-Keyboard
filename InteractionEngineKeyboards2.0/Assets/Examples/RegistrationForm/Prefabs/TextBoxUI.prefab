@@ -2281,6 +2281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 0}
+  _textInput: {fileID: 0}
+  exposeLastKeypress: 1
+  previewLastTimeout: 1
 --- !u!1 &3487001679348641017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 0}
+  _textInput: {fileID: 0}
+  exposeLastKeypress: 0
+  previewLastTimeout: 1
 --- !u!1 &3487001679428818326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,6 +2718,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 0}
+  _textInput: {fileID: 0}
+  exposeLastKeypress: 0
+  previewLastTimeout: 1
 --- !u!1 &3487001679523600462
 GameObject:
   m_ObjectHideFlags: 0

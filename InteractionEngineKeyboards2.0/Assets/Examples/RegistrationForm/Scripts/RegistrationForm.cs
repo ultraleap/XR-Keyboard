@@ -29,11 +29,11 @@ public class RegistrationForm : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         emailField.text = "";
-        emailField.GetComponent<InputFieldTextReceiver>().Clear();
+        emailField.GetComponent<TMPInputFieldTextReceiver>().Clear();
         mobileField.text = "";
-        mobileField.GetComponent<InputFieldTextReceiver>().Clear();
+        mobileField.GetComponent<TMPInputFieldTextReceiver>().Clear();
         passwordField.text = "";
-        passwordField.GetComponent<InputFieldTextReceiver>().Clear();
+        passwordField.GetComponent<TMPInputFieldTextReceiver>().Clear();
         warningText.text = "";
     }
 

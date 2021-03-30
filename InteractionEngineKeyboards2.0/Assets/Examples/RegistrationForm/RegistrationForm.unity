@@ -6070,6 +6070,11 @@ PrefabInstance:
       propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3487001679313880442, guid: 6f07ac6e71ef5044fb441770aab16d90,
+        type: 3}
+      propertyPath: exposeLastKeypress
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3487001679348641017, guid: 6f07ac6e71ef5044fb441770aab16d90,
         type: 3}
       propertyPath: m_IsActive
@@ -8662,6 +8667,11 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 7862501192231466097, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: maxCharacters
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7934646956239523973, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8885,6 +8895,41 @@ PrefabInstance:
     - target: {fileID: 8868366088202393394, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298289, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298292, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298292, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298292, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298292, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298295, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: preview
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878658214735298295, guid: 9a46809f0bb8b764592a2efa66c41902,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925820561530026896, guid: 9a46809f0bb8b764592a2efa66c41902,
