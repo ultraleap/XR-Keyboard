@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Text;
+using System.Collections;
 using TMPro;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,8 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
 {
     [SerializeField] private TMP_InputField _textMesh;
     public bool previewLastKeypress = false;
+    public float previewLastTimeout = 1;
+    private Coroutine exposureTimeout;
 
     private void Start()
     {
@@ -129,7 +132,22 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         {
             result = _textMesh.text;
         }
-
+        RestartTimeout();
+        
         return result;
+    }
+
+    private void RestartTimeout()
+    {
+        if (exposureTimeout != null) StopCoroutine(exposureTimeout);
+
+        exposureTimeout = StartCoroutine(HideLastKeypressAfter(previewLastTimeout));
+    }
+
+    private IEnumerator HideLastKeypressAfter(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        KeyboardManager.textInputPreview.UpdatePreview(_textMesh.textComponent.text);
     }
 }
