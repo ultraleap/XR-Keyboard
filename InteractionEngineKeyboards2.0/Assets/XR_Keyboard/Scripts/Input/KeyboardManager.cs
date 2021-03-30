@@ -40,6 +40,8 @@ public class KeyboardManager : MonoBehaviour
     public static KeyboardSpawner keyboardSpawner;
     public static AccentOverlayPanel accentOverlay;
 
+    public static TextInputPreview textInputPreview;
+
     private void Awake()
     {
         TextInputButton.HandleKeyUp += HandleTextInputButtonKeyUp;
@@ -47,6 +49,7 @@ public class KeyboardManager : MonoBehaviour
         TextInputButton.HandleLongPress += ShowAccentOverlay;
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
         accentOverlay = FindObjectOfType<AccentOverlayPanel>();
+        textInputPreview = FindObjectOfType<TextInputPreview>();
     }
 
     private void Start()

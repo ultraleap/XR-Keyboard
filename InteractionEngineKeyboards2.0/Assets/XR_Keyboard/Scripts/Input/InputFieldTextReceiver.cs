@@ -34,6 +34,7 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
         KeyboardManager.HandleKeyUp += HandleKeyDown;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
         KeyboardManager.SpawnKeyboard(transform);
+        KeyboardManager.textInputPreview.SetField(_textMesh);
     }
 
     public void DisableInput()
@@ -41,6 +42,8 @@ public class InputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHa
         KeyboardManager.DespawnKeyboard();
         KeyboardManager.HandleKeyUp -= HandleKeyDown;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
+        KeyboardManager.textInputPreview.ClearField();
+        
     }
 
     public void Clear()
