@@ -9,7 +9,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
 {
     [SerializeField] private TMP_InputField _textMesh;
     [SerializeField] private InputField _textInput;
-    public bool previewLastKeypress = false;
+    public bool exposeLastKeypress = false;
     public float previewLastTimeout = 1;
     private Coroutine exposureTimeout;
 
@@ -37,7 +37,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         KeyboardManager.HandleKeyUp += HandleKeyPress;
         KeyboardManager.HandleClearTextField += HandleClearTextField;
         KeyboardManager.SpawnKeyboard(transform);
-        KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
+        KeyboardManager.textInputPreview.UpdatePreview(PreviewText(false));
     }
 
     public void DisableInput()
@@ -45,7 +45,9 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         KeyboardManager.DespawnKeyboard();
         KeyboardManager.HandleKeyUp -= HandleKeyPress;
         KeyboardManager.HandleClearTextField -= HandleClearTextField;
+
         KeyboardManager.textInputPreview.ClearField();
+        if (exposureTimeout != null) StopCoroutine(exposureTimeout);
     }
 
     public void Clear()
@@ -81,7 +83,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         if (_textMesh.text.Length > 0)
         {
             _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
-            KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
+            KeyboardManager.textInputPreview.UpdatePreview(PreviewText(exposeLastKeypress));
         }
     }
 
@@ -107,14 +109,14 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     private void UpdateTextMeshText(string _appendChar)
     {
         if (_textMesh != null) { _textMesh.text += _appendChar; }
-        KeyboardManager.textInputPreview.UpdatePreview(PreviewText());
+        KeyboardManager.textInputPreview.UpdatePreview(PreviewText(exposeLastKeypress));
         _textMesh.MoveTextEnd(false);
     }
 
-    private string PreviewText()
+    private string PreviewText(bool exposeLast)
     {
         string text = _textMesh.textComponent.text;
-        if (previewLastKeypress)
+        if (exposeLast)
         {
             text = ExposeLastKeypress(text);
         }
