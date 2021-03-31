@@ -14,8 +14,9 @@ public class KeyboardSpawner : MonoBehaviour
         TEXT_FIELD
     }
     public Transform head;
-    public Transform GrabBall;
-    public GrabGimbal GrabGimbal;
+
+    public GameObject PrefabParent;
+    public GrabBall GrabBall;
     public Transform KeyboardCentre;
     public Vector3 DistanceFromHead = new Vector3(0, -0.385f, 0.4f);
     public RelativeTo PositionRelativeTo = RelativeTo.TEXT_FIELD;
@@ -23,12 +24,14 @@ public class KeyboardSpawner : MonoBehaviour
     private bool keyboardActive = false;
     private bool despawning = false;
     private Vector3 offset;
+    private Rigidbody grabBallRigidBody;
 
 
     private void Start()
     {
         if (head == null) head = Camera.main.transform;
-        offset = GrabBall.position - KeyboardCentre.position;
+        offset = PrefabParent.transform.position - KeyboardCentre.position;
+        grabBallRigidBody = GrabBall.GetComponent<Rigidbody>();
         DespawnKeyboard();
     }
 
@@ -51,7 +54,7 @@ public class KeyboardSpawner : MonoBehaviour
         {
             return;
         }
-        GrabBall.parent.gameObject.SetActive(keyboardActive);
+        PrefabParent.SetActive(keyboardActive);
 
         if (PositionRelativeTo == RelativeTo.HEAD)
         {
@@ -64,11 +67,11 @@ public class KeyboardSpawner : MonoBehaviour
 
         if (RotationRelativeTo == RelativeTo.HEAD)
         {
-            GrabGimbal.UpdateTargetRotation();
+            GrabBall.UpdateTargetRotation();
         }
         else if (RotationRelativeTo == RelativeTo.TEXT_FIELD)
         {
-            GrabGimbal.targetRotation = currentlySelected.transform.rotation;
+            GrabBall.targetRotation = currentlySelected.transform.rotation;
         }
     }
     public void DespawnKeyboard()
@@ -92,7 +95,7 @@ public class KeyboardSpawner : MonoBehaviour
         {
             if (GrabBall != null)
             {
-                GrabBall.parent.gameObject.SetActive(keyboardActive);
+                PrefabParent.gameObject.SetActive(keyboardActive);
                 despawning = false;
             }
         }
@@ -108,6 +111,6 @@ public class KeyboardSpawner : MonoBehaviour
 
     private void SetPosition(Vector3 _newPosition)
     {
-        GrabBall.GetComponent<Rigidbody>().position = _newPosition;
+        grabBallRigidBody.position = _newPosition;
     }
 }

@@ -5912,7 +5912,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMesh: {fileID: 0}
-  previewLastKeypress: 0
+  _textInput: {fileID: 0}
+  exposeLastKeypress: 0
+  previewLastTimeout: 1
 --- !u!1 &1340582438
 GameObject:
   m_ObjectHideFlags: 0
@@ -8823,7 +8825,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970058524222163573}
-  - component: {fileID: 970058524222163572}
   m_Layer: 0
   m_Name: GrabFollow
   m_TagString: Untagged
@@ -8831,20 +8832,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &970058524222163572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970058524222163570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452d45ded39429947b21ea51c4ead1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 970058525325596900}
-  lerpSpeed: 30
 --- !u!4 &970058524222163573
 Transform:
   m_ObjectHideFlags: 0
@@ -8887,6 +8874,7 @@ GameObject:
   - component: {fileID: 970058525325596901}
   - component: {fileID: 970058525325596898}
   - component: {fileID: 970058525325596896}
+  - component: {fileID: 970058525325596899}
   m_Layer: 0
   m_Name: GrabBall
   m_TagString: Untagged
@@ -8924,6 +8912,24 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
+--- !u!114 &970058525325596899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970058525325596897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32aaf062c8d3b9d49b8c97c258fe7b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 0}
+  GrabFollow: {fileID: 970058524222163573}
+  GrabGimbal: {fileID: 970058525852331508}
+  lerpSpeed: 30
+  targetPosition: {fileID: 0}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &970058525325596900
 Transform:
   m_ObjectHideFlags: 0
@@ -8954,24 +8960,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &970058525852331016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970058525852331509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ad23342dff3164e86757665580f427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 1897774067}
-  grabBall: {fileID: 970058525325596900}
-  grabGimbal: {fileID: 970058525852331508}
-  TargetPosition: {x: 0, y: 0, z: 0}
-  lerpSpeed: 30
-  targetRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &970058525852331508
 Transform:
   m_ObjectHideFlags: 0
@@ -8997,7 +8985,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970058525852331508}
-  - component: {fileID: 970058525852331016}
   m_Layer: 0
   m_Name: GrabGimbal
   m_TagString: Untagged
