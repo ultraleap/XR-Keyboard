@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GrabBall : MonoBehaviour
 {
-    [Tooltip("The transform representing the player's head. If left empty it will default to Camera.main")]
+    [Tooltip("The transform representing the player's head. If left empty it will default to Camera.main")] 
     public Transform head;
     public Transform GrabFollow;
     public Transform GrabGimbal;
@@ -26,7 +26,8 @@ public class GrabBall : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         targetRotation = GrabGimbal.rotation;
         attachedObjectsTransformHelpers = new List<Transform>();
-        foreach(Transform attachedObject in attachedObjects){
+        foreach (Transform attachedObject in attachedObjects)
+        {
             GameObject attachedObjectTransformHelper = new GameObject(attachedObject.name + "TransformHelper");
             attachedObjectTransformHelper.transform.position = attachedObject.position;
             attachedObjectTransformHelper.transform.rotation = attachedObject.rotation;
