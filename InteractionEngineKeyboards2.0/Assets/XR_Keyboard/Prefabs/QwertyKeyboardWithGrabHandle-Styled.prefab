@@ -2961,6 +2961,26 @@ PrefabInstance:
       propertyPath: _eventTable._entries.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnableKeys
       objectReference: {fileID: 0}
+    - target: {fileID: 5878836563565060178, guid: 0be1792a5bacd8743b518ad3f5a81094,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2630497898347971252}
+    - target: {fileID: 5878836563565060178, guid: 0be1792a5bacd8743b518ad3f5a81094,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2630497898347971252}
+    - target: {fileID: 5878836563565060178, guid: 0be1792a5bacd8743b518ad3f5a81094,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableKeys
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878836563565060178, guid: 0be1792a5bacd8743b518ad3f5a81094,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableKeys
+      objectReference: {fileID: 0}
     - target: {fileID: 6678734130616642051, guid: 0be1792a5bacd8743b518ad3f5a81094,
         type: 3}
       propertyPath: targetObject
