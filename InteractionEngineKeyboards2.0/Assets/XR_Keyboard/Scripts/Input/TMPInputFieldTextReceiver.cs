@@ -37,7 +37,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         KeyboardManager.Instance.HandleKeyUp += HandleKeyPress;
         KeyboardManager.Instance.HandleClearTextField += HandleClearTextField;
         KeyboardManager.Instance.SpawnKeyboard(transform);
-        KeyboardManager.Instance.textInputPreview.UpdatePreview(PreviewText(false));
+        KeyboardManager.Instance.UpdatePreview(PreviewText(false));
     }
 
     public void DisableInput()
@@ -46,7 +46,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         KeyboardManager.Instance.HandleKeyUp -= HandleKeyPress;
         KeyboardManager.Instance.HandleClearTextField -= HandleClearTextField;
 
-        KeyboardManager.Instance.textInputPreview.ClearField();
+        KeyboardManager.Instance.ClearPreview();
         if (exposureTimeout != null) StopCoroutine(exposureTimeout);
     }
 
@@ -83,7 +83,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         if (_textMesh.text.Length > 0)
         {
             _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
-            KeyboardManager.Instance.textInputPreview.UpdatePreview(PreviewText(exposeLastKeypress));
+            KeyboardManager.Instance.UpdatePreview(PreviewText(exposeLastKeypress));
         }
     }
 
@@ -103,13 +103,13 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     private void Reset()
     {
         if (_textMesh != null) { _textMesh.text = string.Empty; }
-        KeyboardManager.Instance.textInputPreview.ClearField();
+        KeyboardManager.Instance.ClearPreview();
     }
 
     private void UpdateTextMeshText(string _appendChar)
     {
         if (_textMesh != null) { _textMesh.text += _appendChar; }
-        KeyboardManager.Instance.textInputPreview.UpdatePreview(PreviewText(exposeLastKeypress));
+        KeyboardManager.Instance.UpdatePreview(PreviewText(exposeLastKeypress));
         _textMesh.MoveTextEnd(false);
     }
 
@@ -152,6 +152,6 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     {
         yield return new WaitForSeconds(time);
 
-        KeyboardManager.Instance.textInputPreview.UpdatePreview(_textMesh.textComponent.text);
+        KeyboardManager.Instance.UpdatePreview(_textMesh.textComponent.text);
     }
 }
