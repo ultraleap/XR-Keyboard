@@ -171,7 +171,7 @@ public class TextInputButton : MonoBehaviour
             default:
                 if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(ActiveKey))
                 {
-                    KeyboardManager.AccentKeyAnchor = transform;
+                    KeyboardManager.Instance.AccentKeyAnchor = transform;
                     HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey]);
                 }
                 break;

@@ -15,15 +15,15 @@ public class TextInputReceiver : MonoBehaviour
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TextMeshPro>(); }
         if (_UITextMesh == null) { _UITextMesh = GetComponentInChildren<TextMeshProUGUI>(); }
-        KeyboardManager.HandleKeyUp += HandleKeyDown;
-        KeyboardManager.HandleClearTextField += HandleClearTextField;
+        KeyboardManager.Instance.HandleKeyUp += HandleKeyDown;
+        KeyboardManager.Instance.HandleClearTextField += HandleClearTextField;
     }
 
     private void OnDisable()
     {
 
-        KeyboardManager.HandleKeyUp -= HandleKeyDown;
-        KeyboardManager.HandleClearTextField -= HandleClearTextField;
+        KeyboardManager.Instance.HandleKeyUp -= HandleKeyDown;
+        KeyboardManager.Instance.HandleClearTextField -= HandleClearTextField;
     }
 
     private void HandleKeyDown(byte[] key)

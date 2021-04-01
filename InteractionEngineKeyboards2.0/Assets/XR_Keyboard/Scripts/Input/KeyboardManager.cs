@@ -20,30 +20,38 @@ public class KeyboardManager : MonoBehaviour
         NUM_ROW
     }
 
+    public static KeyboardManager Instance;
     public delegate void KeyUp(byte[] key);
-    public static event KeyUp HandleKeyUp;
+    public event KeyUp HandleKeyUp;
 
     public delegate void ClearTextField();
-    public static event ClearTextField HandleClearTextField;
+    public event ClearTextField HandleClearTextField;
 
     public List<GameObject> KeyboardParents;
     private KeyboardMode keyboardMode;
     [Header("AccentKeys")]
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
     public Transform AccentKeysMiddleAnchor;
-    public static Transform AccentKeyAnchor;
+    public Transform AccentKeyAnchor;
     public Transform NumberRow;
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
     public float accentPanelHideDelay = 0.25f;
 
-    public static KeyboardSpawner keyboardSpawner;
-    public static AccentOverlayPanel accentOverlay;
+    public KeyboardSpawner keyboardSpawner;
+    public AccentOverlayPanel accentOverlay;
 
-    public static TextInputPreview textInputPreview;
+    public TextInputPreview textInputPreview;
 
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+
         TextInputButton.HandleKeyUp += HandleTextInputButtonKeyUp;
         TextInputButton.HandleKeyUpSpecialChar += HandleTextInputButtonKeyUpSpecialChar;
         TextInputButton.HandleLongPress += ShowAccentOverlay;
@@ -175,11 +183,12 @@ public class KeyboardManager : MonoBehaviour
         HandleClearTextField.Invoke();
     }
 
-    public static void SpawnKeyboard(Transform currentlySelected)
+    public void SpawnKeyboard(Transform currentlySelected)
     {
         keyboardSpawner.SpawnKeyboard(currentlySelected);
     }
-    public static void DespawnKeyboard()
+
+    public void DespawnKeyboard()
     {
         if (keyboardSpawner != null)
         {
