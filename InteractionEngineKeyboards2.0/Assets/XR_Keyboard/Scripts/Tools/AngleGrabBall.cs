@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Leap.Unity.Interaction;
+using KeyboardMode = KeyboardManager.KeyboardMode;
 
 
 [RequireComponent(typeof(InteractionBehaviour))]
@@ -13,7 +14,7 @@ public class AngleGrabBall : MonoBehaviour
 
     public float startAngle = 35;
 
-    public Vector3 localOffset;
+    private Vector3 localOffset;
 
     public Mesh dotMesh;
     public int dotCount = 64;
@@ -28,6 +29,7 @@ public class AngleGrabBall : MonoBehaviour
     {
         startAngle = Vector3.SignedAngle(Vector3.up, targetObject.up, targetObject.right);
         behaviour = GetComponent<InteractionBehaviour>();
+        localOffset = targetObject.InverseTransformPoint(transform.position);
     }
 
     // Update is called once per frame

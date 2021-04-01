@@ -20,13 +20,14 @@ public class GrabBall : MonoBehaviour
     private InteractionBehaviour grabBallInteractionBehaviour;
     private Rigidbody rigidBody;
 
-    private void Start()
+    private void Awake()
     {
-        if (head == null) head = Camera.main.transform;
-        targetPosition = transform;
         grabBallInteractionBehaviour = GetComponent<InteractionBehaviour>();
         rigidBody = GetComponent<Rigidbody>();
+        targetPosition = transform;
         targetRotation = GrabGimbal.rotation;
+
+        if (head == null) head = Camera.main.transform;
         if (attachedObjectTransformHelper == null) { gameObject.transform.Find("AttachedObjectTransformHelper"); }
         attachedObjectTransformHelper.transform.position = attachedObject.position;
         attachedObjectTransformHelper.transform.rotation = attachedObject.rotation;
