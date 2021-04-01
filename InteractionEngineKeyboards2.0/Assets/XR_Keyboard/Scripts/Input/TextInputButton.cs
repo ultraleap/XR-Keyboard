@@ -5,8 +5,7 @@ using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static KeyboardManager;
-
+using KeyboardMode = KeyboardManager.KeyboardMode;
 public class TextInputButton : MonoBehaviour
 {
     public delegate void KeyUp(KeyCode keyCode);
