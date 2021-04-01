@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class GrabBall : MonoBehaviour
 {
+    [Tooltip("The transform representing the player's head. If left empty it will default to Camera.main")]
     public Transform head;
     public Transform GrabFollow;
     public Transform GrabGimbal;
     public float lerpSpeed = 30;
-
     public List<Transform> attachedObjects;
     private List<Transform> attachedObjectsTransformHelpers;
 
