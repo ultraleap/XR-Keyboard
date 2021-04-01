@@ -10,8 +10,10 @@ public class GrabBall : MonoBehaviour
     public Transform GrabFollow;
     public Transform GrabGimbal;
     public float lerpSpeed = 30;
-    public List<Transform> attachedObjects;
-    private List<Transform> attachedObjectsTransformHelpers;
+    public Transform attachedObject;
+
+    [Tooltip("The transform that position & rotation transformations are applied. If left empty it will default to a child object named AttachedObjectTransformHelper")]
+    public Transform attachedObjectTransformHelper;
 
     [HideInInspector] public Transform targetPosition;
     [HideInInspector] public Quaternion targetRotation;
@@ -25,15 +27,10 @@ public class GrabBall : MonoBehaviour
         grabBallInteractionBehaviour = GetComponent<InteractionBehaviour>();
         rigidBody = GetComponent<Rigidbody>();
         targetRotation = GrabGimbal.rotation;
-        attachedObjectsTransformHelpers = new List<Transform>();
-        foreach (Transform attachedObject in attachedObjects)
-        {
-            GameObject attachedObjectTransformHelper = new GameObject(attachedObject.name + "TransformHelper");
-            attachedObjectTransformHelper.transform.position = attachedObject.position;
-            attachedObjectTransformHelper.transform.rotation = attachedObject.rotation;
-            attachedObjectTransformHelper.transform.parent = GrabGimbal;
-            attachedObjectsTransformHelpers.Add(attachedObjectTransformHelper.transform);
-        }
+        if (attachedObjectTransformHelper == null) { gameObject.transform.Find("AttachedObjectTransformHelper"); }
+        attachedObjectTransformHelper.transform.position = attachedObject.position;
+        attachedObjectTransformHelper.transform.rotation = attachedObject.rotation;
+        attachedObjectTransformHelper.transform.parent = GrabGimbal;
     }
 
     void Update()
@@ -48,13 +45,8 @@ public class GrabBall : MonoBehaviour
         {
             GrabGimbal.rotation = Quaternion.Lerp(GrabGimbal.rotation, targetRotation, Time.deltaTime * lerpSpeed);
         }
-
-        for (int i = 0; i < attachedObjects.Count; i++)
-        {
-            attachedObjects[i].position = attachedObjectsTransformHelpers[i].position;
-            attachedObjects[i].rotation = attachedObjectsTransformHelpers[i].rotation;
-        }
-
+        attachedObject.position = attachedObjectTransformHelper.position;
+        attachedObject.rotation = attachedObjectTransformHelper.rotation;
     }
 
     public void UpdateTargetRotation()

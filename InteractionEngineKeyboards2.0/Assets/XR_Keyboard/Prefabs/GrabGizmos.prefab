@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &601754326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601754327}
+  m_Layer: 0
+  m_Name: AttachedObjectTransformHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &601754327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601754326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5878836564075009348}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738805981379284398
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,11 +213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cf415136a2a7e4084558a47bd7872a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  targetObject: {fileID: 601754327}
   grabGimbal: {fileID: 5878836564075009348}
   lerpSpeed: 30
   startAngle: 35
-  localOffset: {x: 2000, y: 2200, z: 0}
+  localOffset: {x: 250, y: 250, z: 0}
   dotMesh: {fileID: 4300000, guid: bd6dbd576ded8314db8cbbc058a8a5b2, type: 3}
   dotCount: 64
   minMaxDotSize: {x: 0.005, y: 0.01}
@@ -732,7 +762,8 @@ MonoBehaviour:
   GrabFollow: {fileID: 5878836564525232837}
   GrabGimbal: {fileID: 5878836564075009348}
   lerpSpeed: 30
-  attachedObjects: []
+  attachedObject: {fileID: 0}
+  attachedObjectTransformHelper: {fileID: 601754327}
   targetPosition: {fileID: 0}
   targetRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5878836564075009349
@@ -763,6 +794,7 @@ Transform:
   m_LocalScale: {x: 0.050000004, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 7616110498603180067}
+  - {fileID: 601754327}
   m_Father: {fileID: 5878836564525232837}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1214,11 +1246,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cf415136a2a7e4084558a47bd7872a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  targetObject: {fileID: 601754327}
   grabGimbal: {fileID: 5878836564075009348}
   lerpSpeed: 30
   startAngle: 35
-  localOffset: {x: -2000, y: 2200, z: 0}
+  localOffset: {x: -250, y: 250, z: 0}
   dotMesh: {fileID: 4300000, guid: bd6dbd576ded8314db8cbbc058a8a5b2, type: 3}
   dotCount: 64
   minMaxDotSize: {x: 0.005, y: 0.01}
