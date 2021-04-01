@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using TMPro;
 
 public class KeyboardManager : MonoBehaviour
 {
@@ -34,14 +33,14 @@ public class KeyboardManager : MonoBehaviour
     public Transform AccentKeysMiddleAnchor;
     public Transform AccentKeyAnchor;
     public Transform NumberRow;
+    public float accentPanelHideDelay = 0.25f;
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
-    public float accentPanelHideDelay = 0.25f;
 
-    public KeyboardSpawner keyboardSpawner;
-    public AccentOverlayPanel accentOverlay;
+    private KeyboardSpawner keyboardSpawner;
+    private AccentOverlayPanel accentOverlay;
 
-    public TextInputPreview textInputPreview;
+    private TextInputPreview textInputPreview;
 
     private void Awake()
     {
@@ -55,8 +54,9 @@ public class KeyboardManager : MonoBehaviour
         TextInputButton.HandleKeyUp += HandleTextInputButtonKeyUp;
         TextInputButton.HandleKeyUpSpecialChar += HandleTextInputButtonKeyUpSpecialChar;
         TextInputButton.HandleLongPress += ShowAccentOverlay;
+
+        accentOverlay = transform.GetComponentInChildren<AccentOverlayPanel>();
         keyboardSpawner = FindObjectOfType<KeyboardSpawner>();
-        accentOverlay = FindObjectOfType<AccentOverlayPanel>();
         textInputPreview = FindObjectOfType<TextInputPreview>();
     }
 
@@ -185,7 +185,10 @@ public class KeyboardManager : MonoBehaviour
 
     public void SpawnKeyboard(Transform currentlySelected)
     {
-        keyboardSpawner.SpawnKeyboard(currentlySelected);
+        if (keyboardSpawner != null)
+        {
+            keyboardSpawner.SpawnKeyboard(currentlySelected);
+        }
     }
 
     public void DespawnKeyboard()
@@ -252,6 +255,16 @@ public class KeyboardManager : MonoBehaviour
     public void DismissAccentPanel()
     {
         StartCoroutine(HidePanelAfter(accentPanelHideDelay));
+    }
+
+    public void ClearPreview()
+    {
+        if (textInputPreview != null) textInputPreview.ClearField();
+    }
+
+    public void UpdatePreview(string previewText)
+    {
+        if (textInputPreview != null) textInputPreview.UpdatePreview(previewText);
     }
 
 }
