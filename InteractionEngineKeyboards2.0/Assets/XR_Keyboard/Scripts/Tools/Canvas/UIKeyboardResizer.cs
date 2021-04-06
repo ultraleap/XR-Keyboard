@@ -57,28 +57,25 @@ public class UIKeyboardResizer : MonoBehaviour
     //Loop through each horizontal/vertical layout group & set the spacing to be correct 
     private void SpaceKeyboard()
     {
-        KeyboardKeysParent.spacing = gapSize / KeyboardKeysParent.transform.lossyScale.y;
-        MarkAsDirty(KeyboardKeysParent, $"Update spacing of {KeyboardKeysParent.name}");
-
-        if (KeyboardShadowsParent != null)
-        {
-            KeyboardShadowsParent.spacing = gapSize / KeyboardShadowsParent.transform.lossyScale.y;
-            MarkAsDirty(KeyboardShadowsParent, $"Update spacing of {KeyboardShadowsParent.name}");
-        }
+        UpdateVerticalLayoutGroupSpacing(KeyboardKeysParent);
+        UpdateVerticalLayoutGroupSpacing(KeyboardShadowsParent);
 
         for (int i = 0; i < keyboardKeysRows.Count; i++)
         {
-            HorizontalLayoutGroup horizontalLayoutGroup = keyboardKeysRows[i];
-            horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
-            MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
-
-            if (keyboardShadowsRows.Count == keyboardKeysRows.Count)
-            {
-                horizontalLayoutGroup = keyboardShadowsRows[i];
-                horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
-                MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
-            }
+            UpdateHorizontalLayoutGroupSpacing(keyboardKeysRows[i]);
+            UpdateHorizontalLayoutGroupSpacing(keyboardShadowsRows[i]);
         }
+    }
+
+    private void UpdateVerticalLayoutGroupSpacing(VerticalLayoutGroup verticalLayoutGroup)
+    {
+        verticalLayoutGroup.spacing = gapSize / verticalLayoutGroup.transform.lossyScale.y;
+        MarkAsDirty(verticalLayoutGroup, $"Update spacing of {verticalLayoutGroup.name}");
+    }
+    private void UpdateHorizontalLayoutGroupSpacing(HorizontalLayoutGroup horizontalLayoutGroup)
+    {
+        horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
+        MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
     }
 
     // Loop through each button setting their sizeDelta
@@ -120,15 +117,9 @@ public class UIKeyboardResizer : MonoBehaviour
                 buttonTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(buttonTransform, $"Update sizeDelta of {buttonTransform.name}");
 
-                if (keyboardShadowsRows.Count == keyboardKeysRows.Count)
-                {
-                    if (j < keyboardShadowsRows[i].transform.childCount)
-                    {
-                        RectTransform buttonShadow = keyboardShadowsRows[i].transform.GetChild(j).GetComponent<RectTransform>();
-                        buttonShadow.sizeDelta = sizeDelta;
-                        MarkAsDirty(buttonShadow, $"Update sizeDelta of {buttonShadow.name}");
-                    }
-                }
+                RectTransform buttonShadow = keyboardShadowsRows[i].transform.GetChild(j).GetComponent<RectTransform>();
+                buttonShadow.sizeDelta = sizeDelta;
+                MarkAsDirty(buttonShadow, $"Update sizeDelta of {buttonShadow.name}");
             }
         }
     }
@@ -181,11 +172,8 @@ public class UIKeyboardResizer : MonoBehaviour
         verticalGroup.sizeDelta = verticalSizeDelta;
         MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
 
-        if (KeyboardShadowsParent != null)
-        {
-            KeyboardShadowsParent.GetComponent<RectTransform>().sizeDelta = verticalSizeDelta;
-            MarkAsDirty(KeyboardShadowsParent, $"Update Size Delta of {KeyboardShadowsParent.name}");
-        }
+        KeyboardShadowsParent.GetComponent<RectTransform>().sizeDelta = verticalSizeDelta;
+        MarkAsDirty(KeyboardShadowsParent, $"Update Size Delta of {KeyboardShadowsParent.name}");
 
         verticalSizeDelta.x += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.x);
         verticalSizeDelta.y += panelPaddingRelativeToButtonSize.y * (buttonSize / prefabParent.lossyScale.y);
