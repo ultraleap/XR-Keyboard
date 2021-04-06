@@ -24,10 +24,34 @@ public class UIKeyboardResizer : MonoBehaviour
     {
         keyboardKeysRows = KeyboardKeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
         keyboardShadowsRows = KeyboardShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+        ValidateRows();
         SpaceKeyboard();
         SizeButtons();
         SizePanel();
         ResizeColliders();
+    }
+
+    private void ValidateRows()
+    {
+        if (keyboardKeysRows.Count != keyboardShadowsRows.Count)
+        {
+            throw new System.Exception(
+                "Keyboard Key Row Count & Keyboard Shadow Row Count are mismatched.\n"
+                 + "Check that both have the same number of horizontal layout groups"
+                 );
+        }
+
+        for (int i = 0; i < keyboardKeysRows.Count; i++)
+        {
+            if (keyboardKeysRows[i].transform.childCount != keyboardShadowsRows[i].transform.childCount)
+            {
+                throw new System.Exception(
+                    $"Keyboard Key Row {i} & Keyboard Shadow Row {i} have a different number of children.\n"
+                     + "Ensure that every key has a matching shadow object."
+                     );
+            }
+        }
+
     }
 
     //Loop through each horizontal/vertical layout group & set the spacing to be correct 
