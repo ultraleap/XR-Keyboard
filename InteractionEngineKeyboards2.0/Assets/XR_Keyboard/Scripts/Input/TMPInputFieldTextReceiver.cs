@@ -12,6 +12,8 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     public bool exposeLastKeypress = false;
     public float previewLastTimeout = 1;
     private Coroutine exposureTimeout;
+    private Keyboard keyboard;
+
 
     private void Start()
     {
@@ -36,8 +38,8 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     {
         KeyboardManager.Instance.HandleKeyUp += HandleKeyPress;
         KeyboardManager.Instance.HandleClearTextField += HandleClearTextField;
-        KeyboardManager.Instance.SpawnKeyboard(transform);
-        KeyboardManager.Instance.UpdatePreview(PreviewText(false));
+        keyboard = KeyboardManager.Instance.SpawnKeyboard(transform);
+        KeyboardManager.Instance.UpdatePreview(PreviewText(false), keyboard);
     }
 
     public void DisableInput()
@@ -46,13 +48,8 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         KeyboardManager.Instance.HandleKeyUp -= HandleKeyPress;
         KeyboardManager.Instance.HandleClearTextField -= HandleClearTextField;
 
-        KeyboardManager.Instance.ClearPreview();
+        KeyboardManager.Instance.ClearPreview(keyboard);
         if (exposureTimeout != null) StopCoroutine(exposureTimeout);
-    }
-
-    public void Clear()
-    {
-        Reset();
     }
 
     private void HandleKeyPress(byte[] key)
@@ -83,7 +80,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         if (_textMesh.text.Length > 0)
         {
             _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
-            KeyboardManager.Instance.UpdatePreview(PreviewText(exposeLastKeypress));
+            KeyboardManager.Instance.UpdatePreview(PreviewText(exposeLastKeypress), keyboard);
         }
     }
 
@@ -97,22 +94,22 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
 
     private void HandleClearTextField()
     {
-        Reset();
-    }
-
-    private void Reset()
-    {
-        if (_textMesh != null) { _textMesh.text = string.Empty; }
-        KeyboardManager.Instance.ClearPreview();
+        Clear();
     }
 
     private void UpdateTextMeshText(string _appendChar)
     {
         if (_textMesh != null) { _textMesh.text += _appendChar; }
-        KeyboardManager.Instance.UpdatePreview(PreviewText(exposeLastKeypress));
+        KeyboardManager.Instance.UpdatePreview(PreviewText(exposeLastKeypress), keyboard);
         _textMesh.MoveTextEnd(false);
     }
 
+    public void Clear()
+    {
+        if (_textMesh != null) { _textMesh.text = string.Empty; }
+        KeyboardManager.Instance.ClearPreview(keyboard);
+    }
+    
     private string PreviewText(bool exposeLast)
     {
         string text = _textMesh.textComponent.text;
@@ -152,6 +149,6 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     {
         yield return new WaitForSeconds(time);
 
-        KeyboardManager.Instance.UpdatePreview(_textMesh.textComponent.text);
+        KeyboardManager.Instance.UpdatePreview(_textMesh.textComponent.text, keyboard);
     }
 }
