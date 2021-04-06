@@ -33,15 +33,25 @@ public class KeyboardManager : MonoBehaviour
         TextInputButton.HandleKeyUpSpecialChar += HandleTextInputButtonKeyUpSpecialChar;
         TextInputButton.HandleLongPress += ShowAccentOverlay;
 
-        if (keyboards.Count == 0) 
+        if (keyboards.Count == 0)
         {
-            keyboards.Add(GetComponentInChildren<Keyboard>());
+            Debug.LogWarning("Detecting keyboards in the scene. If you require access to a specific keyboard assign them manually in the inspector.");
+            keyboards = new List<Keyboard>();
+            keyboards.AddRange(FindObjectsOfType<Keyboard>());
         }
-        defaultKeyboard = keyboards[0];
+        
+        if (keyboards.Count == 0)
+        {
+            Debug.LogWarning("No Keyboards Found. Make sure there is an object with a keyboard component in the scene.");
+        }
+        else
+        {
+            defaultKeyboard = keyboards[0];
+        }
 
         keyboardSpawner = GetComponent<KeyboardSpawner>();
     }
-
+    
     private void OnDestroy()
     {
         TextInputButton.HandleKeyUp -= HandleTextInputButtonKeyUp;
