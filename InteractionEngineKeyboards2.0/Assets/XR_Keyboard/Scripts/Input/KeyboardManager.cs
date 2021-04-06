@@ -1,14 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using UnityEngine;
-
-// TODO 
-// Separate out singleton and state elements
-// Create a keyboard class to hold state and action events
-// Manager just does routing between keyboards and UI
 
 public class KeyboardManager : MonoBehaviour
 {
