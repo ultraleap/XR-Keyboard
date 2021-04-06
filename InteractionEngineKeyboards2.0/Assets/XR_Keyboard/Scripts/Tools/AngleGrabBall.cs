@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Leap.Unity.Interaction;
-using KeyboardMode = KeyboardManager.KeyboardMode;
-
 
 [RequireComponent(typeof(InteractionBehaviour))]
 public class AngleGrabBall : MonoBehaviour

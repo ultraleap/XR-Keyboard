@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-using KeyboardMode = KeyboardManager.KeyboardMode;
+using KeyboardMode = Keyboard.KeyboardMode;
 
 public class TextInputButton : MonoBehaviour
 {

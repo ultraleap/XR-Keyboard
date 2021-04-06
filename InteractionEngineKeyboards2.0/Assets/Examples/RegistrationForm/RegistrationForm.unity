@@ -6518,8 +6518,7 @@ MonoBehaviour:
   _OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4906455097334893002, guid: 756ef0dfe4533404aa7669a3057a1b7a,
-          type: 3}
+      - m_Target: {fileID: 2058355874}
         m_MethodName: InvokeClearTextField
         m_Mode: 1
         m_Arguments:
@@ -7291,6 +7290,18 @@ MonoBehaviour:
   hoverSound: {fileID: 0}
   downSound: {fileID: 8300000, guid: 9861ca59627211c4eb1acb40d8da4c65, type: 3}
   upSound: {fileID: 8300000, guid: ae2605353c484ef4ab45e5db62783939, type: 3}
+--- !u!114 &2058355874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1073944343216658180, guid: 9a46809f0bb8b764592a2efa66c41902,
+    type: 3}
+  m_PrefabInstance: {fileID: 695505154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88643deebf407de4daa192c21ce7e3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108678963
 GameObject:
   m_ObjectHideFlags: 0

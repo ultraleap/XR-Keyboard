@@ -1,17 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using KeyboardMode = KeyboardManager.KeyboardMode;
+using System.Text;
 
 public class Keyboard : MonoBehaviour
 {
+    public enum KeyboardMode
+    {
+        NEUTRAL, SHIFT, CAPS, SYMBOLS_1, SYMBOLS_2
+    }
+
     public enum AccentKeysPosition
     {
         MIDDLE,
         ADJACENT,
         NUM_ROW
     }
+
+    public delegate void KeyUp(byte[] key, Keyboard sourceKeyboard);
+    public event KeyUp HandleKeyUp;
+
+    public delegate void ClearTextField();
+    public event ClearTextField HandleClearTextField;
+
 
     [Header("External Connections")]
     [SerializeField] private AccentOverlayPanel accentOverlay;
@@ -38,7 +49,65 @@ public class Keyboard : MonoBehaviour
     {
         if (accentOverlay == null) accentOverlay = transform.GetComponentInChildren<AccentOverlayPanel>();
         if (textInputPreview == null) textInputPreview = transform.root.GetComponentInChildren<TextInputPreview>();
+
+        TextInputButton.HandleKeyUp += HandleTextInputButtonKeyUp;
+        TextInputButton.HandleKeyUpSpecialChar += HandleTextInputButtonKeyUpSpecialChar;
+        TextInputButton.HandleLongPress += ShowAccentOverlay;
     }
+
+    private void OnDestroy()
+    {
+        TextInputButton.HandleKeyUp -= HandleTextInputButtonKeyUp;
+        TextInputButton.HandleKeyUpSpecialChar -= HandleTextInputButtonKeyUpSpecialChar;
+    }
+
+    #region Event Handlers
+    private void HandleTextInputButtonKeyUp(KeyCode _keyCode, Keyboard source)
+    {
+        if (KeyboardCollections.ModeShifters.Contains(_keyCode))
+        {
+            ModeSwitch(_keyCode);
+        }
+        else
+        {
+            string keyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
+            HandleKeyUpEncoding(keyCodeString, source);
+        }
+    }
+
+    private void HandleTextInputButtonKeyUpSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar, Keyboard source)
+    {
+        string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
+        HandleKeyUpEncoding(keyCodeString, source);
+    }
+
+    private void HandleKeyUpEncoding(string _keyCodeString, Keyboard source)
+    {
+        bool upperCase = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS;
+        _keyCodeString = upperCase ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
+        
+        if (HandleKeyUp != null)
+        {
+            HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString), source);
+        }
+
+        if (keyboardMode == KeyboardMode.SHIFT)
+        {
+            SetMode(KeyboardMode.NEUTRAL);
+        }
+
+        if (AccentPanelActive())
+        {
+            DismissAccentPanel();
+        }
+    }
+
+    public void InvokeClearTextField()
+    {
+        HandleClearTextField.Invoke();
+    }
+    
+    #endregion
 
     public bool AccentPanelActive()
     {
@@ -110,7 +179,7 @@ public class Keyboard : MonoBehaviour
         }
     }
 
-    public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars)
+    public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source)
     {
         switch (accentKeysPosition)
         {
