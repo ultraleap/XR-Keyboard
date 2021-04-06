@@ -10,7 +10,7 @@ public class KeyboardManager : MonoBehaviour
     }
 
     public static KeyboardManager Instance;
-    public delegate void KeyUp(byte[] key);
+    public delegate void KeyUp(byte[] key, Keyboard sourceKeyboard);
     public event KeyUp HandleKeyUp;
 
     public delegate void ClearTextField();
@@ -35,7 +35,7 @@ public class KeyboardManager : MonoBehaviour
 
         if (keyboards.Count == 0) 
         {
-            keyboards.Add(FindObjectOfType<Keyboard>());
+            keyboards.Add(GetComponentInChildren<Keyboard>());
         }
         defaultKeyboard = keyboards[0];
 
@@ -69,10 +69,12 @@ public class KeyboardManager : MonoBehaviour
 
     private void HandleKeyUpEncoding(string _keyCodeString, Keyboard sourceKeyboard)
     {
-        _keyCodeString = sourceKeyboard.keyboardMode == KeyboardMode.SHIFT || sourceKeyboard.keyboardMode == KeyboardMode.CAPS ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
+        bool upperCase = sourceKeyboard.keyboardMode == KeyboardMode.SHIFT || sourceKeyboard.keyboardMode == KeyboardMode.CAPS;
+        _keyCodeString = upperCase ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
+        
         if (HandleKeyUp != null)
         {
-            HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
+            HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString), sourceKeyboard);
         }
 
         if (sourceKeyboard.keyboardMode == KeyboardMode.SHIFT)

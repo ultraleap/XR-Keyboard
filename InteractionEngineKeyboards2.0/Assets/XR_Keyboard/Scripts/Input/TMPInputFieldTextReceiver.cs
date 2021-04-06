@@ -11,6 +11,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     [SerializeField] private InputField _textInput;
     public bool exposeLastKeypress = false;
     public float previewLastTimeout = 1;
+
     private Coroutine exposureTimeout;
     private Keyboard keyboard;
 
@@ -52,8 +53,10 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         if (exposureTimeout != null) StopCoroutine(exposureTimeout);
     }
 
-    private void HandleKeyPress(byte[] key)
+    private void HandleKeyPress(byte[] key, Keyboard sourceKeyboard)
     {
+        if (sourceKeyboard != keyboard) { return; }
+
         string keyDecoded = Encoding.UTF8.GetString(key);
 
         if (keyDecoded == "\u0008")
