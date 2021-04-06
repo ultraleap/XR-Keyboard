@@ -110,7 +110,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     public void Clear()
     {
         if (_textMesh != null) { _textMesh.text = string.Empty; }
-        keyboard.ClearPreview();
+        if (keyboard != null) keyboard.ClearPreview();
     }
     
     private string PreviewText(bool exposeLast)
