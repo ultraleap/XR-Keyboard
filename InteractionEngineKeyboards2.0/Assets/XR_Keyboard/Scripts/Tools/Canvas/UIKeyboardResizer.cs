@@ -11,8 +11,8 @@ public class UIKeyboardResizer : MonoBehaviour
     [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardKeysParent;
     [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardShadowsParent;
     [BoxGroup("Setup")] public RectTransform prefabParent;
-    [BoxGroup("Setup")] public List<HorizontalLayoutGroup> keyboardRows;
-    [BoxGroup("Setup")] public List<HorizontalLayoutGroup> keyboardRowShadows;
+    private List<HorizontalLayoutGroup> keyboardKeysRows;
+    private List<HorizontalLayoutGroup> keyboardShadowsRows;
 
     [BoxGroup("Size")] public float gapSize;
     [BoxGroup("Size")] public float buttonSize;
@@ -22,6 +22,8 @@ public class UIKeyboardResizer : MonoBehaviour
     [Button]
     public void ResizeKeyboard()
     {
+        keyboardKeysRows = KeyboardKeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+        keyboardShadowsRows = KeyboardShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
         SpaceKeyboard();
         SizeButtons();
         SizePanel();
@@ -40,28 +42,27 @@ public class UIKeyboardResizer : MonoBehaviour
             MarkAsDirty(KeyboardShadowsParent, $"Update spacing of {KeyboardShadowsParent.name}");
         }
 
-        for (int i = 0; i < keyboardRows.Count; i++)
+        for (int i = 0; i < keyboardKeysRows.Count; i++)
         {
-            HorizontalLayoutGroup horizontalLayoutGroup = keyboardRows[i];
+            HorizontalLayoutGroup horizontalLayoutGroup = keyboardKeysRows[i];
             horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
             MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
 
-            if (keyboardRowShadows.Count == keyboardRows.Count)
+            if (keyboardShadowsRows.Count == keyboardKeysRows.Count)
             {
-                horizontalLayoutGroup = keyboardRowShadows[i];
+                horizontalLayoutGroup = keyboardShadowsRows[i];
                 horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
                 MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
             }
         }
     }
 
-
     // Loop through each button setting their sizeDelta
     private void SizeButtons()
     {
-        for (int i = 0; i < keyboardRows.Count; i++)
+        for (int i = 0; i < keyboardKeysRows.Count; i++)
         {
-            HorizontalLayoutGroup row = keyboardRows[i];
+            HorizontalLayoutGroup row = keyboardKeysRows[i];
             for (int j = 0; j < row.transform.childCount; j++)
             {
                 RectTransform buttonTransform = row.transform.GetChild(j).GetComponent<RectTransform>();
@@ -95,11 +96,11 @@ public class UIKeyboardResizer : MonoBehaviour
                 buttonTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(buttonTransform, $"Update sizeDelta of {buttonTransform.name}");
 
-                if (keyboardRowShadows.Count == keyboardRows.Count)
+                if (keyboardShadowsRows.Count == keyboardKeysRows.Count)
                 {
-                    if (j < keyboardRowShadows[i].transform.childCount)
+                    if (j < keyboardShadowsRows[i].transform.childCount)
                     {
-                        RectTransform buttonShadow = keyboardRowShadows[i].transform.GetChild(j).GetComponent<RectTransform>();
+                        RectTransform buttonShadow = keyboardShadowsRows[i].transform.GetChild(j).GetComponent<RectTransform>();
                         buttonShadow.sizeDelta = sizeDelta;
                         MarkAsDirty(buttonShadow, $"Update sizeDelta of {buttonShadow.name}");
                     }
@@ -108,18 +109,16 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
-
-
     // loop through each horizontal layout group & set its sizeDelta to be equal to the size of the buttons & gaps inside of it
     // Set the vertical layout group to be equal to the size of its layout groups
     // Set the size of the panel to be equal to the vertical layout group + padding 
     private void SizePanel()
     {
         float longestRow = 0;
-        for (int i = 0; i < keyboardRows.Count; i++)
+        for (int i = 0; i < keyboardKeysRows.Count; i++)
         {
-            HorizontalLayoutGroup row = keyboardRows[i];
-            HorizontalLayoutGroup shadowRow = keyboardRowShadows.Count == 0 ? null : keyboardRowShadows[i];
+            HorizontalLayoutGroup row = keyboardKeysRows[i];
+            HorizontalLayoutGroup shadowRow = keyboardShadowsRows.Count == 0 ? null : keyboardShadowsRows[i];
 
             RectTransform rowTransform = row.GetComponent<RectTransform>();
             Vector2 horizontalSizeDelta = new Vector2(0, buttonSize / rowTransform.lossyScale.y);
@@ -153,7 +152,7 @@ public class UIKeyboardResizer : MonoBehaviour
         Vector2 verticalSizeDelta = new Vector2()
         {
             x = longestRow / verticalGroup.lossyScale.x,
-            y = ((buttonSize * keyboardRows.Count) + (gapSize * (keyboardRows.Count - 1))) / verticalGroup.lossyScale.y
+            y = ((buttonSize * keyboardKeysRows.Count) + (gapSize * (keyboardKeysRows.Count - 1))) / verticalGroup.lossyScale.y
         };
         verticalGroup.sizeDelta = verticalSizeDelta;
         MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
@@ -185,7 +184,7 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
-    private void MarkAsDirty(UnityEngine.Object o, string message)
+    private void MarkAsDirty(Object o, string message)
     {
 #if UNITY_EDITOR
         Undo.RecordObject(o, message);
