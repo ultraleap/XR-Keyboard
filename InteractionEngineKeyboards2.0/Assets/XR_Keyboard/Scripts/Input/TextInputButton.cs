@@ -63,7 +63,7 @@ public class TextInputButton : MonoBehaviour
 
         if (accentLabelTextMeshGUI == null && textMeshGUIs.Length > 1)
         {
-            // Ugly, how to do this better?
+            // TODO, how to do this better?
             accentLabelTextMeshGUI = textMeshGUIs[1];
         }
 

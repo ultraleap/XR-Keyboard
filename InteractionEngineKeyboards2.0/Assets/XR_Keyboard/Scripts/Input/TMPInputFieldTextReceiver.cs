@@ -55,10 +55,8 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
         if (exposureTimeout != null) StopCoroutine(exposureTimeout);
     }
 
-    private void HandleKeyPress(byte[] key, Keyboard sourceKeyboard)
+    private void HandleKeyPress(byte[] key)
     {
-        if (sourceKeyboard != keyboard) { return; }
-
         string keyDecoded = Encoding.UTF8.GetString(key);
 
         if (keyDecoded == "\u0008")

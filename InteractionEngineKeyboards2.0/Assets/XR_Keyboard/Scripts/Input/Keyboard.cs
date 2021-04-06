@@ -17,7 +17,7 @@ public class Keyboard : MonoBehaviour
         NUM_ROW
     }
 
-    public delegate void KeyUp(byte[] key, Keyboard sourceKeyboard);
+    public delegate void KeyUp(byte[] key);
     public event KeyUp HandleKeyUp;
 
     public delegate void ClearTextField();
@@ -64,6 +64,8 @@ public class Keyboard : MonoBehaviour
     #region Event Handlers
     private void HandleTextInputButtonKeyUp(KeyCode _keyCode, Keyboard source)
     {
+        if (source != this) { return; };
+        
         if (KeyboardCollections.ModeShifters.Contains(_keyCode))
         {
             ModeSwitch(_keyCode);
@@ -71,24 +73,26 @@ public class Keyboard : MonoBehaviour
         else
         {
             string keyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
-            HandleKeyUpEncoding(keyCodeString, source);
+            HandleKeyUpEncoding(keyCodeString);
         }
     }
 
     private void HandleTextInputButtonKeyUpSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar, Keyboard source)
     {
+        if (source != this) { return; };
+        
         string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
-        HandleKeyUpEncoding(keyCodeString, source);
+        HandleKeyUpEncoding(keyCodeString);
     }
 
-    private void HandleKeyUpEncoding(string _keyCodeString, Keyboard source)
+    private void HandleKeyUpEncoding(string _keyCodeString)
     {
         bool upperCase = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS;
         _keyCodeString = upperCase ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
         
         if (HandleKeyUp != null)
         {
-            HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString), source);
+            HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
         }
 
         if (keyboardMode == KeyboardMode.SHIFT)
@@ -106,7 +110,7 @@ public class Keyboard : MonoBehaviour
     {
         HandleClearTextField.Invoke();
     }
-    
+
     #endregion
 
     public bool AccentPanelActive()
@@ -116,7 +120,6 @@ public class Keyboard : MonoBehaviour
 
     public void SetMode(KeyboardMode _keyboardMode)
     {
-
         UpdateTextInputButtons(_keyboardMode);
         keyboardMode = _keyboardMode;
     }
@@ -181,6 +184,8 @@ public class Keyboard : MonoBehaviour
 
     public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source)
     {
+        if (source != this) { return; };
+        
         switch (accentKeysPosition)
         {
             case AccentKeysPosition.MIDDLE:

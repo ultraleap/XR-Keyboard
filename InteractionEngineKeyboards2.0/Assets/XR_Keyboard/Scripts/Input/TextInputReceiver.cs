@@ -27,7 +27,7 @@ public class TextInputReceiver : MonoBehaviour
         KeyboardManager.Instance.ActiveKeyboard().HandleClearTextField -= HandleClearTextField;
     }
 
-    private void HandleKeyDown(byte[] key, Keyboard sourceKeyboard)
+    private void HandleKeyDown(byte[] key)
     {
         string keyDecoded = Encoding.UTF8.GetString(key);
 
