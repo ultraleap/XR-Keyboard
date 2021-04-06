@@ -163,14 +163,15 @@ MonoBehaviour:
   KeyboardKeysParent: {fileID: 2108244739}
   KeyboardShadowsParent: {fileID: 1849071483}
   prefabParent: {fileID: 1123302454}
-  keyboardRows:
-  - {fileID: 6738511097617370328}
-  keyboardRowShadows:
-  - {fileID: 131438209}
   gapSize: 0.005
-  buttonSize: 0.04
-  panelPaddingRelativeToButtonSize: {x: 0.25, y: 0.25}
+  keySize: 0.04
+  panelPaddingRelativeToKeySize: {x: 0.25, y: 0.25}
   colliderDepth: 0.01
+  SpaceSizeRelativeToKeySize: 9.375
+  SpaceSizeRelativeToGapSize: 9
+  BackspaceSizeRelativeToKeySize: 1.5
+  RightShiftSizeRelativeToKeySize: 1.5
+  ReturnSizeRelativeToKeySize: 1.5
 --- !u!1 &1849071482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,7 +1892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 153.85614, y: -153.84612}
+  m_AnchoredPosition: {x: 149.99998, y: -153.84612}
   m_SizeDelta: {x: 307.71228, y: 307.69223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &821771179809094982
@@ -5174,20 +5175,15 @@ MonoBehaviour:
   KeyboardKeysParent: {fileID: 4811307481715288075}
   KeyboardShadowsParent: {fileID: 1173537419330205793}
   prefabParent: {fileID: 4260239656968009942}
-  keyboardRows:
-  - {fileID: 4811307481587160622}
-  - {fileID: 4811307480853296593}
-  - {fileID: 4811307481174368554}
-  - {fileID: 4811307481738210690}
-  keyboardRowShadows:
-  - {fileID: 624506214348950816}
-  - {fileID: 624506213070352095}
-  - {fileID: 624506213705873956}
-  - {fileID: 624506214197950092}
   gapSize: 0.005
-  buttonSize: 0.04
-  panelPaddingRelativeToButtonSize: {x: 0.5, y: 0.5}
+  keySize: 0.4
+  panelPaddingRelativeToKeySize: {x: 0.5, y: 0.5}
   colliderDepth: 0.01
+  SpaceSizeRelativeToKeySize: 9.375
+  SpaceSizeRelativeToGapSize: 9
+  BackspaceSizeRelativeToKeySize: 1.5
+  RightShiftSizeRelativeToKeySize: 1.5
+  ReturnSizeRelativeToKeySize: 1.5
 --- !u!1 &1008945318156816107
 GameObject:
   m_ObjectHideFlags: 0
@@ -7812,14 +7808,15 @@ MonoBehaviour:
   KeyboardKeysParent: {fileID: 5805454174312934120}
   KeyboardShadowsParent: {fileID: 1213582053213782880}
   prefabParent: {fileID: 2396479793337039830}
-  keyboardRows:
-  - {fileID: 326239110210325085}
-  keyboardRowShadows:
-  - {fileID: 821771179809094982}
   gapSize: 0.005
-  buttonSize: 0.04
-  panelPaddingRelativeToButtonSize: {x: 0.25, y: 0.25}
+  keySize: 0.04
+  panelPaddingRelativeToKeySize: {x: 0.25, y: 0.25}
   colliderDepth: 0.01
+  SpaceSizeRelativeToKeySize: 9.375
+  SpaceSizeRelativeToGapSize: 9
+  BackspaceSizeRelativeToKeySize: 1.5
+  RightShiftSizeRelativeToKeySize: 1.5
+  ReturnSizeRelativeToKeySize: 1.5
 --- !u!114 &9188204193265346667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8545,7 +8542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 153.85614, y: -153.84612}
+  m_AnchoredPosition: {x: 149.99998, y: -153.84612}
   m_SizeDelta: {x: 307.71228, y: 307.69223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &326239110210325085
@@ -25770,7 +25767,7 @@ RectTransform:
   m_GameObject: {fileID: 6660563387067394477}
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 0.8}
-  m_LocalScale: {x: 0.0026666666, y: 0.0026666664, z: 0.0026666664}
+  m_LocalScale: {x: 0.00013333335, y: 0.00013333333, z: 0.00013333333}
   m_Children:
   - {fileID: 2327771287212476330}
   m_Father: {fileID: 0}
@@ -35661,6 +35658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861427152971293547, guid: 9b8fa87fec6fd5242bf4da3960850912,
+        type: 3}
+      propertyPath: maxWords
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7802054957364293187, guid: 9b8fa87fec6fd5242bf4da3960850912,
         type: 3}

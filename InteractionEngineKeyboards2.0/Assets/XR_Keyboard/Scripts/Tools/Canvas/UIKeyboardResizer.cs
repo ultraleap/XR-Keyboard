@@ -14,10 +14,18 @@ public class UIKeyboardResizer : MonoBehaviour
     private List<HorizontalLayoutGroup> keyboardKeysRows;
     private List<HorizontalLayoutGroup> keyboardShadowsRows;
 
-    [BoxGroup("Size")] public float gapSize;
-    [BoxGroup("Size")] public float keySize;
-    [BoxGroup("Size")] public Vector2 panelPaddingRelativeToKeySize = Vector2.zero;
+    [BoxGroup("Size")] public float gapSize = 0.005f;
+    [BoxGroup("Size")] public float keySize = 0.4f;
+    [BoxGroup("Size")] public Vector2 panelPaddingRelativeToKeySize = Vector2.zero * 0.5f;
     [BoxGroup("Size")] public float colliderDepth = 0.01f;
+
+    [BoxGroup("Button Sizing")] public float SpaceSizeRelativeToKeySize = 9.375f; 
+    [BoxGroup("Button Sizing")] public float SpaceSizeRelativeToGapSize = 9f; 
+    [BoxGroup("Button Sizing")] public float BackspaceSizeRelativeToKeySize = 1.5f;
+    [BoxGroup("Button Sizing")] public float RightShiftSizeRelativeToKeySize = 1.5f;
+    [BoxGroup("Button Sizing")] public float ReturnSizeRelativeToKeySize = 2f;
+    private const float PADDING_SIZE_MULTIPLIER = 0.5f;
+
 
     [Button]
     public void ResizeKeyboard()
@@ -93,23 +101,25 @@ public class UIKeyboardResizer : MonoBehaviour
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
                 if (keyTransform.gameObject.name == "Padding")
                 {
-                    sizeDelta *= 0.5f;
+                    sizeDelta *= PADDING_SIZE_MULTIPLIER;
                 }
                 else
                 {
                     switch (textInputButton.NeutralKey)
                     {
                         case KeyCode.Space:
-                            sizeDelta.x = (scaledKeySize.x * 9.5f) + (scaledGapSize.x * 8);
-
+                            sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
                             break;
+
                         case KeyCode.Backspace:
-                        case KeyCode.RightShift:
-                            sizeDelta.x *= 1.5f;
-
+                            sizeDelta.x *= BackspaceSizeRelativeToKeySize;
                             break;
+                        case KeyCode.RightShift:
+                            sizeDelta.x *= RightShiftSizeRelativeToKeySize;
+                            break;
+
                         case KeyCode.Return:
-                            sizeDelta.x = scaledKeySize.x * 2f;
+                            sizeDelta.x *= ReturnSizeRelativeToKeySize;
                             break;
                     }
                 }
