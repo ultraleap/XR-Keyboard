@@ -17,20 +17,16 @@ public class Keyboard : MonoBehaviour
     [SerializeField] private AccentOverlayPanel accentOverlay;
     [SerializeField] private TextInputPreview textInputPreview;
 
-
     [Header("AccentKeys")]
     public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
     public Transform AccentKeysMiddleAnchor;
     [HideInInspector] public Transform AccentKeyAnchor;
     public Transform NumberRow;
     public float accentPanelHideDelay = 0.25f;
-
     [HideInInspector] public KeyboardMode keyboardMode;
     
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +38,6 @@ public class Keyboard : MonoBehaviour
     {
         if (accentOverlay == null) accentOverlay = transform.GetComponentInChildren<AccentOverlayPanel>();
         if (textInputPreview == null) textInputPreview = transform.root.GetComponentInChildren<TextInputPreview>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public bool AccentPanelActive()
