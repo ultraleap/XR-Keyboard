@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
@@ -7,40 +9,52 @@ using UnityEngine.UI;
 
 public class UIKeyboardResizer : MonoBehaviour
 {
-
-    [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardKeysParent;
-    [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardShadowsParent;
-    [BoxGroup("Setup")] public RectTransform prefabParent;
+    [Header("Setup")]
+    public VerticalLayoutGroup KeyboardKeysParent;
+    public VerticalLayoutGroup KeyboardShadowsParent;
+    public RectTransform prefabParent;
     private List<HorizontalLayoutGroup> keyboardKeysRows;
     private List<HorizontalLayoutGroup> keyboardShadowsRows;
 
-    [BoxGroup("Size")] public float gapSize = 0.005f;
-    [BoxGroup("Size")] public float keySize = 0.04f;
-    [BoxGroup("Size")] public Vector2 panelPaddingRelativeToKeySize = Vector2.zero * 0.5f;
-    [BoxGroup("Size")] public float colliderDepth = 0.01f;
+    [Header("Size")]
+    public float gapSize = 0.005f;
+    public float keySize = 0.04f;
+    public Vector2 panelPaddingRelativeToKeySize = Vector2.zero * 0.5f;
+    public float colliderDepth = 0.01f;
 
-    [BoxGroup("Button Sizing")] public float SpaceSizeRelativeToKeySize = 9.375f; 
-    [BoxGroup("Button Sizing")] public float SpaceSizeRelativeToGapSize = 9f; 
-    [BoxGroup("Button Sizing")] public float BackspaceSizeRelativeToKeySize = 1.5f;
-    [BoxGroup("Button Sizing")] public float RightShiftSizeRelativeToKeySize = 1.5f;
-    [BoxGroup("Button Sizing")] public float ReturnSizeRelativeToKeySize = 2f;
+    [Header("Button Sizing")]
+    public float SpaceSizeRelativeToKeySize = 9.375f;
+    public float SpaceSizeRelativeToGapSize = 9f;
+    public float BackspaceSizeRelativeToKeySize = 1.5f;
+    public float RightShiftSizeRelativeToKeySize = 1.5f;
+    public float ReturnSizeRelativeToKeySize = 2f;
     private const float PADDING_SIZE_MULTIPLIER = 0.5f;
 
-
-    [Button]
     public void ResizeKeyboard()
     {
-        keyboardKeysRows = KeyboardKeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
-        keyboardShadowsRows = KeyboardShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+
         ValidateRows();
-        SpaceKeyboard();
+    }
+
+    public void ResizeButtons()
+    {
+        ValidateRows();
         SizeKeys();
-        AddPaddingToPanel();
+        SpaceKeyboard();
         ResizeColliders();
+    }
+
+    public void ResizePadding()
+    {
+        ValidateRows();
+        AddPaddingToPanel();
     }
 
     private void ValidateRows()
     {
+        keyboardKeysRows = KeyboardKeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+        keyboardShadowsRows = KeyboardShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+        
         if (keyboardKeysRows.Count != keyboardShadowsRows.Count)
         {
             throw new System.Exception(
@@ -79,6 +93,7 @@ public class UIKeyboardResizer : MonoBehaviour
         verticalLayoutGroup.spacing = gapSize / verticalLayoutGroup.transform.lossyScale.y;
         MarkAsDirty(verticalLayoutGroup, $"Update spacing of {verticalLayoutGroup.name}");
     }
+
     private void UpdateHorizontalLayoutGroupSpacing(HorizontalLayoutGroup horizontalLayoutGroup)
     {
         horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
@@ -126,6 +141,7 @@ public class UIKeyboardResizer : MonoBehaviour
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");
 
+
                 RectTransform shadowTransform = keyboardShadowsRows[i].transform.GetChild(j).GetComponent<RectTransform>();
                 shadowTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(shadowTransform, $"Update sizeDelta of {shadowTransform.name}");
@@ -135,12 +151,24 @@ public class UIKeyboardResizer : MonoBehaviour
 
     private void AddPaddingToPanel()
     {
-        // Set the size of the panel to be equal to the vertical layout group + padding 
-        Vector2 parentSizeDelta = KeyboardKeysParent.GetComponent<RectTransform>().sizeDelta;
-        parentSizeDelta.x += panelPaddingRelativeToKeySize.x * (keySize / prefabParent.lossyScale.x);
-        parentSizeDelta.y += panelPaddingRelativeToKeySize.y * (keySize / prefabParent.lossyScale.y);
-        prefabParent.sizeDelta = parentSizeDelta;
-        MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
+        KeyboardKeysParent.padding = new RectOffset()
+        {
+            left = (int)(panelPaddingRelativeToKeySize.x * (keySize / KeyboardKeysParent.transform.lossyScale.x)),
+            right = (int)(panelPaddingRelativeToKeySize.x * (keySize / KeyboardKeysParent.transform.lossyScale.x)),
+            top = (int)(panelPaddingRelativeToKeySize.y * (keySize / KeyboardKeysParent.transform.lossyScale.y)),
+            bottom = (int)(panelPaddingRelativeToKeySize.y * (keySize / KeyboardKeysParent.transform.lossyScale.y)),
+        };
+        MarkAsDirty(KeyboardKeysParent, $"Update padding of {KeyboardKeysParent.name}");
+        KeyboardShadowsParent.padding = KeyboardKeysParent.padding;
+        MarkAsDirty(KeyboardShadowsParent, $"Update padding of {KeyboardShadowsParent.name}");
+    }
+
+    public void UpdatePrefabParentSize()
+    {
+        if (prefabParent.sizeDelta != KeyboardKeysParent.GetComponent<RectTransform>().sizeDelta)
+        {
+            prefabParent.sizeDelta = KeyboardKeysParent.GetComponent<RectTransform>().sizeDelta;
+        }
     }
 
     private void ResizeColliders()
