@@ -50,10 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyboardParents:
   - {fileID: 3748474512621748077}
-  accentKeysPosition: 1
-  AccentKeysMiddleAnchor: {fileID: 5439335846285916007}
-  NumberRow: {fileID: 9076566014808506112}
-  accentPanelHideDelay: 0.25
+  defaultKeyboard: {fileID: 1073944343216658180}
 --- !u!114 &7113226973737295934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +438,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13f7d4dd93217468c0f813f10c1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1073944343216658180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8241279560673375, guid: a58ffb12e4fbd8c45a82b0b0f3da4045,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079225461097987931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88643deebf407de4daa192c21ce7e3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6754158179188753564 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5999281525082110919, guid: a58ffb12e4fbd8c45a82b0b0f3da4045,
@@ -450,12 +459,6 @@ RectTransform:
 --- !u!1 &3748474512621748077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4251235748925259830, guid: a58ffb12e4fbd8c45a82b0b0f3da4045,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079225461097987931}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &9076566014808506112 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8290103705211387995, guid: a58ffb12e4fbd8c45a82b0b0f3da4045,
     type: 3}
   m_PrefabInstance: {fileID: 1079225461097987931}
   m_PrefabAsset: {fileID: 0}
@@ -540,12 +543,6 @@ RectTransform:
 --- !u!224 &7190304214868489337 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7868697023375444770, guid: a58ffb12e4fbd8c45a82b0b0f3da4045,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079225461097987931}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &5439335846285916007 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5009774051131312188, guid: a58ffb12e4fbd8c45a82b0b0f3da4045,
     type: 3}
   m_PrefabInstance: {fileID: 1079225461097987931}
   m_PrefabAsset: {fileID: 0}

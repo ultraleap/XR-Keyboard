@@ -60,7 +60,7 @@ public class KeyMapGenerator : MonoBehaviour
                 button.NeutralKey = key.neutralKey;
                 button.Symbols1Key = key.symbols1Key;
                 button.Symbols2Key = key.symbols2Key;
-                button.UpdateActiveKey(button.NeutralKey, KeyboardManager.KeyboardMode.NEUTRAL);
+                button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
                 newKey.name = button.NeutralKey.ToString();
             }
         }

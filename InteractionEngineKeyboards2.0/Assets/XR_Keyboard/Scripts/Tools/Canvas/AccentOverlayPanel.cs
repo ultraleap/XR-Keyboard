@@ -117,7 +117,7 @@ public class AccentOverlayPanel : MonoBehaviour
             button.UseSpecialChar = true;
             button.ActiveSpecialChar = special;
             
-            button.UpdateActiveKey(button.NeutralKey, KeyboardManager.KeyboardMode.NEUTRAL);
+            button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
             newKey.name = button.ActiveSpecialChar.ToString();
         }
         
