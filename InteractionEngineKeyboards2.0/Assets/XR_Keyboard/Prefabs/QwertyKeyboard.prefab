@@ -25754,6 +25754,7 @@ GameObject:
   - component: {fileID: 6771616114668159913}
   - component: {fileID: 6879298221027245505}
   - component: {fileID: 6446647049379004802}
+  - component: {fileID: 5737705114896056358}
   m_Layer: 5
   m_Name: QwertyKeyboard
   m_TagString: Untagged
@@ -25844,6 +25845,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13f7d4dd93217468c0f813f10c1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5737705114896056358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660563387067394477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88643deebf407de4daa192c21ce7e3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accentOverlay: {fileID: 9188204193265346667}
+  textInputPreview: {fileID: 3462868391097845101}
+  accentKeysPosition: 0
+  AccentKeysMiddleAnchor: {fileID: 8227787040709806811}
+  AccentKeyAnchor: {fileID: 0}
+  NumberRow: {fileID: 1123302454}
+  accentPanelHideDelay: 0.25
+  keyboardMode: 0
 --- !u!1 &6728158317669771436
 GameObject:
   m_ObjectHideFlags: 0
@@ -35675,3 +35696,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7014757211532305926}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3462868391097845101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5861427152971293547, guid: 9b8fa87fec6fd5242bf4da3960850912,
+    type: 3}
+  m_PrefabInstance: {fileID: 7014757211532305926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335d45da671c2cd46ad557d1e6f9b8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

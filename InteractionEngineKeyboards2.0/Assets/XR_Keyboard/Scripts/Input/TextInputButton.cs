@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Leap.Unity.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static KeyboardManager;
+
+using KeyboardMode = Keyboard.KeyboardMode;
 
 public class TextInputButton : MonoBehaviour
 {
-    public delegate void KeyUp(KeyCode keyCode);
+    public delegate void KeyUp(KeyCode keyCode, Keyboard sourceKeyboard);
     public static event KeyUp HandleKeyUp;
-    public delegate void KeyUpSpecialChar(KeyCodeSpecialChar keyCode);
+    public delegate void KeyUpSpecialChar(KeyCodeSpecialChar keyCode, Keyboard sourceKeyboard);
     public static event KeyUpSpecialChar HandleKeyUpSpecialChar;
-    public delegate void LongPress(List<KeyCodeSpecialChar> specialChars);
+    public delegate void LongPress(List<KeyCodeSpecialChar> specialChars, Keyboard sourceKeyboard);
     public static event LongPress HandleLongPress;
     public KeyCode NeutralKey;
     public KeyCode Symbols1Key;
@@ -28,7 +28,7 @@ public class TextInputButton : MonoBehaviour
     private TextMeshProUGUI keyTextMeshGUI;
     private TextMeshProUGUI accentLabelTextMeshGUI;
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
-
+    private Keyboard parentKeyboard;
     private bool longPressed = false;
 
     // Start is called before the first frame update
@@ -44,6 +44,8 @@ public class TextInputButton : MonoBehaviour
         if (button != null) { button.onClick.AddListener(TextPress); }
 
         UpdateActiveKey(NeutralKey, KeyboardMode.NEUTRAL);
+
+        parentKeyboard = GetComponentInParent<Keyboard>();
     }
 
     public void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
@@ -61,7 +63,7 @@ public class TextInputButton : MonoBehaviour
 
         if (accentLabelTextMeshGUI == null && textMeshGUIs.Length > 1)
         {
-            // Ugly, how to do this better?
+            // TODO, how to do this better?
             accentLabelTextMeshGUI = textMeshGUIs[1];
         }
 
@@ -171,8 +173,8 @@ public class TextInputButton : MonoBehaviour
             default:
                 if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(ActiveKey))
                 {
-                    KeyboardManager.AccentKeyAnchor = transform;
-                    HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey]);
+                    parentKeyboard.AccentKeyAnchor = transform;
+                    HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey], parentKeyboard);
                 }
                 break;
         }
@@ -197,11 +199,11 @@ public class TextInputButton : MonoBehaviour
     {
         if (UseSpecialChar)
         {
-            HandleKeyUpSpecialChar(ActiveSpecialChar);
+            HandleKeyUpSpecialChar(ActiveSpecialChar, parentKeyboard);
         }
         else
         {
-            HandleKeyUp.Invoke(ActiveKey);
+            HandleKeyUp.Invoke(ActiveKey, parentKeyboard);
         }
     }
 }
