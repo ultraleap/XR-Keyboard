@@ -48,12 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23215a3e219502488ce8593f2a9d8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyboardParents:
-  - {fileID: 4045374380847420978}
-  accentKeysPosition: 1
-  AccentKeysMiddleAnchor: {fileID: 6693657273933855951}
-  NumberRow: {fileID: 3371609988252256802}
-  accentPanelHideDelay: 0.25
+  keyboards: []
 --- !u!114 &4045374380543888548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,12 +436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13f7d4dd93217468c0f813f10c1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &3371609988252256802 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1123302454, guid: e67a7a82e579e2c4ba09548974073d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 3371609989278561812}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3371609988252256813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1123302457, guid: e67a7a82e579e2c4ba09548974073d96,
@@ -528,12 +517,6 @@ RectTransform:
 --- !u!224 &7786565160804817815 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4811307481738210691, guid: e67a7a82e579e2c4ba09548974073d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 3371609989278561812}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &6693657273933855951 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8227787040709806811, guid: e67a7a82e579e2c4ba09548974073d96,
     type: 3}
   m_PrefabInstance: {fileID: 3371609989278561812}
   m_PrefabAsset: {fileID: 0}
