@@ -35,7 +35,7 @@ public class UIKeyboardResizer : MonoBehaviour
         ValidateRows();
         SpaceKeyboard();
         SizeKeys();
-        SizePanel();
+        AddPaddingToPanel();
         ResizeColliders();
     }
 
@@ -133,63 +133,13 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
-    private void SizePanel()
+    private void AddPaddingToPanel()
     {
-        float longestRow = 0;
-
-        // loop through each horizontal layout group & set its sizeDelta to be equal to the size of the keys & gaps inside of it
-        for (int i = 0; i < keyboardKeysRows.Count; i++)
-        {
-            HorizontalLayoutGroup keyRow = keyboardKeysRows[i];
-            HorizontalLayoutGroup shadowRow = keyboardShadowsRows[i];
-            RectTransform keyRowTransform = keyRow.GetComponent<RectTransform>();
-
-            //Set height of size delta to key height normalised to the scale of the row transform
-            Vector2 horizontalSizeDelta = new Vector2(0, keySize / keyRowTransform.lossyScale.y);
-
-            //Calculate the gap size normalised to the scale of the row transform
-            float scaledGapSize = gapSize / keyRowTransform.lossyScale.y;
-
-            float unnormalisedRowLength = 0;
-            foreach (RectTransform key in keyRowTransform)
-            {
-                //Calculate & add the key size normalised to the scale of the row transform
-                float scaledKeySize = key.sizeDelta.x * key.lossyScale.x;
-                unnormalisedRowLength += scaledKeySize;
-                unnormalisedRowLength += gapSize;
-            }
-            horizontalSizeDelta.x = unnormalisedRowLength / keyRowTransform.lossyScale.x;
-            
-            horizontalSizeDelta.x -= scaledGapSize;
-            horizontalSizeDelta.x += keySize / 2;
-            keyRowTransform.sizeDelta = horizontalSizeDelta;
-            MarkAsDirty(keyRowTransform, $"Update Size Delta of {keyRowTransform.name}");
-
-            shadowRow.GetComponent<RectTransform>().sizeDelta = horizontalSizeDelta;
-            MarkAsDirty(shadowRow, $"Update Size Delta of {shadowRow.name}");
-
-            unnormalisedRowLength -= gapSize;
-            longestRow = Mathf.Max(unnormalisedRowLength, longestRow);
-        }
-
-        // Set the vertical layout group to be equal to the size of its layout groups
-        RectTransform verticalGroup = KeyboardKeysParent.GetComponent<RectTransform>();
-
-        verticalGroup.sizeDelta = new Vector2()
-        {
-            x = longestRow / verticalGroup.lossyScale.x,
-            y = ((keySize * keyboardKeysRows.Count) + (gapSize * (keyboardKeysRows.Count - 1))) / verticalGroup.lossyScale.y
-        };
-        MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
-
-        KeyboardShadowsParent.GetComponent<RectTransform>().sizeDelta = verticalGroup.sizeDelta;
-        MarkAsDirty(KeyboardShadowsParent, $"Update Size Delta of {KeyboardShadowsParent.name}");
-
         // Set the size of the panel to be equal to the vertical layout group + padding 
-        Vector2 ParentSizeDelta = verticalGroup.sizeDelta;
-        ParentSizeDelta.x += panelPaddingRelativeToKeySize.x * (keySize / prefabParent.lossyScale.x);
-        ParentSizeDelta.y += panelPaddingRelativeToKeySize.y * (keySize / prefabParent.lossyScale.y);
-        prefabParent.sizeDelta = ParentSizeDelta;
+        Vector2 parentSizeDelta = KeyboardKeysParent.GetComponent<RectTransform>().sizeDelta;
+        parentSizeDelta.x += panelPaddingRelativeToKeySize.x * (keySize / prefabParent.lossyScale.x);
+        parentSizeDelta.y += panelPaddingRelativeToKeySize.y * (keySize / prefabParent.lossyScale.y);
+        prefabParent.sizeDelta = parentSizeDelta;
         MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
     }
 
