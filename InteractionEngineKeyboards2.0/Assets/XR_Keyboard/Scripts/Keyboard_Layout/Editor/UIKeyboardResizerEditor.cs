@@ -14,8 +14,7 @@ public class UIKeyboardResizerEditor : Editor
 
         if (GUILayout.Button("Resize Keyboard"))
         {
-            uiKeyboardResizer.ResizeButtons();
-            uiKeyboardResizer.ResizePadding();
+            uiKeyboardResizer.ResizeKeyboard();
         }
     }
 }

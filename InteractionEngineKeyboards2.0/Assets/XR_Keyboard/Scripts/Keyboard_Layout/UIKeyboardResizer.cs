@@ -32,21 +32,10 @@ public class UIKeyboardResizer : MonoBehaviour
 
     public void ResizeKeyboard()
     {
-
-        ValidateRows();
-    }
-
-    public void ResizeButtons()
-    {
         ValidateRows();
         SizeKeys();
         SpaceKeyboard();
         ResizeColliders();
-    }
-
-    public void ResizePadding()
-    {
-        ValidateRows();
         AddPaddingToPanel();
     }
 
@@ -54,7 +43,7 @@ public class UIKeyboardResizer : MonoBehaviour
     {
         keyboardKeysRows = KeyboardKeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
         keyboardShadowsRows = KeyboardShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
-        
+
         if (keyboardKeysRows.Count != keyboardShadowsRows.Count)
         {
             throw new System.Exception(
