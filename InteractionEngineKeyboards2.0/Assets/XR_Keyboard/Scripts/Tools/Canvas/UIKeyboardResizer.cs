@@ -15,7 +15,7 @@ public class UIKeyboardResizer : MonoBehaviour
     private List<HorizontalLayoutGroup> keyboardShadowsRows;
 
     [BoxGroup("Size")] public float gapSize = 0.005f;
-    [BoxGroup("Size")] public float keySize = 0.4f;
+    [BoxGroup("Size")] public float keySize = 0.04f;
     [BoxGroup("Size")] public Vector2 panelPaddingRelativeToKeySize = Vector2.zero * 0.5f;
     [BoxGroup("Size")] public float colliderDepth = 0.01f;
 
