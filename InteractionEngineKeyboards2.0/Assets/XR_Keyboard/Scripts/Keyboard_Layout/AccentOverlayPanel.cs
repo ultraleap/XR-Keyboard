@@ -6,6 +6,8 @@ using Leap.Unity.Interaction;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
+    public UIKeyboardResizer.KeyboardLayoutObjects accentPanelLayoutObject;
+    public UIKeyboardResizer UIKeyboardResizer;
     public GameObject keyPrefab, shadowPrefab;
     public Transform panel, shadowRow, keyRow, background;
 
@@ -17,7 +19,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public Vector3 horizontalOffset = new Vector3(150, 0, 0);
     public Color overlayColour, inlineColour;
 
-    [BoxGroup("Dismissal")] public float timeout = 5;
+    [Header("Dismissal")] public float timeout = 5;
 
     private AudioSource audioSource;
     private bool makeNoise = false;
@@ -120,8 +122,9 @@ public class AccentOverlayPanel : MonoBehaviour
             button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
             newKey.name = button.ActiveSpecialChar.ToString();
         }
+        Canvas.ForceUpdateCanvases();
         
-        GetComponent<UIKeyboardResizer>().ResizeKeyboard();
+        UIKeyboardResizer.ResizeKeyboardLayoutObject(accentPanelLayoutObject);
     }
 
     public void SetOverlayColour(){

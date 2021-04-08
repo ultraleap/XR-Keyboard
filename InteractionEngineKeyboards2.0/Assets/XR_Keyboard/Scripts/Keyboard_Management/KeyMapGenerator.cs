@@ -10,7 +10,6 @@ public class KeyMapGenerator : MonoBehaviour
     public GameObject shadowPrefab;
 
     public Transform[] shadowRows = new Transform[5];
-    public UIKeyboardResizer numberResizer;
     public UIKeyboardResizer keyboardResizer;
     public bool overWritePrefab = false;
 
@@ -64,7 +63,6 @@ public class KeyMapGenerator : MonoBehaviour
                 newKey.name = button.NeutralKey.ToString();
             }
         }
-        numberResizer.ResizeKeyboard();
         keyboardResizer.ResizeKeyboard();
     }
 
