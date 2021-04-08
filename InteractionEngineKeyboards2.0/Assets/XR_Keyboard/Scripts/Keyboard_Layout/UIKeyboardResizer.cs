@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
