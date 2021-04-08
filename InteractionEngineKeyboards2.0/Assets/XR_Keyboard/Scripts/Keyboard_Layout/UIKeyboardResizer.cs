@@ -163,6 +163,7 @@ public class UIKeyboardResizer : MonoBehaviour
         MarkAsDirty(keyboardLayoutObject.ShadowsParent, $"Update padding of {keyboardLayoutObject.ShadowsParent.name}");
         Canvas.ForceUpdateCanvases();
         keyboardLayoutObject.LayoutParent.sizeDelta = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>().sizeDelta;
+        MarkAsDirty(keyboardLayoutObject.LayoutParent, $"Update sizeDelta of {keyboardLayoutObject.LayoutParent.name}");
 
     }
 
