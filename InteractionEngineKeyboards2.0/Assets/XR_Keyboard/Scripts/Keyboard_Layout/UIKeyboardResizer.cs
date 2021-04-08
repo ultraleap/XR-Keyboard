@@ -45,6 +45,9 @@ public class UIKeyboardResizer : MonoBehaviour
 
     public void ResizeKeyboardLayoutObject(KeyboardLayoutObjects keyboardLayoutObject)
     {
+        keyboardLayoutObject.KeysRows = keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+        keyboardLayoutObject.ShadowsRows = keyboardLayoutObject.ShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+
         ValidateRows(keyboardLayoutObject);
         SizeKeys(keyboardLayoutObject);
         SpaceKeyboard(keyboardLayoutObject);
@@ -54,8 +57,7 @@ public class UIKeyboardResizer : MonoBehaviour
 
     private void ValidateRows(KeyboardLayoutObjects keyboardLayoutObject)
     {
-        keyboardLayoutObject.KeysRows = keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
-        keyboardLayoutObject.ShadowsRows = keyboardLayoutObject.ShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+
 
         if (keyboardLayoutObject.KeysRows.Count != keyboardLayoutObject.ShadowsRows.Count)
         {
@@ -162,7 +164,10 @@ public class UIKeyboardResizer : MonoBehaviour
         keyboardLayoutObject.ShadowsParent.padding = keyboardLayoutObject.KeysParent.padding;
         MarkAsDirty(keyboardLayoutObject.ShadowsParent, $"Update padding of {keyboardLayoutObject.ShadowsParent.name}");
         Canvas.ForceUpdateCanvases();
-        keyboardLayoutObject.LayoutParent.sizeDelta = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>().sizeDelta;
+
+        RectTransform KeysParentRectTransform = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(KeysParentRectTransform);
+        keyboardLayoutObject.LayoutParent.sizeDelta = KeysParentRectTransform.sizeDelta;
         MarkAsDirty(keyboardLayoutObject.LayoutParent, $"Update sizeDelta of {keyboardLayoutObject.LayoutParent.name}");
     }
 
