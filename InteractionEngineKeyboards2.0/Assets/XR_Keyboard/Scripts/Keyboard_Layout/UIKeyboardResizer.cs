@@ -164,7 +164,6 @@ public class UIKeyboardResizer : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         keyboardLayoutObject.LayoutParent.sizeDelta = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>().sizeDelta;
         MarkAsDirty(keyboardLayoutObject.LayoutParent, $"Update sizeDelta of {keyboardLayoutObject.LayoutParent.name}");
-
     }
 
     private void ResizeColliders(KeyboardLayoutObjects keyboardLayoutObject)
