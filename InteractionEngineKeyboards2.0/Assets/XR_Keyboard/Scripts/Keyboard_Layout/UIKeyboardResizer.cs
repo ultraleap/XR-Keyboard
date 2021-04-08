@@ -26,9 +26,9 @@ public class UIKeyboardResizer : MonoBehaviour
     public float SpaceSizeRelativeToKeySize = 9.375f;
     public float SpaceSizeRelativeToGapSize = 9f;
     public float BackspaceSizeRelativeToKeySize = 1.5f;
+    public float LeftShiftSizeRelativeToKeySize = 1f;
     public float RightShiftSizeRelativeToKeySize = 1.5f;
     public float ReturnSizeRelativeToKeySize = 2f;
-    private const float PADDING_SIZE_MULTIPLIER = 0.5f;
 
     public void ResizeKeyboard()
     {
@@ -103,30 +103,29 @@ public class UIKeyboardResizer : MonoBehaviour
 
                 Vector2 sizeDelta = scaledKeySize;
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
-                if (keyTransform.gameObject.name == "Padding")
+                switch (textInputButton.NeutralKey)
                 {
-                    sizeDelta *= PADDING_SIZE_MULTIPLIER;
-                }
-                else
-                {
-                    switch (textInputButton.NeutralKey)
-                    {
-                        case KeyCode.Space:
-                            sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
-                            break;
+                    case KeyCode.Space:
+                        sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
+                        break;
 
-                        case KeyCode.Backspace:
-                            sizeDelta.x *= BackspaceSizeRelativeToKeySize;
-                            break;
-                        case KeyCode.RightShift:
-                            sizeDelta.x *= RightShiftSizeRelativeToKeySize;
-                            break;
+                    case KeyCode.Backspace:
+                        sizeDelta.x *= BackspaceSizeRelativeToKeySize;
+                        break;
 
-                        case KeyCode.Return:
-                            sizeDelta.x *= ReturnSizeRelativeToKeySize;
-                            break;
-                    }
+                    case KeyCode.LeftShift:
+                        sizeDelta.x *= LeftShiftSizeRelativeToKeySize;
+                        break;
+
+                    case KeyCode.RightShift:
+                        sizeDelta.x *= RightShiftSizeRelativeToKeySize;
+                        break;
+
+                    case KeyCode.Return:
+                        sizeDelta.x *= ReturnSizeRelativeToKeySize;
+                        break;
                 }
+
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");
 
