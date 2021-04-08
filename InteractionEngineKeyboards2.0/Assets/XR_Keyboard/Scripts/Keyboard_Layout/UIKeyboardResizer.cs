@@ -161,13 +161,22 @@ public class UIKeyboardResizer : MonoBehaviour
             bottom = (int)(panelPaddingRelativeToKeySize.y * (keySize / keyboardLayoutObject.KeysParent.transform.lossyScale.y)),
         };
         MarkAsDirty(keyboardLayoutObject.KeysParent, $"Update padding of {keyboardLayoutObject.KeysParent.name}");
+
         keyboardLayoutObject.ShadowsParent.padding = keyboardLayoutObject.KeysParent.padding;
         MarkAsDirty(keyboardLayoutObject.ShadowsParent, $"Update padding of {keyboardLayoutObject.ShadowsParent.name}");
-        Canvas.ForceUpdateCanvases();
 
+        //Force Canvas & Rect Transform to rebuild to enable content size fitter components to resize KeysParent's RectTransform, so that we can copy its size delta 
         RectTransform KeysParentRectTransform = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>();
         LayoutRebuilder.ForceRebuildLayoutImmediate(KeysParentRectTransform);
-        keyboardLayoutObject.LayoutParent.sizeDelta = KeysParentRectTransform.sizeDelta;
+        Canvas.ForceUpdateCanvases();
+
+        Vector2 normalisedSizeDelta = new Vector2()
+        {
+            x = KeysParentRectTransform.sizeDelta.x * KeysParentRectTransform.lossyScale.x,
+            y = KeysParentRectTransform.sizeDelta.y * KeysParentRectTransform.lossyScale.y,
+        };
+
+        keyboardLayoutObject.LayoutParent.sizeDelta = normalisedSizeDelta / keyboardLayoutObject.LayoutParent.lossyScale;
         MarkAsDirty(keyboardLayoutObject.LayoutParent, $"Update sizeDelta of {keyboardLayoutObject.LayoutParent.name}");
     }
 
