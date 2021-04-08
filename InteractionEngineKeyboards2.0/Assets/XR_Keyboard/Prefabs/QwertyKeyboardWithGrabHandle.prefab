@@ -97,8 +97,8 @@ MonoBehaviour:
   - {fileID: 2765470190573344968}
   - {fileID: 2765470189732301873}
   - {fileID: 2765470189151682713}
-  numberResizer: {fileID: 3371609988252256813}
-  keyboardResizer: {fileID: 3371609988856876182}
+  numberResizer: {fileID: 0}
+  keyboardResizer: {fileID: 0}
   overWritePrefab: 1
 --- !u!114 &1770923931585202390
 MonoBehaviour:
@@ -436,18 +436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13f7d4dd93217468c0f813f10c1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3371609988252256813 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1123302457, guid: e67a7a82e579e2c4ba09548974073d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 3371609989278561812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e802491774a12742b6969ac411b5020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &3371609989273542806 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 131438210, guid: e67a7a82e579e2c4ba09548974073d96,
@@ -460,18 +448,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3371609989278561812}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3371609988856876182 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 786594434, guid: e67a7a82e579e2c4ba09548974073d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 3371609989278561812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e802491774a12742b6969ac411b5020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2765470189302610741 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 624506214348950817, guid: e67a7a82e579e2c4ba09548974073d96,
