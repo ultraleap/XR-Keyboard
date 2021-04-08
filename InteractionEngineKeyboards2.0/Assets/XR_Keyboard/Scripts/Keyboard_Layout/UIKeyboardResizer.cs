@@ -7,172 +7,182 @@ using UnityEngine.UI;
 
 public class UIKeyboardResizer : MonoBehaviour
 {
+    [System.Serializable]
+    public struct KeyboardLayoutObjects
+    {
+        public RectTransform LayoutParent;
+        public VerticalLayoutGroup ShadowsParent;
+        public VerticalLayoutGroup KeysParent;
+        [HideInInspector] public List<HorizontalLayoutGroup> ShadowsRows;
+        [HideInInspector] public List<HorizontalLayoutGroup> KeysRows;
+    }
 
-    [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardKeysParent;
-    [BoxGroup("Setup")] public VerticalLayoutGroup KeyboardShadowsParent;
-    [BoxGroup("Setup")] public RectTransform prefabParent;
-    [BoxGroup("Setup")] public List<HorizontalLayoutGroup> keyboardRows;
-    [BoxGroup("Setup")] public List<HorizontalLayoutGroup> keyboardRowShadows;
+    [Header("Setup")]
+    public List<KeyboardLayoutObjects> keyboardLayoutObjects;
 
-    [BoxGroup("Size")] public float gapSize;
-    [BoxGroup("Size")] public float buttonSize;
-    [BoxGroup("Size")] public Vector2 panelPaddingRelativeToButtonSize = Vector2.zero;
-    [BoxGroup("Size")] public float colliderDepth = 0.01f;
+    [Header("Size (Standard Unity Units)")]
+    public float gapSize = 0.005f;
+    public float keySize = 0.04f;
+    public Vector2 panelPaddingRelativeToKeySize = Vector2.zero * 0.2f;
+    public float colliderDepth = 0.01f;
+
+    [Header("Button Sizing")]
+    public float SpaceSizeRelativeToKeySize = 9.375f;
+    public float SpaceSizeRelativeToGapSize = 9f;
+    public float BackspaceSizeRelativeToKeySize = 1.5f;
+    public float LeftShiftSizeRelativeToKeySize = 1f;
+    public float RightShiftSizeRelativeToKeySize = 1.5f;
+    public float ReturnSizeRelativeToKeySize = 2f;
 
     [Button]
     public void ResizeKeyboard()
     {
-        SpaceKeyboard();
-        SizeButtons();
-        SizePanel();
-        ResizeColliders();
+        foreach (KeyboardLayoutObjects keyboardLayoutObject in keyboardLayoutObjects)
+        {
+            ResizeKeyboardLayoutObject(keyboardLayoutObject);
+        }
+    }
+
+    public void ResizeKeyboardLayoutObject(KeyboardLayoutObjects keyboardLayoutObject)
+    {
+        keyboardLayoutObject.KeysRows = keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+        keyboardLayoutObject.ShadowsRows = keyboardLayoutObject.ShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
+
+        ValidateRows(keyboardLayoutObject);
+        SizeKeys(keyboardLayoutObject);
+        SpaceKeyboard(keyboardLayoutObject);
+        ResizeColliders(keyboardLayoutObject);
+        AddPaddingToPanel(keyboardLayoutObject);
+    }
+
+    private void ValidateRows(KeyboardLayoutObjects keyboardLayoutObject)
+    {
+
+
+        if (keyboardLayoutObject.KeysRows.Count != keyboardLayoutObject.ShadowsRows.Count)
+        {
+            throw new System.Exception(
+                "Keyboard Key Row Count & Keyboard Shadow Row Count are mismatched.\n"
+                 + "Check that both have the same number of horizontal layout groups"
+            );
+        }
+
+        for (int i = 0; i < keyboardLayoutObject.KeysRows.Count; i++)
+        {
+            if (keyboardLayoutObject.KeysRows[i].transform.childCount != keyboardLayoutObject.ShadowsRows[i].transform.childCount)
+            {
+                throw new System.Exception(
+                    $"Keyboard Key Row {i} & Keyboard Shadow Row {i} have a different number of children.\n"
+                     + "Ensure that every key has a matching shadow object."
+                );
+            }
+        }
     }
 
     //Loop through each horizontal/vertical layout group & set the spacing to be correct 
-    private void SpaceKeyboard()
+    private void SpaceKeyboard(KeyboardLayoutObjects keyboardLayoutObject)
     {
-        KeyboardKeysParent.spacing = gapSize / KeyboardKeysParent.transform.lossyScale.y;
-        MarkAsDirty(KeyboardKeysParent, $"Update spacing of {KeyboardKeysParent.name}");
+        UpdateVerticalLayoutGroupSpacing(keyboardLayoutObject.KeysParent);
+        UpdateVerticalLayoutGroupSpacing(keyboardLayoutObject.ShadowsParent);
 
-        if (KeyboardShadowsParent != null)
+        for (int i = 0; i < keyboardLayoutObject.KeysRows.Count; i++)
         {
-            KeyboardShadowsParent.spacing = gapSize / KeyboardShadowsParent.transform.lossyScale.y;
-            MarkAsDirty(KeyboardShadowsParent, $"Update spacing of {KeyboardShadowsParent.name}");
-        }
-
-        for (int i = 0; i < keyboardRows.Count; i++)
-        {
-            HorizontalLayoutGroup horizontalLayoutGroup = keyboardRows[i];
-            horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
-            MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
-
-            if (keyboardRowShadows.Count == keyboardRows.Count)
-            {
-                horizontalLayoutGroup = keyboardRowShadows[i];
-                horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
-                MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
-            }
+            UpdateHorizontalLayoutGroupSpacing(keyboardLayoutObject.KeysRows[i]);
+            UpdateHorizontalLayoutGroupSpacing(keyboardLayoutObject.ShadowsRows[i]);
         }
     }
 
-
-    // Loop through each button setting their sizeDelta
-    private void SizeButtons()
+    private void UpdateVerticalLayoutGroupSpacing(VerticalLayoutGroup verticalLayoutGroup)
     {
-        for (int i = 0; i < keyboardRows.Count; i++)
+        verticalLayoutGroup.spacing = gapSize / verticalLayoutGroup.transform.lossyScale.y;
+        MarkAsDirty(verticalLayoutGroup, $"Update spacing of {verticalLayoutGroup.name}");
+    }
+
+    private void UpdateHorizontalLayoutGroupSpacing(HorizontalLayoutGroup horizontalLayoutGroup)
+    {
+        horizontalLayoutGroup.spacing = gapSize / horizontalLayoutGroup.transform.lossyScale.x;
+        MarkAsDirty(horizontalLayoutGroup, $"Update spacing of {horizontalLayoutGroup.name}");
+    }
+
+    // Loop through each key setting their sizeDelta
+    private void SizeKeys(KeyboardLayoutObjects keyboardLayoutObject)
+    {
+        for (int i = 0; i < keyboardLayoutObject.KeysRows.Count; i++)
         {
-            HorizontalLayoutGroup row = keyboardRows[i];
+            HorizontalLayoutGroup row = keyboardLayoutObject.KeysRows[i];
             for (int j = 0; j < row.transform.childCount; j++)
             {
-                RectTransform buttonTransform = row.transform.GetChild(j).GetComponent<RectTransform>();
-                Vector2 scaledGapSize = new Vector2(gapSize / buttonTransform.transform.lossyScale.x, gapSize / buttonTransform.transform.lossyScale.y);
-                Vector2 scaledButtonSize = new Vector2(buttonSize / buttonTransform.transform.lossyScale.x, buttonSize / buttonTransform.transform.lossyScale.y);
+                RectTransform keyTransform = row.transform.GetChild(j).GetComponent<RectTransform>();
+                Vector2 scaledGapSize = new Vector2(gapSize / keyTransform.transform.lossyScale.x, gapSize / keyTransform.transform.lossyScale.y);
+                Vector2 scaledKeySize = new Vector2(keySize / keyTransform.transform.lossyScale.x, keySize / keyTransform.transform.lossyScale.y);
 
-                Vector2 sizeDelta = scaledButtonSize;
-                TextInputButton uiTextInputButton = buttonTransform.GetComponentInChildren<TextInputButton>();
-                if (buttonTransform.gameObject.name == "Padding")
+                Vector2 sizeDelta = scaledKeySize;
+                TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
+                switch (textInputButton.NeutralKey)
                 {
-                    sizeDelta *= 0.5f;
-                }
-                else
-                {
-                    switch (uiTextInputButton.NeutralKey)
-                    {
-                        case KeyCode.Space:
-                            sizeDelta.x = (scaledButtonSize.x * 9.5f) + (scaledGapSize.x * 8);
+                    case KeyCode.Space:
+                        sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
+                        break;
 
-                            break;
-                        case KeyCode.Backspace:
-                        case KeyCode.RightShift:
-                            sizeDelta.x *= 1.5f;
+                    case KeyCode.Backspace:
+                        sizeDelta.x *= BackspaceSizeRelativeToKeySize;
+                        break;
 
-                            break;
-                        case KeyCode.Return:
-                            sizeDelta.x = scaledButtonSize.x * 2f;
-                            break;
-                    }
-                }
-                buttonTransform.sizeDelta = sizeDelta;
-                MarkAsDirty(buttonTransform, $"Update sizeDelta of {buttonTransform.name}");
+                    case KeyCode.LeftShift:
+                        sizeDelta.x *= LeftShiftSizeRelativeToKeySize;
+                        break;
 
-                if (keyboardRowShadows.Count == keyboardRows.Count)
-                {
-                    if (j < keyboardRowShadows[i].transform.childCount)
-                    {
-                        RectTransform buttonShadow = keyboardRowShadows[i].transform.GetChild(j).GetComponent<RectTransform>();
-                        buttonShadow.sizeDelta = sizeDelta;
-                        MarkAsDirty(buttonShadow, $"Update sizeDelta of {buttonShadow.name}");
-                    }
+                    case KeyCode.RightShift:
+                        sizeDelta.x *= RightShiftSizeRelativeToKeySize;
+                        break;
+
+                    case KeyCode.Return:
+                        sizeDelta.x *= ReturnSizeRelativeToKeySize;
+                        break;
                 }
+
+                keyTransform.sizeDelta = sizeDelta;
+                MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");
+
+                RectTransform shadowTransform = keyboardLayoutObject.ShadowsRows[i].transform.GetChild(j).GetComponent<RectTransform>();
+                shadowTransform.sizeDelta = sizeDelta;
+                MarkAsDirty(shadowTransform, $"Update sizeDelta of {shadowTransform.name}");
             }
         }
     }
 
-
-
-    // loop through each horizontal layout group & set its sizeDelta to be equal to the size of the buttons & gaps inside of it
-    // Set the vertical layout group to be equal to the size of its layout groups
-    // Set the size of the panel to be equal to the vertical layout group + padding 
-    private void SizePanel()
+    private void AddPaddingToPanel(KeyboardLayoutObjects keyboardLayoutObject)
     {
-        float longestRow = 0;
-        for (int i = 0; i < keyboardRows.Count; i++)
+        keyboardLayoutObject.KeysParent.padding = new RectOffset()
         {
-            HorizontalLayoutGroup row = keyboardRows[i];
-            HorizontalLayoutGroup shadowRow = keyboardRowShadows.Count == 0 ? null : keyboardRowShadows[i];
-
-            RectTransform rowTransform = row.GetComponent<RectTransform>();
-            Vector2 horizontalSizeDelta = new Vector2(0, buttonSize / rowTransform.lossyScale.y);
-            float scaledGapSize = gapSize / rowTransform.lossyScale.y;
-            float currentRowLength = 0;
-
-            foreach (RectTransform button in rowTransform)
-            {
-                float scaledButtonSize = button.sizeDelta.x * button.lossyScale.x;
-                horizontalSizeDelta.x += scaledButtonSize / rowTransform.lossyScale.x;
-                horizontalSizeDelta.x += scaledGapSize;
-
-                currentRowLength += scaledButtonSize;
-                currentRowLength += gapSize;
-            }
-            horizontalSizeDelta.x -= scaledGapSize;
-            horizontalSizeDelta.x += buttonSize / 2;
-            rowTransform.sizeDelta = horizontalSizeDelta;
-            MarkAsDirty(rowTransform, $"Update Size Delta of {rowTransform.name}");
-
-            if (shadowRow != null)
-            {
-                shadowRow.GetComponent<RectTransform>().sizeDelta = horizontalSizeDelta;
-                MarkAsDirty(shadowRow, $"Update Size Delta of {shadowRow.name}");
-            }
-            currentRowLength -= gapSize;
-            longestRow = Mathf.Max(currentRowLength, longestRow);
-        }
-
-        RectTransform verticalGroup = KeyboardKeysParent.GetComponent<RectTransform>();
-        Vector2 verticalSizeDelta = new Vector2()
-        {
-            x = longestRow / verticalGroup.lossyScale.x,
-            y = ((buttonSize * keyboardRows.Count) + (gapSize * (keyboardRows.Count - 1))) / verticalGroup.lossyScale.y
+            left = (int)(panelPaddingRelativeToKeySize.x * (keySize / keyboardLayoutObject.KeysParent.transform.lossyScale.x)),
+            right = (int)(panelPaddingRelativeToKeySize.x * (keySize / keyboardLayoutObject.KeysParent.transform.lossyScale.x)),
+            top = (int)(panelPaddingRelativeToKeySize.y * (keySize / keyboardLayoutObject.KeysParent.transform.lossyScale.y)),
+            bottom = (int)(panelPaddingRelativeToKeySize.y * (keySize / keyboardLayoutObject.KeysParent.transform.lossyScale.y)),
         };
-        verticalGroup.sizeDelta = verticalSizeDelta;
-        MarkAsDirty(verticalGroup, $"Update Size Delta of {verticalGroup.name}");
+        MarkAsDirty(keyboardLayoutObject.KeysParent, $"Update padding of {keyboardLayoutObject.KeysParent.name}");
 
-        if (KeyboardShadowsParent != null)
+        keyboardLayoutObject.ShadowsParent.padding = keyboardLayoutObject.KeysParent.padding;
+        MarkAsDirty(keyboardLayoutObject.ShadowsParent, $"Update padding of {keyboardLayoutObject.ShadowsParent.name}");
+
+        //Force Canvas & Rect Transform to rebuild to enable content size fitter components to resize KeysParent's RectTransform, so that we can copy its size delta 
+        RectTransform KeysParentRectTransform = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(KeysParentRectTransform);
+        Canvas.ForceUpdateCanvases();
+
+        Vector2 normalisedSizeDelta = new Vector2()
         {
-            KeyboardShadowsParent.GetComponent<RectTransform>().sizeDelta = verticalSizeDelta;
-            MarkAsDirty(KeyboardShadowsParent, $"Update Size Delta of {KeyboardShadowsParent.name}");
-        }
+            x = KeysParentRectTransform.sizeDelta.x * KeysParentRectTransform.lossyScale.x,
+            y = KeysParentRectTransform.sizeDelta.y * KeysParentRectTransform.lossyScale.y,
+        };
 
-        verticalSizeDelta.x += panelPaddingRelativeToButtonSize.x * (buttonSize / prefabParent.lossyScale.x);
-        verticalSizeDelta.y += panelPaddingRelativeToButtonSize.y * (buttonSize / prefabParent.lossyScale.y);
-        prefabParent.sizeDelta = verticalSizeDelta;
-        MarkAsDirty(prefabParent, $"Update Size Delta of {prefabParent.name}");
+        keyboardLayoutObject.LayoutParent.sizeDelta = normalisedSizeDelta / keyboardLayoutObject.LayoutParent.lossyScale;
+        MarkAsDirty(keyboardLayoutObject.LayoutParent, $"Update sizeDelta of {keyboardLayoutObject.LayoutParent.name}");
     }
 
-    private void ResizeColliders()
+    private void ResizeColliders(KeyboardLayoutObjects keyboardLayoutObject)
     {
-        List<BoxCollider> boxColliders = prefabParent.GetComponentsInChildren<BoxCollider>().ToList();
+        List<BoxCollider> boxColliders = keyboardLayoutObject.LayoutParent.GetComponentsInChildren<BoxCollider>().ToList();
         foreach (BoxCollider boxCollider in boxColliders)
         {
             RectTransform rectTransform = boxCollider.GetComponent<RectTransform>();
@@ -185,7 +195,7 @@ public class UIKeyboardResizer : MonoBehaviour
         }
     }
 
-    private void MarkAsDirty(UnityEngine.Object o, string message)
+    private void MarkAsDirty(Object o, string message)
     {
 #if UNITY_EDITOR
         Undo.RecordObject(o, message);
