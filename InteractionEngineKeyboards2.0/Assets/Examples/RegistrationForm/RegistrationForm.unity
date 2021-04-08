@@ -254,18 +254,6 @@ MonoBehaviour:
     IsRightToBeSpawned: 0
     IsEnabled: 1
     CanDuplicate: 0
---- !u!114 &145817563 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7190304214843929073, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &156473321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1044,7 +1032,7 @@ PrefabInstance:
         type: 3}
       propertyPath: UIKeyboardResizer
       value: 
-      objectReference: {fileID: 970757762}
+      objectReference: {fileID: 0}
     - target: {fileID: 676600136831874587, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
       propertyPath: accentPanelLayoutObject.KeysParent
@@ -3504,18 +3492,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702231852}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &740423178 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9076566014351217741, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &778069804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4780,12 +4756,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802088114}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!224 &848394440 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9076566014808506112, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &877571322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,12 +4898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachmentHand: {fileID: 0}
   attachmentPoint: 4
---- !u!224 &905216401 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5109643660558023648, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920683077
 GameObject:
   m_ObjectHideFlags: 0
@@ -5003,50 +4967,6 @@ MonoBehaviour:
     same results with a significant performance boost over the Physics.IgnoreCollision()
     method utilized by this script.'
   _isEditing: 0
---- !u!1 &970757760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3748474512621748077, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &970757762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970757760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e802491774a12742b6969ac411b5020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyboardLayoutObjects:
-  - LayoutParent: {fileID: 848394440}
-    ShadowsParent: {fileID: 740423178}
-    KeysParent: {fileID: 1270332877}
-    ShadowsRows: []
-    KeysRows: []
-  - LayoutParent: {fileID: 905216401}
-    ShadowsParent: {fileID: 1197656140}
-    KeysParent: {fileID: 145817563}
-    ShadowsRows: []
-    KeysRows: []
-  - LayoutParent: {fileID: 207973373}
-    ShadowsParent: {fileID: 1222960379}
-    KeysParent: {fileID: 1051664056}
-    ShadowsRows: []
-    KeysRows: []
-  gapSize: 0.005
-  keySize: 0.04
-  panelPaddingRelativeToKeySize: {x: 0.25, y: 0.25}
-  colliderDepth: 0.01
-  SpaceSizeRelativeToKeySize: 9.375
-  SpaceSizeRelativeToGapSize: 9
-  BackspaceSizeRelativeToKeySize: 1.5
-  LeftShiftSizeRelativeToKeySize: 1
-  RightShiftSizeRelativeToKeySize: 1.5
-  ReturnSizeRelativeToKeySize: 2
 --- !u!1 &988082324
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,18 +5388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
---- !u!114 &1197656140 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7908125935192324951, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1222960377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7534728863767382780, guid: 9a46809f0bb8b764592a2efa66c41902,
@@ -5512,18 +5420,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
---- !u!114 &1270332877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9076566014628872245, guid: 9a46809f0bb8b764592a2efa66c41902,
-    type: 3}
-  m_PrefabInstance: {fileID: 695505154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1308298990
 GameObject:
   m_ObjectHideFlags: 0
