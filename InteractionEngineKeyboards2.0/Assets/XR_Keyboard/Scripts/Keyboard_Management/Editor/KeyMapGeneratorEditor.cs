@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(KeyMapGenerator))]
@@ -14,7 +15,7 @@ public class KeyMapGeneratorEditor : Editor
         {
             if (generator.keyboardMap.ValidateKeyMap())
             {
-                if (PrefabUtility.IsPartOfAnyPrefab(generator.KeyboardRoot.GetComponentInChildren<TextInputButton>().gameObject))
+                if (PrefabUtility.IsPartOfAnyPrefab(generator.KeyboardPrefab.GetComponentInChildren<TextInputButton>().gameObject))
                 {
                     string newPrefabName = RegenerateKeyboardPrefab(generator);
                     Debug.Log("Prefab alert! Created: " + newPrefabName);
@@ -26,9 +27,9 @@ public class KeyMapGeneratorEditor : Editor
             }
         }
         EditorGUILayout.HelpBox(
-            "Regeneration will result in new prefabs being created to avoid " + 
+            "Regeneration will result in new prefabs being created to avoid " +
             "overriding the currently active one in the scene. Prefab names will " +
-            "be appended with the name of the key prefab.", 
+            "be appended with the name of the key prefab.",
             MessageType.Info);
     }
 
@@ -39,60 +40,76 @@ public class KeyMapGeneratorEditor : Editor
     private string RegenerateKeyboardPrefab(KeyMapGenerator generator)
     {
         // Find the root of the prefab
-        GameObject root = PrefabUtility.GetOutermostPrefabInstanceRoot(generator.gameObject);
-        string sourceRootAssetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(root);
-        string sourceChildAssetPath = "";
-        string rootAssetPath = "";
-        string childAssetPath = "";
+        List<GameObject> parentPrefabs = new List<GameObject>();
+        List<string> sourceParentPrefabAssetPaths = new List<string>();
+        List<string> parentPrefabAssetPaths = new List<string>();
+        string sourceKeyboardPrefabAssetPath = "";
+        string keyboardAssetPath = "";
         string extension = generator.keyboardMap.description + "-" + generator.keyPrefab.name;
 
-        GameObject childPrefab = null;
-        // Unlink the outer prefab
-        if (root != null)
+        GameObject keyboardPrefab = PrefabUtility.GetNearestPrefabInstanceRoot(generator.KeyboardPrefab);
+
+        while (!PrefabUtility.IsOutermostPrefabInstanceRoot(keyboardPrefab))
         {
-            rootAssetPath = NewAssetPath(root, extension);
-            PrefabUtility.UnpackPrefabInstance(root, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
+            GameObject currentRoot = PrefabUtility.GetOutermostPrefabInstanceRoot(generator.gameObject);
+            parentPrefabs.Add(currentRoot);
+            parentPrefabAssetPaths.Add(NewAssetPath(currentRoot, extension));
+            sourceParentPrefabAssetPaths.Add(PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(currentRoot));
+
+            PrefabUtility.UnpackPrefabInstance(currentRoot, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
 
             if (!generator.overWritePrefab)
             {
-                root.name = "Generated_" + generator.keyboardMap.description + "_" + generator.keyPrefab.name + "_Parent";
+                currentRoot.name = "Generated_" + currentRoot.name;
             }
         }
-        
+
         // Check if it already has keys in
-        if (ContainsKeys(generator.KeyboardRoot.transform, out childPrefab))
+        if (ContainsKeys(generator.KeyboardPrefab.transform, out keyboardPrefab))
         {
-            if (childPrefab != null)
+            if (keyboardPrefab != null)
             {
-                sourceChildAssetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(childPrefab);
-                childAssetPath = NewAssetPath(childPrefab, extension);
-                PrefabUtility.UnpackPrefabInstance(childPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
+                sourceKeyboardPrefabAssetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(keyboardPrefab);
+                keyboardAssetPath = NewAssetPath(keyboardPrefab, extension);
+                PrefabUtility.UnpackPrefabInstance(keyboardPrefab, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
 
                 if (!generator.overWritePrefab)
                 {
-                    childPrefab.name = "Generated " + generator.keyboardMap.description + " " + generator.keyPrefab.name + " Keyboard";
+                    keyboardPrefab.name = "Generated " + generator.keyboardMap.description + " " + generator.keyPrefab.name + " Keyboard";
                 }
             }
-           
         }
-        
+
         // Regenerate keymap
         generator.RegenerateKeyboard();
-        
-        if (childPrefab != null)
+
+        string newPrefabName = "";
+
+
+        if (keyboardPrefab != null)
         {
-            childAssetPath = generator.overWritePrefab ? sourceChildAssetPath : childAssetPath;
-            PrefabUtility.SaveAsPrefabAssetAndConnect(childPrefab, childAssetPath, InteractionMode.AutomatedAction);
+            keyboardAssetPath = generator.overWritePrefab ? sourceKeyboardPrefabAssetPath : keyboardAssetPath;
+            PrefabUtility.SaveAsPrefabAssetAndConnect(keyboardPrefab, keyboardAssetPath, InteractionMode.AutomatedAction);
+            newPrefabName = " | Child: " + keyboardAssetPath;
         }
 
-        if (root != null)
+        for (int i = parentPrefabs.Count - 1; i >= 0; i--)
         {
-            rootAssetPath = generator.overWritePrefab ? sourceRootAssetPath : rootAssetPath;
-            PrefabUtility.SaveAsPrefabAssetAndConnect(root, rootAssetPath, InteractionMode.AutomatedAction);
+            if (parentPrefabs[i] != null)
+            {
+                parentPrefabAssetPaths[i] = generator.overWritePrefab ? sourceParentPrefabAssetPaths[i] : parentPrefabAssetPaths[i];
+                PrefabUtility.SaveAsPrefabAssetAndConnect(parentPrefabs[i], parentPrefabAssetPaths[i], InteractionMode.AutomatedAction);
+                newPrefabName = " | Root: " + parentPrefabAssetPaths[i] + newPrefabName;
+            }
         }
+        newPrefabName = newPrefabName.Substring(3);
 
-        return "Root: " + rootAssetPath + " | Child: "  + childAssetPath;
+
+        return newPrefabName;
     }
+
+
+
 
     /// <Summary>
     /// Check to see if the prefab already contains Keyboard Keys. 
