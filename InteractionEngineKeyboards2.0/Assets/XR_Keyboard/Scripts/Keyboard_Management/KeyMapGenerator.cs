@@ -1,23 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyMapGenerator : MonoBehaviour
 {
-    public GameObject KeyboardRoot;
+    public GameObject KeyboardGameObject;
     public GameObject keyPrefab;
-    public KeyMap keyboardMap;
-
-    public Transform[] keyboardRows = new Transform[5];
-
     public GameObject shadowPrefab;
-
-    public Transform[] shadowRows = new Transform[5];
+    public KeyMap keyboardMap;
     public UIKeyboardResizer keyboardResizer;
     public bool overWritePrefab = false;
+
+    private List<Transform> keyboardRows = new List<Transform>();
+    private List<Transform> shadowRows = new List<Transform>();
 
 
     // Start is called before the first frame update
     void Awake()
     {
+        PopulateRows();
         // If the keyboard is empty of keys them generate a new one
         if (keyboardRows[0].GetComponentsInChildren<TextInputButton>().Length == 0)
         {
@@ -25,8 +27,32 @@ public class KeyMapGenerator : MonoBehaviour
         }
     }
 
+    private void PopulateRows()
+    {
+        keyboardRows.Clear();
+        shadowRows.Clear();
+        foreach (UIKeyboardResizer.KeyboardLayoutObjects keyboardLayoutObject in keyboardResizer.keyboardLayoutObjects)
+        {
+            keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList().ForEach(
+                keyboardRow =>
+                {
+                    keyboardRows.Add(keyboardRow.transform);
+                }
+            );
+
+            keyboardLayoutObject.ShadowsParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList().ForEach(
+               shadowRow =>
+               {
+                   shadowRows.Add(shadowRow.transform);
+               }
+           );
+        }
+    }
+
     public void RegenerateKeyboard()
     {
+        PopulateRows();
+
         if (keyboardMap == null)
         {
             keyboardMap = GetComponent<KeyMap>();
@@ -47,10 +73,10 @@ public class KeyMapGenerator : MonoBehaviour
         GenerateKeyboard();
     }
 
-    public void GenerateKeyboard()
+    private void GenerateKeyboard()
     {
         var keyMap = keyboardMap.GetKeyMap();
-        for (int i = 0; i < keyboardRows.Length; i++)
+        for (int i = 0; i < keyboardRows.Count; i++)
         {
             foreach (var key in keyMap[i].row)
             {
