@@ -13224,6 +13224,7 @@ MonoBehaviour:
     KeysParent: {fileID: 7868697023343054506}
     ShadowsRows: []
     KeysRows: []
+  keyboardLayoutObjectsParent: {fileID: 9129121126251977443}
   gapSize: 0.005
   keySize: 0.04
   panelPaddingRelativeToKeySize: {x: 0.25, y: 0.25}
@@ -13234,6 +13235,7 @@ MonoBehaviour:
   LeftShiftSizeRelativeToKeySize: 1
   RightShiftSizeRelativeToKeySize: 1.5
   ReturnSizeRelativeToKeySize: 2
+  SpacingBetweenKeyboardLayoutObjectsRelativeToKeySize: 0.25
 --- !u!1 &3430619888290695417
 GameObject:
   m_ObjectHideFlags: 0
@@ -17430,7 +17432,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 70
+  m_Spacing: 74.99999
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
