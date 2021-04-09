@@ -91,10 +91,10 @@ public class TextInputButton : MonoBehaviour
         switch (keyCode)
         {
             case KeyCode.Backspace:
-                keyCodeText = "<-";
+                keyCodeText = "BACKSPACE";
                 break;
             case KeyCode.Return:
-                keyCodeText = "return";
+                keyCodeText = "RETURN";
                 break;
             case KeyCode.LeftShift:
             case KeyCode.RightShift:
