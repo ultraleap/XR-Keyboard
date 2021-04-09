@@ -9,8 +9,9 @@ public class KeyMap : MonoBehaviour
     {
         public int position;
         public KeyCode neutralKey;
-        public KeyCode symbols1Key;
-        public KeyCode symbols2Key;
+        public KeyCode symbolsKey;
+        public Vector2 keyScale;
+        public float keyPadding;
     } 
 
     [System.Serializable]

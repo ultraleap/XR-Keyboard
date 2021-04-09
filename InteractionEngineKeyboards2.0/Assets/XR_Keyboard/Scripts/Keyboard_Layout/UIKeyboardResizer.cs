@@ -121,28 +121,29 @@ public class UIKeyboardResizer : MonoBehaviour
 
                 Vector2 sizeDelta = scaledKeySize;
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
-                switch (textInputButton.NeutralKey)
-                {
-                    case KeyCode.Space:
-                        sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
-                        break;
+                sizeDelta.x *= textInputButton.GetKeyScale();
+                // switch (textInputButton.NeutralKey)
+                // {
+                //     case KeyCode.Space:
+                //         sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
+                //         break;
 
-                    case KeyCode.Backspace:
-                        sizeDelta.x *= BackspaceSizeRelativeToKeySize;
-                        break;
+                //     case KeyCode.Backspace:
+                //         sizeDelta.x *= BackspaceSizeRelativeToKeySize;
+                //         break;
 
-                    case KeyCode.LeftShift:
-                        sizeDelta.x *= LeftShiftSizeRelativeToKeySize;
-                        break;
+                //     case KeyCode.LeftShift:
+                //         sizeDelta.x *= LeftShiftSizeRelativeToKeySize;
+                //         break;
 
-                    case KeyCode.RightShift:
-                        sizeDelta.x *= RightShiftSizeRelativeToKeySize;
-                        break;
+                //     case KeyCode.RightShift:
+                //         sizeDelta.x *= RightShiftSizeRelativeToKeySize;
+                //         break;
 
-                    case KeyCode.Return:
-                        sizeDelta.x *= ReturnSizeRelativeToKeySize;
-                        break;
-                }
+                //     case KeyCode.Return:
+                //         sizeDelta.x *= ReturnSizeRelativeToKeySize;
+                //         break;
+                // }
 
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");

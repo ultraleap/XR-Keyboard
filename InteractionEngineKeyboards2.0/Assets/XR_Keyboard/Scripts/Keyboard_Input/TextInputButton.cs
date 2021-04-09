@@ -19,6 +19,9 @@ public class TextInputButton : MonoBehaviour
     public KeyCode Symbols1Key;
     public KeyCode Symbols2Key;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
+    public Vector2 keyScale = Vector3.one;
+    public float keyPadding = 0;
+
     public bool UseSpecialChar = false;
     public float longPressTime = 0.5f;
     private KeyCode ActiveKey;
@@ -205,5 +208,10 @@ public class TextInputButton : MonoBehaviour
         {
             HandleKeyUp.Invoke(ActiveKey, parentKeyboard);
         }
+    }
+
+    public float GetKeyScale()
+    {
+        return (ActiveKey == NeutralKey) ? keyScale.x : keyScale.y;
     }
 }

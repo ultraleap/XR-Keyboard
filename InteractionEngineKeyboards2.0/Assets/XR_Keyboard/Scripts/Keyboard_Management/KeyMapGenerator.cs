@@ -84,8 +84,9 @@ public class KeyMapGenerator : MonoBehaviour
                 GameObject newKey = Instantiate(keyPrefab, keyboardRows[i]);
                 TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
                 button.NeutralKey = key.neutralKey;
-                button.Symbols1Key = key.symbols1Key;
-                button.Symbols2Key = key.symbols2Key;
+                button.Symbols1Key = key.symbolsKey;
+                button.keyScale = key.keyScale;
+                button.keyPadding = key.keyPadding;
                 button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
                 newKey.name = button.NeutralKey.ToString();
             }
