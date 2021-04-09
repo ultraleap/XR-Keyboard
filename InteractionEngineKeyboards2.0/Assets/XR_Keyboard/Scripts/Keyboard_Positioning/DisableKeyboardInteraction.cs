@@ -5,22 +5,9 @@ using Leap.Unity.Interaction;
 
 public class DisableKeyboardInteraction : MonoBehaviour
 {
-    private InteractionButton[] keys;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        keys = transform.GetComponentsInChildren<InteractionButton>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DisableKeys()
     {
+        InteractionButton[] keys = transform.GetComponentsInChildren<InteractionButton>();
         foreach(var key in keys)
         {
             key.controlEnabled = false;
@@ -29,6 +16,7 @@ public class DisableKeyboardInteraction : MonoBehaviour
 
     public void EnableKeys()
     {
+        InteractionButton[] keys = transform.GetComponentsInChildren<InteractionButton>();
         foreach(var key in keys)
         {
             key.controlEnabled = true;
