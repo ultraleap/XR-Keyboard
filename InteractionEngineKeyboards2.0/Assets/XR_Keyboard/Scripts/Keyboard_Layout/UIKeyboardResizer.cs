@@ -19,6 +19,7 @@ public class UIKeyboardResizer : MonoBehaviour
 
     [Header("Setup")]
     public List<KeyboardLayoutObjects> keyboardLayoutObjects;
+    public VerticalLayoutGroup keyboardLayoutObjectsParent;
 
     [Header("Size (Standard Unity Units)")]
     public float gapSize = 0.005f;
@@ -33,6 +34,7 @@ public class UIKeyboardResizer : MonoBehaviour
     public float LeftShiftSizeRelativeToKeySize = 1f;
     public float RightShiftSizeRelativeToKeySize = 1.5f;
     public float ReturnSizeRelativeToKeySize = 2f;
+    public float SpacingBetweenKeyboardLayoutObjectsRelativeToKeySize = 0.25f;
 
     [Button]
     public void ResizeKeyboard()
@@ -41,6 +43,7 @@ public class UIKeyboardResizer : MonoBehaviour
         {
             ResizeKeyboardLayoutObject(keyboardLayoutObject);
         }
+        ResizeKeyboardLayoutObjectsParentSpacing();
     }
 
     public void ResizeKeyboardLayoutObject(KeyboardLayoutObjects keyboardLayoutObject)
@@ -193,6 +196,16 @@ public class UIKeyboardResizer : MonoBehaviour
                 z = colliderDepth,
             };
         }
+    }
+
+    private void ResizeKeyboardLayoutObjectsParentSpacing()
+    {
+        if (keyboardLayoutObjectsParent == null)
+        {
+            return;
+        }
+        keyboardLayoutObjectsParent.spacing = SpacingBetweenKeyboardLayoutObjectsRelativeToKeySize * (keySize / keyboardLayoutObjectsParent.transform.lossyScale.y);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(keyboardLayoutObjectsParent.GetComponent<RectTransform>());
     }
 
     private void MarkAsDirty(Object o, string message)
