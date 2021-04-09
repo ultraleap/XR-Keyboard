@@ -39,16 +39,18 @@ public class KeyMapGeneratorEditor : Editor
     /// </Summary>
     private string RegenerateKeyboardPrefab(KeyMapGenerator generator)
     {
-        // Find the root of the prefab
         List<GameObject> parentPrefabs = new List<GameObject>();
         List<string> sourceParentPrefabAssetPaths = new List<string>();
         List<string> parentPrefabAssetPaths = new List<string>();
+
         string sourceKeyboardPrefabAssetPath = "";
         string keyboardAssetPath = "";
+
         string extension = generator.keyboardMap.description + "-" + generator.keyPrefab.name;
 
         GameObject keyboardPrefab = PrefabUtility.GetNearestPrefabInstanceRoot(generator.KeyboardPrefab);
 
+        //Loop through & unpack all parent prefabs of the keyboard 
         while (!PrefabUtility.IsOutermostPrefabInstanceRoot(keyboardPrefab))
         {
             GameObject currentRoot = PrefabUtility.GetOutermostPrefabInstanceRoot(generator.gameObject);
@@ -85,7 +87,6 @@ public class KeyMapGeneratorEditor : Editor
 
         string newPrefabName = "";
 
-
         if (keyboardPrefab != null)
         {
             keyboardAssetPath = generator.overWritePrefab ? sourceKeyboardPrefabAssetPath : keyboardAssetPath;
@@ -93,6 +94,7 @@ public class KeyMapGeneratorEditor : Editor
             newPrefabName = " | Child: " + keyboardAssetPath;
         }
 
+        //Repack all parent prefabs in correct order
         for (int i = parentPrefabs.Count - 1; i >= 0; i--)
         {
             if (parentPrefabs[i] != null)
@@ -103,8 +105,6 @@ public class KeyMapGeneratorEditor : Editor
             }
         }
         newPrefabName = newPrefabName.Substring(3);
-
-
         return newPrefabName;
     }
 
