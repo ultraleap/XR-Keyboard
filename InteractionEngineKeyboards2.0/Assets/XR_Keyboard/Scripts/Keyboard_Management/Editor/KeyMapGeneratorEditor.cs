@@ -60,7 +60,7 @@ public class KeyMapGeneratorEditor : Editor
         }
         
         // Check if it already has keys in
-        if (ContainsKeys(generator.transform, out childPrefab))
+        if (ContainsKeys(generator.KeyboardRoot.transform, out childPrefab))
         {
             if (childPrefab != null)
             {
