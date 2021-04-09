@@ -14,7 +14,7 @@ public class KeyMapGeneratorEditor : Editor
         {
             if (generator.keyboardMap.ValidateKeyMap())
             {
-                if (PrefabUtility.IsPartOfAnyPrefab(generator.transform.GetComponentInChildren<TextInputButton>().gameObject))
+                if (PrefabUtility.IsPartOfAnyPrefab(generator.KeyboardRoot.GetComponentInChildren<TextInputButton>().gameObject))
                 {
                     string newPrefabName = RegenerateKeyboardPrefab(generator);
                     Debug.Log("Prefab alert! Created: " + newPrefabName);

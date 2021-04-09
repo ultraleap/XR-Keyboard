@@ -2,6 +2,7 @@
 
 public class KeyMapGenerator : MonoBehaviour
 {
+    public GameObject KeyboardRoot;
     public GameObject keyPrefab;
     public KeyMap keyboardMap;
 
