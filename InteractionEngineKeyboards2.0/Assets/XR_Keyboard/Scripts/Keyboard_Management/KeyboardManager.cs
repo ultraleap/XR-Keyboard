@@ -34,7 +34,7 @@ public class KeyboardManager : MonoBehaviour
             defaultKeyboard = keyboards[0];
         }
 
-        keyboardSpawner = GetComponent<KeyboardSpawner>();
+        keyboardSpawner = transform.GetComponentInParent<KeyboardSpawner>();
     }
     
     // Currently only supporting spawning of one keyboard, but this could pick from
