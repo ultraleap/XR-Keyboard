@@ -29,6 +29,8 @@ public class KeyMapGenerator : MonoBehaviour
 
     private void PopulateRows()
     {
+        keyboardRows.Clear();
+        shadowRows.Clear();
         foreach (UIKeyboardResizer.KeyboardLayoutObjects keyboardLayoutObject in keyboardResizer.keyboardLayoutObjects)
         {
             keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList().ForEach(
