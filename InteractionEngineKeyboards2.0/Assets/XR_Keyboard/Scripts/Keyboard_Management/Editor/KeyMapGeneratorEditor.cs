@@ -15,7 +15,7 @@ public class KeyMapGeneratorEditor : Editor
         {
             if (generator.keyboardMap.ValidateKeyMap())
             {
-                if (PrefabUtility.IsPartOfAnyPrefab(generator.KeyboardPrefab.GetComponentInChildren<TextInputButton>().gameObject))
+                if (PrefabUtility.IsPartOfAnyPrefab(generator.KeyboardGameObject.GetComponentInChildren<TextInputButton>().gameObject))
                 {
                     string newPrefabName = RegenerateKeyboardPrefab(generator);
                     Debug.Log("Prefab alert! Created: " + newPrefabName);
@@ -48,7 +48,7 @@ public class KeyMapGeneratorEditor : Editor
 
         string extension = generator.keyboardMap.description + "-" + generator.keyPrefab.name;
 
-        GameObject keyboardPrefab = PrefabUtility.GetNearestPrefabInstanceRoot(generator.KeyboardPrefab);
+        GameObject keyboardPrefab = PrefabUtility.GetNearestPrefabInstanceRoot(generator.KeyboardGameObject);
 
         //Loop through & unpack all parent prefabs of the keyboard 
         while (!PrefabUtility.IsOutermostPrefabInstanceRoot(keyboardPrefab))
@@ -67,7 +67,7 @@ public class KeyMapGeneratorEditor : Editor
         }
 
         // Check if it already has keys in
-        if (ContainsKeys(generator.KeyboardPrefab.transform, out keyboardPrefab))
+        if (ContainsKeys(generator.KeyboardGameObject.transform, out keyboardPrefab))
         {
             if (keyboardPrefab != null)
             {
