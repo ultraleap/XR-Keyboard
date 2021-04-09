@@ -6,8 +6,6 @@ public class KeyboardSpawner : MonoBehaviour
     public bool keyboardEnabledOnStart = false;
     private bool keyboardActive = false;
 
-
-
     // Start is called before the first frame update
     public virtual void KeyboardStart()
     {
@@ -35,10 +33,12 @@ public class KeyboardSpawner : MonoBehaviour
         }
         KeyboardPrefabRoot.SetActive(keyboardActive);
     }
+
     public virtual void SpawnKeyboard(Transform currentlySelected)
     {
         SpawnKeyboard();
     }
+
     public virtual void DespawnKeyboard()
     {
         if (keyboardActive)
