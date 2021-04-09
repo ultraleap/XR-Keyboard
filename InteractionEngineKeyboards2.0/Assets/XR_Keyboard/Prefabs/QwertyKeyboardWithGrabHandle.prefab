@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f380a3e7036e404990d6fd6c3585003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyboardPrefabRoot: {fileID: 4045374380847420978}
+  keyboardEnabledOnStart: 0
   head: {fileID: 0}
-  PrefabParent: {fileID: 4045374380847420978}
   GrabBall: {fileID: 4649678009455314946}
   KeyboardCentre: {fileID: 1047010827493454270}
   DistanceFromHead: {x: 0, y: -0.385, z: 0.4}
@@ -295,6 +296,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 597550615518244001, guid: e67a7a82e579e2c4ba09548974073d96,
+        type: 3}
+      propertyPath: keyboardSpawner
+      value: 
+      objectReference: {fileID: 3226142994578769678}
     - target: {fileID: 620667081972659146, guid: e67a7a82e579e2c4ba09548974073d96,
         type: 3}
       propertyPath: m_AnchorMax.y

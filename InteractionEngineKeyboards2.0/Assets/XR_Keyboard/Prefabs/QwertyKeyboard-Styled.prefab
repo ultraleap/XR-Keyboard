@@ -13360,6 +13360,7 @@ GameObject:
   - component: {fileID: 8241279560673375}
   - component: {fileID: 1418375411211181136}
   - component: {fileID: 3061121941952544239}
+  - component: {fileID: 6800370216473577050}
   m_Layer: 5
   m_Name: QwertyKeyboard-Styled
   m_TagString: Untagged
@@ -13452,6 +13453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboards: []
+  keyboardSpawner: {fileID: 6800370216473577050}
 --- !u!114 &8241279560673375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13519,6 +13521,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a13f7d4dd93217468c0f813f10c1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6800370216473577050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414659225764074944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4767e9dbc6bb6c459e6b6d038e1e637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardPrefabRoot: {fileID: 3414659225764074944}
+  keyboardEnabledOnStart: 0
 --- !u!1 &3430619888290695417
 GameObject:
   m_ObjectHideFlags: 0
@@ -39347,6 +39363,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8fa87fec6fd5242bf4da3960850912, type: 3}
+--- !u!224 &4438861396698077556 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1092935342506062133, guid: 9b8fa87fec6fd5242bf4da3960850912,
+    type: 3}
+  m_PrefabInstance: {fileID: 3652667836044224577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7198752197134764842 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5861427152971293547, guid: 9b8fa87fec6fd5242bf4da3960850912,
@@ -39359,12 +39381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335d45da671c2cd46ad557d1e6f9b8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4438861396698077556 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1092935342506062133, guid: 9b8fa87fec6fd5242bf4da3960850912,
-    type: 3}
-  m_PrefabInstance: {fileID: 3652667836044224577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8813683853712488840
 PrefabInstance:
   m_ObjectHideFlags: 0

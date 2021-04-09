@@ -7,7 +7,7 @@ public class KeyboardManager : MonoBehaviour
 
     public List<Keyboard> keyboards;
     private Keyboard defaultKeyboard;
-    private KeyboardSpawner keyboardSpawner;
+    public KeyboardSpawner keyboardSpawner;
 
     private void Awake()
     {
@@ -34,10 +34,10 @@ public class KeyboardManager : MonoBehaviour
             defaultKeyboard = keyboards[0];
         }
 
-        keyboardSpawner = transform.GetComponentInParent<KeyboardSpawner>();
+        keyboardSpawner.KeyboardStart();
     }
     
-    // Currently only supporting spawning of one keyboard, but this could pick from
+    // This currently only supports spawning of one keyboard, but this could pick from
     // a collection of keyboards and return an appropriate one.
     public Keyboard SpawnKeyboard(Transform currentlySelected)
     {
