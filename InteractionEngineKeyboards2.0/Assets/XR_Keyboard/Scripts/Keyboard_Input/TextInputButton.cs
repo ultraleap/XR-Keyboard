@@ -86,31 +86,33 @@ public class TextInputButton : MonoBehaviour
         {
             keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
         }
+        bool specialKey = false;
+        // Special Symbol List ⌫⏎↑⇧⇪
         switch (keyCode)
         {
             case KeyCode.Backspace:
-                keyCodeText = "BACKSPACE";
+                keyCodeText = "⌫";
                 break;
             case KeyCode.Return:
-                keyCodeText = "RETURN";
+                keyCodeText = "⏎";
                 break;
             case KeyCode.LeftShift:
             case KeyCode.RightShift:
                 if (keyboardMode == KeyboardMode.NEUTRAL)
                 {
-                    keyCodeText = "shift";
+                    keyCodeText = "↑";
                 }
                 else if (keyboardMode == KeyboardMode.SHIFT)
                 {
-                    keyCodeText = "Shift";
+                    keyCodeText = "⇧";
                 }
-                else if (keyboardMode == KeyboardMode.SHIFT)
+                else if (keyboardMode == KeyboardMode.CAPS)
                 {
-                    keyCodeText = "SHIFT";
+                    keyCodeText = "⇪";
                 }
                 break;
         }
-        UpdateKeyState(keyCodeText);
+        UpdateKeyState(keyCodeText, specialKey);
         
         if (accentLabelTextMeshGUI != null)
         {
@@ -118,7 +120,7 @@ public class TextInputButton : MonoBehaviour
         }
     }
 
-    private void UpdateKeyState(string text)
+    private void UpdateKeyState(string text, bool specialKey)
     {
         bool enabled = text.Length > 0;
         foreach(var image in GetComponentsInChildren<Image>())
@@ -127,10 +129,10 @@ public class TextInputButton : MonoBehaviour
         }
 
         if (interactionButton != null) interactionButton.controlEnabled = enabled;
-        UpdateKeyText(text);
+        UpdateKeyText(text, specialKey);
     }
 
-    protected void UpdateKeyText(string text)
+    protected void UpdateKeyText(string text, bool specialKey)
     {
         if (keyTextMesh != null) { keyTextMesh.text = text; }
         if (keyTextMeshGUI != null) { keyTextMeshGUI.text = text; }

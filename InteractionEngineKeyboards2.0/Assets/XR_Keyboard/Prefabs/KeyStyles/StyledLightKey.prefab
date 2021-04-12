@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7666059323194000213}
   m_Layer: 0
-  m_Name: NewLightKey
+  m_Name: StyledLightKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -374,6 +374,8 @@ MonoBehaviour:
   Symbols1Key: 257
   Symbols2Key: 257
   ActiveSpecialChar: 20
+  keyScale: {x: 1, y: 1}
+  keyPadding: 0
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7666059323871292208
@@ -574,8 +576,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: q
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0dd57a936467730458e3fc77d1999c2c, type: 2}
+  m_sharedMaterial: {fileID: 4325650530625180015, guid: 0dd57a936467730458e3fc77d1999c2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -599,7 +602,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 268.5
+  m_fontSize: 225.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
