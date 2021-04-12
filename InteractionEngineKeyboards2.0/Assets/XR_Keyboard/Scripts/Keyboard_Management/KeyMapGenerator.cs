@@ -80,18 +80,61 @@ public class KeyMapGenerator : MonoBehaviour
         {
             foreach (var key in keyMap[i].row)
             {
-                GameObject shadow = Instantiate(shadowPrefab, shadowRows[i]);
-                GameObject newKey = Instantiate(keyPrefab, keyboardRows[i]);
-                TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
-                button.NeutralKey = key.neutralKey;
-                button.Symbols1Key = key.symbolsKey;
-                button.keyScale = key.keyScale;
-                button.keyPadding = key.keyPadding;
-                button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
-                newKey.name = button.NeutralKey.ToString();
+                if (key.neutralKey != KeyCode.None)
+                {
+                    GameObject shadow = Instantiate(shadowPrefab, shadowRows[i]);
+                    GameObject newKey = Instantiate(keyPrefab, keyboardRows[i]);
+                    TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
+                    button.NeutralKey = key.neutralKey;
+                    button.Symbols1Key = key.symbolsKey;
+                    button.keyScale = key.keyScale;
+                    button.keyPadding = key.keyPadding;
+                    button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
+                    newKey.name = button.NeutralKey.ToString();
+
+                    button = shadow.GetComponentInChildren<TextInputButton>();
+                    button.NeutralKey = key.neutralKey;
+                    button.Symbols1Key = key.symbolsKey;
+                    button.keyScale = key.keyScale;
+                    button.keyPadding = key.keyPadding;
+                    button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
+                    shadow.name = button.NeutralKey.ToString() + "_Shadow";
+                }
+                else
+                {
+                    // Insert a padding object
+                    AddPaddingObject(key, shadowRows[i], keyboardRows[i]);
+                }
             }
         }
         keyboardResizer.ResizeKeyboard();
+    }
+
+    private void AddPaddingObject(KeyMap.KeyboardKey key, Transform shadowRow, Transform keyRow)
+    {
+        GameObject shadow = new GameObject();
+        GameObject newKey = new GameObject();
+        shadow.AddComponent<RectTransform>();
+        newKey.AddComponent<RectTransform>();
+        shadow.transform.SetParent(shadowRow);
+        newKey.transform.SetParent(keyRow);
+        
+        shadow.transform.localPosition = Vector3.zero;
+        shadow.transform.localRotation = Quaternion.identity;
+        shadow.transform.localScale = Vector3.one;
+        newKey.transform.localPosition = Vector3.zero;
+        newKey.transform.localRotation = Quaternion.identity;
+        newKey.transform.localScale = Vector3.one;
+        
+        TextInputButton button = newKey.AddComponent<TextInputButton>();
+        shadow.AddComponent<TextInputButton>();
+
+        button.NeutralKey = key.neutralKey;
+        button.Symbols1Key = key.symbolsKey;
+        button.keyScale = key.keyScale;
+        button.keyPadding = key.keyPadding;
+        shadow.name = "Padding " + key.position;
+        newKey.name = "Padding " + key.position;
     }
 
     private void ClearKeys()

@@ -70,11 +70,6 @@ public class TextInputButton : MonoBehaviour
             accentLabelTextMeshGUI = textMeshGUIs[1];
         }
 
-        if (keyTextMesh == null && keyTextMeshGUI == null)
-        {
-            return;
-        }
-
         ActiveKey = keyCode;
         string keyCodeText;
 
@@ -115,23 +110,32 @@ public class TextInputButton : MonoBehaviour
                 }
                 break;
         }
-        UpdateKeyText(keyCodeText);
-
-        if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(keyCode) && accentLabelTextMeshGUI != null)
+        UpdateKeyState(keyCodeText);
+        
+        if (accentLabelTextMeshGUI != null)
         {
-            accentLabelTextMeshGUI.text = "…";
-        }
-        else
-        {
-            accentLabelTextMeshGUI.text = "";
+            accentLabelTextMeshGUI.text = KeyboardCollections.CharacterToSpecialChars.ContainsKey(keyCode) ? "…" : "";
         }
     }
+
+    private void UpdateKeyState(string text)
+    {
+        bool enabled = text.Length > 0;
+        foreach(var image in GetComponentsInChildren<Image>())
+        {
+            image.enabled = enabled;
+        }
+
+        if (interactionButton != null) interactionButton.controlEnabled = enabled;
+        UpdateKeyText(text);
+    }
+
     protected void UpdateKeyText(string text)
     {
         if (keyTextMesh != null) { keyTextMesh.text = text; }
         if (keyTextMeshGUI != null) { keyTextMeshGUI.text = text; }
-
     }
+
     public void TextPress()
     {
         if (!longPressed)
