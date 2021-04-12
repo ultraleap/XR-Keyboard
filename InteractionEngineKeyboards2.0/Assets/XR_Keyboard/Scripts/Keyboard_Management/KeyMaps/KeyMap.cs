@@ -11,7 +11,6 @@ public class KeyMap : MonoBehaviour
         public KeyCode neutralKey;
         public KeyCode symbolsKey;
         public Vector2 keyScale;
-        public float keyPadding;
     } 
 
     [System.Serializable]

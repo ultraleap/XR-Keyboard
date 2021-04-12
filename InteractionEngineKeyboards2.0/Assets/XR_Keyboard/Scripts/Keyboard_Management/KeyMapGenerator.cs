@@ -96,7 +96,6 @@ public class KeyMapGenerator : MonoBehaviour
         button.NeutralKey = key.neutralKey;
         button.Symbols1Key = key.symbolsKey;
         button.keyScale = key.keyScale;
-        button.keyPadding = key.keyPadding;
         button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
         buttonObject.name = button.NeutralKey.ToString() + extension;
     }
