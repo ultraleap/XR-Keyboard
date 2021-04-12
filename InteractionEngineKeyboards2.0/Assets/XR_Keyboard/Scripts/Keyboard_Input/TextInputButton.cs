@@ -86,7 +86,7 @@ public class TextInputButton : MonoBehaviour
         {
             keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
         }
-        bool specialKey = false;
+
         // Special Symbol List ⌫⏎↑⇧⇪
         switch (keyCode)
         {
@@ -112,7 +112,7 @@ public class TextInputButton : MonoBehaviour
                 }
                 break;
         }
-        UpdateKeyState(keyCodeText, specialKey);
+        UpdateKeyState(keyCodeText);
         
         if (accentLabelTextMeshGUI != null)
         {
@@ -120,7 +120,7 @@ public class TextInputButton : MonoBehaviour
         }
     }
 
-    private void UpdateKeyState(string text, bool specialKey)
+    private void UpdateKeyState(string text)
     {
         bool enabled = text.Length > 0;
         foreach(var image in GetComponentsInChildren<Image>())
@@ -129,10 +129,10 @@ public class TextInputButton : MonoBehaviour
         }
 
         if (interactionButton != null) interactionButton.controlEnabled = enabled;
-        UpdateKeyText(text, specialKey);
+        UpdateKeyText(text);
     }
 
-    protected void UpdateKeyText(string text, bool specialKey)
+    protected void UpdateKeyText(string text)
     {
         if (keyTextMesh != null) { keyTextMesh.text = text; }
         if (keyTextMeshGUI != null) { keyTextMeshGUI.text = text; }
