@@ -188,8 +188,6 @@ public class Keyboard : MonoBehaviour
             }
         }
         GetComponent<UIKeyboardResizer>().ResizeKeyboard();
-        // HACK - call it twice to make sure it works
-        GetComponent<UIKeyboardResizer>().ResizeKeyboard();
     }
 
     public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source)
