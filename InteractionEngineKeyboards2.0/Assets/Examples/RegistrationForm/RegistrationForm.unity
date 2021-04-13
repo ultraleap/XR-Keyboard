@@ -327,6 +327,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b10486b9212d9f4badcf6c992af0a47, type: 3}
+--- !u!1001 &192632796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2298475946578742565, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: m_Name
+      value: Flocking
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742587, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742587, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742587, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742587, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2838297cdb78084a8d0f676d3b642b1, type: 3}
 --- !u!1 &223810319
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,7 +5187,7 @@ Transform:
   - {fileID: 8054159635989908300}
   - {fileID: 3487001678113414161}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &970058523994531227
 GameObject:
@@ -9479,7 +9513,7 @@ PrefabInstance:
     - target: {fileID: 7394038182028355956, guid: ea78a400d00261343a262005fa432d00,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7394038182028355956, guid: ea78a400d00261343a262005fa432d00,
         type: 3}
