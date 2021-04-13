@@ -20,7 +20,6 @@ public class TextInputButton : MonoBehaviour
     public KeyCode Symbols2Key;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
     public Vector2 keyScale = Vector3.one;
-    public float keyPadding = 0;
 
     public bool UseSpecialChar = false;
     public float longPressTime = 0.5f;
