@@ -49,7 +49,7 @@ public class KeyMapGenerator : MonoBehaviour
         }
     }
 
-    public void RegenerateKeyboard()
+    public Transform RegenerateKeyboard(KeyMap map = null)
     {
         PopulateRows();
 
@@ -61,6 +61,7 @@ public class KeyMapGenerator : MonoBehaviour
                 keyboardMap = gameObject.AddComponent<DefaultKeyMap>();
             }
         }
+        if (map == null) map = keyboardMap;
 
         if (!keyPrefab.transform.GetComponentInChildren<TextInputButton>())
         {
@@ -70,12 +71,14 @@ public class KeyMapGenerator : MonoBehaviour
         ClearKeys();
         ClearShadows();
 
-        GenerateKeyboard();
+        GenerateKeyboard(map);
+
+        return keyboardResizer.keyboardLayoutObjectsParent.transform;
     }
 
-    private void GenerateKeyboard()
+    private void GenerateKeyboard(KeyMap map = null)
     {
-        var keyMap = keyboardMap.GetKeyMap();
+        var keyMap = map == null ? keyboardMap.GetKeyMap() : map.GetKeyMap();
         for (int i = 0; i < keyboardRows.Count; i++)
         {
             foreach (var key in keyMap[i].row)
@@ -93,11 +96,10 @@ public class KeyMapGenerator : MonoBehaviour
     private void ConfigureButton(GameObject buttonObject, KeyMap.KeyboardKey key, string extension = "")
     {
         TextInputButton button = buttonObject.GetComponentInChildren<TextInputButton>();
-        button.NeutralKey = key.neutralKey;
-        button.Symbols1Key = key.symbolsKey;
-        button.keyScale = key.keyScale;
-        button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
-        buttonObject.name = button.NeutralKey.ToString() + extension;
+        button.keyCode = key.keyCode;
+        button.keyScale = key.widthScale;
+        button.UpdateActiveKey(button.keyCode, Keyboard.KeyboardMode.NEUTRAL);
+        buttonObject.name = button.keyCode.ToString() + extension;
     }
 
     private void ClearKeys()

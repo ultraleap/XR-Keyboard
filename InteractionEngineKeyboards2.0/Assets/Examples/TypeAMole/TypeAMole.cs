@@ -52,7 +52,7 @@ public class TypeAMole : MonoBehaviour
 
         foreach (InteractionButton button in allButtons)
         {
-            KeyCode keyCode = button.GetComponent<TextInputButton>().NeutralKey;
+            KeyCode keyCode = button.GetComponent<TextInputButton>().keyCode;
             button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
             button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
 

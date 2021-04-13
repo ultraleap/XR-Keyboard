@@ -36,6 +36,12 @@ public class Keyboard : MonoBehaviour
     public float accentPanelHideDelay = 0.25f;
     [HideInInspector] public KeyboardMode keyboardMode;
     
+    public KeyMap characterMap;
+    public KeyMap symbolsMap;
+    public KeyMapGenerator generator;
+    public List<GameObject> cachedKeyboards;
+    public Transform cachedKeyboardParent;
+
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
 
@@ -43,6 +49,11 @@ public class Keyboard : MonoBehaviour
     void Start()
     {
         SetMode(KeyboardMode.NEUTRAL);
+        cachedKeyboards = new List<GameObject>();
+        cachedKeyboards.Add(Instantiate(generator.RegenerateKeyboard(characterMap).gameObject, cachedKeyboardParent));
+        cachedKeyboards.Add(Instantiate(generator.RegenerateKeyboard(symbolsMap).gameObject, cachedKeyboardParent));
+        cachedKeyboards[0].SetActive(true);
+        cachedKeyboards[1].SetActive(false);
     }
 
     void Awake()
@@ -152,14 +163,20 @@ public class Keyboard : MonoBehaviour
                 break;
             case KeyCode.LeftAlt:
             case KeyCode.RightAlt:
-                SetMode(KeyboardMode.SYMBOLS);
+                cachedKeyboards[0].SetActive(false);
+                cachedKeyboards[1].SetActive(true);
+                // generator.RegenerateKeyboard(symbolsMap);
                 break;
             case KeyCode.LeftControl:
             case KeyCode.RightControl:
-                SetMode(KeyboardMode.SYMBOLS);
+                cachedKeyboards[0].SetActive(false);
+                cachedKeyboards[1].SetActive(true);
+                // generator.RegenerateKeyboard(symbolsMap);
                 break;
             case KeyCode.Alpha0:
-                SetMode(KeyboardMode.NEUTRAL);
+                cachedKeyboards[0].SetActive(true); 
+                cachedKeyboards[1].SetActive(false);
+                // generator.RegenerateKeyboard(characterMap);
                 break;
         }
     }
@@ -173,14 +190,11 @@ public class Keyboard : MonoBehaviour
             switch (_keyboardMode)
             {
                 case KeyboardMode.NEUTRAL:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                    inputButton.UpdateActiveKey(inputButton.keyCode, _keyboardMode);
                     break;
                 case KeyboardMode.SHIFT:
                 case KeyboardMode.CAPS:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
-                    break;
-                case KeyboardMode.SYMBOLS:
-                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
+                    inputButton.UpdateActiveKey(inputButton.keyCode, _keyboardMode);
                     break;
             }
         }

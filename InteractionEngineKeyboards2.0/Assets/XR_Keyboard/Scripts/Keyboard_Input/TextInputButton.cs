@@ -15,10 +15,9 @@ public class TextInputButton : MonoBehaviour
     public static event KeyUpSpecialChar HandleKeyUpSpecialChar;
     public delegate void LongPress(List<KeyCodeSpecialChar> specialChars, Keyboard sourceKeyboard);
     public static event LongPress HandleLongPress;
-    public KeyCode NeutralKey;
-    public KeyCode Symbols1Key;
+    public KeyCode keyCode;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
-    public Vector2 keyScale = Vector3.one;
+    public float keyScale = 1;
 
     public bool UseSpecialChar = false;
     public float longPressTime = 0.5f;
@@ -44,7 +43,7 @@ public class TextInputButton : MonoBehaviour
         button = GetComponentInChildren<Button>();
         if (button != null) { button.onClick.AddListener(TextPress); }
 
-        UpdateActiveKey(NeutralKey, KeyboardMode.NEUTRAL);
+        UpdateActiveKey(keyCode, KeyboardMode.NEUTRAL);
 
         parentKeyboard = GetComponentInParent<Keyboard>();
     }
@@ -219,6 +218,6 @@ public class TextInputButton : MonoBehaviour
 
     public float GetKeyScale()
     {
-        return (ActiveKey == NeutralKey) ? keyScale.x : keyScale.y;
+        return keyScale;
     }
 }

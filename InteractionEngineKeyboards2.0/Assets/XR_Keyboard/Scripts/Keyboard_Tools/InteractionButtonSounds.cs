@@ -52,6 +52,6 @@ public class InteractionButtonSounds : MonoBehaviour
 
     public void OnUp()
     {
-        if (upSound != null) { source.PlayOneShot(upSound, 0.5f); }
+        if (source != null && upSound != null) { source.PlayOneShot(upSound, 0.5f); }
     }
 }
