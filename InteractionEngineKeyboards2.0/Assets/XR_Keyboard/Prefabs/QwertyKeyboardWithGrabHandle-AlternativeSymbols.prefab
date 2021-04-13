@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 2058708065295637685, guid: bc7dadf5c97d26249b5a249d5a69a561,
         type: 3}
       propertyPath: m_Name
-      value: Generated AltMob_QWERTY StyledLightKey Keyboard
+      value: AlternateQWERTY_Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 2272702909645867199, guid: bc7dadf5c97d26249b5a249d5a69a561,
         type: 3}
@@ -254,6 +254,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2486304740766203537, guid: 9a46809f0bb8b764592a2efa66c41902,
         type: 3}
+    - target: {fileID: 3268447073660616633, guid: 0be1792a5bacd8743b518ad3f5a81094,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4723377421729730093, guid: 0be1792a5bacd8743b518ad3f5a81094,
         type: 3}
       propertyPath: _eventTable._entries.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -273,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _eventTable._entries.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnableKeys
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922754874785039424, guid: 0be1792a5bacd8743b518ad3f5a81094,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5878836563565060178, guid: 0be1792a5bacd8743b518ad3f5a81094,
         type: 3}
