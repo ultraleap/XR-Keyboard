@@ -86,28 +86,28 @@ public class TextInputButton : MonoBehaviour
             keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
         }
 
-        // Special Symbol List ⌫⏎↑⇧⇪
+        // Special Symbol List ⌫⏎↑⇧⇪ 
         switch (keyCode)
         {
             case KeyCode.Backspace:
-                keyCodeText = "⌫";
+                keyCodeText = "";
                 break;
             case KeyCode.Return:
-                keyCodeText = "⏎";
+                keyCodeText = "";
                 break;
             case KeyCode.LeftShift:
             case KeyCode.RightShift:
                 if (keyboardMode == KeyboardMode.NEUTRAL)
                 {
-                    keyCodeText = "↑";
+                    keyCodeText = "";
                 }
                 else if (keyboardMode == KeyboardMode.SHIFT)
                 {
-                    keyCodeText = "⇧";
+                    keyCodeText = "";
                 }
                 else if (keyboardMode == KeyboardMode.CAPS)
                 {
-                    keyCodeText = "⇪";
+                    keyCodeText = "";
                 }
                 break;
             case KeyCode.Escape:
