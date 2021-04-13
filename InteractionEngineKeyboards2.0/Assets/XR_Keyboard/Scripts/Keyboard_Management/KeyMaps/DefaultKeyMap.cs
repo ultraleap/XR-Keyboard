@@ -126,11 +126,11 @@ public class DefaultKeyMap : KeyMap
         Debug.Log(jsonMap.ToString());
     }
 
-    private KeyboardKey NewKey(KeyCode neutral, float scale)
+    private KeyboardKey NewKey(KeyCode neutral, float keyWidthScale)
     {
         return new KeyboardKey() {
             keyCode = neutral,
-            widthScale = scale
+            widthScale = keyWidthScale
         };
     }
 }

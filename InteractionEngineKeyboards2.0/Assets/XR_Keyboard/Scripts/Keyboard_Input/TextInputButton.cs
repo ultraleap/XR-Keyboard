@@ -17,7 +17,7 @@ public class TextInputButton : MonoBehaviour
     public static event LongPress HandleLongPress;
     public KeyCode keyCode;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
-    public float keyScale = 1;
+    public float keyWidthScale = 1;
 
     public bool UseSpecialChar = false;
     public float longPressTime = 0.5f;
@@ -218,6 +218,6 @@ public class TextInputButton : MonoBehaviour
 
     public float GetKeyScale()
     {
-        return keyScale;
+        return keyWidthScale;
     }
 }

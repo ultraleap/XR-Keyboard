@@ -30,7 +30,7 @@ public class KeyMapGenerator : MonoBehaviour
     private void PopulateRows(UIKeyboardResizer resizer = null)
     {
         if (resizer == null) resizer = keyboardResizer;
-        
+
         keyboardRows.Clear();
         shadowRows.Clear();
         foreach (UIKeyboardResizer.KeyboardLayoutObjects keyboardLayoutObject in resizer.keyboardLayoutObjects)
@@ -99,7 +99,7 @@ public class KeyMapGenerator : MonoBehaviour
     {
         TextInputButton button = buttonObject.GetComponentInChildren<TextInputButton>();
         button.keyCode = key.keyCode;
-        button.keyScale = key.widthScale;
+        button.keyWidthScale = key.widthScale;
         button.UpdateActiveKey(button.keyCode, Keyboard.KeyboardMode.NEUTRAL);
         buttonObject.name = button.keyCode.ToString() + extension;
     }
