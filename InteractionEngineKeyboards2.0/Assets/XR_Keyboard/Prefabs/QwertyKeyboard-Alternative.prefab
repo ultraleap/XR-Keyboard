@@ -799,151 +799,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &32202684145448963
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6600127844565538278}
-  - component: {fileID: 2558612882716252821}
-  m_Layer: 0
-  m_Name: CharacterMap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6600127844565538278
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32202684145448963}
-  m_LocalRotation: {x: -0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: -183.51233, y: 1147.6659, z: 3189.6826}
-  m_LocalScale: {x: 7499.9995, y: 7499.9995, z: 7499.9995}
-  m_Children: []
-  m_Father: {fileID: 2272702909645867199}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2558612882716252821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32202684145448963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc053a54b1fee9a41b90fae9702a1dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: AltMob_QWERTY
-  keyMap:
-  - row:
-    - keyCode: 257
-      widthScale: 1
-    - keyCode: 258
-      widthScale: 1
-    - keyCode: 259
-      widthScale: 1
-    - keyCode: 260
-      widthScale: 1
-    - keyCode: 261
-      widthScale: 1
-    - keyCode: 262
-      widthScale: 1
-    - keyCode: 263
-      widthScale: 1
-    - keyCode: 264
-      widthScale: 1
-    - keyCode: 265
-      widthScale: 1
-    - keyCode: 256
-      widthScale: 1
-    - keyCode: 8
-      widthScale: 1.5
-  - row:
-    - keyCode: 113
-      widthScale: 1
-    - keyCode: 119
-      widthScale: 1
-    - keyCode: 101
-      widthScale: 1
-    - keyCode: 114
-      widthScale: 1
-    - keyCode: 116
-      widthScale: 1
-    - keyCode: 121
-      widthScale: 1
-    - keyCode: 117
-      widthScale: 1
-    - keyCode: 105
-      widthScale: 1
-    - keyCode: 111
-      widthScale: 1
-    - keyCode: 112
-      widthScale: 1
-    - keyCode: 0
-      widthScale: 0
-  - row:
-    - keyCode: 0
-      widthScale: 0
-    - keyCode: 97
-      widthScale: 1
-    - keyCode: 115
-      widthScale: 1
-    - keyCode: 100
-      widthScale: 1
-    - keyCode: 102
-      widthScale: 1
-    - keyCode: 103
-      widthScale: 1
-    - keyCode: 104
-      widthScale: 1
-    - keyCode: 106
-      widthScale: 1
-    - keyCode: 107
-      widthScale: 1
-    - keyCode: 108
-      widthScale: 1
-    - keyCode: 0
-      widthScale: 0
-  - row:
-    - keyCode: 304
-      widthScale: 1.5
-    - keyCode: 0
-      widthScale: 0.5
-    - keyCode: 122
-      widthScale: 1
-    - keyCode: 120
-      widthScale: 1
-    - keyCode: 99
-      widthScale: 1
-    - keyCode: 118
-      widthScale: 1
-    - keyCode: 98
-      widthScale: 1
-    - keyCode: 110
-      widthScale: 1
-    - keyCode: 109
-      widthScale: 1
-    - keyCode: 0
-      widthScale: 0.5
-    - keyCode: 303
-      widthScale: 1.5
-  - row:
-    - keyCode: 308
-      widthScale: 2
-    - keyCode: 32
-      widthScale: 8
-    - keyCode: 13
-      widthScale: 2
-  path: Assets/StreamingAssets/XR_Keyboard/KeyMaps/Alternate_QWERTY.json
 --- !u!1 &46429780617973484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,172 +3402,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 299.99997, y: 299.99997}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &397000645295616297
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8329190153484734930}
-  - component: {fileID: 4081159426189460996}
-  - component: {fileID: 6928209785099310062}
-  m_Layer: 5
-  m_Name: KeyMapGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8329190153484734930
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397000645295616297}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2272702909645867199}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4081159426189460996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397000645295616297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9de749c30617f74da31640b760e39d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KeyboardGameObject: {fileID: 2058708065295637685}
-  keyPrefab: {fileID: 7666059323194000210, guid: 21e2f2c38ad658141a57d73ca8115c55,
-    type: 3}
-  shadowPrefab: {fileID: 7364812801597039153, guid: 78a713c8c57a9dd429b3f2a7850c6689,
-    type: 3}
-  keyboardMap: {fileID: 2558612882716252821}
-  keyboardResizer: {fileID: 1227335179320560775}
-  overWritePrefab: 1
---- !u!114 &6928209785099310062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397000645295616297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e620cfdfe9f6bea43b46ff526b8a0bff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Default QWERTY
-  keyMap:
-  - row:
-    - keyCode: 257
-      widthScale: 1
-    - keyCode: 258
-      widthScale: 1
-    - keyCode: 259
-      widthScale: 1
-    - keyCode: 260
-      widthScale: 1
-    - keyCode: 261
-      widthScale: 1
-    - keyCode: 262
-      widthScale: 1
-    - keyCode: 263
-      widthScale: 1
-    - keyCode: 264
-      widthScale: 1
-    - keyCode: 265
-      widthScale: 1
-    - keyCode: 256
-      widthScale: 1
-  - row:
-    - keyCode: 113
-      widthScale: 1
-    - keyCode: 119
-      widthScale: 1
-    - keyCode: 101
-      widthScale: 1
-    - keyCode: 114
-      widthScale: 1
-    - keyCode: 116
-      widthScale: 1
-    - keyCode: 121
-      widthScale: 1
-    - keyCode: 117
-      widthScale: 1
-    - keyCode: 105
-      widthScale: 1
-    - keyCode: 111
-      widthScale: 1
-    - keyCode: 112
-      widthScale: 1
-    - keyCode: 8
-      widthScale: 2
-  - row:
-    - keyCode: 97
-      widthScale: 1
-    - keyCode: 115
-      widthScale: 1
-    - keyCode: 100
-      widthScale: 1
-    - keyCode: 102
-      widthScale: 1
-    - keyCode: 103
-      widthScale: 1
-    - keyCode: 104
-      widthScale: 1
-    - keyCode: 106
-      widthScale: 1
-    - keyCode: 107
-      widthScale: 1
-    - keyCode: 108
-      widthScale: 1
-    - keyCode: 13
-      widthScale: 2
-  - row:
-    - keyCode: 304
-      widthScale: 1.5
-    - keyCode: 122
-      widthScale: 1
-    - keyCode: 120
-      widthScale: 1
-    - keyCode: 99
-      widthScale: 1
-    - keyCode: 118
-      widthScale: 1
-    - keyCode: 98
-      widthScale: 1
-    - keyCode: 110
-      widthScale: 1
-    - keyCode: 109
-      widthScale: 1
-    - keyCode: 44
-      widthScale: 1
-    - keyCode: 46
-      widthScale: 1
-    - keyCode: 303
-      widthScale: 1.5
-  - row:
-    - keyCode: 308
-      widthScale: 2
-    - keyCode: 32
-      widthScale: 8
-    - keyCode: 13
-      widthScale: 2
 --- !u!1 &397932459820501640
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,8 +5056,12 @@ GameObject:
   - component: {fileID: 7535650891916841274}
   - component: {fileID: 5566564731046810518}
   - component: {fileID: 8958936610346510023}
+  - component: {fileID: 8756197875425098238}
+  - component: {fileID: 8295755679404206367}
+  - component: {fileID: 284935332376775637}
+  - component: {fileID: 9201678048230690109}
   m_Layer: 5
-  m_Name: Keyboard
+  m_Name: AlphaNumericKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5434,6 +5127,185 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
+--- !u!114 &8756197875425098238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652496418797373763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad90ceed100e6e489940c3334c91117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyMap: {fileID: 0}
+  keyMapGenerator: {fileID: 0}
+  keyboardResizer: {fileID: 0}
+  regenKeyboardOnStart: 0
+--- !u!114 &8295755679404206367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652496418797373763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e802491774a12742b6969ac411b5020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardLayoutObjects:
+  - LayoutParent: {fileID: 4682920143498922286}
+    ShadowsParent: {fileID: 4682920143150703203}
+    KeysParent: {fileID: 4682920142942451227}
+    ShadowsRows: []
+    KeysRows: []
+  - LayoutParent: {fileID: 8926832007115066830}
+    ShadowsParent: {fileID: 5815322633297481081}
+    KeysParent: {fileID: 7396392780950338150}
+    ShadowsRows: []
+    KeysRows: []
+  keyboardLayoutObjectsParent: {fileID: 5566564731046810518}
+  gapSize: 0.005
+  keySize: 0.04
+  panelPaddingRelativeToKeySize: {x: 0.25, y: 0.25}
+  colliderDepth: 0.01
+  SpacingBetweenKeyboardLayoutObjectsRelativeToKeySize: 0.25
+--- !u!114 &284935332376775637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652496418797373763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9de749c30617f74da31640b760e39d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardGameObject: {fileID: 2058708065295637685}
+  keyPrefab: {fileID: 7666059323194000210, guid: 21e2f2c38ad658141a57d73ca8115c55,
+    type: 3}
+  shadowPrefab: {fileID: 7364812801597039153, guid: 78a713c8c57a9dd429b3f2a7850c6689,
+    type: 3}
+  keyboardMap: {fileID: 9201678048230690109}
+  keyboardResizer: {fileID: 8295755679404206367}
+  overWritePrefab: 1
+--- !u!114 &9201678048230690109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652496418797373763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc053a54b1fee9a41b90fae9702a1dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: AltMob_QWERTY
+  keyMap:
+  - row:
+    - keyCode: 257
+      widthScale: 1
+    - keyCode: 258
+      widthScale: 1
+    - keyCode: 259
+      widthScale: 1
+    - keyCode: 260
+      widthScale: 1
+    - keyCode: 261
+      widthScale: 1
+    - keyCode: 262
+      widthScale: 1
+    - keyCode: 263
+      widthScale: 1
+    - keyCode: 264
+      widthScale: 1
+    - keyCode: 265
+      widthScale: 1
+    - keyCode: 256
+      widthScale: 1
+    - keyCode: 8
+      widthScale: 1.5
+  - row:
+    - keyCode: 113
+      widthScale: 1
+    - keyCode: 119
+      widthScale: 1
+    - keyCode: 101
+      widthScale: 1
+    - keyCode: 114
+      widthScale: 1
+    - keyCode: 116
+      widthScale: 1
+    - keyCode: 121
+      widthScale: 1
+    - keyCode: 117
+      widthScale: 1
+    - keyCode: 105
+      widthScale: 1
+    - keyCode: 111
+      widthScale: 1
+    - keyCode: 112
+      widthScale: 1
+    - keyCode: 0
+      widthScale: 0
+  - row:
+    - keyCode: 0
+      widthScale: 0
+    - keyCode: 97
+      widthScale: 1
+    - keyCode: 115
+      widthScale: 1
+    - keyCode: 100
+      widthScale: 1
+    - keyCode: 102
+      widthScale: 1
+    - keyCode: 103
+      widthScale: 1
+    - keyCode: 104
+      widthScale: 1
+    - keyCode: 106
+      widthScale: 1
+    - keyCode: 107
+      widthScale: 1
+    - keyCode: 108
+      widthScale: 1
+    - keyCode: 0
+      widthScale: 0
+  - row:
+    - keyCode: 304
+      widthScale: 1.5
+    - keyCode: 0
+      widthScale: 0.5
+    - keyCode: 122
+      widthScale: 1
+    - keyCode: 120
+      widthScale: 1
+    - keyCode: 99
+      widthScale: 1
+    - keyCode: 118
+      widthScale: 1
+    - keyCode: 98
+      widthScale: 1
+    - keyCode: 110
+      widthScale: 1
+    - keyCode: 109
+      widthScale: 1
+    - keyCode: 0
+      widthScale: 0.5
+    - keyCode: 303
+      widthScale: 1.5
+  - row:
+    - keyCode: 308
+      widthScale: 2
+    - keyCode: 32
+      widthScale: 8
+    - keyCode: 13
+      widthScale: 2
+  path: Assets/StreamingAssets/XR_Keyboard/KeyMaps/Alternate_QWERTY.json
 --- !u!1 &708380682845477027
 GameObject:
   m_ObjectHideFlags: 0
@@ -9082,7 +8954,7 @@ MonoBehaviour:
     KeysParent: {fileID: 5523008301030004}
     ShadowsRows: []
     KeysRows: []
-  UIKeyboardResizer: {fileID: 1227335179320560775}
+  UIKeyboardResizer: {fileID: 0}
   keyPrefab: {fileID: 7666059323194000210, guid: 21e2f2c38ad658141a57d73ca8115c55,
     type: 3}
   shadowPrefab: {fileID: 7364812801597039153, guid: 78a713c8c57a9dd429b3f2a7850c6689,
@@ -18409,7 +18281,6 @@ GameObject:
   - component: {fileID: 2271290065004808409}
   - component: {fileID: 5553111734810124160}
   - component: {fileID: 3741375341746544938}
-  - component: {fileID: 1227335179320560775}
   - component: {fileID: 1840288184890307738}
   - component: {fileID: 6699261206631798413}
   m_Layer: 5
@@ -18431,9 +18302,6 @@ RectTransform:
   m_LocalScale: {x: 0.00013333335, y: 0.00013333333, z: 0.00013333333}
   m_Children:
   - {fileID: 6967337627654894258}
-  - {fileID: 8329190153484734930}
-  - {fileID: 6600127844565538278}
-  - {fileID: 5008130174866862535}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
@@ -18527,37 +18395,8 @@ MonoBehaviour:
   NumberRow: {fileID: 4682920143498922286}
   accentPanelHideDelay: 0.25
   keyboardMode: 0
-  characterPanel: {fileID: 0}
-  symbolsPanel: {fileID: 0}
---- !u!114 &1227335179320560775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058708065295637685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e802491774a12742b6969ac411b5020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyboardLayoutObjects:
-  - LayoutParent: {fileID: 4682920143498922286}
-    ShadowsParent: {fileID: 4682920143150703203}
-    KeysParent: {fileID: 4682920142942451227}
-    ShadowsRows: []
-    KeysRows: []
-  - LayoutParent: {fileID: 8926832007115066830}
-    ShadowsParent: {fileID: 5815322633297481081}
-    KeysParent: {fileID: 7396392780950338150}
-    ShadowsRows: []
-    KeysRows: []
-  keyboardLayoutObjectsParent: {fileID: 5566564731046810518}
-  gapSize: 0.005
-  keySize: 0.04
-  panelPaddingRelativeToKeySize: {x: 0.25, y: 0.25}
-  colliderDepth: 0.01
-  SpacingBetweenKeyboardLayoutObjectsRelativeToKeySize: 0.25
+  alphaNumericPanel: {fileID: 8756197875425098238}
+  symbolsPanel: {fileID: 6148696515571212522}
 --- !u!114 &1840288184890307738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20443,7 +20282,7 @@ MonoBehaviour:
   keyMap: {fileID: 0}
   keyMapGenerator: {fileID: 0}
   keyboardResizer: {fileID: 0}
-  regenerateKeyboard: 0
+  regenKeyboardOnStart: 0
 --- !u!114 &8098839830943100315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20490,8 +20329,8 @@ MonoBehaviour:
     type: 3}
   shadowPrefab: {fileID: 7364812801597039153, guid: 78a713c8c57a9dd429b3f2a7850c6689,
     type: 3}
-  keyboardMap: {fileID: 0}
-  keyboardResizer: {fileID: 0}
+  keyboardMap: {fileID: 2514594475413850792}
+  keyboardResizer: {fileID: 8098839830943100315}
   overWritePrefab: 1
 --- !u!114 &2514594475413850792
 MonoBehaviour:
@@ -23281,151 +23120,6 @@ MonoBehaviour:
   keyScale: 1
   UseSpecialChar: 0
   longPressTime: 1
---- !u!1 &2524641609153044115
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5008130174866862535}
-  - component: {fileID: 8366314071522221572}
-  m_Layer: 0
-  m_Name: SymbolsMap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5008130174866862535
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2524641609153044115}
-  m_LocalRotation: {x: -0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: -183.51233, y: 1147.6659, z: 3189.6826}
-  m_LocalScale: {x: 7499.9995, y: 7499.9995, z: 7499.9995}
-  m_Children: []
-  m_Father: {fileID: 2272702909645867199}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8366314071522221572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2524641609153044115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc053a54b1fee9a41b90fae9702a1dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Default_Symbols
-  keyMap:
-  - row:
-    - keyCode: 257
-      widthScale: 1
-    - keyCode: 258
-      widthScale: 1
-    - keyCode: 259
-      widthScale: 1
-    - keyCode: 260
-      widthScale: 1
-    - keyCode: 261
-      widthScale: 1
-    - keyCode: 262
-      widthScale: 1
-    - keyCode: 263
-      widthScale: 1
-    - keyCode: 264
-      widthScale: 1
-    - keyCode: 265
-      widthScale: 1
-    - keyCode: 256
-      widthScale: 1
-    - keyCode: 8
-      widthScale: 1.5
-  - row:
-    - keyCode: 33
-      widthScale: 1
-    - keyCode: 34
-      widthScale: 1
-    - keyCode: 49
-      widthScale: 1
-    - keyCode: 36
-      widthScale: 1
-    - keyCode: 37
-      widthScale: 1
-    - keyCode: 273
-      widthScale: 1
-    - keyCode: 38
-      widthScale: 1
-    - keyCode: 42
-      widthScale: 1
-    - keyCode: 40
-      widthScale: 1
-    - keyCode: 41
-      widthScale: 1
-    - keyCode: 58
-      widthScale: 1
-  - row:
-    - keyCode: 64
-      widthScale: 1
-    - keyCode: 35
-      widthScale: 1
-    - keyCode: 123
-      widthScale: 1
-    - keyCode: 125
-      widthScale: 1
-    - keyCode: 95
-      widthScale: 1
-    - keyCode: 61
-      widthScale: 1
-    - keyCode: 45
-      widthScale: 1
-    - keyCode: 43
-      widthScale: 1
-    - keyCode: 91
-      widthScale: 1
-    - keyCode: 93
-      widthScale: 1
-    - keyCode: 59
-      widthScale: 1
-  - row:
-    - keyCode: 44
-      widthScale: 1
-    - keyCode: 46
-      widthScale: 1
-    - keyCode: 96
-      widthScale: 1
-    - keyCode: 39
-      widthScale: 1
-    - keyCode: 92
-      widthScale: 1
-    - keyCode: 47
-      widthScale: 1
-    - keyCode: 126
-      widthScale: 1
-    - keyCode: 63
-      widthScale: 1
-    - keyCode: 276
-      widthScale: 1
-    - keyCode: 275
-      widthScale: 1
-    - keyCode: 124
-      widthScale: 1
-  - row:
-    - keyCode: 48
-      widthScale: 2
-    - keyCode: 32
-      widthScale: 8
-    - keyCode: 13
-      widthScale: 2
-  path: Assets/StreamingAssets/XR_Keyboard/KeyMaps/Default_Symbols.json
 --- !u!1 &2526875997515741972
 GameObject:
   m_ObjectHideFlags: 0
@@ -78072,12 +77766,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8fa87fec6fd5242bf4da3960850912, type: 3}
---- !u!224 &1039010478650691585 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1092935342506062133, guid: 9b8fa87fec6fd5242bf4da3960850912,
-    type: 3}
-  m_PrefabInstance: {fileID: 90543003447927092}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5770892954349060703 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5861427152971293547, guid: 9b8fa87fec6fd5242bf4da3960850912,
@@ -78090,6 +77778,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335d45da671c2cd46ad557d1e6f9b8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1039010478650691585 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1092935342506062133, guid: 9b8fa87fec6fd5242bf4da3960850912,
+    type: 3}
+  m_PrefabInstance: {fileID: 90543003447927092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5305575360096694525
 PrefabInstance:
   m_ObjectHideFlags: 0
