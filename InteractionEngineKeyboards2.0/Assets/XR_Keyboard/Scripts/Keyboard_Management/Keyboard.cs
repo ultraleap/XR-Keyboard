@@ -7,7 +7,7 @@ public class Keyboard : MonoBehaviour
 {
     public enum KeyboardMode
     {
-        NEUTRAL, SHIFT, CAPS, SYMBOLS_1, SYMBOLS_2
+        NEUTRAL, SHIFT, CAPS, SYMBOLS
     }
 
     public enum AccentKeysPosition
@@ -152,11 +152,11 @@ public class Keyboard : MonoBehaviour
                 break;
             case KeyCode.LeftAlt:
             case KeyCode.RightAlt:
-                SetMode(KeyboardMode.SYMBOLS_1);
+                SetMode(KeyboardMode.SYMBOLS);
                 break;
             case KeyCode.LeftControl:
             case KeyCode.RightControl:
-                SetMode(KeyboardMode.SYMBOLS_2);
+                SetMode(KeyboardMode.SYMBOLS);
                 break;
             case KeyCode.Alpha0:
                 SetMode(KeyboardMode.NEUTRAL);
@@ -179,11 +179,8 @@ public class Keyboard : MonoBehaviour
                 case KeyboardMode.CAPS:
                     inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
                     break;
-                case KeyboardMode.SYMBOLS_1:
+                case KeyboardMode.SYMBOLS:
                     inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
-                    break;
-                case KeyboardMode.SYMBOLS_2:
-                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
                     break;
             }
         }

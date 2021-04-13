@@ -17,7 +17,6 @@ public class TextInputButton : MonoBehaviour
     public static event LongPress HandleLongPress;
     public KeyCode NeutralKey;
     public KeyCode Symbols1Key;
-    public KeyCode Symbols2Key;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
     public Vector2 keyScale = Vector3.one;
 
