@@ -27,11 +27,13 @@ public class KeyMapGenerator : MonoBehaviour
         }
     }
 
-    private void PopulateRows()
+    private void PopulateRows(UIKeyboardResizer resizer = null)
     {
+        if (resizer == null) resizer = keyboardResizer;
+        
         keyboardRows.Clear();
         shadowRows.Clear();
-        foreach (UIKeyboardResizer.KeyboardLayoutObjects keyboardLayoutObject in keyboardResizer.keyboardLayoutObjects)
+        foreach (UIKeyboardResizer.KeyboardLayoutObjects keyboardLayoutObject in resizer.keyboardLayoutObjects)
         {
             keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList().ForEach(
                 keyboardRow =>
@@ -49,9 +51,9 @@ public class KeyMapGenerator : MonoBehaviour
         }
     }
 
-    public Transform RegenerateKeyboard(KeyMap map = null)
+    public Transform RegenerateKeyboard(KeyMap map = null, UIKeyboardResizer resizer = null)
     {
-        PopulateRows();
+        PopulateRows(resizer);
 
         if (keyboardMap == null)
         {

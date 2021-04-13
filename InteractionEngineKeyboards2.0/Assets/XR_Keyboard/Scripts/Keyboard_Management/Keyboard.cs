@@ -36,11 +36,9 @@ public class Keyboard : MonoBehaviour
     public float accentPanelHideDelay = 0.25f;
     [HideInInspector] public KeyboardMode keyboardMode;
     
-    public KeyMap characterMap;
-    public KeyMap symbolsMap;
-    public KeyMapGenerator generator;
-    public List<GameObject> cachedKeyboards;
-    public Transform cachedKeyboardParent;
+    [Header("Keyboard Panels")]
+    public KeyboardPanel alphaNumericPanel;
+    public KeyboardPanel symbolsPanel;
 
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
@@ -49,11 +47,8 @@ public class Keyboard : MonoBehaviour
     void Start()
     {
         SetMode(KeyboardMode.NEUTRAL);
-        cachedKeyboards = new List<GameObject>();
-        cachedKeyboards.Add(Instantiate(generator.RegenerateKeyboard(characterMap).gameObject, cachedKeyboardParent));
-        cachedKeyboards.Add(Instantiate(generator.RegenerateKeyboard(symbolsMap).gameObject, cachedKeyboardParent));
-        cachedKeyboards[0].SetActive(true);
-        cachedKeyboards[1].SetActive(false);
+        alphaNumericPanel.ShowPanel();
+        symbolsPanel.HidePanel();
     }
 
     void Awake()
@@ -163,20 +158,17 @@ public class Keyboard : MonoBehaviour
                 break;
             case KeyCode.LeftAlt:
             case KeyCode.RightAlt:
-                cachedKeyboards[0].SetActive(false);
-                cachedKeyboards[1].SetActive(true);
-                // generator.RegenerateKeyboard(symbolsMap);
+                alphaNumericPanel.HidePanel();
+                symbolsPanel.ShowPanel();
                 break;
             case KeyCode.LeftControl:
             case KeyCode.RightControl:
-                cachedKeyboards[0].SetActive(false);
-                cachedKeyboards[1].SetActive(true);
-                // generator.RegenerateKeyboard(symbolsMap);
+                alphaNumericPanel.HidePanel();
+                symbolsPanel.ShowPanel();
                 break;
             case KeyCode.Alpha0:
-                cachedKeyboards[0].SetActive(true); 
-                cachedKeyboards[1].SetActive(false);
-                // generator.RegenerateKeyboard(characterMap);
+                alphaNumericPanel.ShowPanel();
+                symbolsPanel.HidePanel();
                 break;
         }
     }
@@ -198,7 +190,6 @@ public class Keyboard : MonoBehaviour
                     break;
             }
         }
-        GetComponent<UIKeyboardResizer>().ResizeKeyboard();
     }
 
     public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source)
