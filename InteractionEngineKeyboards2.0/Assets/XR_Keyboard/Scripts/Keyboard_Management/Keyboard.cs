@@ -70,6 +70,13 @@ public class Keyboard : MonoBehaviour
         {
             ModeSwitch(_keyCode);
         }
+        else if (_keyCode == KeyCode.Escape)
+        {
+            if (AccentPanelActive())
+            {
+                DismissAccentPanel();
+            }
+        }
         else
         {
             string keyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];

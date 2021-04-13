@@ -111,6 +111,9 @@ public class TextInputButton : MonoBehaviour
                     keyCodeText = "⇪";
                 }
                 break;
+            case KeyCode.Escape:
+                keyCodeText = " ";
+                break;
         }
         UpdateKeyState(keyCodeText);
         
