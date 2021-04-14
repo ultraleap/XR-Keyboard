@@ -57,7 +57,7 @@ public class InteractionButtonKeyboardResizer : MonoBehaviour
                     z = button.localScale.z
                 };
 
-                switch (textInputButton.NeutralKey)
+                switch (textInputButton.keyCode)
                 {
                     case KeyCode.Space:
                         newScale.x = ((standardButtonSize * 9.5f) + (buttonGapRow * 8)) / (bounds.size.x / button.localScale.x);

@@ -28,12 +28,6 @@ public class UIKeyboardResizer : MonoBehaviour
     public float colliderDepth = 0.01f;
 
     [Header("Button Sizing")]
-    public float SpaceSizeRelativeToKeySize = 9.375f;
-    public float SpaceSizeRelativeToGapSize = 9f;
-    public float BackspaceSizeRelativeToKeySize = 1.5f;
-    public float LeftShiftSizeRelativeToKeySize = 1f;
-    public float RightShiftSizeRelativeToKeySize = 1.5f;
-    public float ReturnSizeRelativeToKeySize = 2f;
     public float SpacingBetweenKeyboardLayoutObjectsRelativeToKeySize = 0.25f;
 
     [Button]
@@ -121,28 +115,8 @@ public class UIKeyboardResizer : MonoBehaviour
 
                 Vector2 sizeDelta = scaledKeySize;
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
-                switch (textInputButton.NeutralKey)
-                {
-                    case KeyCode.Space:
-                        sizeDelta.x = (scaledKeySize.x * SpaceSizeRelativeToKeySize) + (scaledGapSize.x * SpaceSizeRelativeToGapSize);
-                        break;
-
-                    case KeyCode.Backspace:
-                        sizeDelta.x *= BackspaceSizeRelativeToKeySize;
-                        break;
-
-                    case KeyCode.LeftShift:
-                        sizeDelta.x *= LeftShiftSizeRelativeToKeySize;
-                        break;
-
-                    case KeyCode.RightShift:
-                        sizeDelta.x *= RightShiftSizeRelativeToKeySize;
-                        break;
-
-                    case KeyCode.Return:
-                        sizeDelta.x *= ReturnSizeRelativeToKeySize;
-                        break;
-                }
+                sizeDelta.x *= textInputButton.GetKeyScale();
+ 
 
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");

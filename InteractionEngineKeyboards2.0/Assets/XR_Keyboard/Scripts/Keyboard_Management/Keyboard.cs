@@ -7,7 +7,7 @@ public class Keyboard : MonoBehaviour
 {
     public enum KeyboardMode
     {
-        NEUTRAL, SHIFT, CAPS, SYMBOLS_1, SYMBOLS_2
+        NEUTRAL, SHIFT, CAPS, SYMBOLS
     }
 
     public enum AccentKeysPosition
@@ -36,6 +36,10 @@ public class Keyboard : MonoBehaviour
     public float accentPanelHideDelay = 0.25f;
     [HideInInspector] public KeyboardMode keyboardMode;
     
+    [Header("Keyboard Panels")]
+    public KeyboardPanel alphaNumericPanel;
+    public KeyboardPanel symbolsPanel;
+
     private Coroutine hidePanelRoutine;
     private Coroutine timeoutPanelRoutine;
 
@@ -43,6 +47,8 @@ public class Keyboard : MonoBehaviour
     void Start()
     {
         SetMode(KeyboardMode.NEUTRAL);
+        alphaNumericPanel.ShowPanel();
+        symbolsPanel.HidePanel();
     }
 
     void Awake()
@@ -69,6 +75,13 @@ public class Keyboard : MonoBehaviour
         if (KeyboardCollections.ModeShifters.Contains(_keyCode))
         {
             ModeSwitch(_keyCode);
+        }
+        else if (_keyCode == KeyCode.Escape)
+        {
+            if (AccentPanelActive())
+            {
+                DismissAccentPanel();
+            }
         }
         else
         {
@@ -145,14 +158,17 @@ public class Keyboard : MonoBehaviour
                 break;
             case KeyCode.LeftAlt:
             case KeyCode.RightAlt:
-                SetMode(KeyboardMode.SYMBOLS_1);
+                alphaNumericPanel.HidePanel();
+                symbolsPanel.ShowPanel();
                 break;
             case KeyCode.LeftControl:
             case KeyCode.RightControl:
-                SetMode(KeyboardMode.SYMBOLS_2);
+                alphaNumericPanel.HidePanel();
+                symbolsPanel.ShowPanel();
                 break;
             case KeyCode.Alpha0:
-                SetMode(KeyboardMode.NEUTRAL);
+                alphaNumericPanel.ShowPanel();
+                symbolsPanel.HidePanel();
                 break;
         }
     }
@@ -166,17 +182,11 @@ public class Keyboard : MonoBehaviour
             switch (_keyboardMode)
             {
                 case KeyboardMode.NEUTRAL:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
+                    inputButton.UpdateActiveKey(inputButton.keyCode, _keyboardMode);
                     break;
                 case KeyboardMode.SHIFT:
                 case KeyboardMode.CAPS:
-                    inputButton.UpdateActiveKey(inputButton.NeutralKey, _keyboardMode);
-                    break;
-                case KeyboardMode.SYMBOLS_1:
-                    inputButton.UpdateActiveKey(inputButton.Symbols1Key, _keyboardMode);
-                    break;
-                case KeyboardMode.SYMBOLS_2:
-                    inputButton.UpdateActiveKey(inputButton.Symbols2Key, _keyboardMode);
+                    inputButton.UpdateActiveKey(inputButton.keyCode, _keyboardMode);
                     break;
             }
         }

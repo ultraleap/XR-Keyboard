@@ -7,10 +7,8 @@ public class KeyMap : MonoBehaviour
     [System.Serializable]
     public struct KeyboardKey
     {
-        public int position;
-        public KeyCode neutralKey;
-        public KeyCode symbols1Key;
-        public KeyCode symbols2Key;
+        public KeyCode keyCode;
+        public float widthScale;
     } 
 
     [System.Serializable]

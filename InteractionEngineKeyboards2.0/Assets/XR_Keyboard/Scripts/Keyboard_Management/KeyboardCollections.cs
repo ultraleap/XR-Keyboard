@@ -111,16 +111,16 @@ public static class KeyboardCollections
 
       //---Mappings where the logical keycode was taken up by its counter part in either (the regular keybaord) or the (keypad)
 
-      {KeyCode.Alpha0,        "ABC"},
-      {KeyCode.Alpha1,        "£"},
       {KeyCode.LeftControl,   "=\\<"},
       {KeyCode.RightControl,  "=\\<"},
       {KeyCode.LeftShift,     "SHIFT"},
       {KeyCode.RightShift,    "SHIFT"},
-      {KeyCode.LeftAlt,       "&123"},
-      {KeyCode.RightAlt,      "&123"},
-      {KeyCode.Alpha2, ""},
-      {KeyCode.Alpha3, ""},
+      {KeyCode.LeftAlt,       "#+="},
+      {KeyCode.RightAlt,      "#+="},
+      {KeyCode.Alpha0,        "ABC"},
+      {KeyCode.Alpha1,        "£"},
+      {KeyCode.Alpha2,        "€"},
+      {KeyCode.Alpha3,        "¥"},
       {KeyCode.Alpha4, ""},
       {KeyCode.Alpha5, ""},
       {KeyCode.Alpha6, ""},

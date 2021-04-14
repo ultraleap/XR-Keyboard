@@ -119,7 +119,7 @@ public class AccentOverlayPanel : MonoBehaviour
             button.UseSpecialChar = true;
             button.ActiveSpecialChar = special;
             
-            button.UpdateActiveKey(button.NeutralKey, Keyboard.KeyboardMode.NEUTRAL);
+            button.UpdateActiveKey(button.keyCode, Keyboard.KeyboardMode.NEUTRAL);
             newKey.name = button.ActiveSpecialChar.ToString();
         }
         Canvas.ForceUpdateCanvases();
