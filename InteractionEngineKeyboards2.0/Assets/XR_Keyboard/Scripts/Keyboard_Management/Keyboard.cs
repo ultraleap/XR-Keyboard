@@ -10,45 +10,27 @@ public class Keyboard : MonoBehaviour
         NEUTRAL, SHIFT, CAPS, SYMBOLS
     }
 
-    public enum AccentKeysPosition
-    {
-        MIDDLE,
-        ADJACENT,
-        NUM_ROW
-    }
-
     public delegate void KeyUp(byte[] key);
     public event KeyUp HandleKeyUp;
 
     public delegate void ClearTextField();
     public event ClearTextField HandleClearTextField;
 
+    [HideInInspector] public KeyboardMode keyboardMode;
 
-    [Header("External Connections")]
+    [Header("Keyboard Panels")]
     [SerializeField] private AccentOverlayPanel accentOverlay;
     [SerializeField] private TextInputPreview textInputPreview;
-
-    [Header("AccentKeys")]
-    public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
-    public Transform AccentKeysMiddleAnchor;
-    [HideInInspector] public Transform AccentKeyAnchor;
-    public Transform NumberRow;
-    public float accentPanelHideDelay = 0.25f;
-    [HideInInspector] public KeyboardMode keyboardMode;
     
-    [Header("Keyboard Panels")]
-    public KeyboardPanel alphaNumericPanel;
-    public KeyboardPanel symbolsPanel;
-
-    private Coroutine hidePanelRoutine;
-    private Coroutine timeoutPanelRoutine;
+    [SerializeField] private KeyboardPanel alphaNumericPanel;
+    [SerializeField] private KeyboardPanel symbolsPanel;
 
     // Start is called before the first frame update
     void Start()
     {
         SetMode(KeyboardMode.NEUTRAL);
         alphaNumericPanel.ShowPanel();
-        symbolsPanel.HidePanel();
+        if (symbolsPanel.isActiveAndEnabled) symbolsPanel.HidePanel();
     }
 
     void Awake()
@@ -80,7 +62,7 @@ public class Keyboard : MonoBehaviour
         {
             if (AccentPanelActive())
             {
-                DismissAccentPanel();
+                accentOverlay.DismissAccentPanel();
             }
         }
         else
@@ -93,7 +75,7 @@ public class Keyboard : MonoBehaviour
     private void HandleTextInputButtonKeyUpSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar, Keyboard source)
     {
         if (source != this) { return; };
-        
+
         string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
         HandleKeyUpEncoding(keyCodeString);
     }
@@ -115,7 +97,7 @@ public class Keyboard : MonoBehaviour
 
         if (AccentPanelActive())
         {
-            DismissAccentPanel();
+            accentOverlay.DismissAccentPanel();
         }
     }
 
@@ -192,66 +174,12 @@ public class Keyboard : MonoBehaviour
         }
     }
 
-    public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source)
+    public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source, Transform keyTransform = null)
     {
         if (source != this) { return; };
-        
-        switch (accentKeysPosition)
-        {
-            case AccentKeysPosition.MIDDLE:
-                accentOverlay.ShowAccentPanel(specialChars, AccentKeysMiddleAnchor);
-                accentOverlay.SetOverlayColour();
-                break;
-            case AccentKeysPosition.NUM_ROW:
-                NumberRow.gameObject.SetActive(false);
-                accentOverlay.SetInlineColour();
-                accentOverlay.transform.SetParent(NumberRow.transform.parent);
-                accentOverlay.transform.SetAsFirstSibling();
-                accentOverlay.ShowAccentPanel(specialChars, NumberRow);
-                break;
-            case AccentKeysPosition.ADJACENT:
-                accentOverlay.SetOverlayColour();
-                accentOverlay.ShowAccentPanel(specialChars, AccentKeyAnchor, true);
-                break;
-        }
-            
-        if (timeoutPanelRoutine != null)
-        {
-            StopCoroutine(timeoutPanelRoutine);
-        }
-        timeoutPanelRoutine = StartCoroutine(TimeOutPanel(accentOverlay.timeout));
-    }
-
-    public IEnumerator HidePanelAfter(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        HideAccentPanel();
-    }
-
-    public IEnumerator TimeOutPanel(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        HideAccentPanel();
-    }
-
-    private void HideAccentPanel()
-    {
-        accentOverlay.HideAccentPanel();
-        if (accentKeysPosition == AccentKeysPosition.NUM_ROW)
-        {
-            accentOverlay.transform.SetParent(accentOverlay.transform.parent.parent);
-            if (!NumberRow.gameObject.activeInHierarchy)
-            {
-                NumberRow.gameObject.SetActive(true);
-            }
-        }
-    }
-
-    public void DismissAccentPanel()
-    {
-        accentOverlay.DisableInput();
-        hidePanelRoutine = StartCoroutine(HidePanelAfter(accentPanelHideDelay));
-    }
+        if (keyTransform != null) accentOverlay.AccentKeyAnchor = keyTransform;
+        accentOverlay.ShowAccentPanel(specialChars);
+    }  
 
     public void ClearPreview()
     {

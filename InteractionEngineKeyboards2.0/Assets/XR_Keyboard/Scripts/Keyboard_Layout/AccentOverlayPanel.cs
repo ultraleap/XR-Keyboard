@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
@@ -6,6 +7,13 @@ using Leap.Unity.Interaction;
 
 public class AccentOverlayPanel : MonoBehaviour
 {
+    public enum AccentKeysPosition
+    {
+        MIDDLE,
+        ADJACENT,
+        NUM_ROW
+    }
+
     public UIKeyboardResizer.KeyboardLayoutObjects accentPanelLayoutObject;
     public UIKeyboardResizer UIKeyboardResizer;
     public GameObject keyPrefab, shadowPrefab;
@@ -23,6 +31,16 @@ public class AccentOverlayPanel : MonoBehaviour
 
     private AudioSource audioSource;
     private bool makeNoise = false;
+
+    [Header("Panel Spawning")]
+    [Tooltip("Choose between spawning in the middle of the keyboard, adjacent to the pressed key, or in place of the number row")]
+    public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
+    [HideInInspector] public Transform AccentKeyAnchor;
+    [Tooltip("The panel to replace when accentKeysPosition is set to NUM_ROW")] 
+    public Transform NumberRow;
+    public float accentPanelHideDelay = 0.25f;
+    private Coroutine hidePanelRoutine;
+    private Coroutine timeoutPanelRoutine;
 
 
     // Start is called before the first frame update
@@ -53,6 +71,34 @@ public class AccentOverlayPanel : MonoBehaviour
         {
             audioSource.PlayOneShot(panel.gameObject.activeSelf ? showSound : hideSound);
         }
+    }
+
+    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars)
+    {        
+        switch (accentKeysPosition)
+        {
+            case AccentKeysPosition.MIDDLE:
+                ShowAccentPanel(specialChars, transform.parent, true);
+                SetOverlayColour();
+                break;
+            case AccentKeysPosition.NUM_ROW:
+                NumberRow.gameObject.SetActive(false);
+                SetInlineColour();
+                transform.SetParent(NumberRow.transform.parent);
+                transform.SetAsFirstSibling();
+                ShowAccentPanel(specialChars, NumberRow);
+                break;
+            case AccentKeysPosition.ADJACENT:
+                SetOverlayColour();
+                ShowAccentPanel(specialChars, AccentKeyAnchor, true);
+                break;
+        }
+            
+        if (timeoutPanelRoutine != null)
+        {
+            StopCoroutine(timeoutPanelRoutine);
+        }
+        timeoutPanelRoutine = StartCoroutine(TimeOutPanel(timeout));
     }
 
     public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _keyTransform, bool offsetAnchor = false)
@@ -87,6 +133,15 @@ public class AccentOverlayPanel : MonoBehaviour
             if (Application.isPlaying && makeNoise)
             {
                 audioSource.PlayOneShot(hideSound);
+            }
+        }
+
+        if (accentKeysPosition == AccentKeysPosition.NUM_ROW)
+        {
+            transform.SetParent(transform.parent.parent);
+            if (!NumberRow.gameObject.activeInHierarchy)
+            {
+                NumberRow.gameObject.SetActive(true);
             }
         }
     }
@@ -149,5 +204,23 @@ public class AccentOverlayPanel : MonoBehaviour
         foreach(InteractionButton interactionButton in interactionButtons){
             interactionButton.controlEnabled = false;
         }
+    }
+
+    public IEnumerator HidePanelAfter(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        HideAccentPanel();
+    }
+
+    public IEnumerator TimeOutPanel(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        HideAccentPanel();
+    }
+
+    public void DismissAccentPanel()
+    {
+        DisableInput();
+        hidePanelRoutine = StartCoroutine(HidePanelAfter(accentPanelHideDelay));
     }
 }

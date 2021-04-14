@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 106
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5725709501255859838
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 258
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &122220189733612655
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 109
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &235005335912261617
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 41
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5991320691736897494
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 33
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4276703362068654448
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 259
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6754924107248898212
@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 13
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &316718060203452610
@@ -3092,9 +3092,9 @@ RectTransform:
   m_Father: {fileID: 824264976950065492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1986.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -74}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3014795413411460894
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 260
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &566994834769578939
@@ -3407,7 +3407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 91
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &619955410714162800
@@ -4097,7 +4097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 113
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1109531114650495937
@@ -4292,7 +4292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 96
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &684462302267300784
@@ -4429,7 +4429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &723533350120868356
@@ -4545,7 +4545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 103
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8524758843771849626
@@ -4867,7 +4867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 101
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &9209433563613486959
@@ -5062,7 +5062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 304
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &756660940424284438
@@ -5392,7 +5392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 123
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &787375480108277941
@@ -5529,7 +5529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 44
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &793533268620151967
@@ -5592,7 +5592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 258
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &794784314604958097
@@ -6803,7 +6803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 256
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5435075937375766108
@@ -6975,7 +6975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7405219091419873024
@@ -7130,7 +7130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 107
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &628202500515732093
@@ -7361,7 +7361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 303
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &987608990297103691
@@ -7424,7 +7424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 117
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1053918380214110194
@@ -7509,6 +7509,10 @@ MonoBehaviour:
   overlayColour: {r: 0.3254902, g: 0.27450982, b: 0.36862746, a: 0.77254903}
   inlineColour: {r: 0.89019614, g: 0.7607844, b: 1, a: 1}
   timeout: 10
+  accentKeysPosition: 1
+  AccentKeyAnchor: {fileID: 0}
+  NumberRow: {fileID: 8713744050255598388}
+  accentPanelHideDelay: 0.25
 --- !u!82 &9123933426683726786
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7718,7 +7722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 261
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6001123872949501324
@@ -8172,7 +8176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 113
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1143313372207666566
@@ -8575,7 +8579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 308
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1170990631665531575
@@ -8772,7 +8776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 33
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1205414235089508639
@@ -9005,7 +9009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 32
   ActiveSpecialChar: 20
-  keyScale: 8
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1235633489647940767
@@ -9051,9 +9055,9 @@ RectTransform:
   m_Father: {fileID: 7982713339864614386}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -111.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5103185991743492758
@@ -9289,7 +9293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 46
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1260235757096369946
@@ -10503,7 +10507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 262
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7450025855270095441
@@ -11088,7 +11092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 120
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5759350364565835278
@@ -11426,7 +11430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 118
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6692059897371358209
@@ -12126,7 +12130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 39
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1331540396654373999
@@ -12304,9 +12308,9 @@ RectTransform:
   m_Father: {fileID: 7982713339864614386}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -149}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4747043951319449613
@@ -12897,7 +12901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 37
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1634967804128193097
@@ -13227,7 +13231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1679278628958936690
@@ -13343,7 +13347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 265
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3382828601010902665
@@ -13984,7 +13988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &671330700012328709
@@ -14232,7 +14236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 124
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1297707503353992291
@@ -14516,7 +14520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 263
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5237786553683457777
@@ -14933,7 +14937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 116
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7724011259024594011
@@ -15394,7 +15398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 38
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1925199044991986147
@@ -15681,7 +15685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 101
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &1970588313951960266
@@ -16082,7 +16086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 258
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8651775884129249071
@@ -16463,7 +16467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 260
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5134344191951547761
@@ -16775,9 +16779,9 @@ RectTransform:
   m_Father: {fileID: 4244501042934886725}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -74}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2414338483401270072
@@ -16879,7 +16883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 43
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2047087875693825328
@@ -16995,7 +16999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 110
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7060583225097700289
@@ -17565,14 +17569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88643deebf407de4daa192c21ce7e3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyboardMode: 0
   accentOverlay: {fileID: 3776452460295831605}
   textInputPreview: {fileID: 5770892954349060703}
-  accentKeysPosition: 0
-  AccentKeysMiddleAnchor: {fileID: 8536296697337659721}
-  AccentKeyAnchor: {fileID: 0}
-  NumberRow: {fileID: 8713744050255598388}
-  accentPanelHideDelay: 0.25
-  keyboardMode: 0
   alphaNumericPanel: {fileID: 8756197875425098238}
   symbolsPanel: {fileID: 6148696515571212522}
 --- !u!114 &1840288184890307738
@@ -17848,7 +17847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 45
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5868876504835741190
@@ -18996,7 +18995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 46
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &727592563329880932
@@ -19334,7 +19333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 13
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7269390645995563819
@@ -19753,7 +19752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 58
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2299014070408089356
@@ -20580,7 +20579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 122
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4820652190139825244
@@ -21755,7 +21754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 263
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2526473804353711284
@@ -21871,7 +21870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2218781828528098468
@@ -22066,7 +22065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 105
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2534505771230618992
@@ -22704,7 +22703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 92
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6057152697258656119
@@ -23802,7 +23801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 265
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2816559688245923067
@@ -24179,7 +24178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 265
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2848760552138140118
@@ -24385,7 +24384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 112
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2330287951410096390
@@ -24580,7 +24579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 120
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &2903878645123516357
@@ -25376,7 +25375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 257
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3008906028052313730
@@ -25564,7 +25563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 105
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4584495332180985840
@@ -25992,7 +25991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 40
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6325521848616174750
@@ -26321,7 +26320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 262
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3070435931679141700
@@ -26717,9 +26716,9 @@ RectTransform:
   m_Father: {fileID: 4244501042934886725}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -186.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332476462155441391
@@ -26874,7 +26873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 308
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2995609063513376711
@@ -27385,7 +27384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 35
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3233633081248717103
@@ -27640,7 +27639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1986.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3299804608151562754
@@ -27795,7 +27794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 123
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6525829162726043703
@@ -28043,7 +28042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 64
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2580110261373506313
@@ -28677,9 +28676,9 @@ RectTransform:
   m_Father: {fileID: 7982713339864614386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -74}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455948031338668301
@@ -29632,7 +29631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 47
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3582688800820839945
@@ -29695,7 +29694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 99
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3587703684310850656
@@ -29758,7 +29757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 261
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3620038862231960821
@@ -30256,9 +30255,9 @@ RectTransform:
   m_Father: {fileID: 3641846682573950678}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -186.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3641846682615778136
@@ -30343,9 +30342,9 @@ RectTransform:
   m_Father: {fileID: 3641846682573950678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -74}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3641846682699591924
@@ -30432,7 +30431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3641846683106740208
@@ -30519,7 +30518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3641846683574227723
@@ -30621,7 +30620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 260
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3687780120227207466
@@ -30737,7 +30736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 256
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3815440215613174326
@@ -31118,7 +31117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 91
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4225430043941264405
@@ -31440,7 +31439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 273
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2134881071592823772
@@ -31934,7 +31933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &490491215041657470
@@ -32656,7 +32655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 97
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &3955638380750913756
@@ -33321,7 +33320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 104
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4127768130895840336
@@ -33571,7 +33570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 42
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4239713640447318180
@@ -33802,7 +33801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 45
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4165152357025327599
@@ -33992,7 +33991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 264
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5462074296710264148
@@ -34446,7 +34445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 39
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4262790316340438436
@@ -34716,7 +34715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 48
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4276409481618458437
@@ -34779,7 +34778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 114
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4279644525488711225
@@ -35006,7 +35005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 8
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4312858301783725821
@@ -35069,7 +35068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 40
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4314516033083558595
@@ -35185,7 +35184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 97
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4716289054573469867
@@ -35686,7 +35685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 49
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4397606192063647359
@@ -35802,7 +35801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 126
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1592456615201845809
@@ -36124,7 +36123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 115
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1281531673904487962
@@ -36462,7 +36461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 257
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8534600537697193150
@@ -37923,9 +37922,9 @@ RectTransform:
   m_Father: {fileID: 8876111760531657372}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -149}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571711303609726138
@@ -38286,7 +38285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4749070499176235410
@@ -38402,7 +38401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 117
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4554545197421098274
@@ -39124,7 +39123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 59
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3393479865339399638
@@ -39616,7 +39615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 48
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4510362851637472953
@@ -39945,7 +39944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 111
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4913343206234937236
@@ -40008,7 +40007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 108
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4921016857166374219
@@ -40412,7 +40411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 61
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4948118600858709087
@@ -40475,7 +40474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 63
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &4956203594549780225
@@ -40665,7 +40664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 259
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1772577522951051
@@ -40843,9 +40842,9 @@ RectTransform:
   m_Father: {fileID: 8876111760531657372}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -111.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368281575595271713
@@ -40947,7 +40946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 112
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5013702803741207552
@@ -41194,7 +41193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 32
   ActiveSpecialChar: 20
-  keyScale: 8
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5027133056723540994
@@ -41310,7 +41309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8999095827624837842
@@ -41638,7 +41637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 275
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5091530558659354041
@@ -42772,7 +42771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5280594501999516720
@@ -43162,7 +43161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 99
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8037223098299769321
@@ -43500,7 +43499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 275
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1982811535766364220
@@ -43829,7 +43828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 98
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5279900523156151326
@@ -44035,7 +44034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 32
   ActiveSpecialChar: 20
-  keyScale: 8
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5328089784909537061
@@ -44357,7 +44356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 265
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5479881940077792700
@@ -44679,7 +44678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 125
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3154384225714499836
@@ -44874,7 +44873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 41
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5386821295694059065
@@ -44937,7 +44936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 263
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5400196477243618654
@@ -45119,7 +45118,6 @@ RectTransform:
   - {fileID: 7535650891916841274}
   - {fileID: 2989753136933863804}
   - {fileID: 6719399753549330212}
-  - {fileID: 8536296697337659721}
   m_Father: {fileID: 2272702909645867199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45520,41 +45518,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &5463182596981793770
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8536296697337659721}
-  m_Layer: 5
-  m_Name: AccentKeysMiddleAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8536296697337659721
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5463182596981793770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -250}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6967337627654894258}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 160}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5482915991305922098
 GameObject:
   m_ObjectHideFlags: 0
@@ -45801,7 +45764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 258
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7321452391028222819
@@ -46557,7 +46520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 114
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2817074343195677174
@@ -46752,7 +46715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 103
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5559276468323490506
@@ -47579,7 +47542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 64
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5678098132265849986
@@ -47642,7 +47605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 95
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5684519020119389188
@@ -47705,7 +47668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 93
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5690958550242387381
@@ -48601,7 +48564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 262
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &5831839714457976701
@@ -49559,7 +49522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1986.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9077427520207471529
@@ -50241,7 +50204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 108
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5628464365440308057
@@ -50756,7 +50719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 264
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &149279282905753682
@@ -51509,7 +51472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 32
   ActiveSpecialChar: 20
-  keyScale: 8
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4148207660357767382
@@ -51831,7 +51794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 257
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6002105049440405888
@@ -52026,7 +51989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6168761915384380626
@@ -52605,7 +52568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 49
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4330201517206530789
@@ -52934,7 +52897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 13
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6249491348284367897
@@ -52997,7 +52960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 100
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6269178300943602739
@@ -53780,9 +53743,9 @@ RectTransform:
   m_Father: {fileID: 7982713339864614386}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -186.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3669215229696936887
@@ -53937,7 +53900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 260
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8724939214699575122
@@ -54302,7 +54265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 119
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6469305349396011983
@@ -54544,7 +54507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 262
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8621554426332976986
@@ -54873,7 +54836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 36
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6505444740486617401
@@ -55514,7 +55477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 263
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6633856028640526347
@@ -55835,7 +55798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 116
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6659045150778742169
@@ -56165,7 +56128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 276
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6665297008383441486
@@ -56228,7 +56191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 261
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6667029693283647501
@@ -56706,7 +56669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 115
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6714989330055299439
@@ -56805,7 +56768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 59
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6718306161994756595
@@ -56978,7 +56941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 118
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6753520232041416470
@@ -57041,7 +57004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 121
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6786752614342778651
@@ -57589,7 +57552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 261
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3609346583424715374
@@ -58378,7 +58341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 8
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4837684652803137866
@@ -58716,7 +58679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 44
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4058257901135769144
@@ -58911,7 +58874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 259
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &6998566241388272350
@@ -59027,7 +58990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 95
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5290401315831333255
@@ -59423,7 +59386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 109
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1972597795390014114
@@ -59690,7 +59653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 257
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7159562924363758005
@@ -59753,7 +59716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 259
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7170470757128463728
@@ -60333,7 +60296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 35
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3194999057312403911
@@ -60528,7 +60491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 126
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7326841477369962475
@@ -60971,7 +60934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 107
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7417405963429896332
@@ -61220,7 +61183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 38
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1406095997327356304
@@ -61578,7 +61541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 34
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1593993782668008310
@@ -62441,7 +62404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 98
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6420761330828507007
@@ -62799,7 +62762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 121
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8776974907163590028
@@ -63513,7 +63476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 43
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3254441479505689560
@@ -64005,7 +63968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 124
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7804217634833735913
@@ -64365,7 +64328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 111
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3455907890195632154
@@ -64821,7 +64784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 303
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6189922705024555699
@@ -65216,7 +65179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 256
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7973851656370021377
@@ -65279,7 +65242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 102
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &7999339867446861068
@@ -66210,7 +66173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 61
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6877758321764256106
@@ -67106,7 +67069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &5311887458663652442
@@ -67375,7 +67338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 110
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8328599145831568266
@@ -67735,7 +67698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 63
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1095227507668793188
@@ -67930,7 +67893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 106
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8373013232014291070
@@ -68387,7 +68350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 304
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &3342996368815998520
@@ -68582,7 +68545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 92
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8392281338992572560
@@ -69242,7 +69205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 264
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8459424022577032175
@@ -69529,7 +69492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 8
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8472955073032855969
@@ -69881,7 +69844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 13
   ActiveSpecialChar: 20
-  keyScale: 2
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7788197405970319962
@@ -70165,7 +70128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 47
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &6880237251975892957
@@ -70486,7 +70449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 264
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8575732287875471275
@@ -71400,7 +71363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 37
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2398673708001686295
@@ -71918,7 +71881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 36
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1014689367652561020
@@ -72113,7 +72076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 256
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8727086743822768993
@@ -72159,9 +72122,9 @@ RectTransform:
   m_Father: {fileID: 8350999243501718338}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1986.4999, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74, y: -74}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117037528063912450
@@ -72263,7 +72226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 273
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8740879320365722032
@@ -72379,7 +72342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 119
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7812379841808875744
@@ -72744,7 +72707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 42
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &8785736674989249733
@@ -72896,7 +72859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 96
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1267555194270191928
@@ -73144,7 +73107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 276
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &4895147462794540966
@@ -74052,7 +74015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 102
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2675210764225634887
@@ -74232,7 +74195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8907304395229744780
@@ -74612,7 +74575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 58
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &2286671399001137673
@@ -74792,7 +74755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1911.4999, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4619467595443164602
@@ -74947,7 +74910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 93
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1484729014461095141
@@ -75195,7 +75158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 104
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &8221298958433787179
@@ -76001,7 +75964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 8
   ActiveSpecialChar: 20
-  keyScale: 1.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &1048972742179748798
@@ -76196,7 +76159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 125
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &9079776268957344527
@@ -76333,7 +76296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 0
   ActiveSpecialChar: 20
-  keyScale: 0.5
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &9116342952857401232
@@ -76486,7 +76449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 34
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &9137993163011453318
@@ -76772,7 +76735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 100
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 0.5
 --- !u!114 &7191386249031918848
@@ -77481,7 +77444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyCode: 122
   ActiveSpecialChar: 20
-  keyScale: 1
+  keyWidthScale: 1
   UseSpecialChar: 0
   longPressTime: 1
 --- !u!1 &9222909738383894917

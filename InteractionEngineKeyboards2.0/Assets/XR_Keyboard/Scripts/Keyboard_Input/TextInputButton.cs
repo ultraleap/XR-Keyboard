@@ -13,7 +13,7 @@ public class TextInputButton : MonoBehaviour
     public static event KeyUp HandleKeyUp;
     public delegate void KeyUpSpecialChar(KeyCodeSpecialChar keyCode, Keyboard sourceKeyboard);
     public static event KeyUpSpecialChar HandleKeyUpSpecialChar;
-    public delegate void LongPress(List<KeyCodeSpecialChar> specialChars, Keyboard sourceKeyboard);
+    public delegate void LongPress(List<KeyCodeSpecialChar> specialChars, Keyboard sourceKeyboard, Transform keyTransform);
     public static event LongPress HandleLongPress;
     public KeyCode keyCode;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
@@ -182,8 +182,7 @@ public class TextInputButton : MonoBehaviour
             default:
                 if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(ActiveKey))
                 {
-                    parentKeyboard.AccentKeyAnchor = transform;
-                    HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey], parentKeyboard);
+                    HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey], parentKeyboard, transform);
                 }
                 break;
         }

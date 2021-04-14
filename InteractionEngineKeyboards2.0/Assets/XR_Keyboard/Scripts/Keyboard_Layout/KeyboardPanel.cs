@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(KeyMap))]
 [RequireComponent(typeof(KeyMapGenerator))]
@@ -29,6 +30,12 @@ public class KeyboardPanel : MonoBehaviour
 
     public void HidePanel()
     {
+        StartCoroutine(HidePanelAfter(0.5f));
+    }
+
+    public IEnumerator HidePanelAfter(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
         gameObject.SetActive(false);
     }
 }
