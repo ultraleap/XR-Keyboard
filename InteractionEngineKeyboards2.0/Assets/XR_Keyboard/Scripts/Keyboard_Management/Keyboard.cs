@@ -30,7 +30,7 @@ public class Keyboard : MonoBehaviour
     {
         SetMode(KeyboardMode.NEUTRAL);
         alphaNumericPanel.ShowPanel();
-        if (symbolsPanel.isActiveAndEnabled) symbolsPanel.HidePanel();
+        symbolsPanel.HidePanel();
     }
 
     void Awake()
