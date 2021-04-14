@@ -35,16 +35,16 @@ public class DefaultKeyMap : KeyMap
     private List<KeyboardKey> NumberRow()
     {
         List<KeyboardKey> numberRow = new  List<KeyboardKey>();
-        numberRow.Add(NewKey(KeyCode.Keypad1, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad2, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad3, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad4, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad5, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad6, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad7, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad8, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad9, 1));
-        numberRow.Add(NewKey(KeyCode.Keypad0, 1));
+        numberRow.Add(NewKey("1", 1));
+        numberRow.Add(NewKey("2", 1));
+        numberRow.Add(NewKey("3", 1));
+        numberRow.Add(NewKey("4", 1));
+        numberRow.Add(NewKey("5", 1));
+        numberRow.Add(NewKey("6", 1));
+        numberRow.Add(NewKey("7", 1));
+        numberRow.Add(NewKey("8", 1));
+        numberRow.Add(NewKey("9", 1));
+        numberRow.Add(NewKey("0", 1));
     
         return numberRow;
     }
@@ -52,17 +52,17 @@ public class DefaultKeyMap : KeyMap
     private List<KeyboardKey> TopAlphaRow()
     {
         List<KeyboardKey> topAlphaRow = new  List<KeyboardKey>();
-        topAlphaRow.Add(NewKey(KeyCode.Q,          1));
-        topAlphaRow.Add(NewKey(KeyCode.W,          1));
-        topAlphaRow.Add(NewKey(KeyCode.E,          1));
-        topAlphaRow.Add(NewKey(KeyCode.R,          1));
-        topAlphaRow.Add(NewKey(KeyCode.T,          1));
-        topAlphaRow.Add(NewKey(KeyCode.Y,          1));
-        topAlphaRow.Add(NewKey(KeyCode.U,          1));
-        topAlphaRow.Add(NewKey(KeyCode.I,          1));
-        topAlphaRow.Add(NewKey(KeyCode.O,          1));
-        topAlphaRow.Add(NewKey(KeyCode.P,          1));
-        topAlphaRow.Add(NewKey(KeyCode.Backspace,  2));
+        topAlphaRow.Add(NewKey("q",          1));
+        topAlphaRow.Add(NewKey("w",          1));
+        topAlphaRow.Add(NewKey("e",          1));
+        topAlphaRow.Add(NewKey("r",          1));
+        topAlphaRow.Add(NewKey("t",          1));
+        topAlphaRow.Add(NewKey("y",          1));
+        topAlphaRow.Add(NewKey("u",          1));
+        topAlphaRow.Add(NewKey("i",          1));
+        topAlphaRow.Add(NewKey("o",          1));
+        topAlphaRow.Add(NewKey("p",          1));
+        topAlphaRow.Add(NewKey("backspace",  2));
     
         return topAlphaRow;
     }
@@ -70,16 +70,16 @@ public class DefaultKeyMap : KeyMap
     private List<KeyboardKey> MiddleAlphaRow()
     {
         List<KeyboardKey> middleAlphaRow = new  List<KeyboardKey>();
-        middleAlphaRow.Add(NewKey(KeyCode.A,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.S,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.D,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.F,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.G,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.H,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.J,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.K,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.L,       1));
-        middleAlphaRow.Add(NewKey(KeyCode.Return,  2));
+        middleAlphaRow.Add(NewKey("a",       1));
+        middleAlphaRow.Add(NewKey("s",       1));
+        middleAlphaRow.Add(NewKey("d",       1));
+        middleAlphaRow.Add(NewKey("f",       1));
+        middleAlphaRow.Add(NewKey("g",       1));
+        middleAlphaRow.Add(NewKey("h",       1));
+        middleAlphaRow.Add(NewKey("j",       1));
+        middleAlphaRow.Add(NewKey("k",       1));
+        middleAlphaRow.Add(NewKey("l",       1));
+        middleAlphaRow.Add(NewKey("return",  2));
     
         return middleAlphaRow;
     }
@@ -87,17 +87,17 @@ public class DefaultKeyMap : KeyMap
     private List<KeyboardKey> BottomAlphaRow()
     {
         List<KeyboardKey> bottomAlphaRow = new List<KeyboardKey>();
-        bottomAlphaRow.Add(NewKey(KeyCode.LeftShift,   1.5f));
-        bottomAlphaRow.Add(NewKey(KeyCode.Z,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.X,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.C,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.V,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.B,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.N,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.M,           1));
-        bottomAlphaRow.Add(NewKey(KeyCode.Comma,       1));
-        bottomAlphaRow.Add(NewKey(KeyCode.Period,      1));
-        bottomAlphaRow.Add(NewKey(KeyCode.RightShift,  1.5f));
+        bottomAlphaRow.Add(NewKey("shift",   1.5f));
+        bottomAlphaRow.Add(NewKey("z",           1));
+        bottomAlphaRow.Add(NewKey("x",           1));
+        bottomAlphaRow.Add(NewKey("c",           1));
+        bottomAlphaRow.Add(NewKey("v",           1));
+        bottomAlphaRow.Add(NewKey("b",           1));
+        bottomAlphaRow.Add(NewKey("n",           1));
+        bottomAlphaRow.Add(NewKey("m",           1));
+        bottomAlphaRow.Add(NewKey(",",       1));
+        bottomAlphaRow.Add(NewKey(".",      1));
+        bottomAlphaRow.Add(NewKey("shift",  1.5f));
 
         return bottomAlphaRow;
     }
@@ -105,9 +105,9 @@ public class DefaultKeyMap : KeyMap
     private List<KeyboardKey> SpaceRow()
     {
         List<KeyboardKey> spaceRow = new List<KeyboardKey>();
-        spaceRow.Add(NewKey(KeyCode.LeftAlt, 2));
-        spaceRow.Add(NewKey(KeyCode.Space,   8));
-        spaceRow.Add(NewKey(KeyCode.Return,  2));
+        spaceRow.Add(NewKey("switch_symbols", 2));
+        spaceRow.Add(NewKey("space",   8));
+        spaceRow.Add(NewKey("return",  2));
     
         return spaceRow;
     }
@@ -126,7 +126,7 @@ public class DefaultKeyMap : KeyMap
         Debug.Log(jsonMap.ToString());
     }
 
-    private KeyboardKey NewKey(KeyCode neutral, float keyWidthScale)
+    private KeyboardKey NewKey(string neutral, float keyWidthScale)
     {
         return new KeyboardKey() {
             keyCode = neutral,

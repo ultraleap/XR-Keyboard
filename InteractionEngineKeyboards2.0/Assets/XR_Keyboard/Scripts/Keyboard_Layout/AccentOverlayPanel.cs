@@ -19,7 +19,7 @@ public class AccentOverlayPanel : MonoBehaviour
     public GameObject keyPrefab, shadowPrefab;
     public Transform panel, shadowRow, keyRow, background;
 
-    public List<KeyCodeSpecialChar> specialChars;
+    public List<string> specialChars;
 
     public AudioClip showSound, hideSound;
 
@@ -73,7 +73,7 @@ public class AccentOverlayPanel : MonoBehaviour
         }
     }
 
-    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars)
+    public void ShowAccentPanel(List<string> specialChars)
     {        
         switch (accentKeysPosition)
         {
@@ -101,7 +101,7 @@ public class AccentOverlayPanel : MonoBehaviour
         timeoutPanelRoutine = StartCoroutine(TimeOutPanel(timeout));
     }
 
-    public void ShowAccentPanel(List<KeyCodeSpecialChar> specialChars, Transform _keyTransform, bool offsetAnchor = false)
+    public void ShowAccentPanel(List<string> specialChars, Transform _keyTransform, bool offsetAnchor = false)
     {
         transform.position = _keyTransform.position;
         transform.rotation = _keyTransform.rotation;
@@ -171,11 +171,10 @@ public class AccentOverlayPanel : MonoBehaviour
             GameObject shadow = Instantiate(shadowPrefab, shadowRow);
             GameObject newKey = Instantiate(keyPrefab, keyRow);
             TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
-            button.UseSpecialChar = true;
-            button.ActiveSpecialChar = special;
+            button.Key = special;
             
-            button.UpdateActiveKey(button.keyCode, Keyboard.KeyboardMode.NEUTRAL);
-            newKey.name = button.ActiveSpecialChar.ToString();
+            button.UpdateActiveKey(button.Key, Keyboard.KeyboardMode.NEUTRAL);
+            newKey.name = button.Key;
         }
         Canvas.ForceUpdateCanvases();
         

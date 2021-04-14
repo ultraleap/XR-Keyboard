@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Leap.Unity.Interaction;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,19 +11,13 @@ using KeyboardMode = Keyboard.KeyboardMode;
 
 public class TextInputButton : MonoBehaviour
 {
-    public delegate void KeyUp(KeyCode keyCode, Keyboard sourceKeyboard);
+    public delegate void KeyUp(string key, Keyboard sourceKeyboard);
     public static event KeyUp HandleKeyUp;
-    public delegate void KeyUpSpecialChar(KeyCodeSpecialChar keyCode, Keyboard sourceKeyboard);
-    public static event KeyUpSpecialChar HandleKeyUpSpecialChar;
-    public delegate void LongPress(List<KeyCodeSpecialChar> specialChars, Keyboard sourceKeyboard, Transform keyTransform);
+    public delegate void LongPress(List<string> accentedChars, Keyboard sourceKeyboard, Transform transform);
     public static event LongPress HandleLongPress;
-    public KeyCode keyCode;
-    public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
+    public string Key;
     public float keyWidthScale = 1;
-
-    public bool UseSpecialChar = false;
     public float longPressTime = 0.5f;
-    private KeyCode ActiveKey;
     private InteractionButton interactionButton;
     private Button button;
     private TextMeshPro keyTextMesh;
@@ -43,18 +39,18 @@ public class TextInputButton : MonoBehaviour
         button = GetComponentInChildren<Button>();
         if (button != null) { button.onClick.AddListener(TextPress); }
 
-        UpdateActiveKey(keyCode, KeyboardMode.NEUTRAL);
+        UpdateActiveKey(Key, KeyboardMode.NEUTRAL);
 
         parentKeyboard = GetComponentInParent<Keyboard>();
     }
 
-    public void UpdateActiveKey(KeyCode keyCode, KeyboardMode keyboardMode)
+    public void UpdateActiveKey(string _key, KeyboardMode keyboardMode)
     {
         if (keyTextMesh == null)
         {
             keyTextMesh = transform.GetComponentInChildren<TextMeshPro>();
         }
-        
+
         var textMeshGUIs = transform.GetComponentsInChildren<TextMeshProUGUI>();
         if (keyTextMeshGUI == null && textMeshGUIs.Length > 0)
         {
@@ -67,63 +63,43 @@ public class TextInputButton : MonoBehaviour
             accentLabelTextMeshGUI = textMeshGUIs[1];
         }
 
-        ActiveKey = keyCode;
-        string keyCodeText;
+        Key = _key;
+        string keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? Key.ToUpper() : Key.ToLower();
 
-        if (UseSpecialChar)
+        string displayStringKey = Key;
+        if (displayStringKey == "shift")
         {
-            KeyboardCollections.KeyCodeSpecialCharToString.TryGetValue(ActiveSpecialChar, out keyCodeText);
-        }
-        else
-        {
-            KeyboardCollections.KeyCodeToString.TryGetValue(keyCode, out keyCodeText);
+            if (keyboardMode == KeyboardMode.NEUTRAL)
+            {
+                displayStringKey += "_neutral";
+            }
+            else if (keyboardMode == KeyboardMode.SHIFT)
+            {
+                displayStringKey += "_shift";
+            }
+            else if (keyboardMode == KeyboardMode.CAPS)
+            {
+                displayStringKey += "_caps";
+            }
         }
 
-        if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || UseSpecialChar)
+        if (KeyboardCollections.NonStandardKeyToDisplayString.TryGetValue(displayStringKey, out string nonStandardKeyCodeText))
         {
-            keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? keyCodeText.ToUpper() : keyCodeText.ToLower();
+            keyCodeText = nonStandardKeyCodeText;
         }
 
-        // Special Symbol List ⌫⏎↑⇧⇪ 
-        switch (keyCode)
-        {
-            case KeyCode.Backspace:
-                keyCodeText = "";
-                break;
-            case KeyCode.Return:
-                keyCodeText = "";
-                break;
-            case KeyCode.LeftShift:
-            case KeyCode.RightShift:
-                if (keyboardMode == KeyboardMode.NEUTRAL)
-                {
-                    keyCodeText = "";
-                }
-                else if (keyboardMode == KeyboardMode.SHIFT)
-                {
-                    keyCodeText = "";
-                }
-                else if (keyboardMode == KeyboardMode.CAPS)
-                {
-                    keyCodeText = "";
-                }
-                break;
-            case KeyCode.Escape:
-                keyCodeText = " ";
-                break;
-        }
         UpdateKeyState(keyCodeText);
-        
+
         if (accentLabelTextMeshGUI != null)
         {
-            accentLabelTextMeshGUI.text = KeyboardCollections.CharacterToSpecialChars.ContainsKey(keyCode) ? "…" : "";
+            accentLabelTextMeshGUI.text = KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key) ? "…" : "";
         }
     }
 
     private void UpdateKeyState(string text)
     {
         bool enabled = text.Length > 0;
-        foreach(var image in GetComponentsInChildren<Image>())
+        foreach (var image in GetComponentsInChildren<Image>())
         {
             image.enabled = enabled;
         }
@@ -173,16 +149,16 @@ public class TextInputButton : MonoBehaviour
 
     private void InvokeLongPress()
     {
-        switch (ActiveKey)
+        switch (Key)
         {
-            case KeyCode.Backspace:
+            case "backspace":
                 LongPressCoroutine = BackspaceLongPress();
                 StartCoroutine(LongPressCoroutine);
                 break;
             default:
-                if (KeyboardCollections.CharacterToSpecialChars.ContainsKey(ActiveKey))
+                if (KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key))
                 {
-                    HandleLongPress.Invoke(KeyboardCollections.CharacterToSpecialChars[ActiveKey], parentKeyboard, transform);
+                    HandleLongPress.Invoke(KeyboardCollections.CharacterToAccentedChars[Key], parentKeyboard, transform);
                 }
                 break;
         }
@@ -205,14 +181,7 @@ public class TextInputButton : MonoBehaviour
 
     private void KeyUpEvent()
     {
-        if (UseSpecialChar)
-        {
-            HandleKeyUpSpecialChar(ActiveSpecialChar, parentKeyboard);
-        }
-        else
-        {
-            HandleKeyUp.Invoke(ActiveKey, parentKeyboard);
-        }
+        HandleKeyUp.Invoke(Key, parentKeyboard);
     }
 
     public float GetKeyScale()

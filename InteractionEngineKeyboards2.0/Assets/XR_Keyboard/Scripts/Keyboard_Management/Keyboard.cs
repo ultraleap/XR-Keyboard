@@ -39,26 +39,26 @@ public class Keyboard : MonoBehaviour
         if (textInputPreview == null) textInputPreview = transform.root.GetComponentInChildren<TextInputPreview>();
 
         TextInputButton.HandleKeyUp += HandleTextInputButtonKeyUp;
-        TextInputButton.HandleKeyUpSpecialChar += HandleTextInputButtonKeyUpSpecialChar;
         TextInputButton.HandleLongPress += ShowAccentOverlay;
+
     }
 
     private void OnDestroy()
     {
         TextInputButton.HandleKeyUp -= HandleTextInputButtonKeyUp;
-        TextInputButton.HandleKeyUpSpecialChar -= HandleTextInputButtonKeyUpSpecialChar;
+        TextInputButton.HandleLongPress -= ShowAccentOverlay;
     }
 
     #region Event Handlers
-    private void HandleTextInputButtonKeyUp(KeyCode _keyCode, Keyboard source)
+    private void HandleTextInputButtonKeyUp(string _key, Keyboard source)
     {
         if (source != this) { return; };
-        
-        if (KeyboardCollections.ModeShifters.Contains(_keyCode))
+
+        if (KeyboardCollections.ModeShifters.Contains(_key))
         {
-            ModeSwitch(_keyCode);
+            ModeSwitch(_key);
         }
-        else if (_keyCode == KeyCode.Escape)
+        else if (_key == "accentPanelDismiss")
         {
             if (AccentPanelActive())
             {
@@ -67,24 +67,21 @@ public class Keyboard : MonoBehaviour
         }
         else
         {
-            string keyCodeString = KeyboardCollections.KeyCodeToString[_keyCode];
-            HandleKeyUpEncoding(keyCodeString);
+            HandleKeyUpEncoding(_key);
         }
-    }
-
-    private void HandleTextInputButtonKeyUpSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar, Keyboard source)
-    {
-        if (source != this) { return; };
-
-        string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
-        HandleKeyUpEncoding(keyCodeString);
     }
 
     private void HandleKeyUpEncoding(string _keyCodeString)
     {
+        
+        if (KeyboardCollections.NonCharIdentifierToStringChar.TryGetValue(_keyCodeString, out string nonStandardKeyCodeText))
+        {
+            _keyCodeString = nonStandardKeyCodeText;
+        }
+
         bool upperCase = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS;
         _keyCodeString = upperCase ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
-        
+
         if (HandleKeyUp != null)
         {
             HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
@@ -119,12 +116,11 @@ public class Keyboard : MonoBehaviour
         keyboardMode = _keyboardMode;
     }
 
-    public void ModeSwitch(KeyCode _keyCode)
+    public void ModeSwitch(string _key)
     {
-        switch (_keyCode)
+        switch (_key)
         {
-            case KeyCode.LeftShift:
-            case KeyCode.RightShift:
+            case "shift":
                 if (keyboardMode == KeyboardMode.NEUTRAL)
                 {
                     SetMode(KeyboardMode.SHIFT);
@@ -138,43 +134,37 @@ public class Keyboard : MonoBehaviour
                     SetMode(KeyboardMode.NEUTRAL);
                 }
                 break;
-            case KeyCode.LeftAlt:
-            case KeyCode.RightAlt:
+            case "switch_symbols":
                 alphaNumericPanel.HidePanel();
                 symbolsPanel.ShowPanel();
                 break;
-            case KeyCode.LeftControl:
-            case KeyCode.RightControl:
-                alphaNumericPanel.HidePanel();
-                symbolsPanel.ShowPanel();
-                break;
-            case KeyCode.Alpha0:
-                alphaNumericPanel.ShowPanel();
+            case "switch_letters":
                 symbolsPanel.HidePanel();
+                alphaNumericPanel.ShowPanel();
                 break;
         }
     }
-    
+
     private void UpdateTextInputButtons(KeyboardMode _keyboardMode)
     {
-        TextInputButton[] textInputButtons = this.GetComponentsInChildren<TextInputButton>();
+        TextInputButton[] textInputButtons = GetComponentsInChildren<TextInputButton>();
 
         foreach (TextInputButton inputButton in textInputButtons)
         {
             switch (_keyboardMode)
             {
                 case KeyboardMode.NEUTRAL:
-                    inputButton.UpdateActiveKey(inputButton.keyCode, _keyboardMode);
+                    inputButton.UpdateActiveKey(inputButton.Key, _keyboardMode);
                     break;
                 case KeyboardMode.SHIFT:
                 case KeyboardMode.CAPS:
-                    inputButton.UpdateActiveKey(inputButton.keyCode, _keyboardMode);
+                    inputButton.UpdateActiveKey(inputButton.Key, _keyboardMode);
                     break;
             }
         }
     }
 
-    public void ShowAccentOverlay(List<KeyCodeSpecialChar> specialChars, Keyboard source, Transform keyTransform = null)
+    public void ShowAccentOverlay(List<string> specialChars, Keyboard source, Transform keyTransform = null)
     {
         if (source != this) { return; };
         if (keyTransform != null) accentOverlay.AccentKeyAnchor = keyTransform;
