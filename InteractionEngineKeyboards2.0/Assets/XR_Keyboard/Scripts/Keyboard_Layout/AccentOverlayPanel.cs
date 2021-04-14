@@ -34,7 +34,7 @@ public class AccentOverlayPanel : MonoBehaviour
 
     [Header("Panel Spawning")]
     [Tooltip("Choose between spawning in the middle of the keyboard, adjacent to the pressed key, or in place of the number row")]
-    public AccentKeysPosition accentKeysPosition = AccentKeysPosition.MIDDLE;
+    public AccentKeysPosition accentKeysPosition = AccentKeysPosition.ADJACENT;
     [HideInInspector] public Transform AccentKeyAnchor;
     [Tooltip("The panel to replace when accentKeysPosition is set to NUM_ROW")] 
     public Transform NumberRow;
