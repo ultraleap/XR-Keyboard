@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Leap.Unity.Interaction;
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +19,7 @@ public class TextInputButton : MonoBehaviour
     public static event LongPress HandleLongPress;
     public KeyCode keyCode;
     public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
+    public string Key;
     public float keyWidthScale = 1;
 
     public bool UseSpecialChar = false;
@@ -30,6 +33,16 @@ public class TextInputButton : MonoBehaviour
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
     private Keyboard parentKeyboard;
     private bool longPressed = false;
+
+    [Button]
+    private void UpdateString(){
+        List<TextInputButton> textInputButtons = FindObjectsOfType<TextInputButton>().ToList();
+
+        foreach (TextInputButton textInputButton in textInputButtons)
+        {
+            textInputButton.Key = KeyboardCollections.KeyCodeToString[textInputButton.keyCode];
+        }
+    }
 
     // Start is called before the first frame update
     public void Awake()
