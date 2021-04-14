@@ -11,11 +11,11 @@ public static class KeyboardCollections
 
     public static Dictionary<string, string> NonStandardKeyToDisplayString = new Dictionary<string, string>(){
         { "space", " "},
-        { "backspace", ""},
-        { "return", ""},
-        { "shift_neutral", ""},
-        { "shift_shift", ""},
-        { "shift_caps", ""},
+        { "backspace", "\uf55a"},
+        { "return", "\uf3be"},
+        { "shift_neutral", "\uf0d8"},
+        { "shift_shift", "\uf0d8"},
+        { "shift_caps", "\uf151"},
         { "accentPanelDismiss", " "},
         { "switch_symbols", "#+="},
         { "switch_letters", "ABC"},
