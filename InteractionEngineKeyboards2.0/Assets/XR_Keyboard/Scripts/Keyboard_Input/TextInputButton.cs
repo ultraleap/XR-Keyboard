@@ -28,17 +28,6 @@ public class TextInputButton : MonoBehaviour
     private Keyboard parentKeyboard;
     private bool longPressed = false;
 
-    [Button]
-    private void UpdateString()
-    {
-        List<TextInputButton> textInputButtons = FindObjectsOfType<TextInputButton>().ToList();
-
-        foreach (TextInputButton textInputButton in textInputButtons)
-        {
-            textInputButton.Key = KeyboardCollections.KeyCodeToString[textInputButton.keyCode];
-        }
-    }
-
     // Start is called before the first frame update
     public void Awake()
     {
