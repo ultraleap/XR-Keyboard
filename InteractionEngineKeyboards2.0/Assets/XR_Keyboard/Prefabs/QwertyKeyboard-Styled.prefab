@@ -4095,7 +4095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc053a54b1fee9a41b90fae9702a1dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: AltMob_QWERTY
+  description: Default_QWERTY
   keyMap:
   - row:
     - keyCode: 1
@@ -4190,7 +4190,7 @@ MonoBehaviour:
       widthScale: 8
     - keyCode: return
       widthScale: 2
-  path: Assets/StreamingAssets/XR_Keyboard/KeyMaps/Alternate_QWERTY.json
+  path: Assets/StreamingAssets/XR_Keyboard/KeyMaps/Default_QWERTY.json
 --- !u!1 &661940908922611770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8195,6 +8195,10 @@ MonoBehaviour:
   overlayColour: {r: 0.3254902, g: 0.27450982, b: 0.36862746, a: 0.77254903}
   inlineColour: {r: 0.89019614, g: 0.7607844, b: 1, a: 1}
   timeout: 10
+  accentKeysPosition: 1
+  AccentKeyAnchor: {fileID: 0}
+  NumberRow: {fileID: 0}
+  accentPanelHideDelay: 0.25
 --- !u!82 &9123933426683726786
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17158,7 +17162,7 @@ GameObject:
   - component: {fileID: 1840288184890307738}
   - component: {fileID: 6699261206631798413}
   m_Layer: 5
-  m_Name: QwertyKeyboard-Alternative
+  m_Name: QwertyKeyboard-Styled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17261,14 +17265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88643deebf407de4daa192c21ce7e3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyboardMode: 0
   accentOverlay: {fileID: 3776452460295831605}
   textInputPreview: {fileID: 5770892954349060703}
-  accentKeysPosition: 0
-  AccentKeysMiddleAnchor: {fileID: 8536296697337659721}
-  AccentKeyAnchor: {fileID: 0}
-  NumberRow: {fileID: 3225215337933252483}
-  accentPanelHideDelay: 0.25
-  keyboardMode: 0
   alphaNumericPanel: {fileID: 8756197875425098238}
   symbolsPanel: {fileID: 6148696515571212522}
 --- !u!114 &1840288184890307738
