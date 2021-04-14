@@ -16,11 +16,8 @@ public class TextInputButton : MonoBehaviour
     public delegate void LongPress(List<string> accentedChars, Keyboard sourceKeyboard);
     public static event LongPress HandleLongPress;
     public KeyCode keyCode;
-    public KeyCodeSpecialChar ActiveSpecialChar = KeyCodeSpecialChar.NONE;
     public string Key;
     public float keyWidthScale = 1;
-
-    public bool UseSpecialChar = false;
     public float longPressTime = 0.5f;
     private InteractionButton interactionButton;
     private Button button;
@@ -79,37 +76,30 @@ public class TextInputButton : MonoBehaviour
         }
 
         Key = _key;
-        string keyCodeText;
+        string keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? Key.ToUpper() : Key.ToLower();
 
-        keyCodeText = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS ? Key.ToUpper() : Key.ToLower();
-
-        // Special Symbol List ⌫⏎↑⇧⇪ 
-        switch (Key)
+        string displayStringKey = Key;
+        if (displayStringKey == "shift")
         {
-            case "\u0008":
-                keyCodeText = "";
-                break;
-            case "\n":
-                keyCodeText = "";
-                break;
-            case "shift":
-                if (keyboardMode == KeyboardMode.NEUTRAL)
-                {
-                    keyCodeText = "";
-                }
-                else if (keyboardMode == KeyboardMode.SHIFT)
-                {
-                    keyCodeText = "";
-                }
-                else if (keyboardMode == KeyboardMode.CAPS)
-                {
-                    keyCodeText = "";
-                }
-                break;
-            case "\u001B":
-                keyCodeText = " ";
-                break;
+            if (keyboardMode == KeyboardMode.NEUTRAL)
+            {
+                displayStringKey += "_neutral";
+            }
+            else if (keyboardMode == KeyboardMode.SHIFT)
+            {
+                displayStringKey += "_shift";
+            }
+            else if (keyboardMode == KeyboardMode.CAPS)
+            {
+                displayStringKey += "_caps";
+            }
         }
+
+        if (KeyboardCollections.NonStandardKeyToDisplayString.TryGetValue(displayStringKey, out string nonStandardKeyCodeText))
+        {
+            keyCodeText = nonStandardKeyCodeText;
+        }
+
         UpdateKeyState(keyCodeText);
 
         if (accentLabelTextMeshGUI != null)
@@ -173,7 +163,7 @@ public class TextInputButton : MonoBehaviour
     {
         switch (Key)
         {
-            case "\u0008":
+            case "backspace":
                 LongPressCoroutine = BackspaceLongPress();
                 StartCoroutine(LongPressCoroutine);
                 break;

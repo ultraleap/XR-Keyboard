@@ -62,7 +62,7 @@ public class DefaultKeyMap : KeyMap
         topAlphaRow.Add(NewKey("i",          1));
         topAlphaRow.Add(NewKey("o",          1));
         topAlphaRow.Add(NewKey("p",          1));
-        topAlphaRow.Add(NewKey("\u0008",  2));
+        topAlphaRow.Add(NewKey("backspace",  2));
     
         return topAlphaRow;
     }
@@ -79,7 +79,7 @@ public class DefaultKeyMap : KeyMap
         middleAlphaRow.Add(NewKey("j",       1));
         middleAlphaRow.Add(NewKey("k",       1));
         middleAlphaRow.Add(NewKey("l",       1));
-        middleAlphaRow.Add(NewKey("\n",  2));
+        middleAlphaRow.Add(NewKey("return",  2));
     
         return middleAlphaRow;
     }
@@ -106,8 +106,8 @@ public class DefaultKeyMap : KeyMap
     {
         List<KeyboardKey> spaceRow = new List<KeyboardKey>();
         spaceRow.Add(NewKey("switch_symbols", 2));
-        spaceRow.Add(NewKey(" ",   8));
-        spaceRow.Add(NewKey("\n",  2));
+        spaceRow.Add(NewKey("space",   8));
+        spaceRow.Add(NewKey("return",  2));
     
         return spaceRow;
     }

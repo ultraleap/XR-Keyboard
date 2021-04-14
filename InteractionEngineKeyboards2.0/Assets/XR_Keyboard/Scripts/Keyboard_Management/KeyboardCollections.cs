@@ -4,21 +4,23 @@ using KeyCode = UnityEngine.KeyCode;
 
 public static class KeyboardCollections
 {
+    public static Dictionary<string, string> NonCharIdentifierToStringChar = new Dictionary<string, string>() {
+        { "space", " "},
+        { "backspace", "\u0008"},
+        { "return", "\n"},
+        { "tab", "\t"},
+    };
 
-
-
-    public static Dictionary<KeyCode, string> NonAlphaNumericNameToCharString = new Dictionary<KeyCode, string>(){
-
-      {KeyCode.Backspace,         "\u0008"},
-      {KeyCode.Return,            "\n"},
-      {KeyCode.Tab,               "\t"},
-      {KeyCode.Percent,           "%"},
-      {KeyCode.LeftControl,   "=\\<"},
-      {KeyCode.RightControl,  "=\\<"},
-      {KeyCode.LeftShift,     "SHIFT"},
-      {KeyCode.RightShift,    "SHIFT"},
-      {KeyCode.LeftAlt,       "#+="},
-      {KeyCode.RightAlt,      "#+="},
+    public static Dictionary<string, string> NonStandardKeyToDisplayString = new Dictionary<string, string>(){
+        { "space", " "},
+        { "backspace", ""},
+        { "return", ""},
+        { "shift_neutral", ""},
+        { "shift_shift", ""},
+        { "shift_caps", ""},
+        { "accentPanelDismiss", " "},
+        { "switch_symbols", "#+="},
+        { "switch_letters", "ABC"},
 
     };
 
@@ -103,10 +105,10 @@ public static class KeyboardCollections
       {KeyCode.Caret,             "^"}, //6
       {KeyCode.Underscore,        "_"},
       {KeyCode.BackQuote,         "`"},
-      {KeyCode.Backspace,         "\u0008"},
-      {KeyCode.Space,             " "},
-      {KeyCode.Return,            "\n"},
-      {KeyCode.Tab,               "\t"},
+      {KeyCode.Backspace,         "backspace"},
+      {KeyCode.Space,             "space"},
+      {KeyCode.Return,            "return"},
+      {KeyCode.Tab,               "tab"},
       {KeyCode.KeypadPeriod,      "."},
       {KeyCode.KeypadDivide,      "/"},
       {KeyCode.KeypadMultiply,    "*"},
@@ -128,13 +130,13 @@ public static class KeyboardCollections
 
       //---Mappings where the logical keycode was taken up by its counter part in either (the regular keybaord) or the (keypad)
 
-      {KeyCode.LeftControl,   "=\\<"},
-      {KeyCode.RightControl,  "=\\<"},
-      {KeyCode.LeftShift,     "SHIFT"},
-      {KeyCode.RightShift,    "SHIFT"},
-      {KeyCode.LeftAlt,       "#+="},
-      {KeyCode.RightAlt,      "#+="},
-      {KeyCode.Alpha0,        "ABC"},
+      {KeyCode.LeftControl,   "switch_symbols"},
+      {KeyCode.RightControl,  "switch_symbols"},
+      {KeyCode.LeftShift,     "shift"},
+      {KeyCode.RightShift,    "shift"},
+      {KeyCode.LeftAlt,       "switch_symbols"},
+      {KeyCode.RightAlt,      "switch_symbols"},
+      {KeyCode.Alpha0,        "switch_letters"},
       {KeyCode.Alpha1,        "£"},
       {KeyCode.Alpha2,        "€"},
       {KeyCode.Alpha3,        "¥"},
@@ -145,6 +147,7 @@ public static class KeyboardCollections
       {KeyCode.Alpha8, ""},
       {KeyCode.Alpha9, ""},
       {KeyCode.None, ""},
+      {KeyCode.Escape, "accentPanelDismiss"}
 
 
       //-------------------------KEYCODES with NO CHARACTER KEY-------------------------
@@ -160,45 +163,6 @@ public static class KeyboardCollections
 
     };
 
-    public static Dictionary<KeyCodeSpecialChar, string> KeyCodeSpecialCharToString = new Dictionary<KeyCodeSpecialChar, string>()
-    {
-
-      {KeyCodeSpecialChar.AE_LIGATURE, "æ"},
-      {KeyCodeSpecialChar.A_TILDE, "ã"},
-      {KeyCodeSpecialChar.A_NORDIC_RING, "å"},
-      {KeyCodeSpecialChar.A_MACRON, "ā"},
-      {KeyCodeSpecialChar.A_GRAVE, "à"},
-      {KeyCodeSpecialChar.A_ACUTE, "á"},
-      {KeyCodeSpecialChar.A_CIRCUMFLEX, "â"},
-      {KeyCodeSpecialChar.A_UMLAUT, "ä"},
-      {KeyCodeSpecialChar.C_CEDILLE, "ç"},
-      {KeyCodeSpecialChar.E_MACRON, "ē"},
-      {KeyCodeSpecialChar.E_GRAVE, "è"},
-      {KeyCodeSpecialChar.E_ACUTE, "é"},
-      {KeyCodeSpecialChar.E_CIRCUMFLEX, "ê"},
-      {KeyCodeSpecialChar.E_UMLAUT, "ë"},
-      {KeyCodeSpecialChar.I_MACRON, "ī"},
-      {KeyCodeSpecialChar.I_GRAVE, "ì"},
-      {KeyCodeSpecialChar.I_ACUTE, "í"},
-      {KeyCodeSpecialChar.I_CIRCUMFLEX, "î"},
-      {KeyCodeSpecialChar.I_UMLAUT, "ï"},
-      {KeyCodeSpecialChar.NONE, ""},
-      {KeyCodeSpecialChar.N_TILDE, "ñ"},
-      {KeyCodeSpecialChar.OE_LIGATURE, "œ"},
-      {KeyCodeSpecialChar.O_TILDE, "õ"},
-      {KeyCodeSpecialChar.O_GRAVE, "ø"},
-      {KeyCodeSpecialChar.O_ACUTE, "о̄"},
-      {KeyCodeSpecialChar.O_CIRCUMFLEX, "ò"},
-      {KeyCodeSpecialChar.O_NORDIC_SLASH, "ó"},
-      {KeyCodeSpecialChar.O_MACRON, "ô"},
-      {KeyCodeSpecialChar.O_UMLAUT, "ö"},
-      {KeyCodeSpecialChar.ESZETT, "ß"},
-      {KeyCodeSpecialChar.U_MACRON, "ū"},
-      {KeyCodeSpecialChar.U_GRAVE, "ù"},
-      {KeyCodeSpecialChar.U_ACUTE, "ú"},
-      {KeyCodeSpecialChar.U_CIRCUMFLEX, "û"},
-      {KeyCodeSpecialChar.U_UMLAUT, "ü"},
-    };
 
 
     public static List<string> AlphabetKeys = new List<string>()
@@ -326,44 +290,4 @@ public static class KeyboardCollections
         }
       }
     };
-
-}
-
-public enum KeyCodeSpecialChar
-{
-    AE_LIGATURE,
-    A_TILDE,
-    A_GRAVE,
-    A_ACUTE,
-    A_CIRCUMFLEX,
-    A_NORDIC_RING,
-    A_MACRON,
-    A_UMLAUT,
-    C_CEDILLE,
-    E_MACRON,
-    E_GRAVE,
-    E_ACUTE,
-    E_CIRCUMFLEX,
-    E_UMLAUT,
-    I_MACRON,
-    I_GRAVE,
-    I_ACUTE,
-    I_CIRCUMFLEX,
-    I_UMLAUT,
-    N_TILDE,
-    NONE,
-    OE_LIGATURE,
-    O_TILDE,
-    O_GRAVE,
-    O_ACUTE,
-    O_CIRCUMFLEX,
-    O_NORDIC_SLASH,
-    O_MACRON,
-    O_UMLAUT,
-    ESZETT,
-    U_MACRON,
-    U_GRAVE,
-    U_ACUTE,
-    U_CIRCUMFLEX,
-    U_UMLAUT
 }

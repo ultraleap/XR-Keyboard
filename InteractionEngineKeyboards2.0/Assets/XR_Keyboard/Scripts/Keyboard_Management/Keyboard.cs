@@ -76,7 +76,7 @@ public class Keyboard : MonoBehaviour
         {
             ModeSwitch(_key);
         }
-        else if (_key == "\u001B")
+        else if (_key == "accentPanelDismiss")
         {
             if (AccentPanelActive())
             {
@@ -89,16 +89,14 @@ public class Keyboard : MonoBehaviour
         }
     }
 
-    private void HandleTextInputButtonKeyUpSpecialChar(KeyCodeSpecialChar _keyCodeSpecialChar, Keyboard source)
-    {
-        if (source != this) { return; };
-
-        string keyCodeString = KeyboardCollections.KeyCodeSpecialCharToString[_keyCodeSpecialChar];
-        HandleKeyUpEncoding(keyCodeString);
-    }
-
     private void HandleKeyUpEncoding(string _keyCodeString)
     {
+        
+        if (KeyboardCollections.NonCharIdentifierToStringChar.TryGetValue(_keyCodeString, out string nonStandardKeyCodeText))
+        {
+            _keyCodeString = nonStandardKeyCodeText;
+        }
+
         bool upperCase = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS;
         _keyCodeString = upperCase ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
 
@@ -159,8 +157,8 @@ public class Keyboard : MonoBehaviour
                 symbolsPanel.ShowPanel();
                 break;
             case "switch_letters":
-                alphaNumericPanel.HidePanel();
-                symbolsPanel.ShowPanel();
+                symbolsPanel.HidePanel();
+                alphaNumericPanel.ShowPanel();
                 break;
         }
     }
