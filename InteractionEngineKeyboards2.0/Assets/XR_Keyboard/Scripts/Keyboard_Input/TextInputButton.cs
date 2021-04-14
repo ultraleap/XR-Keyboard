@@ -13,7 +13,7 @@ public class TextInputButton : MonoBehaviour
 {
     public delegate void KeyUp(string key, Keyboard sourceKeyboard);
     public static event KeyUp HandleKeyUp;
-    public delegate void LongPress(List<string> accentedChars, Keyboard sourceKeyboard);
+    public delegate void LongPress(List<string> accentedChars, Keyboard sourceKeyboard, Transform transform);
     public static event LongPress HandleLongPress;
     public string Key;
     public float keyWidthScale = 1;
@@ -158,8 +158,7 @@ public class TextInputButton : MonoBehaviour
             default:
                 if (KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key))
                 {
-                    parentKeyboard.AccentKeyAnchor = transform;
-                    HandleLongPress.Invoke(KeyboardCollections.CharacterToAccentedChars[Key], parentKeyboard);
+                    HandleLongPress.Invoke(KeyboardCollections.CharacterToAccentedChars[Key], parentKeyboard, transform);
                 }
                 break;
         }
