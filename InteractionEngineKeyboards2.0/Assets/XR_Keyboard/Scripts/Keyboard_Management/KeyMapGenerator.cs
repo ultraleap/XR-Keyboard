@@ -98,10 +98,10 @@ public class KeyMapGenerator : MonoBehaviour
     private void ConfigureButton(GameObject buttonObject, KeyMap.KeyboardKey key, string extension = "")
     {
         TextInputButton button = buttonObject.GetComponentInChildren<TextInputButton>();
-        button.keyCode = key.keyCode;
+        button.Key = key.keyCode;
         button.keyWidthScale = key.widthScale;
-        button.UpdateActiveKey(button.keyCode, Keyboard.KeyboardMode.NEUTRAL);
-        buttonObject.name = button.keyCode.ToString() + extension;
+        button.UpdateActiveKey(button.Key, Keyboard.KeyboardMode.NEUTRAL);
+        buttonObject.name = button.Key + extension;
     }
 
     private void ClearKeys()

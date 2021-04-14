@@ -36,9 +36,9 @@ public class TypeAMole : MonoBehaviour
     public AudioSource successBeep;
     public AudioSource failureBeep;
 
-    private Dictionary<KeyCode, InteractionButton> buttonDictionary;
+    private Dictionary<string, InteractionButton> buttonDictionary;
     private int sequenceIndex = -1;
-    private KeyCode activeButton;
+    private string activeButton;
     private bool finished = false;
     private string sequence;
     private List<InteractionButton> allButtons;
@@ -46,31 +46,31 @@ public class TypeAMole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonDictionary = new Dictionary<KeyCode, InteractionButton>();
+        buttonDictionary = new Dictionary<string, InteractionButton>();
 
         allButtons = keyboardParent.GetComponentsInChildren<InteractionButton>(false).ToList();
 
         foreach (InteractionButton button in allButtons)
         {
-            KeyCode keyCode = button.GetComponent<TextInputButton>().keyCode;
+            string key = button.GetComponent<TextInputButton>().Key;
             button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
             button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
 
-            if (KeyboardCollections.AlphabetKeyCodes.Contains(keyCode) || KeyboardCollections.NumericKeyCodes.Contains(keyCode) || keyCode == KeyCode.Space)
+            if (KeyboardCollections.AlphabetKeys.Contains(key) || KeyboardCollections.NumericKeys.Contains(key) || key == " ")
             {
-                buttonDictionary.Add(keyCode, button);
-                buttonDictionary[keyCode].OnPress += () => OnPressButton(keyCode);
-                buttonDictionary[keyCode].OnUnpress += () => OnUnpressButton(keyCode);
+                buttonDictionary.Add(key, button);
+                buttonDictionary[key].OnPress += () => OnPressButton(key);
+                buttonDictionary[key].OnUnpress += () => OnUnpressButton(key);
             }
         }
 
         SetSequence();
-        activeButton = KeyboardCollections.KeyCodeToString.FirstOrDefault(k => k.Value == sequence[0].ToString()).Key;
+        activeButton = sequence[0].ToString();
 
         HighlightNextButton();
     }
 
-    private void OnPressButton(KeyCode keyCode)
+    private void OnPressButton(string keyCode)
     {
         if (finished)
         {
@@ -86,7 +86,7 @@ public class TypeAMole : MonoBehaviour
         }
     }
 
-    public void OnUnpressButton(KeyCode keyCode)
+    public void OnUnpressButton(string keyCode)
     {
         if (finished)
         {
@@ -120,7 +120,7 @@ public class TypeAMole : MonoBehaviour
         sequenceIndex++;
 
 
-        KeyCode nextButton = KeyboardCollections.KeyCodeToString.FirstOrDefault(k => k.Value == sequence[sequenceIndex].ToString()).Key;
+        string nextButton = sequence[sequenceIndex].ToString();
 
         buttonDictionary[activeButton].GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
         buttonDictionary[activeButton].GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
@@ -166,7 +166,7 @@ public class TypeAMole : MonoBehaviour
             for (int i = 0; i < randomSequenceLength; i++)
             {
                 int randomButton = Random.Range(0, buttonDictionary.Count - 1);
-                string key = KeyboardCollections.KeyCodeToString[buttonDictionary.ElementAt(randomButton).Key];
+                string key = buttonDictionary.ElementAt(randomButton).Key;
                 sequence += key;
             }
         }

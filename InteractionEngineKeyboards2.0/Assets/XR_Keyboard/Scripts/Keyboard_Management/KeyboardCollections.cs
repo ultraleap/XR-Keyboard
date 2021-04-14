@@ -5,6 +5,23 @@ using KeyCode = UnityEngine.KeyCode;
 public static class KeyboardCollections
 {
 
+
+
+    public static Dictionary<KeyCode, string> NonAlphaNumericNameToCharString = new Dictionary<KeyCode, string>(){
+
+      {KeyCode.Backspace,         "\u0008"},
+      {KeyCode.Return,            "\n"},
+      {KeyCode.Tab,               "\t"},
+      {KeyCode.Percent,           "%"},
+      {KeyCode.LeftControl,   "=\\<"},
+      {KeyCode.RightControl,  "=\\<"},
+      {KeyCode.LeftShift,     "SHIFT"},
+      {KeyCode.RightShift,    "SHIFT"},
+      {KeyCode.LeftAlt,       "#+="},
+      {KeyCode.RightAlt,      "#+="},
+
+    };
+
     //CREDIT: https://gist.github.com/b-cancel/c516990b8b304d47188a7fa8be9a1ad9#file-unity3d_character_to_keycode-cs
 
     //NOTE: This is only a DICTIONARY with MOST character to keycode bindings... it is NOT a working cs file
@@ -184,131 +201,128 @@ public static class KeyboardCollections
     };
 
 
-    public static List<KeyCode> AlphabetKeyCodes = new List<KeyCode>()
+    public static List<string> AlphabetKeys = new List<string>()
     {
-      KeyCode.A,
-      KeyCode.B,
-      KeyCode.C,
-      KeyCode.D,
-      KeyCode.E,
-      KeyCode.F,
-      KeyCode.G,
-      KeyCode.H,
-      KeyCode.I,
-      KeyCode.J,
-      KeyCode.K,
-      KeyCode.L,
-      KeyCode.M,
-      KeyCode.N,
-      KeyCode.O,
-      KeyCode.P,
-      KeyCode.Q,
-      KeyCode.R,
-      KeyCode.S,
-      KeyCode.T,
-      KeyCode.U,
-      KeyCode.V,
-      KeyCode.W,
-      KeyCode.X,
-      KeyCode.Y,
-      KeyCode.Z,
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "J",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z"
     };
 
-    public static List<KeyCode> NumericKeyCodes = new List<KeyCode>(){
-      KeyCode.Keypad1,
-      KeyCode.Keypad2,
-      KeyCode.Keypad3,
-      KeyCode.Keypad4,
-      KeyCode.Keypad5,
-      KeyCode.Keypad6,
-      KeyCode.Keypad7,
-      KeyCode.Keypad8,
-      KeyCode.Keypad9,
-      KeyCode.Keypad0
+    public static List<string> NumericKeys = new List<string>(){
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "0"
     };
 
-    public static List<KeyCode> ModeShifters = new List<KeyCode>(){
-      KeyCode.LeftShift,
-      KeyCode.RightShift,
-      KeyCode.LeftAlt,
-      KeyCode.RightAlt,
-      KeyCode.LeftControl,
-      KeyCode.RightControl,
-      KeyCode.Alpha0,
+    public static List<string> ModeShifters = new List<string>(){
+      "shift",
+      "switch_symbols",
+      "switch_letters",
     };
 
-    public static Dictionary<KeyCode, List<KeyCodeSpecialChar>> CharacterToSpecialChars = new Dictionary<KeyCode, List<KeyCodeSpecialChar>>(){
+    public static Dictionary<string, List<string>> CharacterToAccentedChars = new Dictionary<string, List<string>>(){
       {
-        KeyCode.A, new List<KeyCodeSpecialChar>()
+        "a", new List<string>()
         {
-          KeyCodeSpecialChar.AE_LIGATURE,
-          KeyCodeSpecialChar.A_TILDE,
-          KeyCodeSpecialChar.A_NORDIC_RING,
-          KeyCodeSpecialChar.A_MACRON,
-          KeyCodeSpecialChar.A_GRAVE,
-          KeyCodeSpecialChar.A_ACUTE,
-          KeyCodeSpecialChar.A_CIRCUMFLEX,
-          KeyCodeSpecialChar.A_UMLAUT
+          "æ",
+          "ã",
+          "å",
+          "ā",
+          "à",
+          "á",
+          "â",
+          "ä"
         }
       },
       {
-        KeyCode.C, new List<KeyCodeSpecialChar>()
+        "c", new List<string>()
         {
-          KeyCodeSpecialChar.C_CEDILLE,
+          "ç",
         }
       },
       {
-        KeyCode.E, new List<KeyCodeSpecialChar>()
+        "e", new List<string>()
         {
-          KeyCodeSpecialChar.E_MACRON,
-          KeyCodeSpecialChar.E_GRAVE,
-          KeyCodeSpecialChar.E_ACUTE,
-          KeyCodeSpecialChar.E_CIRCUMFLEX,
-          KeyCodeSpecialChar.E_UMLAUT
+          "ē",
+          "è",
+          "é",
+          "ê",
+          "ë",
         }
       },
       {
-        KeyCode.I, new List<KeyCodeSpecialChar>()
+        "i", new List<string>()
         {
-          KeyCodeSpecialChar.I_MACRON,
-          KeyCodeSpecialChar.I_GRAVE,
-          KeyCodeSpecialChar.I_ACUTE,
-          KeyCodeSpecialChar.I_CIRCUMFLEX,
-          KeyCodeSpecialChar.I_UMLAUT
+          "ī",
+          "ì",
+          "í",
+          "î",
+          "ï"
         }
       },
       {
-        KeyCode.N, new List<KeyCodeSpecialChar>()
+        "n", new List<string>()
         {
-          KeyCodeSpecialChar.N_TILDE
+          "ñ"
         }
       },
       {
-        KeyCode.O, new List<KeyCodeSpecialChar>()
+        "o", new List<string>()
         {
-          KeyCodeSpecialChar.O_TILDE,
-          KeyCodeSpecialChar.O_GRAVE,
-          KeyCodeSpecialChar.O_ACUTE,
-          KeyCodeSpecialChar.O_CIRCUMFLEX, 
-          KeyCodeSpecialChar.O_NORDIC_SLASH,
-          KeyCodeSpecialChar.O_MACRON,
-          KeyCodeSpecialChar.O_UMLAUT,
+          "œ",
+          "õ",
+          "ø",
+          "о̄",
+          "ò",
+          "ó",
+          "ô",
+          "ö"
         }
       },
       {
-        KeyCode.S, new List<KeyCodeSpecialChar>()
+        "s", new List<string>()
         {
-          KeyCodeSpecialChar.ESZETT
+          "ß"
         }
       },
       {
-        KeyCode.U, new List<KeyCodeSpecialChar>()
+        "u", new List<string>()
         {
-          KeyCodeSpecialChar.U_MACRON,
-          KeyCodeSpecialChar.U_GRAVE,
-          KeyCodeSpecialChar.U_ACUTE,
-          KeyCodeSpecialChar.U_CIRCUMFLEX,
-          KeyCodeSpecialChar.U_UMLAUT,
+          "ū",
+          "ù",
+          "ú",
+          "û",
+          "ü",
         }
       }
     };
