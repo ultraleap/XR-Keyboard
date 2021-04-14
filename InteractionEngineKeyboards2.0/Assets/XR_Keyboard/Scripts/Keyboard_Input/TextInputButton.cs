@@ -15,7 +15,6 @@ public class TextInputButton : MonoBehaviour
     public static event KeyUp HandleKeyUp;
     public delegate void LongPress(List<string> accentedChars, Keyboard sourceKeyboard);
     public static event LongPress HandleLongPress;
-    public KeyCode keyCode;
     public string Key;
     public float keyWidthScale = 1;
     public float longPressTime = 0.5f;
