@@ -42,6 +42,8 @@ public class UIKeyboardResizer : MonoBehaviour
 
 
     // Unity complains if we rebuild in OnValidate, so rebuild just after to ensure that the layout groups are correct
+    // Thanks to this thread for this solution:
+    // https://forum.unity.com/threads/sendmessage-cannot-be-called-during-awake-checkconsistency-or-onvalidate-can-we-suppress.537265/
     void OnValidate() { EditorApplication.delayCall += _OnValidate; }
     private void _OnValidate()
     {
