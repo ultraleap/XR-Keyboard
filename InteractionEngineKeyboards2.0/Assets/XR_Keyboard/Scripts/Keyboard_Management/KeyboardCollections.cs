@@ -33,7 +33,7 @@ public static class KeyboardCollections
       "g",
       "h",
       "i",
-      "J",
+      "j",
       "k",
       "l",
       "m",
