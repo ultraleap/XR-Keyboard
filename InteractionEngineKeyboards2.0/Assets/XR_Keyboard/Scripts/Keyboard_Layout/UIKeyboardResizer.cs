@@ -40,6 +40,23 @@ public class UIKeyboardResizer : MonoBehaviour
         ResizeKeyboardLayoutObjectsParentSpacing();
     }
 
+
+    // Unity complains if we rebuild in OnValidate, so rebuild just after to ensure that the layout groups are correct
+    // Thanks to this thread for this solution:
+    // https://forum.unity.com/threads/sendmessage-cannot-be-called-during-awake-checkconsistency-or-onvalidate-can-we-suppress.537265/
+    void OnValidate() { EditorApplication.delayCall += _OnValidate; }
+    private void _OnValidate()
+    {
+        foreach (KeyboardLayoutObjects keyboardLayoutObject in keyboardLayoutObjects)
+        {
+            RectTransform keysParent = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>();
+            RectTransform shadowsParent = keyboardLayoutObject.ShadowsParent.GetComponent<RectTransform>();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(keysParent);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(shadowsParent);
+        }
+        Canvas.ForceUpdateCanvases();
+    }
+
     public void ResizeKeyboardLayoutObject(KeyboardLayoutObjects keyboardLayoutObject)
     {
         keyboardLayoutObject.KeysRows = keyboardLayoutObject.KeysParent.GetComponentsInChildren<HorizontalLayoutGroup>().ToList();
@@ -116,7 +133,7 @@ public class UIKeyboardResizer : MonoBehaviour
                 Vector2 sizeDelta = scaledKeySize;
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
                 sizeDelta.x *= textInputButton.GetKeyScale();
- 
+
 
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");
