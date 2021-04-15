@@ -18,6 +18,7 @@ public class GrabBallKeyboardSpawner : KeyboardSpawner
     private bool despawning = false;
     private Vector3 offset;
     private Rigidbody grabBallRigidBody;
+    private Coroutine despawnCoroutine;
 
 
     public override void KeyboardStart()
@@ -37,6 +38,9 @@ public class GrabBallKeyboardSpawner : KeyboardSpawner
     {
         if (despawning)
         {
+            StopCoroutine(despawnCoroutine);
+            despawning = false;
+            base.SpawnKeyboard();
             return;
         }
         base.SpawnKeyboard();
@@ -61,10 +65,13 @@ public class GrabBallKeyboardSpawner : KeyboardSpawner
     }
     public override void DespawnKeyboard()
     {
-        if (gameObject.activeInHierarchy)
+        if (despawning || !gameObject.activeInHierarchy)
         {
-            StartCoroutine(WaitThenDespawn());
+            return;
         }
+
+        despawnCoroutine = StartCoroutine(WaitThenDespawn());
+
     }
 
     private IEnumerator WaitThenDespawn()
