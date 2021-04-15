@@ -47,9 +47,9 @@ MonoBehaviour:
   NumberOfEntities: 20
   templatePrefab: {fileID: 6760067390640343593, guid: dc84c7303446163489f929ec0097ffd7,
     type: 3}
-  separationWeight: 0.8
-  alignmentWeight: 0.5
-  cohesionWeight: 0.7
+  separationWeight: 0.6
+  alignmentWeight: 0.8
+  cohesionWeight: 0.5
   randomiseStartTransform: 1
 --- !u!65 &2298475946578742586
 BoxCollider:
@@ -62,5 +62,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 50, z: 50}
+  m_Size: {x: 50, y: 25, z: 50}
   m_Center: {x: 0, y: 0, z: 0}

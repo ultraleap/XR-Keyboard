@@ -6175,10 +6175,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2298475946578742564, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: cohesionWeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742564, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: alignmentWeight
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742564, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: NumberOfEntities
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742564, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: separationWeight
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2298475946578742565, guid: b2838297cdb78084a8d0f676d3b642b1,
         type: 3}
       propertyPath: m_Name
       value: Flocking
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298475946578742586, guid: b2838297cdb78084a8d0f676d3b642b1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2298475946578742587, guid: b2838297cdb78084a8d0f676d3b642b1,
         type: 3}
