@@ -26454,7 +26454,6 @@ GameObject:
   - component: {fileID: 8929809602606689361}
   - component: {fileID: 7237550987262014852}
   - component: {fileID: 1424470478060146106}
-  - component: {fileID: 8144418022092255766}
   - component: {fileID: 2612329740002569612}
   m_Layer: 5
   m_Name: KeyboardKeysShadows
@@ -26519,19 +26518,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3791901212159343797}
   m_CullTransparentMesh: 0
---- !u!114 &8144418022092255766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3791901212159343797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cbfb0042a13af41972bba0b23fe65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShadowColour: {r: 0, g: 0, b: 0, a: 0.24705882}
 --- !u!114 &2612329740002569612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40223,7 +40209,6 @@ GameObject:
   - component: {fileID: 3806719781497611598}
   - component: {fileID: 1375713756652172271}
   - component: {fileID: 2636720090988985914}
-  - component: {fileID: 315768576123590256}
   - component: {fileID: 826526306561340976}
   m_Layer: 5
   m_Name: NumberKeysShadows
@@ -40285,19 +40270,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5417545677881273329}
   m_CullTransparentMesh: 0
---- !u!114 &315768576123590256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5417545677881273329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cbfb0042a13af41972bba0b23fe65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShadowColour: {r: 0, g: 0, b: 0, a: 0.24705882}
 --- !u!114 &826526306561340976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41490,7 +41462,6 @@ GameObject:
   - component: {fileID: 3670086395313985110}
   - component: {fileID: 1525997921146749175}
   - component: {fileID: 2498769550006914338}
-  - component: {fileID: 169798137196766568}
   - component: {fileID: 955469087799739688}
   m_Layer: 5
   m_Name: NumberKeysShadows
@@ -41552,19 +41523,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5554088766674688233}
   m_CullTransparentMesh: 0
---- !u!114 &169798137196766568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5554088766674688233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cbfb0042a13af41972bba0b23fe65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShadowColour: {r: 0, g: 0, b: 0, a: 0.24705882}
 --- !u!114 &955469087799739688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55944,7 +55902,6 @@ GameObject:
   - component: {fileID: 3024397587349302270}
   - component: {fileID: 3919588903475556907}
   - component: {fileID: 4742681059918924309}
-  - component: {fileID: 2527388124655891897}
   - component: {fileID: 8526724902713305635}
   m_Layer: 5
   m_Name: KeyboardKeysShadows
@@ -56009,19 +55966,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7388811727881632538}
   m_CullTransparentMesh: 0
---- !u!114 &2527388124655891897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7388811727881632538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cbfb0042a13af41972bba0b23fe65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShadowColour: {r: 0, g: 0, b: 0, a: 0.24705882}
 --- !u!114 &8526724902713305635
 MonoBehaviour:
   m_ObjectHideFlags: 0
