@@ -49,10 +49,16 @@ public class UIKeyboardResizer : MonoBehaviour
     {
         foreach (KeyboardLayoutObjects keyboardLayoutObject in keyboardLayoutObjects)
         {
-            RectTransform keysParent = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>();
-            RectTransform shadowsParent = keyboardLayoutObject.ShadowsParent.GetComponent<RectTransform>();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(keysParent);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(shadowsParent);
+            if (keyboardLayoutObject.KeysParent != null)
+            {
+                RectTransform keysParent = keyboardLayoutObject.KeysParent.GetComponent<RectTransform>();
+                LayoutRebuilder.ForceRebuildLayoutImmediate(keysParent);
+            }
+            if (keyboardLayoutObject.ShadowsParent != null)
+            {
+                RectTransform shadowsParent = keyboardLayoutObject.ShadowsParent.GetComponent<RectTransform>();
+                LayoutRebuilder.ForceRebuildLayoutImmediate(shadowsParent);
+            }
         }
         Canvas.ForceUpdateCanvases();
     }

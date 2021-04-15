@@ -141,7 +141,6 @@ public class TextInputButton : MonoBehaviour
             if (Time.time > longpressThreshold)
             {
                 InvokeLongPress();
-                longPressed = true;
             }
             yield return null;
         }
@@ -154,11 +153,13 @@ public class TextInputButton : MonoBehaviour
             case "backspace":
                 LongPressCoroutine = BackspaceLongPress();
                 StartCoroutine(LongPressCoroutine);
+                longPressed = true;
                 break;
             default:
                 if (KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key))
                 {
                     HandleLongPress.Invoke(KeyboardCollections.CharacterToAccentedChars[Key], parentKeyboard, transform);
+                    longPressed = true;
                 }
                 break;
         }
