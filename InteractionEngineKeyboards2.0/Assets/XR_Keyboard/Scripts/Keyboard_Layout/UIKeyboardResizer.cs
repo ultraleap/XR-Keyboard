@@ -116,7 +116,6 @@ public class UIKeyboardResizer : MonoBehaviour
                 Vector2 sizeDelta = scaledKeySize;
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
                 sizeDelta.x *= textInputButton.GetKeyScale();
- 
 
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");
