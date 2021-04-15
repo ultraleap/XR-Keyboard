@@ -12,7 +12,7 @@ public class Flocking : MonoBehaviour
     [Range(0, 1)] public float alignmentWeight = 0.5f;
     [Range(0, 1)] public float cohesionWeight = 0.7f;
 
-
+    public bool randomiseStartTransform = true;
     public static Flocking instance = null;
 
     private List<FlockingAgent> flockingAgents = new List<FlockingAgent>();
@@ -32,12 +32,19 @@ public class Flocking : MonoBehaviour
 
         for (int i = 0; i < NumberOfEntities; i++)
         {
-            Vector3 position = new Vector3()
+            Vector3 position;
+            if (randomiseStartTransform)
             {
-                x = Random.Range(minExtents.x, maxExtents.x),
-                y = Random.Range(minExtents.y, maxExtents.y),
-                z = Random.Range(minExtents.z, maxExtents.z)
-            };
+                position = new Vector3()
+                {
+                    x = Random.Range(minExtents.x, maxExtents.x),
+                    y = Random.Range(minExtents.y, maxExtents.y),
+                    z = Random.Range(minExtents.z, maxExtents.z)
+                };
+            }else{
+                position = transform.position;
+            }
+
 
             FlockingAgent flockEntity = Instantiate(templatePrefab, position, Quaternion.identity);
             flockEntity.transform.parent = transform;

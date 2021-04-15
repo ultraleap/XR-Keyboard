@@ -56,8 +56,13 @@ public class TypeAMole : MonoBehaviour
             button.GetComponentInChildren<TextMeshProUGUI>().color = DefaultTextColour;
             button.GetComponent<SimpleInteractionGlowImage>().colors = defaultColors;
 
-            if (KeyboardCollections.AlphabetKeys.Contains(key) || KeyboardCollections.NumericKeys.Contains(key) || key == " ")
+            if (KeyboardCollections.AlphabetKeys.Contains(key) || KeyboardCollections.NumericKeys.Contains(key) || key == "space")
             {
+                if (KeyboardCollections.NonStandardKeyToDisplayString.TryGetValue(key, out string newKey))
+                {
+                    key = newKey;
+                }
+
                 buttonDictionary.Add(key, button);
                 buttonDictionary[key].OnPress += () => OnPressButton(key);
                 buttonDictionary[key].OnUnpress += () => OnUnpressButton(key);
@@ -70,13 +75,18 @@ public class TypeAMole : MonoBehaviour
         HighlightNextButton();
     }
 
-    private void OnPressButton(string keyCode)
+    private void OnPressButton(string key)
     {
         if (finished)
         {
             return;
         }
-        else if (keyCode == activeButton)
+        if (KeyboardCollections.NonStandardKeyToDisplayString.TryGetValue(key, out string newKey))
+        {
+            key = newKey;
+        }
+
+        if (key == activeButton)
         {
             if (successBeep != null) successBeep.Play();
         }
@@ -86,13 +96,19 @@ public class TypeAMole : MonoBehaviour
         }
     }
 
-    public void OnUnpressButton(string keyCode)
+    public void OnUnpressButton(string key)
     {
         if (finished)
         {
             return;
         }
-        else if (keyCode == activeButton)
+
+        if (KeyboardCollections.NonStandardKeyToDisplayString.TryGetValue(key, out string newKey))
+        {
+            key = newKey;
+        }
+
+        if (key == activeButton)
         {
             HighlightNextButton();
         }
