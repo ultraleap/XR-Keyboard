@@ -134,7 +134,6 @@ public class UIKeyboardResizer : MonoBehaviour
                 TextInputButton textInputButton = keyTransform.GetComponentInChildren<TextInputButton>();
                 sizeDelta.x *= textInputButton.GetKeyScale();
 
-
                 keyTransform.sizeDelta = sizeDelta;
                 MarkAsDirty(keyTransform, $"Update sizeDelta of {keyTransform.name}");
 

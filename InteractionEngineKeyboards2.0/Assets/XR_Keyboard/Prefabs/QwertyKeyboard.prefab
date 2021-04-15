@@ -39608,9 +39608,9 @@ MonoBehaviour:
     ShadowsRows: []
     KeysRows: []
   UIKeyboardResizer: {fileID: 3751757147658438419}
-  keyPrefab: {fileID: 7666059323194000210, guid: 21e2f2c38ad658141a57d73ca8115c55,
+  keyPrefab: {fileID: 3576199328840026125, guid: bdf4e6c390bef2246a8c26da089285e5,
     type: 3}
-  shadowPrefab: {fileID: 7364812801597039153, guid: 78a713c8c57a9dd429b3f2a7850c6689,
+  shadowPrefab: {fileID: 5649340365079036842, guid: baed310a7710fb946a6ff1227433886f,
     type: 3}
   panel: {fileID: 5196147377463716910}
   shadowRow: {fileID: 345767495764726559}
@@ -47217,7 +47217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db3f9c35b50251847a2a0751585722b0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -70919,6 +70919,11 @@ PrefabInstance:
       propertyPath: NeutralKey
       value: 27
       objectReference: {fileID: 0}
+    - target: {fileID: 5339274196823623323, guid: 7cb7ce7ac85d52b4fb1a502495de7640,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6719285592684400705, guid: 7cb7ce7ac85d52b4fb1a502495de7640,
         type: 3}
       propertyPath: downSound
@@ -71079,6 +71084,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7289533643786669961, guid: 7cb7ce7ac85d52b4fb1a502495de7640,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8825658010861022732, guid: 7cb7ce7ac85d52b4fb1a502495de7640,
         type: 3}
