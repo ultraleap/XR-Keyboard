@@ -28,7 +28,6 @@ public class SetPositionRelativeToHead : MonoBehaviour
     {
         targetRotation = Quaternion.identity * Quaternion.Euler(Angles);
 
-        // Vector3 directionVector = Vector3.Normalize(head.forward - head.position);
         Vector3 newPosition = head.position + (head.forward * DistanceFromHead.z);
         newPosition.y = head.position.y + DistanceFromHead.y;
 
