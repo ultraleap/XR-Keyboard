@@ -19,7 +19,7 @@ public class GrabBall : MonoBehaviour
     [HideInInspector] public Quaternion targetRotation;
     private InteractionBehaviour grabBallInteractionBehaviour;
     private Rigidbody rigidBody;
-
+    
     private void Awake()
     {
         grabBallInteractionBehaviour = GetComponent<InteractionBehaviour>();
@@ -38,7 +38,7 @@ public class GrabBall : MonoBehaviour
     {
         GrabFollow.position = Vector3.Lerp(GrabFollow.position, targetPosition.position, Time.deltaTime * lerpSpeed);
 
-        if (grabBallInteractionBehaviour.isGrasped)
+        if (Vector3.Distance(GrabFollow.position, targetPosition.position) > 0.001f)
         {
             UpdateTargetRotation();
         }
