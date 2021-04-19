@@ -11,8 +11,7 @@ public class TextInputReceiver : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _UITextMesh;
     private string text;
 
-    public Keyboard keyboard;
-    private void OnEnable()
+    private void Start()
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TextMeshPro>(); }
         if (_UITextMesh == null) { _UITextMesh = GetComponentInChildren<TextMeshProUGUI>(); }
@@ -20,9 +19,8 @@ public class TextInputReceiver : MonoBehaviour
         KeyboardManager.Instance.ActiveKeyboard().HandleClearTextField += HandleClearTextField;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-
         KeyboardManager.Instance.ActiveKeyboard().HandleKeyUp -= HandleKeyDown;
         KeyboardManager.Instance.ActiveKeyboard().HandleClearTextField -= HandleClearTextField;
     }

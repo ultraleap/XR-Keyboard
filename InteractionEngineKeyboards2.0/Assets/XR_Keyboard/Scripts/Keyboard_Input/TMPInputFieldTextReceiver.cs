@@ -20,6 +20,7 @@ public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselec
     {
         if (_textMesh == null) { _textMesh = GetComponentInChildren<TMP_InputField>(); }
     }
+    
     private void OnDisable()
     {
         DisableInput();
