@@ -17,7 +17,7 @@ public class TextInputButton : MonoBehaviour
     public static event LongPress HandleLongPress;
     public string Key;
     public float keyWidthScale = 1;
-    public float longPressTime = 0.5f;
+    public float longPressTime = 0.75f;
     private InteractionButton interactionButton;
     private Button button;
     private TextMeshPro keyTextMesh;
