@@ -107,7 +107,20 @@ public class TextInputButton : MonoBehaviour
             image.enabled = enabled;
         }
 
-        if (interactionButton != null) interactionButton.controlEnabled = enabled;
+
+        if (interactionButton != null)
+        {
+            if (text == "")
+            {
+                interactionButton.controlEnabled = false;
+            }
+            else
+            {
+                interactionButton.controlEnabled = enabled;
+            }
+        }
+
+
         UpdateKeyText(text);
     }
 
@@ -182,7 +195,8 @@ public class TextInputButton : MonoBehaviour
         float gracePeriodThreshold = Time.time + parentKeyboard.BackspaceLongpressGracePeriod;
         while (Time.time < gracePeriodThreshold)
         {
-            if(!interactionButton.isPressed){
+            if (!interactionButton.isPressed)
+            {
                 break;
             }
             yield return null;

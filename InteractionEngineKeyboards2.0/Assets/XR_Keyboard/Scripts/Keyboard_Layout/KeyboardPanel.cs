@@ -10,7 +10,7 @@ public class KeyboardPanel : MonoBehaviour
     [HideInInspector] public KeyMap keyMap;
     [HideInInspector] public KeyMapGenerator keyMapGenerator;
     [HideInInspector] public UIKeyboardResizer keyboardResizer;
-    
+
     [Tooltip("When enabled, the keyboard will regenerate from the key map on start")]
     public bool regenKeyboardOnStart;
 
@@ -53,19 +53,26 @@ public class KeyboardPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void DisableInput(){
-        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>(); 
+    public void DisableInput()
+    {
+        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>();
 
-        foreach(InteractionButton interactionButton in interactionButtons){
+        foreach (InteractionButton interactionButton in interactionButtons)
+        {
             interactionButton.controlEnabled = false;
         }
     }
 
-    public void EnableInput(){
-        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>(); 
+    public void EnableInput()
+    {
+        InteractionButton[] interactionButtons = GetComponentsInChildren<InteractionButton>();
 
-        foreach(InteractionButton interactionButton in interactionButtons){
-            interactionButton.controlEnabled = true;
+        foreach (InteractionButton interactionButton in interactionButtons)
+        {
+            if (interactionButton.GetComponent<TextInputButton>().Key != "")
+            {
+                interactionButton.controlEnabled = true;
+            }
         }
     }
 }
