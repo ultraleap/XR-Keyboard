@@ -18,10 +18,19 @@ public class Keyboard : MonoBehaviour
 
     [HideInInspector] public KeyboardMode keyboardMode;
 
+    [Header("Longpress Customisation")]
+    [Tooltip("The string that appears on a key to indicate that it can be longpressed")]
+    public string LongPressIndicator = "";
+    [Tooltip("The colour the key turns when it has been longpressed")]
+    public Color LongPressColour;
+
+    [Tooltip("The amount of time a user has to release backspace after it has been longpressed before the backspace coroutine begins")]
+    public float BackspaceLongpressGracePeriod = 0.3f;
+
     [Header("Keyboard Panels")]
     [SerializeField] private AccentOverlayPanel accentOverlay;
     [SerializeField] private TextInputPreview textInputPreview;
-    
+
     [SerializeField] private KeyboardPanel alphaNumericPanel;
     [SerializeField] private KeyboardPanel symbolsPanel;
 
@@ -73,7 +82,7 @@ public class Keyboard : MonoBehaviour
 
     private void HandleKeyUpEncoding(string _keyCodeString)
     {
-        
+
         if (KeyboardCollections.NonCharIdentifierToStringChar.TryGetValue(_keyCodeString, out string nonStandardKeyCodeText))
         {
             _keyCodeString = nonStandardKeyCodeText;
@@ -169,7 +178,7 @@ public class Keyboard : MonoBehaviour
         if (source != this) { return; };
         if (keyTransform != null) accentOverlay.AccentKeyAnchor = keyTransform;
         accentOverlay.ShowAccentPanel(specialChars);
-    }  
+    }
 
     public void ClearPreview()
     {

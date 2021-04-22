@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Leap.Unity.Interaction;
@@ -26,11 +27,14 @@ public class TextInputButton : MonoBehaviour
     private IEnumerator LongPressDetectorCoroutine, LongPressCoroutine;
     private Keyboard parentKeyboard;
     private bool longPressed = false;
+    private Color pressedColour;
 
     // Start is called before the first frame update
     public void Awake()
     {
         interactionButton = GetComponentInChildren<InteractionButton>();
+        parentKeyboard = GetComponentInParent<Keyboard>();
+
         if (interactionButton != null)
         {
             interactionButton.OnPress += LongPressStart;
@@ -41,7 +45,6 @@ public class TextInputButton : MonoBehaviour
 
         UpdateActiveKey(Key, KeyboardMode.NEUTRAL);
 
-        parentKeyboard = GetComponentInParent<Keyboard>();
     }
 
     public void UpdateActiveKey(string _key, KeyboardMode keyboardMode)
@@ -92,7 +95,7 @@ public class TextInputButton : MonoBehaviour
 
         if (accentLabelTextMeshGUI != null)
         {
-            accentLabelTextMeshGUI.text = KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key) ? "…" : "";
+            accentLabelTextMeshGUI.text = KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key) ? parentKeyboard.LongPressIndicator : "";
         }
     }
 
@@ -148,9 +151,14 @@ public class TextInputButton : MonoBehaviour
 
     private void InvokeLongPress()
     {
+
         switch (Key)
         {
             case "backspace":
+                pressedColour = GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor;
+                GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = parentKeyboard.LongPressColour;
+                StartCoroutine("LongPressColourSwap");
+
                 LongPressCoroutine = BackspaceLongPress();
                 StartCoroutine(LongPressCoroutine);
                 longPressed = true;
@@ -158,6 +166,10 @@ public class TextInputButton : MonoBehaviour
             default:
                 if (KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key))
                 {
+                    pressedColour = GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor;
+                    GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = parentKeyboard.LongPressColour;
+                    StartCoroutine("LongPressColourSwap");
+
                     HandleLongPress.Invoke(KeyboardCollections.CharacterToAccentedChars[Key], parentKeyboard, transform);
                     longPressed = true;
                 }
@@ -167,6 +179,16 @@ public class TextInputButton : MonoBehaviour
 
     private IEnumerator BackspaceLongPress()
     {
+        float gracePeriodThreshold = Time.time + parentKeyboard.BackspaceLongpressGracePeriod;
+        while (Time.time < gracePeriodThreshold)
+        {
+            if(!interactionButton.isPressed){
+                break;
+            }
+            yield return null;
+        }
+
+
         float timeStep = 0.1f;
         float nextPress = 0;
         while (interactionButton.isPressed)
@@ -178,6 +200,17 @@ public class TextInputButton : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+
+
+    private IEnumerator LongPressColourSwap()
+    {
+        while (interactionButton.isPressed)
+        {
+            yield return null;
+        }
+        GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = pressedColour;
     }
 
     private void KeyUpEvent()
