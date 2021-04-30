@@ -17238,7 +17238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboards: []
-  keyboardSpawner: {fileID: 0}
+  keyboardSpawner: {fileID: 6699261206631798413}
 --- !u!114 &3741375341746544938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17252,6 +17252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboardMode: 0
+  LongPressIndicator: ...
+  LongPressColour: {r: 0.48235297, g: 0.2392157, b: 0.882353, a: 1}
+  BackspaceLongpressGracePeriod: 0.5
   accentOverlay: {fileID: 3776452460295831605}
   textInputPreview: {fileID: 5770892954349060703}
   alphaNumericPanel: {fileID: 8756197875425098238}

@@ -11,7 +11,7 @@ public class KeyboardManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(this);
             return;
@@ -24,7 +24,7 @@ public class KeyboardManager : MonoBehaviour
             keyboards = new List<Keyboard>();
             keyboards.AddRange(FindObjectsOfType<Keyboard>());
         }
-        
+
         if (keyboards.Count == 0)
         {
             Debug.LogWarning("No Keyboards Found. Make sure there is an object with a keyboard component in the scene.");
@@ -33,10 +33,12 @@ public class KeyboardManager : MonoBehaviour
         {
             defaultKeyboard = keyboards[0];
         }
-
-        keyboardSpawner.KeyboardStart();
+        if (keyboardSpawner != null)
+        {
+            keyboardSpawner.KeyboardStart();
+        }
     }
-    
+
     // This currently only supports spawning of one keyboard, but this could pick from
     // a collection of keyboards and return an appropriate one.
     public Keyboard SpawnKeyboard(Transform currentlySelected)
