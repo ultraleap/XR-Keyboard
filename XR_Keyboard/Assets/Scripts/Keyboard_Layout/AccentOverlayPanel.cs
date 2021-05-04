@@ -173,7 +173,7 @@ public class AccentOverlayPanel : MonoBehaviour
             TextInputButton button = newKey.GetComponentInChildren<TextInputButton>();
             button.Key = special;
             
-            button.UpdateActiveKey(button.Key, Keyboard.KeyboardMode.NEUTRAL);
+            button.UpdateActiveKey(button.Key, KeyboardManager.Instance.ActiveKeyboard().ActivekeyboardMode);
             newKey.name = button.Key;
         }
         Canvas.ForceUpdateCanvases();

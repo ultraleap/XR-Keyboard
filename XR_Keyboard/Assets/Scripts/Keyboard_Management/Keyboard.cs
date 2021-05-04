@@ -16,7 +16,7 @@ public class Keyboard : MonoBehaviour
     public delegate void ClearTextField();
     public event ClearTextField HandleClearTextField;
 
-    [HideInInspector] public KeyboardMode keyboardMode;
+    [HideInInspector] public KeyboardMode ActivekeyboardMode;
 
     [Header("Longpress Customisation")]
     [Tooltip("The string that appears on a key to indicate that it can be longpressed")]
@@ -88,7 +88,7 @@ public class Keyboard : MonoBehaviour
             _keyCodeString = nonStandardKeyCodeText;
         }
 
-        bool upperCase = keyboardMode == KeyboardMode.SHIFT || keyboardMode == KeyboardMode.CAPS;
+        bool upperCase = ActivekeyboardMode == KeyboardMode.SHIFT || ActivekeyboardMode == KeyboardMode.CAPS;
         _keyCodeString = upperCase ? _keyCodeString.ToUpper() : _keyCodeString.ToLower();
 
         if (HandleKeyUp != null)
@@ -96,7 +96,7 @@ public class Keyboard : MonoBehaviour
             HandleKeyUp.Invoke(Encoding.UTF8.GetBytes(_keyCodeString));
         }
 
-        if (keyboardMode == KeyboardMode.SHIFT)
+        if (ActivekeyboardMode == KeyboardMode.SHIFT)
         {
             SetMode(KeyboardMode.NEUTRAL);
         }
@@ -122,7 +122,7 @@ public class Keyboard : MonoBehaviour
     public void SetMode(KeyboardMode _keyboardMode)
     {
         UpdateTextInputButtons(_keyboardMode);
-        keyboardMode = _keyboardMode;
+        ActivekeyboardMode = _keyboardMode;
     }
 
     public void ModeSwitch(string _key)
@@ -130,15 +130,15 @@ public class Keyboard : MonoBehaviour
         switch (_key)
         {
             case "shift":
-                if (keyboardMode == KeyboardMode.NEUTRAL)
+                if (ActivekeyboardMode == KeyboardMode.NEUTRAL)
                 {
                     SetMode(KeyboardMode.SHIFT);
                 }
-                else if (keyboardMode == KeyboardMode.SHIFT)
+                else if (ActivekeyboardMode == KeyboardMode.SHIFT)
                 {
                     SetMode(KeyboardMode.CAPS);
                 }
-                else if (keyboardMode == KeyboardMode.CAPS)
+                else if (ActivekeyboardMode == KeyboardMode.CAPS)
                 {
                     SetMode(KeyboardMode.NEUTRAL);
                 }

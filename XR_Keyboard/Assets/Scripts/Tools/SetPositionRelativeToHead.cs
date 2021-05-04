@@ -26,7 +26,6 @@ public class SetPositionRelativeToHead : MonoBehaviour
 
     public void SetPosition()
     {
-        targetRotation = Quaternion.identity * Quaternion.Euler(Angles);
 
         Vector3 newPosition = head.position + (head.forward * DistanceFromHead.z);
         newPosition.y = head.position.y + DistanceFromHead.y;
@@ -46,6 +45,12 @@ public class SetPositionRelativeToHead : MonoBehaviour
         {
             position.position = Vector3.Lerp(position.position, targetLocation, Time.deltaTime * 30);
             position.rotation = Quaternion.Lerp(position.rotation, targetRotation, Time.deltaTime * 30);
+
+            Vector3 pos = position.position;
+            pos.y = head.position.y;
+            Vector3 forward = pos - head.position;
+            targetRotation = Quaternion.LookRotation(forward, Vector3.up);
+
             yield return new WaitForEndOfFrame();
         }
     }

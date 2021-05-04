@@ -63,6 +63,7 @@ public class TextInputReceiver : MonoBehaviour
 
     private void UpdateTextMeshText()
     {
+        KeyboardManager.Instance.ActiveKeyboard().UpdatePreview(text);
         if (_textMesh != null) { _textMesh.text = text + "|"; }
         if (_UITextMesh != null) { _UITextMesh.text = text + "|"; }
     }
