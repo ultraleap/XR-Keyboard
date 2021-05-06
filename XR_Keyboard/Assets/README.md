@@ -1,17 +1,22 @@
-# Setup Instructions
+# XR Keyboard
+
+XR Keyboard is reusable, physical XR keyboard that is built to be used with Unity, Leap Motion hand tracking & the Interaction Engine, in XR. The keyboard is built to be easy to use for short string entry, such as usernames, passwords, email addresses & search queries.
 
 ## Dependencies
 
-- Interaction Engine
+- Leap Motion Core Assets <https://developer.leapmotion.com/unity>
+- Interaction Engine <https://developer.leapmotion.com/unity>
 - NaughtyAttributes <https://github.com/dbrizov/NaughtyAttributes>
-  - Easy setup - just add the git url to your manifest.json
 - TextMeshPro
 
-## Set Up The Keyboard
+## Getting Started
 
-1. Place the `QwertyKeyboardWithGrabHandle` prefab into the scene
+### Set Up The Keyboard
 
-## Set Up The Text Fields
+1. Ensure you have Leap & the Interaction Engine set up in your scene
+2. Place the `QwertyKeyboard` prefab into the scene
+
+### Set Up The Text Fields
 
 1. Add `InputFieldTextReceiver` to any text fields you want the keyboard to input to (note: only compatible with TextMeshPro InputFields)
 
@@ -22,9 +27,9 @@ There are two main panels - Alphanumeric & Symbols, which are each defined by a 
 
 These two panels can be found here:
 
-`QwertyKeyboardWithGrabHandle/QwertyKeyboard/Parent/AlphaNumericPanel`
+`QwertyKeyboard/Parent/AlphaNumericPanel`
 
-`QwertyKeyboardWithGrabHandle/QwertyKeyboard/Parent/SymbolsPanel`
+`QwertyKeyboard/Parent/SymbolsPanel`
 
 ### Customising Looks
 
@@ -46,7 +51,7 @@ Key, panel and gap size can be changed on the `UI Keyboard Resizer` component on
 
  ***Note:*** pressing `Regenerate Keyboard` on the `Key Map Generator` also triggers the `Resize Keyboard` function.
 
-## Generating New Keyboard Prefabs
+### Generating New Keyboard Prefabs
 
 The `KeyMapGenerator` component provides the ability to automatically generate new keyboard layouts based on:
 
@@ -56,11 +61,7 @@ The `KeyMapGenerator` component provides the ability to automatically generate n
 
 Open up one of prefabs and look at the panel object for an example of how to configure the `KeyMapGenerator`.
 
-You can choose whether to overwrite or generate new keyboard prefabs when you regenerate, just check the box if you want to overrite your current keyboard.
-
-### Prefab Handling
-
-When you use the generator to create a new keyboard it will create a new set of prefabs, leaving your existing prefab intact. This helps prevent accidental overriding of existing prefabs.
+You can choose whether to overwrite or generate new keyboard prefabs when you regenerate, just check the box if you want to overwrite your current keyboard.
 
 ### Key Maps
 
@@ -71,3 +72,12 @@ Add a `JSONKeyMap` component to an object in the scene, give it a path to a JSON
 ## Known issues
 
 - The Max Font Size in can get lost in the prefabs. If the characters look small, edit the max font size in the InteractionButtonUIKey prefab
+- Occasionally the keyboard may lose its layout if Unity is not the active window - clicking into the Unity scene resolves this
+
+## Disclaimers
+
+XR Keyboard is licensed under [Apache 2.0](LICENSE.txt)
+
+XR Keyboard is not actively maintained or managed, and provided as is. Changes and fixes have no ETA.
+
+XR Keyboard includes audio from two soundpacks sourced from [kenney.nl](www.kenney.nl). Both soundpacks are licensed under the [CC0 1.0 Universal Licence](https://creativecommons.org/publicdomain/zero/1.0/)
