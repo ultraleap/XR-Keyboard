@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44975382, g: 0.49696505, b: 0.5602693, a: 1}
+  m_IndirectSpecularColor: {r: 0.44975382, g: 0.49696505, b: 0.56026924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 86fa6c2b47e94044d92083c5476f6156,
+  m_LightingDataAsset: {fileID: 112000000, guid: 1b8dc9cffaa91d04f8f1bc216400b963,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -3527,8 +3527,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Submit Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 647665b7751531d429c3e9c6952b2b79, type: 2}
+  m_sharedMaterial: {fileID: -6939778658604729878, guid: 647665b7751531d429c3e9c6952b2b79,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7146,6 +7147,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 84397399}
     m_Modifications:
+    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313432824627067146, guid: 5a030b3e5347a6845b0424a9308181a2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010037201850, guid: 2aa010a1e75292e49a24f3f71bb9cddb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.025650002
@@ -8162,31 +8188,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 83278e7188ea55a498165e1b85cde644, type: 2}
-    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4260239656968009942, guid: 5a030b3e5347a6845b0424a9308181a2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4313432824627067146, guid: 5a030b3e5347a6845b0424a9308181a2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aa010a1e75292e49a24f3f71bb9cddb, type: 3}
 --- !u!4 &1690483091 stripped

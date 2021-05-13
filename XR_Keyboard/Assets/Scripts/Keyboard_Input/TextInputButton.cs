@@ -95,6 +95,7 @@ public class TextInputButton : MonoBehaviour
 
         if (accentLabelTextMeshGUI != null)
         {
+            if (parentKeyboard == null) parentKeyboard = GetComponentInParent<Keyboard>();
             accentLabelTextMeshGUI.text = KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key) ? parentKeyboard.LongPressIndicator : "";
         }
     }
