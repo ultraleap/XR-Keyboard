@@ -6,7 +6,6 @@ XR Keyboard is reusable, physical XR keyboard that is built to be used with Unit
 
 - Leap Motion Core Assets <https://developer.leapmotion.com/unity>
 - Interaction Engine <https://developer.leapmotion.com/unity>
-- Hands Module <https://developer.leapmotion.com/unity>
 - NaughtyAttributes <https://github.com/dbrizov/NaughtyAttributes>
 - TextMeshPro
 
