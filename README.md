@@ -6,6 +6,7 @@ XR Keyboard is reusable, physical XR keyboard that is built to be used with Unit
 
 - Leap Motion Core Assets <https://developer.leapmotion.com/unity>
 - Interaction Engine <https://developer.leapmotion.com/unity>
+- Hands Module <https://developer.leapmotion.com/unity>
 - NaughtyAttributes <https://github.com/dbrizov/NaughtyAttributes>
 - TextMeshPro
 
@@ -16,9 +17,9 @@ XR Keyboard is reusable, physical XR keyboard that is built to be used with Unit
 1. Ensure you have Leap & the Interaction Engine set up in your scene
 2. Place the `QwertyKeyboard` prefab into the scene
 
-### Set Up The Text Fields
+### Set Up Input Fields
 
-1. Add `InputFieldTextReceiver` to any text fields you want the keyboard to input to (note: only compatible with TextMeshPro InputFields)
+1. Add `TMPInputFieldTextReceiver` to any text fields you want the keyboard to input to (note: only compatible with TextMeshPro InputFields)
 
 ## Customisation
 
@@ -37,13 +38,13 @@ Most of the customisation for each panel can be done on the `DefaultKey` prefab 
 
 - Image used for the key
 - Text Mesh
-- Interaction Button colour
-- Interaction Glow colour
+- Interaction Button colour (`SimpleInteractionGlowImage`)
+- Interaction Glow colour (`SimpleInteractionGlowImage`)
 - Sound Effects (`InteractionButtonSounds`)
 
 In addition to this you can change the shadow design by changing the `DefaultShadow` prefab.
 
-Once happy with your new design, select your panel & press `Regenerate Keyboard` to generate a new keyboard prefab with your new design. You can choose for this to overwrite the current prefab you're working on by setting the `Over Write Prefab` option to **true**.
+Once happy with your new design, select your panel & press `Regenerate Keyboard` to generate a new keyboard panel prefab with your new design. You can choose for this to overwrite the current keyboard prefab you're working on by setting the `Over Write Prefab` option to **true**.
 
 If you choose to use a new key or shadow prefab, you must update the prefab fields on the AlphaNumeric, Symbols and AccentKeys panels to reference your new prefab.
 
@@ -75,11 +76,17 @@ Note: A Keymap **must** have five rows defined in it.
 
 - The Max Font Size in can get lost in the prefabs. If the characters look small, edit the max font size in the InteractionButtonUIKey prefab
 - Occasionally the keyboard may lose its layout if Unity is not the active window - clicking into the Unity scene resolves this
+- The prefab link for the key is lost on keyboard generation. Whenever you change the key prefab and want the changes to apply to your keyboard, you must hit regenerate.
+- `InteractionButton`'s `pressedAmount` reports inaccurately - there's something funky going on with the physics & Unity's UI system. This can currently be worked around by doing the following:
+
+```float newPressedAmount = Mathf.Lerp(0, 1, Mathf.InverseLerp(0.01f, 1.0f, interactionButton.pressedAmount));```
 
 ## Disclaimers
 
 XR Keyboard is licensed under [Apache 2.0](LICENSE.txt)
 
 XR Keyboard is not actively maintained or managed, and provided as is. Changes and fixes have no ETA.
+
+XR Keyboard was built with 2019.4.18f1 & Leap Motion Unity Modules 4.8.0. We cannot guarantee that it will work with other versions of the modules or Unity.
 
 XR Keyboard includes audio from two soundpacks sourced from [kenney.nl](www.kenney.nl). Both soundpacks are licensed under the [CC0 1.0 Universal Licence](https://creativecommons.org/publicdomain/zero/1.0/)
