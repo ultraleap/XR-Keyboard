@@ -2,7 +2,7 @@
 
 ![Still image of the example scene](Resources/ExampleScene.png)
 
-XR Keyboard is reusable, physical XR keyboard that is built to be used with Unity, Leap Motion hand tracking & the Interaction Engine, in XR. The keyboard is built to be easy to use for short string entry, such as usernames, passwords, email addresses & search queries.
+XR Keyboard is a reusable, physical XR keyboard that is built to be used with Unity, Leap Motion hand tracking & the Interaction Engine, in XR. The keyboard is built to be easy to use for short string entry, such as usernames, passwords, email addresses & search queries.
 
 ## Dependencies
 
