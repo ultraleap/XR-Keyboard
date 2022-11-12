@@ -87,6 +87,6 @@ XR Keyboard is licensed under [Apache 2.0](LICENSE.txt)
 
 XR Keyboard is not actively maintained or managed, and provided as is. Changes and fixes have no ETA.
 
-XR Keyboard was built with 2019.4.18f1 & Leap Motion Unity Modules 4.8.0. We cannot guarantee that it will work with other versions of the modules or Unity.
+XR Keyboard was built with 2021.3.10f1 & Ultraleap Unity Plugin 6.1.0. We cannot guarantee that it will work with other versions of the modules or Unity.
 
 XR Keyboard includes audio from two soundpacks sourced from [kenney.nl](www.kenney.nl). Both soundpacks are licensed under the [CC0 1.0 Universal Licence](https://creativecommons.org/publicdomain/zero/1.0/)
