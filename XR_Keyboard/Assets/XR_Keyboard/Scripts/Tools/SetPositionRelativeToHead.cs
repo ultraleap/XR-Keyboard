@@ -1,57 +1,59 @@
 ﻿﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SetPositionRelativeToHead : MonoBehaviour
+namespace Leap.Unity.Interaction.Storage
 {
-    public Transform head;
-    public Transform position;
-    public Vector3 DistanceFromHead;
-    public Vector3 Angles;
-
-    private Vector3 targetLocation;
-    private Quaternion targetRotation;
-
-    private Coroutine moveToRoutine;
-
-    private void Start()
+    public class SetPositionRelativeToHead : MonoBehaviour
     {
-        targetLocation = position.position;
-        targetRotation = position.rotation;
-    }
+        public Transform head;
+        public Transform position;
+        public Vector3 DistanceFromHead;
+        public Vector3 Angles;
 
-    private void Update()
-    {
-    }
+        private Vector3 targetLocation;
+        private Quaternion targetRotation;
 
-    public void SetPosition()
-    {
+        private Coroutine moveToRoutine;
 
-        Vector3 newPosition = head.position + (head.forward * DistanceFromHead.z);
-        newPosition.y = head.position.y + DistanceFromHead.y;
-
-        targetLocation = newPosition;
-
-        if (moveToRoutine != null)
+        private void Start()
         {
-            StopCoroutine(moveToRoutine);
+            targetLocation = position.position;
+            targetRotation = position.rotation;
         }
-        moveToRoutine = StartCoroutine("MoveToTarget");
-    }
 
-    private IEnumerator MoveToTarget()
-    {
-        while (Vector3.Distance(position.position, targetLocation) > 0.005f)
+        private void Update()
         {
-            position.position = Vector3.Lerp(position.position, targetLocation, Time.deltaTime * 30);
-            position.rotation = Quaternion.Lerp(position.rotation, targetRotation, Time.deltaTime * 30);
+        }
 
-            Vector3 pos = position.position;
-            pos.y = head.position.y;
-            Vector3 forward = pos - head.position;
-            targetRotation = Quaternion.LookRotation(forward, Vector3.up);
+        public void SetPosition()
+        {
 
-            yield return new WaitForEndOfFrame();
+            Vector3 newPosition = head.position + (head.forward * DistanceFromHead.z);
+            newPosition.y = head.position.y + DistanceFromHead.y;
+
+            targetLocation = newPosition;
+
+            if (moveToRoutine != null)
+            {
+                StopCoroutine(moveToRoutine);
+            }
+            moveToRoutine = StartCoroutine("MoveToTarget");
+        }
+
+        private IEnumerator MoveToTarget()
+        {
+            while (Vector3.Distance(position.position, targetLocation) > 0.005f)
+            {
+                position.position = Vector3.Lerp(position.position, targetLocation, Time.deltaTime * 30);
+                position.rotation = Quaternion.Lerp(position.rotation, targetRotation, Time.deltaTime * 30);
+
+                Vector3 pos = position.position;
+                pos.y = head.position.y;
+                Vector3 forward = pos - head.position;
+                targetRotation = Quaternion.LookRotation(forward, Vector3.up);
+
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
 }

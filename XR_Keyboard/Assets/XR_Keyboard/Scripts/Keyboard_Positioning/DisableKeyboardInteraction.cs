@@ -1,25 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Leap.Unity.Interaction;
+﻿using UnityEngine;
 
-public class DisableKeyboardInteraction : MonoBehaviour
+namespace Leap.Unity.Interaction.Keyboard
 {
-    public void DisableKeys()
+    public class DisableKeyboardInteraction : MonoBehaviour
     {
-        InteractionButton[] keys = transform.GetComponentsInChildren<InteractionButton>();
-        foreach(var key in keys)
+        public void DisableKeys()
         {
-            key.controlEnabled = false;
+            InteractionButton[] keys = transform.GetComponentsInChildren<InteractionButton>();
+            foreach (var key in keys)
+            {
+                key.controlEnabled = false;
+            }
         }
-    }
 
-    public void EnableKeys()
-    {
-        InteractionButton[] keys = transform.GetComponentsInChildren<InteractionButton>();
-        foreach(var key in keys)
+        public void EnableKeys()
         {
-            key.controlEnabled = true;
+            InteractionButton[] keys = transform.GetComponentsInChildren<InteractionButton>();
+            foreach (var key in keys)
+            {
+                key.controlEnabled = true;
+            }
         }
     }
 }

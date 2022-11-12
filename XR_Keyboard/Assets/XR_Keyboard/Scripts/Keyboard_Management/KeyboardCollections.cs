@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 
-public static class KeyboardCollections
+namespace Leap.Unity.Interaction.Keyboard
 {
-    public static Dictionary<string, string> NonCharIdentifierToStringChar = new Dictionary<string, string>() {
+    public static class KeyboardCollections
+    {
+        public static Dictionary<string, string> NonCharIdentifierToStringChar = new Dictionary<string, string>() {
         { "space", " "},
         { "backspace", "\u0008"},
         { "return", "\n"},
         { "tab", "\t"},
     };
 
-    public static Dictionary<string, string> NonStandardKeyToDisplayString = new Dictionary<string, string>(){
+        public static Dictionary<string, string> NonStandardKeyToDisplayString = new Dictionary<string, string>(){
         { "space", " "},
         { "backspace", "\uf55a"},
         { "return", "\uf3be"},
@@ -22,7 +24,7 @@ public static class KeyboardCollections
 
     };
 
-    public static List<string> AlphabetKeys = new List<string>()
+        public static List<string> AlphabetKeys = new List<string>()
     {
       "a",
       "b",
@@ -52,7 +54,7 @@ public static class KeyboardCollections
       "z"
     };
 
-    public static List<string> NumericKeys = new List<string>(){
+        public static List<string> NumericKeys = new List<string>(){
       "1",
       "2",
       "3",
@@ -65,13 +67,13 @@ public static class KeyboardCollections
       "0"
     };
 
-    public static List<string> ModeShifters = new List<string>(){
+        public static List<string> ModeShifters = new List<string>(){
       "shift",
       "switch_symbols",
       "switch_letters",
     };
 
-    public static Dictionary<string, List<string>> CharacterToAccentedChars = new Dictionary<string, List<string>>(){
+        public static Dictionary<string, List<string>> CharacterToAccentedChars = new Dictionary<string, List<string>>(){
       {
         "a", new List<string>()
         {
@@ -147,4 +149,5 @@ public static class KeyboardCollections
         }
       }
     };
+    }
 }

@@ -1,50 +1,53 @@
 ﻿using UnityEngine;
 
-public class KeyboardSpawner : MonoBehaviour
+namespace Leap.Unity.Interaction.Keyboard
 {
-    public GameObject KeyboardPrefabRoot;
-    public bool keyboardEnabledOnStart = false;
-    private bool keyboardActive = false;
-
-    // Start is called before the first frame update
-    public virtual void KeyboardStart()
+    public class KeyboardSpawner : MonoBehaviour
     {
-        keyboardActive = KeyboardPrefabRoot.activeInHierarchy;
+        public GameObject KeyboardPrefabRoot;
+        public bool keyboardEnabledOnStart = false;
+        private bool keyboardActive = false;
 
-        if (keyboardEnabledOnStart)
+        // Start is called before the first frame update
+        public virtual void KeyboardStart()
+        {
+            keyboardActive = KeyboardPrefabRoot.activeInHierarchy;
+
+            if (keyboardEnabledOnStart)
+            {
+                SpawnKeyboard();
+            }
+            else
+            {
+                DespawnKeyboard();
+            }
+        }
+
+        public virtual void SpawnKeyboard()
+        {
+            if (keyboardActive)
+            {
+                return;
+            }
+            else
+            {
+                keyboardActive = true;
+            }
+            KeyboardPrefabRoot.SetActive(keyboardActive);
+        }
+
+        public virtual void SpawnKeyboard(Transform currentlySelected)
         {
             SpawnKeyboard();
         }
-        else
-        {
-            DespawnKeyboard();
-        }
-    }
 
-    public virtual void SpawnKeyboard()
-    {
-        if (keyboardActive)
+        public virtual void DespawnKeyboard()
         {
-            return;
-        }
-        else
-        {
-            keyboardActive = true;
-        }
-        KeyboardPrefabRoot.SetActive(keyboardActive);
-    }
-
-    public virtual void SpawnKeyboard(Transform currentlySelected)
-    {
-        SpawnKeyboard();
-    }
-
-    public virtual void DespawnKeyboard()
-    {
-        if (keyboardActive)
-        {
-            keyboardActive = false;
-            KeyboardPrefabRoot.gameObject.SetActive(keyboardActive);
+            if (keyboardActive)
+            {
+                keyboardActive = false;
+                KeyboardPrefabRoot.gameObject.SetActive(keyboardActive);
+            }
         }
     }
 }
