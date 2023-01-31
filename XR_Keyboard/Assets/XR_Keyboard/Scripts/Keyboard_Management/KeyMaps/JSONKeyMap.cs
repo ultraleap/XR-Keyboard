@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
-using NaughtyAttributes;
+using EasyButtons;
 
 namespace Leap.Unity.Interaction.Keyboard
 {

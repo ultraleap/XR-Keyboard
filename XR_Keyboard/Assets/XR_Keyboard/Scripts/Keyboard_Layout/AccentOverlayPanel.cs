@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using NaughtyAttributes;
 using UnityEngine.UI;
+using EasyButtons;
 
 namespace Leap.Unity.Interaction.Keyboard
 {
