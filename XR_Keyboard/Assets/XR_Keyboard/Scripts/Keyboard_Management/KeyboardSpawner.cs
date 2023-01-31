@@ -6,7 +6,7 @@ namespace Leap.Unity.Interaction.Keyboard
     {
         public GameObject KeyboardPrefabRoot;
         public bool keyboardEnabledOnStart = false;
-        private bool keyboardActive = false;
+        protected bool keyboardActive = false;
 
         // Start is called before the first frame update
         public virtual void KeyboardStart()

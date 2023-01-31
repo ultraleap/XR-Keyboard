@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class FormScript : MonoBehaviour
 {
-    public TMP_InputField nameField;
+    public TMP_InputField firstNameField;
+    public TMP_InputField lastNameField;
     public TextMeshProUGUI welcomeText;
     List<string> greetings = new List<string>()
     {
@@ -20,13 +20,30 @@ public class FormScript : MonoBehaviour
     public void Greet()
     {
         int r = Random.Range(0, greetings.Count);
-        if (nameField.text == "")
+        string playerName = "";
+
+        if (firstNameField == null )
+        {
+            return;
+        }
+        else
+        {
+            playerName = firstNameField.text;
+        }
+
+
+        if (lastNameField != null ) 
+        {
+            playerName += " " + lastNameField.text;
+        }
+
+        if (playerName == "")
         {
             welcomeText.text = "";
         }
         else
         {
-            welcomeText.text = $"{greetings[r]} {nameField.text}!";
+            welcomeText.text = $"{greetings[r]} {playerName}!";
         }
     }
 }
