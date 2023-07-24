@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Leap.Unity.Interaction.PhysicsHands.Example
 {
@@ -18,7 +17,7 @@ namespace Leap.Unity.Interaction.PhysicsHands.Example
 
         private void Update()
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            if (UnityEngine.InputSystem.Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 Recenter();
             }

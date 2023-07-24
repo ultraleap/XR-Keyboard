@@ -1,4 +1,5 @@
 ﻿using EasyButtons;
+using Leap.Unity.Interaction.PhysicsHands;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -190,12 +191,26 @@ namespace Leap.Unity.Interaction.Keyboard
             foreach (BoxCollider boxCollider in boxColliders)
             {
                 RectTransform rectTransform = boxCollider.GetComponent<RectTransform>();
-                boxCollider.size = new Vector3()
+
+                if(boxCollider.transform.parent.GetComponent<PhysicsButton>() != null)
                 {
-                    x = rectTransform.rect.width,
-                    y = rectTransform.rect.height,
-                    z = colliderDepth,
-                };
+                    boxCollider.size = new Vector3()
+                    {
+                        x = rectTransform.rect.width,
+                        y = colliderDepth,
+                        z = rectTransform.rect.height,
+                    };
+                }
+                else
+                {
+                    boxCollider.size = new Vector3()
+                    {
+                        x = rectTransform.rect.width,
+                        y = rectTransform.rect.height,
+                        z = colliderDepth,
+                    };
+                }
+
             }
         }
 

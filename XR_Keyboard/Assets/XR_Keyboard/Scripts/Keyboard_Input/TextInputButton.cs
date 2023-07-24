@@ -17,8 +17,6 @@ namespace Leap.Unity.Interaction.Keyboard
         public string Key;
         public float keyWidthScale = 1;
         public float longPressTime = 0.75f;
-        private InteractionButton interactionButton;
-        private Button button;
         private TextMeshPro keyTextMesh;
         private TextMeshProUGUI keyTextMeshGUI;
         private TextMeshProUGUI accentLabelTextMeshGUI;
@@ -27,22 +25,13 @@ namespace Leap.Unity.Interaction.Keyboard
         private bool longPressed = false;
         private Color pressedColour;
 
+        protected bool isPressed = false;
+
         // Start is called before the first frame update
-        public void Awake()
+        protected virtual void Awake()
         {
-            interactionButton = GetComponentInChildren<InteractionButton>();
             parentKeyboard = GetComponentInParent<Keyboard>();
-
-            if (interactionButton != null)
-            {
-                interactionButton.OnPress += LongPressStart;
-                interactionButton.OnUnpress += TextPress;
-            }
-            button = GetComponentInChildren<Button>();
-            if (button != null) { button.onClick.AddListener(TextPress); }
-
             UpdateActiveKey(Key, KeyboardMode.NEUTRAL);
-
         }
 
         public void UpdateActiveKey(string _key, KeyboardMode keyboardMode)
@@ -98,32 +87,12 @@ namespace Leap.Unity.Interaction.Keyboard
             }
         }
 
-        private void UpdateKeyState(string text)
+        protected virtual void UpdateKeyState(string text)
         {
-            bool enabled = text.Length > 0;
-            foreach (var image in GetComponentsInChildren<UnityEngine.UI.Image>())
-            {
-                image.enabled = enabled;
-            }
-
-
-            if (interactionButton != null)
-            {
-                if (text == "")
-                {
-                    interactionButton.controlEnabled = false;
-                }
-                else
-                {
-                    interactionButton.controlEnabled = enabled;
-                }
-            }
-
-
             UpdateKeyText(text);
         }
 
-        protected void UpdateKeyText(string text)
+        protected virtual void UpdateKeyText(string text)
         {
             if (keyTextMesh != null) { keyTextMesh.text = text; }
             if (keyTextMeshGUI != null) { keyTextMeshGUI.text = text; }
@@ -141,8 +110,9 @@ namespace Leap.Unity.Interaction.Keyboard
             }
         }
 
-        private void LongPressStart()
+        protected void LongPressStart()
         {
+            isPressed = true;
             longPressed = false;
             LongPressDetectorCoroutine = LongpressDetection();
             StartCoroutine(LongPressDetectorCoroutine);
@@ -151,7 +121,7 @@ namespace Leap.Unity.Interaction.Keyboard
         private IEnumerator LongpressDetection()
         {
             float longpressThreshold = Time.time + longPressTime;
-            while (interactionButton.isPressed && !longPressed)
+            while (isPressed && !longPressed)
             {
                 if (Time.time > longpressThreshold)
                 {
@@ -167,8 +137,8 @@ namespace Leap.Unity.Interaction.Keyboard
             switch (Key)
             {
                 case "backspace":
-                    pressedColour = GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor;
-                    GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = parentKeyboard.LongPressColour;
+                 //   pressedColour = GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor;
+                //    GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = parentKeyboard.LongPressColour;
                     StartCoroutine("LongPressColourSwap");
 
                     LongPressCoroutine = BackspaceLongPress();
@@ -178,8 +148,8 @@ namespace Leap.Unity.Interaction.Keyboard
                 default:
                     if (KeyboardCollections.CharacterToAccentedChars.ContainsKey(Key))
                     {
-                        pressedColour = GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor;
-                        GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = parentKeyboard.LongPressColour;
+                      //  pressedColour = GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor;
+                     //   GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = parentKeyboard.LongPressColour;
                         StartCoroutine("LongPressColourSwap");
 
                         HandleLongPress?.Invoke(KeyboardCollections.CharacterToAccentedChars[Key], parentKeyboard, transform);
@@ -194,7 +164,7 @@ namespace Leap.Unity.Interaction.Keyboard
             float gracePeriodThreshold = Time.time + parentKeyboard.BackspaceLongpressGracePeriod;
             while (Time.time < gracePeriodThreshold)
             {
-                if (!interactionButton.isPressed)
+                if (!isPressed)
                 {
                     break;
                 }
@@ -204,7 +174,7 @@ namespace Leap.Unity.Interaction.Keyboard
 
             float timeStep = 0.1f;
             float nextPress = 0;
-            while (interactionButton.isPressed)
+            while (isPressed)
             {
                 if (Time.time > nextPress)
                 {
@@ -219,11 +189,11 @@ namespace Leap.Unity.Interaction.Keyboard
 
         private IEnumerator LongPressColourSwap()
         {
-            while (interactionButton.isPressed)
+            while (isPressed)
             {
                 yield return null;
             }
-            GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = pressedColour;
+          //  GetComponentInChildren<SimpleInteractionGlowImage>().colors.pressedColor = pressedColour;
         }
 
         private void KeyUpEvent()

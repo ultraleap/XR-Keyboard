@@ -5153,6 +5153,7 @@ MonoBehaviour:
   pinkyMiddleJoint: {fileID: 0}
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
+  pinchPoint: {fileID: 0}
   _chirality: 0
   _isTracked: 1
 --- !u!1 &1147911675
@@ -6473,6 +6474,8 @@ MonoBehaviour:
   _preventInitializingTrackingMode: 0
   _serverNameSpace: Leap Service
   _useInterpolation: 1
+  _reconnectionAttempts: 5
+  _reconnectionInterval: 180
   _deviceOffsetMode: 0
   _deviceOffsetYAxis: 0
   _deviceOffsetZAxis: 0.12
@@ -6481,7 +6484,9 @@ MonoBehaviour:
   _mainCamera: {fileID: 1897774065}
   _temporalWarpingMode: 0
   _customWarpAdjustment: 17
+  _positionDeviceRelativeToMainCamera: 1
   _updateHandInPrecull: 0
+  _autoCreateTrackedPoseDriver: 1
 --- !u!20 &1897774065
 Camera:
   m_ObjectHideFlags: 0
@@ -6877,6 +6882,7 @@ MonoBehaviour:
   pinkyMiddleJoint: {fileID: 0}
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
+  pinchPoint: {fileID: 0}
   _chirality: 1
   _isTracked: 1
 --- !u!4 &94181467234728770
