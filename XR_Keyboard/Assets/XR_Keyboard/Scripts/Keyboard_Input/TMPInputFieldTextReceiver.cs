@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.EventSystems;
@@ -9,17 +9,16 @@ namespace Leap.Unity.Interaction.Keyboard
     public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private TMP_InputField _textMesh;
-        [SerializeField] private InputField _textInput;
         public bool exposeLastKeypress = false;
         public float previewLastTimeout = 1;
 
         private Coroutine exposureTimeout;
         private Keyboard keyboard;
 
-
         private void Start()
         {
-            if (_textMesh == null) { _textMesh = GetComponentInChildren<TMP_InputField>(); }
+            if (_textMesh == null) 
+                _textMesh = GetComponentInChildren<TMP_InputField>();
         }
 
         private void OnDisable()
@@ -54,12 +53,16 @@ namespace Leap.Unity.Interaction.Keyboard
                 keyboard.HandleClearTextField -= HandleClearTextField;
                 keyboard.ClearPreview();
             }
-            if (exposureTimeout != null) StopCoroutine(exposureTimeout);
+            if (exposureTimeout != null) 
+                StopCoroutine(exposureTimeout);
         }
 
         private void HandleKeyPress(byte[] key)
         {
             string keyDecoded = System.Text.Encoding.UTF8.GetString(key);
+
+            if (_textMesh == null || !_textMesh.interactable || _textMesh.readOnly) 
+                return;
 
             if (keyDecoded == "\u0008")
             {
@@ -78,10 +81,9 @@ namespace Leap.Unity.Interaction.Keyboard
 
         private void HandleBackspacePress()
         {
-            if (_textMesh == null)
-            {
+            if (!_textMesh.interactable || _textMesh.readOnly)
                 return;
-            }
+                
             if (_textMesh.text.Length > 0)
             {
                 _textMesh.text = _textMesh.text.Substring(0, _textMesh.text.Length - 1);
@@ -92,36 +94,36 @@ namespace Leap.Unity.Interaction.Keyboard
         private void HandleReturn()
         {
             if (_textMesh.text != "")
-            {
                 _textMesh.onEndEdit?.Invoke("");
-            }
         }
 
         private void HandleClearTextField()
         {
+            if (_textMesh == null || !_textMesh.interactable || _textMesh.readOnly) 
+                return;
+
             Clear();
         }
 
         private void UpdateTextMeshText(string _appendChar)
         {
-            if (_textMesh != null) { _textMesh.text += _appendChar; }
+            _textMesh.text += _appendChar;
             keyboard.UpdatePreview(PreviewText(exposeLastKeypress));
             _textMesh.MoveTextEnd(false);
         }
 
         public void Clear()
         {
-            if (_textMesh != null) { _textMesh.text = string.Empty; }
-            if (keyboard != null) keyboard.ClearPreview();
+            _textMesh.text = string.Empty;
+            if (keyboard != null) 
+                keyboard.ClearPreview();
         }
 
         private string PreviewText(bool exposeLast)
         {
             string text = _textMesh.textComponent.text;
             if (exposeLast)
-            {
                 text = ExposeLastKeypress(text);
-            }
 
             return text;
         }
@@ -145,7 +147,8 @@ namespace Leap.Unity.Interaction.Keyboard
 
         private void RestartTimeout()
         {
-            if (exposureTimeout != null) StopCoroutine(exposureTimeout);
+            if (exposureTimeout != null) 
+                StopCoroutine(exposureTimeout);
 
             exposureTimeout = StartCoroutine(HideLastKeypressAfter(previewLastTimeout));
         }
@@ -153,7 +156,6 @@ namespace Leap.Unity.Interaction.Keyboard
         private IEnumerator HideLastKeypressAfter(float time)
         {
             yield return new WaitForSeconds(time);
-
             keyboard.UpdatePreview(_textMesh.textComponent.text);
         }
     }
